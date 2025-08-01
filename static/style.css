@@ -19,7 +19,15 @@ body { padding-top: 56px; }
     --accent-gradient: linear-gradient(135deg, var(--color-intense-1), var(--main-color));
 
     /*Font*/
-    --font: 'Work Sans', sans-serif;
+    --main-font: 'Inter', sans-serif;
+    --code-font: 'JetBrains Mono', monospace;
+    --fw-regular: 400;
+    --fw-bold: 700;
+
+    --fs-h1: 4rem;
+    --fs-h2: 2.5rem;
+    --fs-h3: 1.875rem;
+    --fs-h4: 1.4375rem;
 }
 
 *{
@@ -34,15 +42,93 @@ html{
 
 body,
 html {
-  width: 100vw;
-  height: 100vh;
+  font-family: var(--main-font);
   color: var(--text);
   background-color: var(--bg-main);
+  height: 100vh;
+  width: 100vw;
+  margin: 0 auto;
 }
 
-.page-content p{
-    font-family: var(--font);
+
+
+/* Navbar */
+
+
+/* Sidebar*/
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    bottom: 0;
+    padding: 2rem 1rem;
+    border-right: 1px solid #eaeaea;
+    overflow-y: auto;
 }
+
+.sidebar-title {
+    color: var(--color-intense-2);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-soft-2);
+    font-weight: 700;
+}
+
+.sidebar-nav {
+    list-style: none;
+}
+
+.sidebar-nav li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--color-intense-3);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: var(--transition);
+    border-left: 3px solid transparent;
+}
+
+.sidebar-nav a:hover {
+    background-color: var(--color-soft-1);
+    border-left: 3px solid var(--color-soft-2);
+}
+
+.sidebar-nav a.active {
+    background-color: white;
+    color: var(--color-intense-2);
+    font-weight: 600;
+    border-left: 3px solid var(--color-intense-2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* CONTENT */
+.page-container {
+    padding: 4rem;
+}
+.page-content {
+    margin-left: 25rem; /* Adjust based on sidebar width */
+    padding: 1rem 0rem;
+}
+
+.page-title {
+  font-size: var(--fs-h1); 
+  font-weight: var(--fw-bold);
+  margin-bottom: 1rem;
+  color: var(--main-color);
+}
+
+.section-text {
+  font-weight: var(--fw-regular);
+  color: var(--text);
+}
+
+
 
 /* CALLOUT */
 .bd-callout { padding:1.25rem; margin-top:1.25rem; margin-bottom:1.25rem; border:1px solid #e9ecef; border-left-width:.25rem; border-radius:.25rem }

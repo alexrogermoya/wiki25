@@ -1,8 +1,30 @@
-/*WORK SANS*/
+/*Inter font*/
 
 /* Regular */
 @font-face {
-    font-family: "Work Sans";
-    src: url("https://static.igem.wiki/teams/3442/fonts/worksans-bold.ttf") format("truetype");
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("https://static.igem.wiki/teams/5622/fonts/inter-variablefont-opsz-wght.ttf") format("truetype");
 }
+
+/* Italic */
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("https://static.igem.wiki/teams/5622/fonts/inter-italic-variablefont-opsz-wght.ttf") format("truetype");
+}
+
+
+/*JetBrains Mono*/
+@font-face {
+    font-family: "JetBrains Mono";
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://static.igem.wiki/teams/5622/fonts/jetbrainsmono-regular.ttf") format("truetype");
+}
+
 
