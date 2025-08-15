@@ -1,0 +1,131 @@
+{% extends "layout.html" %}
+  
+{% block title %}Project Description{% endblock %}
+{% block lead %}{% endblock %}
+
+{% block page_content %}
+
+<div class = "page-container">
+  <aside class="sidebar">
+      <ul class="sidebar-nav">
+          <li><a href="#intro" class="active">Tipus de títols</a>
+          <ul class = "sidebar-subnav">
+            <li><a href="#subtitle1" class="active">Subtítol 1
+              <ul class = "subnav">
+                <li><a href="#subtitle2" class="active">Subtítol 2</a></li>
+              </ul>
+            </li>
+          </ul>
+          </li>
+          <li><a href="#buttons">Botons</a></li>
+          <li><a href="#cards">Cartes</a></li>
+          <li><a href="#accordions">Desplegables</a></li>
+          <li><a href="#lists">Llistes</a></li>
+          <li><a href="#images">Imatges i vídeos</a></li>
+          <li><a href="#references">References</a></li>
+      </ul>
+  </aside>
+  
+  <div class = "page-content">
+    <div class = "header">
+      <h1 class = "page-title">How to wiki</h1>
+      <p class = "page-desc">Elements necessaris per desenvolupar aquesta wiki</p>
+    </div>
+    <div class = "content"> 
+      <section id = "intro">
+        <h1 class ="section-title">Tipus de títols</h1>
+        <p class="section-text">Hi ha 4 tipus de títols (incloent l'anterior, que introdueix la secció)</p>
+        <h2 id ="subtitle1" class = "section-subtitle">Subtítol 1</h2>
+        <h3 id ="subtitle2" class = "section-subtitle2">Subtítol 2</h3>
+        <h4 class = "section-subtitle3">Subtítol 3</h4>
+        <p class = "section-text">Aquest és un exemple de text. A continuació hi trobareu to el que podem arribar a necessitar:<br>
+        En el cas que es volgués resaltar una paraula o frase hi ha varies maneres: en <span class = "italic-word">cursiva</span>, <span class = "bold-word">negreta</span> o <span class = "highlight-word">negreta en color</span>. Ordenat per ordre d'importància (menor a major).
+        <br>
+        Si hem de referenciar una altra pàgina, o afegir un link seria de la següent manera: <a class="link-text" href="{{ url_for('pages', page='members') }}">pàgina de la wiki</a>, <a class="link-text" href="#">link extern</a>. (té més sentit mirant la guia i el codi).
+        <br>
+        També tenim l'opció d'escriure text en forma de codi:<br>
+        </p>
+        <div class ="code-container">
+          <pre><code class="language-python">
+            if __name__ == "__main__":
+              language = sys.argv[1]
+              input_path = sys.argv[2]
+              find_most_repeated_retweets(input_path, language)
+          </code></pre>
+        </div>
+      </section>
+      <p class="section-text">En cas de necessitar botons, targetes o desplegables els podeu trobar aquí:</p>
+      <section id = "buttons">
+        <h1 class="section-title">Botons</h1>
+        <p class="section-text">Hi ha varis estils de botons, ordenats de més important a menys:<br></p>
+        <button class="btn btn-primary" onclick = "window.location.href='members'">Botó Principal</button>
+        <button class="btn btn-secondary" onclick = "window.location.href='members'">Botó Secundari</button>
+        <button class="btn btn-outline" onclick = "window.location.href='members'">Botó Contorn</button>
+      </section>
+      <section id = "cards">
+        <h1 class="section-title">Targetes</h1>
+        <div class="cards-container">
+          <div class="card">
+            <h3 class="card-title">Objectius del Projecte</h3>
+            <p>Desenvolupar un biosensor basat en cèl·lules modificades genèticament per a la detecció de contaminants en mostres d'aigua.</p>
+            <button class="btn btn-outline">Més informació</button>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">Metodologia</h3>
+            <p>Utilitzem tècniques d'enginyeria genètica i biologia sintètica per crear cèl·lules que responen a la presència de contaminants específics.</p>
+            <button class="btn btn-outline">Veure protocols</button>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">Resultats</h3>
+            <p>Els nostres biosensors han demostrat una alta sensibilitat i especificitat en la detecció de metalls pesants en mostres d'aigua.</p>
+            <button class="btn btn-outline">Veure dades</button>
+          </div>
+        </div>
+      </section>
+      <section id = "accordions">
+        <h1 class="section-title">Desplegables</h1>
+        <div class="accordion">
+          <div class="accordion-header">
+              <div class="accordion-title">Metodologia Científica</div>
+              <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+              <div class="accordion-content-inner">
+                  <p>La metodologia científica utilitzada en aquest projecte es basa en tècniques d'enginyeria genètica i biologia sintètica. Hem utilitzat protocols estàndard per a la transformació de cèl·lules i l'expressió de proteïnes recombinants.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
+              </div>
+          </div>
+        </div>
+      </section>
+      <section id="lists">
+        <h1 class="section-title">Llistes</h1>
+        <ul class="point-list">
+          <li>Element 1</li>
+          <li>Element 2</li>
+          <li>Element 3</li>
+        </ul>
+      </section>
+      <section id = "images">
+        <h1 class="section-title">Imatges i vídeos</h1>
+        <p class="section-text">Podem afegir imatges</p>
+        <div class="image-container">
+          <img src = "https://static.igem.wiki/teams/5622/images/team/foto-grupal-1.webp" alt = "Team photo">
+          <p class = "photo-caption">Fig 1. Peu de foto</p>
+        </div>
+        <p class="section-text">Si s'hagués d'afegir algún vídeo digueu-m'ho i ja ho faria jo (Àlex)</p>
+      </section>
+      <section class ="references">
+        <h1 class="section-title">References</h1>
+        <ol>
+          <li>WHO EMRO | Stroke, Cerebrovascular accident | Health topics.</li>
+          <li>Feigin, V. L., Nguyen, G., Cercy, K., Johnson, C. O., Alam, T., Parmar, P. G., Abajobir, A. A., Abate, K. H., Abd-Allah, F., Abejie, A. N., Abyu, G. Y., Ademi, Z., Agarwal, G., Ahmed, M. B., Akinyemi, R. O., Al-Raddadi, R., Aminde, L. N., Amlie-Lefond, C., Ansari, H., … Roth, G. A. (2018). GLOBAL, REGIONAL, AND COUNTRY-SPECIFIC LIFETIME RISK OF STROKE, 1990–2016. The New England Journal of Medicine, 379(25), 2429–2437. <a class="link-text" src="https://doi.org/10.1056/NEJMoa1804492">Paper</a></li>
+          <li>Ischaemic stroke | Stroke Association. <a class="link-text" src="https://www.stroke.org.uk/stroke/types/ischaemic">Website</a></li>
+        </ol>
+      </section>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
