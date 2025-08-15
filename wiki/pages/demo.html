@@ -10,9 +10,9 @@
       <ul class="sidebar-nav">
           <li><a href="#intro" class="active">Tipus de títols</a>
           <ul class = "sidebar-subnav">
-            <li><a href="#subtitle1" class="active">Subtítol 1
+            <li><a href="#subtitle1">Subtítol 1
               <ul class = "subnav">
-                <li><a href="#subtitle2" class="active">Subtítol 2</a></li>
+                <li><a href="#subtitle2">Subtítol 2</a></li>
               </ul>
             </li>
           </ul>
@@ -24,14 +24,30 @@
           <li><a href="#images">Imatges i vídeos</a></li>
           <li><a href="#references">References</a></li>
       </ul>
+      <!--EXTRA INFO-->
+      <div class = "info-card" id="extra1">
+        <div class="card">
+          <h3 class="card-title">Extra info</h3>
+          <p>Informació/definicions extres o context sobre un concepte específic</p>
+        </div>
+      </div>
+
+      <div class = "info-card" id="extra2">
+        <div class="card">
+          <h3 class="card-title">Extra info2</h3>
+          <p>Informació/definicions extres o context sobre un concepte específic</p>
+        </div>
+      </div>
   </aside>
-  
+
   <div class = "page-content">
     <div class = "header">
       <h1 class = "page-title">How to wiki</h1>
       <p class = "page-desc">Elements necessaris per desenvolupar aquesta wiki</p>
     </div>
     <div class = "content"> 
+
+      <!-- TEXT -->
       <section id = "intro">
         <h1 class ="section-title">Tipus de títols</h1>
         <p class="section-text">Hi ha 4 tipus de títols (incloent l'anterior, que introdueix la secció)</p>
@@ -39,10 +55,10 @@
         <h3 id ="subtitle2" class = "section-subtitle2">Subtítol 2</h3>
         <h4 class = "section-subtitle3">Subtítol 3</h4>
         <p class = "section-text">Aquest és un exemple de text. A continuació hi trobareu to el que podem arribar a necessitar:<br>
-        En el cas que es volgués resaltar una paraula o frase hi ha varies maneres: en <span class = "italic-word">cursiva</span>, <span class = "bold-word">negreta</span> o <span class = "highlight-word">negreta en color</span>. Ordenat per ordre d'importància (menor a major).
-        <br>
+        En el cas que es volgués resaltar una paraula o frase hi ha varies maneres: en <span class = "italic-word">cursiva</span>, <span class = "bold-word">negreta</span> o <span class = "highlight-word">negreta en color</span>. Ordenat per ordre d'importància (menor a major). En cas que es volgués aportar més informació o context sobre un tema concret <span class = "highlight-word info-word" data-target= "extra1">extra info 1</span> i <span class = "highlight-word info-word" data-target= "extra2">extra info 2</span>
+        <br><br>
         Si hem de referenciar una altra pàgina, o afegir un link seria de la següent manera: <a class="link-text" href="{{ url_for('pages', page='members') }}">pàgina de la wiki</a>, <a class="link-text" href="#">link extern</a>. (té més sentit mirant la guia i el codi).
-        <br>
+        <br><br>
         També tenim l'opció d'escriure text en forma de codi:<br>
         </p>
         <div class ="code-container">
@@ -55,6 +71,8 @@
         </div>
       </section>
       <p class="section-text">En cas de necessitar botons, targetes o desplegables els podeu trobar aquí:</p>
+      
+      <!-- BUTTONS -->
       <section id = "buttons">
         <h1 class="section-title">Botons</h1>
         <p class="section-text">Hi ha varis estils de botons, ordenats de més important a menys:<br></p>
@@ -62,6 +80,9 @@
         <button class="btn btn-secondary" onclick = "window.location.href='members'">Botó Secundari</button>
         <button class="btn btn-outline" onclick = "window.location.href='members'">Botó Contorn</button>
       </section>
+      
+      
+      <!-- CARDS -->
       <section id = "cards">
         <h1 class="section-title">Targetes</h1>
         <div class="cards-container">
@@ -84,6 +105,8 @@
           </div>
         </div>
       </section>
+
+      <!-- ACCORDIONS -->
       <section id = "accordions">
         <h1 class="section-title">Desplegables</h1>
         <div class="accordion">
@@ -99,6 +122,8 @@
           </div>
         </div>
       </section>
+
+      <!-- LISTS -->
       <section id="lists">
         <h1 class="section-title">Llistes</h1>
         <ul class="point-list">
@@ -107,6 +132,8 @@
           <li>Element 3</li>
         </ul>
       </section>
+
+      <!-- IMAGES -->
       <section id = "images">
         <h1 class="section-title">Imatges i vídeos</h1>
         <p class="section-text">Podem afegir imatges</p>
@@ -116,7 +143,9 @@
         </div>
         <p class="section-text">Si s'hagués d'afegir algún vídeo digueu-m'ho i ja ho faria jo (Àlex)</p>
       </section>
-      <section class ="references">
+
+      <!-- REFERENCES -->
+      <section class ="references" id="references">
         <h1 class="section-title">References</h1>
         <ol>
           <li>WHO EMRO | Stroke, Cerebrovascular accident | Health topics.</li>

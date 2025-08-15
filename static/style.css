@@ -67,7 +67,8 @@ html {
     top: 70px;
     left: 0;
     bottom: 0;
-    padding: 2rem 4rem;
+    padding: 4rem;
+    padding-left:5rem;
     overflow-y: auto;
 }
 
@@ -128,9 +129,13 @@ html {
   font-weight: var(--fw-regular);
 }
 
+[id] {
+  scroll-margin-top: 80px;
+}
+
 /* PAGE CONTENT */
 .page-container {
-  padding: 4rem;
+  padding: 3rem 3rem 4rem 6rem;
 }
 .page-content {
   margin-left: 25rem; /* Adjust based on sidebar width */
@@ -144,6 +149,7 @@ html {
 
 section{
   padding:1rem 0;
+  /* scroll-margin-top: 5rem; */
 }
 
 /*Titles*/
@@ -204,7 +210,7 @@ section{
 .code-container{
   font-family: var(--code-font);
   background-color: #f1f1f1;
-  color:
+  /* color: */
   padding: 2px;
   font-size: 105%;
   border-radius:0.5rem;
@@ -220,6 +226,12 @@ section{
   font-weight: var(--fw-bold);
   color:var(--color-intense-2);
 }
+
+.info-word:hover{
+  color:var(--color-soft-2);
+  cursor: pointer;
+}
+
 
 .link-text {
   text-decoration: none;
@@ -365,6 +377,17 @@ section{
   gap: 2rem;
   margin: 2rem 0;
 }
+
+.info-card{
+  width:18rem;
+  height: auto;
+  padding-top:8rem;
+  display:none;
+  transition: display 1s ease;
+}
+
+
+
 
 /*Dropdowns*/
 .accordion {
