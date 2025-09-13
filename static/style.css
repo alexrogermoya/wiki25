@@ -61,15 +61,24 @@ html {
 
 
 /* Sidebar*/
+.page-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
 .sidebar {
-    width: 25%;
-    position: fixed;
-    top: 70px;
-    left: 0;
-    bottom: 0;
-    padding: 4rem;
-    padding-left:5rem;
-    overflow-y: auto;
+  width: 25%;
+  padding: 4rem;
+  padding-left:5rem;
+  overflow-y: auto;
+  position: sticky;
+  top: 70px;
+  left: 0;
+  height: fit-content;
+  align-self: flex-start;
+  box-sizing: border-box;
 }
 
 .sidebar-title {
@@ -134,13 +143,26 @@ html {
 }
 
 /* PAGE CONTENT */
-.page-container {
-  padding: 3rem 3rem 4rem 6rem;
-}
 .page-content {
-  margin-left: 25rem; /* Adjust based on sidebar width */
-  margin-right:10rem;
+  flex: 1 1 0%;
   padding: 1rem 0rem;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .page-container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    max-width: 100%;
+    position: static;
+    padding: 2rem 1rem 2rem 1rem;
+  }
+  .page-content {
+    padding: 1rem;
+  }
 }
 
 .header{
@@ -173,34 +195,34 @@ section{
   font-weight: var(--fw-bold);
   font-size: var(--fs-h1);
   line-height: 2.5rem;
-  padding-bottom:1rem;
+  padding:2rem 0rem 1rem 0rem;
 }
 
 .section-subtitle{
   font-weight:var(--fw-bold);
   font-size:var(--fs-h2);
   line-height: 2.25rem;
-  padding-bottom:1rem;
+  padding:1.75rem 0rem 1rem 0rem;
 }
 
 .section-subtitle2{
   font-weight:var(--fw-semibold);
   font-size:var(--fs-h2);
   line-height: 2rem;
-  padding-bottom:1rem;
+  padding:1.5rem 0rem 1rem 0rem;
 }
 
 .section-subtitle3{
   font-weight:var(--fw-subsemibold);
   font-size:var(--fs-h3);
   line-height: 1.5rem;
-  padding-bottom:1rem;
+  padding:1.25rem 0rem 1rem 0rem;
 }
 
 .section-subtitle4{
   font-weight:var(--fw-subsemibold);
   font-size:var(--fs-h4);
-  padding-bottom:1rem;
+  padding:rem 0rem 1rem 0rem;
 }
 
 .italic-word{
@@ -483,7 +505,7 @@ ul{
 .image-container{
   height:auto;
   width:auto;
-  padding:1rem 0rem;
+  padding:1.5rem 0rem;
   /* align-items: center; 
   justify-content: center; 
   text-align: center; */
