@@ -1,39 +1,1892 @@
 {% extends "layout.html" %}
   
-{% block title %}Model{% endblock %}
-{% block lead %}Explain your model's assumptions, data, parameters, and results in a way that anyone could understand.{% endblock %}
+{% block title %}Model
+
+
+
+{% endblock %}
+{% block lead %}
+
+
+{% endblock %}
 
 {% block page_content %}
 
-<div class="row mt-4">
-  <div class="col">
-    <div class="bd-callout bd-callout-info">
-      <h4>Best Model</h4>
-      <p>Models and computer simulations can help us understand the function and operation of BioBrick Parts and Devices. Simulation and modeling are critical engineering skills that can contribute to project design or provide a better understanding of the modeled process. These processes are even more useful and/or informative when real-world data are included in the model. This award is for teams who build a model of their system and use it to inform system design or simulate expected behavior before, or in conjunction with, experiments in the wetlab.</p>
-      <hr />
-      <p>Visit the <a href="https://competition.igem.org/judging/special-prizes">Special Prizes page</a> for more information.</p>
+<div class="page-container">
+  <aside class="sidebar">
+      <ul class="sidebar-nav">
+          <li><a href="#before-skippit" class="active">Before Skippit</a></li>
+          <li><a href="#after-skippit">After Skippit</a>
+              <ul class="sidebar-subnav">
+                  <li><a href="#fres">Functional RNA Elements</a></li>
+                  <li><a href="#cres">Conformational RNA Elements</a></li>
+                  <li><a href="#combining">Combining FREs and CREs</a>
+                      <ul class="subnav">
+                          <li><a href="#linker">The Linker</a></li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li><a href="#value">Value</a></li>
+          <li><a href="#key-aspects">Key Aspects to Consider</a></li>
+          <li><a href="#model-guidance">How the Model Guided Our Project</a></li>
+          <li><a href="#core-assumptions">Core Assumptions</a>
+              <ul class="sidebar-subnav">
+                  <li><a href="#structural-prediction">Structural Prediction</a></li>
+                  <li><a href="#energy-assumptions">Energy Assumptions</a></li>
+              </ul>
+          </li>
+          <li><a href="#references">References</a></li>
+      </ul>
+      
+      <!--EXTRA INFO-->
+      <div class="info-card" id="transcription-factors">
+        <div class="card">
+          <h3 class="card-title">Transcription Factors</h3>
+          <p>DNA-binding proteins that regulate gene expression by controlling the rate of transcription from DNA to mRNA. They can act as activators or repressors.</p>
+        </div>
+      </div>
+
+      <div class="info-card" id="riboswitches">
+        <div class="card">
+          <h3 class="card-title">Riboswitches</h3>
+          <p>Structured RNA segments that directly bind small molecules and regulate gene expression without requiring proteins. They change conformation upon ligand binding.</p>
+        </div>
+      </div>
+
+      <div class="info-card" id="aptamers">
+        <div class="card">
+          <h3 class="card-title">Aptamers</h3>
+          <p>Short RNA or DNA molecules that bind specifically to target molecules like proteins, cells, or other compounds with high affinity and specificity.</p>
+        </div>
+      </div>
+
+      <div class="info-card" id="secis">
+        <div class="card">
+          <h3 class="card-title">SECIS Element</h3>
+          <p>Selenocysteine Insertion Sequence - a specialized RNA structure that enables the incorporation of selenocysteine at UGA stop codons in selenoproteins.</p>
+        </div>
+      </div>
+  </aside>
+
+  <div class="page-content">
+    <div class="header">
+      <h1 class="page-title">Model: RNA Switch Design Framework</h1>
+      <p class="page-desc">A comprehensive approach to designing programmable RNA switches using Functional and Conformational RNA Elements</p>
+    </div>
+    
+    <div class="content">
+      <!-- BEFORE SKIPPIT -->
+      <section id="before-skippit">
+        <h1 class="section-title">Before Skippit: The World of Transcription Regulation</h1>
+        
+        <p class="section-text">Over 50 years ago, the discovery of three nuclear RNA polymerases in bacteriophages and bacteria allowed us to characterise and understand the intricacies of transcription. Since then, synthetic biology has relied heavily on the use of transcriptional-level control to regulate gene expression and synthesise proteins in uncountable situations.</p>
+
+        <p class="section-text">Transcriptional-level control of genes is a complex system, as it relies on a large amount of circumstances: a wide variety of DNA-binding factors such as <span class="highlight-word info-word" data-target="transcription-factors">transcription factors</span> (which interact with each other and other proteins), the ability of RNA polymerases to recognise the promoter region, the RNA polymerases' own regulation strategies, the presence of nucleosomes (which inhibit initiation), presence of CpG islands in the promoter sequence, distance of the promoter to enhancer and silencer sequences, amongst others.</p>
+
+        <div class="accordion">
+          <div class="accordion-header">
+              <div class="accordion-title">Transcriptional Control Complexity</div>
+              <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+              <div class="accordion-content-inner">
+                  <ul class="point-list">
+                      <li><span class="bold-word">DNA-binding factors:</span> Transcription factors and regulatory proteins</li>
+                      <li><span class="bold-word">RNA polymerase recognition:</span> Promoter binding and initiation</li>
+                      <li><span class="bold-word">Chromatin structure:</span> Nucleosome positioning and accessibility</li>
+                      <li><span class="bold-word">Epigenetic modifications:</span> CpG methylation patterns</li>
+                      <li><span class="bold-word">Regulatory sequences:</span> Enhancers and silencers positioning</li>
+                  </ul>
+              </div>
+          </div>
+        </div>
+
+        <p class="section-text">It is undeniable that despite its complexity and many playing factors, transcriptional-level control has evolved way beyond its original bounds and has established itself as the <span class="highlight-word">king of gene regulation</span>. A clear example is the maximisation of transcription levels achieved in an organism by optimising promoter sequences with computational tools, or by engineering synthetic promoters and enhancers.</p>
+
+        <h2 id="limitations" class="section-subtitle">Limitations of Transcriptional Control</h2>
+        
+        <p class="section-text">However, this strategy still has its shortcomings:</p>
+        
+        <ul class="point-list">
+            <li><span class="bold-word">Cross-talk:</span> Low-specificity transcription factors interfering with cis-regulatory elements</li>
+            <li><span class="bold-word">Stochastic noise:</span> Phenotypic variability in isogenic cell populations due to molecular binding randomness</li>
+            <li><span class="bold-word">Transcriptional bursting:</span> Heterogeneity in mRNA and protein levels</li>
+            <li><span class="bold-word">Expression noise:</span> Alterations in cell fitness due to uncontrolled gene expression</li>
+        </ul>
+
+        <p class="section-text">As synthetic biology evolves and positions itself as one of the key technologies for the future, with arising fields such as <span class="italic-word">biomanufacturing</span> and <span class="italic-word">gene therapy</span>, the need for fine-tuned, multi-layered protein expression control tools is increasing.</p>
+      </section>
+
+      <!-- AFTER SKIPPIT -->
+      <section id="after-skippit">
+        <h1 class="section-title">After Skippit: Beyond the Limits of DNA</h1>
+        
+        <p class="section-text">Translational-level control provides rapid responses and direct protein regulation without altering transcription. <span class="highlight-word info-word" data-target="riboswitches">Riboswitches</span>—RNA sequences that change structure upon binding a molecule—are especially attractive: they are compact, programmable, and highly specific. The theophylline-binding <span class="highlight-word info-word" data-target="aptamers">aptamer</span>, for example, has been extensively used to regulate downstream elements when linked to open reading frames.</p>
+
+        <div class="cards-container">
+          <div class="card">
+            <h3 class="card-title">Traditional Approach</h3>
+            <p>Limited to basic systems like simple riboswitches and sRNAs targeting ribosome binding sites</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">TADPOLE Framework</h3>
+            <p>Generalized framework for designing RNA switches from arbitrary parts, unlocking full potential of translational regulation</p>
+          </div>
+        </div>
+
+        <p class="section-text">This approach of translational regulation is powerful, but has been limited to basic systems like simple riboswitches and sRNAs that target the ribosome binding site. To unlock the full potential of this regulatory layer, we need to move beyond these traditional methods. Our modeling approach, <span class="highlight-word">TADPOLE</span>, addresses this limitation by offering a generalized framework for designing RNA switches from arbitrary parts.</p>
+
+        <!-- FREs SECTION -->
+        <h2 id="fres" class="section-subtitle">Functional RNA Elements (FREs): Molecular Switches Controlled by Shape</h2>
+        
+        <p class="section-text">A <span class="bold-word">Functional RNA Element (FRE)</span>—previously called Structural RNA Element (SRE)—is a segment of RNA that must fold into a very specific shape to perform its biological function.</p>
+
+        <p class="section-text">Think of RNA as a flexible string that can fold into a precise shape, like a <span class="italic-word">key that fits a lock</span>. Its function depends entirely on maintaining this shape: if the fold is disrupted, the element stops working.</p>
+
+        <h3 class="section-subtitle2">Why Shape Matters</h3>
+        <p class="section-text">The folded shape of a FRE is what allows it to interact with other molecules or cellular machinery in the correct way. By designing the sequence to favor the correct fold, we can control whether the element is active or inactive.</p>
+
+        <h3 class="section-subtitle2">Examples of FREs</h3>
+        
+        <div class="accordion">
+          <div class="accordion-header">
+              <div class="accordion-title">Stop Codon Readthrough Elements (SCRs)</div>
+              <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+              <div class="accordion-content-inner">
+                  <p>These elements allow the ribosome to ignore a stop signal in the RNA sequence, extending the protein produced.</p>
+                  <p><span class="bold-word">Example:</span> The <span class="highlight-word info-word" data-target="secis">SECIS element</span>, which regulates selenoprotein production. Its function depends on forming a very specific hairpin-like fold—if this fold is disrupted, the ribosome no longer reads through the stop codon.</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-header">
+              <div class="accordion-title">Frameshift Elements</div>
+              <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+              <div class="accordion-content-inner">
+                  <p>These stimulate a shift in the ribosome reading frame during translation. The shift only happens if the RNA adopts the correct folded shape.</p>
+              </div>
+          </div>
+        </div>
+
+        <!-- CREs SECTION -->
+        <h2 id="cres" class="section-subtitle">Conformational RNA Elements (CREs): Molecular Sensors</h2>
+        
+        <p class="section-text">A <span class="bold-word">Conformational RNA Element (CRE)</span> is a segment of RNA that acts as a sensor. Its defining feature is that it changes shape when it detects a specific signal, such as a molecule, a temperature change, or another environmental factor. Crucially, the CRE's shape by itself does not carry out any function; it simply responds to the signal.</p>
+
+        <h3 class="section-subtitle2">How CREs Work</h3>
+        
+        <div class="card chocolate-card">
+          <h3 class="card-title">Simple analogy: A CRE is like a Chunk of Chocolate
+            <div class="chocolate-container-inline">
+              <div class="chocolate-solid">🍫</div>
+              <div class="chocolate-melted"></div>
+            </div>
+          </h3>
+          <ul class="point-list">
+            <li>At room temperature, it is <span class="bold-word">solid</span></li>
+            <li>When it warms up, it <span class="bold-word">melts</span></li>
+            <li>This change in state doesn't do anything by itself; the chocolate doesn't trigger any action—it simply <span class="italic-word">responds to the signal</span> (heat)</li>
+          </ul>
+          <p>This illustrates the essence of a Conformational RNA Element (CRE): it detects a signal and changes its shape, but by itself, that change has no direct function. It is purely a sensor.</p>
+        </div>
+
+        <h3 class="section-subtitle2">Types of CREs</h3>
+        
+        <div class="cards-container">
+          <div class="card">
+            <h3 class="card-title">Ligand-Sensing CREs</h3>
+            <p>Fold into a shape that can bind a specific molecule (ligand). Binding changes the shape of the RNA segment.</p>
+            <p><span class="bold-word">Examples:</span> CREs that bind theophylline, tetracycline, warfarin, or ciprofloxacin.</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">Environment-Sensing CREs</h3>
+            <p>Respond to physical conditions, such as temperature or pH. Their shape shifts according to the environment.</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">RNA-RNA Interaction CREs</h3>
+            <p>Interact with another RNA molecule, triggering a conformational change in response to this interaction.</p>
+            <p><span class="bold-word">Examples:</span> miniRNAs</p>
+          </div>
+        </div>
+
+        <!-- COMBINING SECTION -->
+        <h2 id="combining" class="section-subtitle">Combining FREs and CREs: Creating an ON/OFF Switch</h2>
+        
+        <p class="section-text">Individually, FREs are functional elements that only work if they maintain a precise shape, while CREs are sensors that change shape in response to a signal but have no function by themselves. When we link a CRE to an FRE, we can create a <span class="highlight-word">programmable molecular switch</span> that controls the FRE's activity.</p>
+
+        <h3 class="section-subtitle2">How It Works</h3>
+        
+        <div class="cards-container">
+          <div class="card">
+            <h3 class="card-title">OFF State (no signal)</h3>
+            <p>The CRE is in its resting shape, which stabilizes the FRE in an inactive fold. In this state, the FRE cannot perform its function.</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">ON State (signal present)</h3>
+            <p>When the CRE detects its signal, it changes shape. This conformational change propagates to the FRE through a connecting linker, allowing the FRE to adopt its active fold.</p>
+          </div>
+        </div>
+
+        <div class="card chocolate-key-card">
+              <h3 class="card-title">Simple Analogy: Chocolate Around a Key
+              <div class="chocolate-key-container">
+                <div class="key-symbol">🗝️</div>
+                <div class="chocolate-wrapper">🍫</div>
+                <div class="melted-chocolate"></div>
+              </div>
+              </h3>
+          <ul class="point-list">
+                  <p><span class="bold-word">FRE = key</span><br>
+                  <span class="bold-word">CRE = chunk of chocolate surrounding the key</span></p>
+                  
+                  <ul class="point-list">
+                      <li><span class="bold-word">No signal (chocolate is solid):</span> The chocolate is hard and holds the key in the wrong shape, so it cannot enter the lock → FRE inactive (OFF)</li>
+                      <li><span class="bold-word">Signal present (chocolate melts):</span> The chocolate softens, releasing the key so it can take its proper shape → key can enter the lock → FRE active (ON)</li>
+                  </ul>
+                  
+                  <p>Here, the CRE itself doesn't do the work; it modulates whether the FRE can fold into its functional shape, creating a signal-dependent ON/OFF switch.</p>
+        </div>
+          
+
+        <p class="section-text">By combining CREs and FREs, we gain precise, modular control over RNA-based regulation. This allows us to design custom RNA switches that respond to a wide variety of signals while controlling any functional element, expanding beyond traditional riboswitches or sRNA-based methods.</p>
+
+        <!-- LINKER SECTION -->
+        <h3 id="linker" class="section-subtitle2">The Linker: The Dynamic Hinge of the RNA Switch</h3>
+        
+        <p class="section-text">Simply placing a Conformational RNA Element (CRE) next to a Functional RNA Element (FRE) is not enough to create a reliable ON/OFF switch. The key component that orchestrates their interaction is the <span class="bold-word">linker</span>, a short RNA segment, typically 6–10 nucleotides long, that acts as a mechanical hinge connecting the sensor (CRE) to the effector (FRE).</p>
+
+        <h4 class="section-subtitle3">Function of the Linker</h4>
+        <p class="section-text">The linker is not a passive connector. Its sequence and length determine how the CRE and FRE fold and interact. A properly designed linker ensures that the system can reliably toggle between OFF and ON states.</p>
+
+        <h4 class="section-subtitle3">Design Principles</h4>
+        <ul class="point-list">
+            <li><span class="bold-word">Avoid excessive binding:</span> The linker should allow enough pairing to maintain the OFF state, but not so much that the switch gets "stuck" and cannot activate when the signal arrives</li>
+            <li><span class="bold-word">Optimal length:</span> Too short a linker may prevent the necessary OFF-state interaction; too long can introduce unwanted folding or too much flexibility, reducing switch precision. Typically, <span class="highlight-word">6–10 nucleotides</span> work well</li>
+            <li><span class="bold-word">Enable conformational change:</span> The linker must be designed so that when the CRE changes shape, the energy released is sufficient to break the OFF-state pairings, allowing the FRE to fold into its functional ON-state</li>
+        </ul>
+      </section>
+
+      <!-- VALUE SECTION -->
+      <section id="value">
+        <h1 class="section-title">Value</h1>
+        
+        <p class="section-text">The ON/OFF system described above is more than just a molecular switch; it represents a <span class="highlight-word">fundamental evolution in synthetic biology</span>, overcoming key limitations of traditional genetic control methods and opening a completely new design space.</p>
+
+        <h2 id="framework" class="section-subtitle">A Generalized, Fast, and Modular Design Framework</h2>
+        
+        <p class="section-text">The real innovation here is <span class="bold-word">generalization</span>. Our approach provides a systematic framework for combining any Functional RNA Element (FRE) with any Conformational RNA Element (CRE), allowing the design of switches that respond to a wide variety of signals while controlling any RNA function dependent on its structure.</p>
+
+        <h3 class="section-subtitle2">Key Advantages of This Approach</h3>
+        
+        <div class="cards-container">
+          <div class="card">
+            <h3 class="card-title">Translational-level Control</h3>
+            <p>Operating downstream of transcription (RNA → protein) enables faster responses with lower energy costs compared to transcriptional regulation.</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">Unprecedented Modularity</h3>
+            <p>Any FRE can be paired with any CRE. This systematic modularity allows design of highly customizable switches.</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">Versatility and Scalability</h3>
+            <p>Simple detection systems can be expanded into multi-layer RNA circuits that amplify signals or trigger cascades of functions.</p>
+          </div>
+        </div>
+
+        <p class="section-text">In essence, our framework transforms RNA switch design from <span class="italic-word">isolated examples</span> to a <span class="highlight-word">systematic, scalable toolkit</span>. Synthetic biologists can now combine and adapt existing elements to create bespoke solutions, accelerating the design process and democratizing access to a powerful new layer of biological control.</p>
+      </section>
+
+      <!-- SUMMARY SECTION -->
+      <section id="summary">
+        <h1 class="section-title">Summary</h1>
+        
+        <div class="comparison-table">
+          <div class="comparison-header">
+            <h3>Before vs After Skippit: A Paradigm Shift</h3>
+          </div>
+          
+          <div class="comparison-grid">
+            <div class="comparison-column before-column">
+              <div class="column-header before-header">
+                <h4>Before Skippit</h4>
+                <p class="subtitle">Transcriptional + Limited Translational</p>
+              </div>
+              
+              <div class="comparison-item">
+                <div class="item-label">Control Level</div>
+                <div class="item-content">Mainly DNA → RNA + basic RNA → protein (isolated examples)</div>
+              </div>
+              
+              <div class="comparison-item">
+                <div class="item-label">Response Speed</div>
+                <div class="item-content">Slow (requires transcription)</div>
+              </div>
+              
+              <div class="comparison-item">
+                <div class="item-label">Energy Cost</div>
+                <div class="item-content">High (full transcription machinery)</div>
+              </div>
+              
+              <div class="comparison-item">
+                <div class="item-label">Modularity</div>
+                <div class="item-content">Limited (complex dependencies)</div>
+              </div>
+              
+              <div class="comparison-item">
+                <div class="item-label">Main Issues</div>
+                <div class="item-content">Cross-talk, stochastic noise, transcriptional bursting</div>
+              </div>
+              
+              <div class="comparison-item">
+                <div class="item-label">Design Approach</div>
+                <div class="item-content">Simple riboswitches, basic sRNAs - isolated examples</div>
+              </div>
+            </div>
+            
+            <div class="comparison-arrow">
+              <div class="arrow-symbol">→</div>
+              <div class="arrow-label">TADPOLE Framework</div>
+            </div>
+            
+            <div class="comparison-column after-column">
+              <div class="column-header after-header">
+                <h4>After Skippit</h4>
+                <p class="subtitle">Advanced Modular Translational Control</p>
+              </div>
+              
+              <div class="comparison-item">
+                <div class="item-label">Control Level</div>
+                <div class="item-content">Sophisticated RNA → Protein (any FRE + any CRE)</div>
+              </div>
+              
+              <div class="comparison-item">
+                <div class="item-label">Response Speed</div>
+                <div class="item-content">Fast (direct protein regulation)</div>
+              </div>
+              
+              <div class="comparison-item">
+                <div class="item-label">Energy Cost</div>
+                <div class="item-content">Low (no transcription needed)</div>
+              </div>
+              
+              <div class="comparison-item">
+                <div class="item-label">Modularity</div>
+                <div class="item-content">Unprecedented (any FRE + any CRE)</div>
+              </div>
+              
+              <div class="comparison-item">
+                <div class="item-label">Main Advantages</div>
+                <div class="item-content">Precise control, programmable switches, multi-layer circuits</div>
+              </div>
+              
+              <div class="comparison-item">
+                <div class="item-label">Design Approach</div>
+                <div class="item-content">Generalized framework: any FRE + any CRE combination</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="paradigm-shift">
+            <h4>The Result: Democratized Access to Biological Control</h4>
+            <p>This framework transforms RNA switch design from isolated examples to a systematic, scalable toolkit, enabling synthetic biologists to create bespoke solutions that respond to diverse signals while controlling any RNA function dependent on structure.</p>
+          </div>
+        </div>
+      </section>
+      
+          <!-- KEY ASPECTS TO CONSIDER SECTION -->
+                <section id="key-aspects">
+                    <h1 class="section-title">Key Aspects to Consider: Validation Criteria</h1>
+                    
+                    <p class="section-text">Beyond the basic thermodynamic requirements, successful RNA switch design requires careful validation of structural and functional criteria. These checks ensure that your designed switch will behave as intended in both OFF and ON states.</p>
+
+                    <h2 id="off-disruption" class="section-subtitle">OFF Disruption: Ensuring Functional Repression</h2>
+                    
+                    <p class="section-text">In the OFF state, the FRE must be prevented from performing its function. This is achieved by disrupting the specific structural features that the FRE requires to work.</p>
+
+                    <div class="recommendation-box">
+                        <h4>Validation Check: OFF Disruption</h4>
+                        <p><span class="bold-word">What to verify:</span> In the predicted OFF fold, confirm that the FRE's key functional structure is sequestered or paired with other parts of the construct.</p>
+                        <p><span class="bold-word">Why it matters:</span> If the FRE can still adopt its functional structure in the OFF state, your switch will leak—it will be partially active even when it should be completely repressed.</p>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Example: SECIS Element Disruption</h4>
+                        <p>For a SECIS element (which requires a specific hairpin structure), verify that in the OFF fold:</p>
+                        <ul class="point-list">
+                            <li>The stem region of the SECIS hairpin is disrupted by pairing with CRE or linker nucleotides</li>
+                            <li>Critical loop nucleotides are sequestered in alternative base pairs</li>
+                            <li>The overall SECIS structure cannot form as predicted by the folder</li>
+                        </ul>
+                    </div>
+
+                    <h2 id="on-recovery" class="section-subtitle">ON Recovery: Confirming Functional Restoration</h2>
+                    
+                    <p class="section-text">When the switch activates, the FRE must be able to recover its functional structure. This doesn't need to be perfect, but it should be within acceptable tolerance of the target structure.</p>
+
+                    <div class="recommendation-box">
+                        <h4>Validation Check: ON Recovery</h4>
+                        <p><span class="bold-word">What to verify:</span> In the predicted ON fold, confirm that the FRE adopts (or closely approximates) its target functional structure.</p>
+                        <p><span class="bold-word">Tolerance:</span> Small deviations are acceptable, but core functional elements must be preserved.</p>
+                    </div>
+
+                    <div class="equation-box">
+                        <h4>Structural Similarity Metrics</h4>
+                        <ul class="equation-list">
+                            <li><span class="bold-word">Base pair recovery:</span> What percentage of the target FRE base pairs are recovered in the ON state?</li>
+                            <li><span class="bold-word">Critical motif preservation:</span> Are essential structural motifs (loops, bulges, specific base pairs) maintained?</li>
+                            <li><span class="bold-word">Overall fold similarity:</span> Does the predicted ON structure resemble the known functional structure?</li>
+                        </ul>
+                    </div>
+
+                    <h2 id="cre-conformation" class="section-subtitle">CRE Reacted Conformation: Validating Sensor Response</h2>
+                    
+                    <p class="section-text">The CRE must adopt the correct conformation when it responds to its signal. This ensures that the conformational change can properly propagate to the FRE.</p>
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <div class="accordion-title">Binding-Based CREs (Ligand Sensors)</div>
+                            <div class="accordion-icon"></div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p><span class="bold-word">Validation:</span> Check that the CRE prediction under ON constraints matches the known or expected bound conformation.</p>
+                                <p><span class="bold-word">Method:</span> Compare the predicted ON-state CRE structure with experimentally determined or literature-reported bound structures.</p>
+                                <p><span class="bold-word">Example:</span> For a theophylline-binding aptamer, verify that the predicted bound conformation matches the known theophylline-bound structure from crystallography or NMR studies.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <div class="accordion-title">Environment-Driven CREs (Temperature, pH Sensors)</div>
+                            <div class="accordion-icon"></div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p><span class="bold-word">Validation:</span> Check the CRE predicted under activating environmental conditions.</p>
+                                <p><span class="bold-word">Method:</span> Use structure prediction tools with appropriate environmental parameters (e.g., different temperatures for thermosensors).</p>
+                                <p><span class="bold-word">Example:</span> For a temperature-sensitive CRE, predict structures at both baseline (e.g., 30°C) and activating (e.g., 42°C) temperatures to confirm the expected conformational change occurs.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 id="pairing-balance" class="section-subtitle">FRE–CRE Pairing Balance: The Goldilocks Principle</h2>
+                    
+                    <p class="section-text">The number of base pairs between the FRE and CRE in the OFF state must be "just right"—enough to ensure repression, but not so many that the switch cannot activate.</p>
+
+                    <div class="recommendation-box">
+                        <h4>Pairing Balance Guidelines</h4>
+                        <p><span class="bold-word">Too few pairings (< 4-6 bp):</span> OFF state may not be stable enough to repress the FRE effectively. The switch may leak.</p>
+                        <p><span class="bold-word">Too many pairings (> 12-15 bp):</span> Creates a large energetic barrier. The CRE signal may not provide enough energy to break all the pairs and activate the switch.</p>
+                        <p><span class="bold-word">Optimal range:</span> Typically 6-12 base pairs, depending on the strength of your CRE signal (E<sub>bind</sub>).</p>
+                    </div>
+
+                    <div class="equation-box">
+                        <h4>Counting FRE-CRE Interactions</h4>
+                        <p>In the predicted OFF structure, count:</p>
+                        <ul class="equation-list">
+                            <li><span class="bold-word">Direct base pairs:</span> FRE nucleotides paired with CRE nucleotides</li>
+                            <li><span class="bold-word">Linker-mediated pairs:</span> FRE paired with linker, linker paired with CRE</li>
+                            <li><span class="bold-word">Stacking interactions:</span> Adjacent unpaired bases that contribute to stability</li>
+                        </ul>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Practical Example: Pairing Analysis</h4>
+                        <p>For a theophylline-responsive switch (E<sub>bind</sub> ≈ 9.5 kcal·mol⁻¹):</p>
+                        <ul class="point-list">
+                            <li><span class="bold-word">Target pairing:</span> 8-10 base pairs between FRE and CRE regions</li>
+                            <li><span class="bold-word">Rationale:</span> Each base pair contributes ~1-3 kcal·mol⁻¹ stability, so 8-10 pairs ≈ 8-30 kcal·mol⁻¹ total</li>
+                            <li><span class="bold-word">Balance:</span> Strong enough for repression, but theophylline binding (9.5 kcal·mol⁻¹) can overcome this barrier</li>
+                        </ul>
+                    </div>
+
+                    <h2 id="energy-balance" class="section-subtitle">Energy Balance: Thermodynamic Validation</h2>
+                    
+                    <p class="section-text">The energy balance between OFF and ON states is the fundamental thermodynamic requirement that determines whether your switch will work. This builds on the basic energy assumptions but provides practical validation steps.</p>
+
+                    <h3 class="section-subtitle2">Step-by-Step Energy Validation</h3>
+
+                    <div class="equation-box">
+                        <h4>1. Calculate the Energy Gap</h4>
+                        <div class="equation-center">
+                            <span class="equation-large">Δ = G<sub>ON</sub> - G<sub>OFF</sub></span>
+                        </div>
+                        <p>Where:</p>
+                        <ul class="equation-list">
+                            <li>G<sub>OFF</sub> = MFE of unconstrained fold (no external factor)</li>
+                            <li>G<sub>ON</sub> = MFE with CRE constrained to reacted conformation</li>
+                        </ul>
+                    </div>
+
+                    <div class="equation-box">
+                        <h4>2. Check Default OFF Preference</h4>
+                        <div class="equation-center">
+                            <span class="equation-large">Δ > 0</span>
+                        </div>
+                        <p>This ensures OFF is more stable than ON in the absence of the trigger.</p>
+                    </div>
+
+                    <div class="equation-box">
+                        <h4>3. Verify Switching Capability (Binding-based CREs)</h4>
+                        <div class="equation-center">
+                            <span class="equation-large">Δ < E<sub>bind</sub></span>
+                        </div>
+                        <p>This ensures the binding energy can overcome the energy gap and favor the ON state.</p>
+                        <div class="equation-center">
+                            <span class="equation-large highlight-equation">Combined: 0 < Δ < E<sub>bind</sub></span>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-box">
+                        <h4>Practical Energy Validation Workflow</h4>
+                        <p><span class="bold-word">Step 1:</span> Predict MFE for unconstrained sequence → G<sub>OFF</sub></p>
+                        <p><span class="bold-word">Step 2:</span> Predict MFE with CRE forced into bound/reacted conformation → G<sub>ON</sub></p>
+                        <p><span class="bold-word">Step 3:</span> Calculate Δ = G<sub>ON</sub> - G<sub>OFF</sub></p>
+                        <p><span class="bold-word">Step 4:</span> Check that 0 < Δ < E<sub>bind</sub> (for binding-based CREs)</p>
+                        <p><span class="bold-word">Step 5:</span> Optimize if needed by adjusting linker sequence or length</p>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Complete Validation Example</h4>
+                        <p><span class="bold-word">System:</span> SECIS element + theophylline aptamer</p>
+                        <p><span class="bold-word">Energy Results:</span></p>
+                        <ul class="point-list">
+                            <li>G<sub>OFF</sub> = -42.3 kcal·mol⁻¹ (unconstrained fold)</li>
+                            <li>G<sub>ON</sub> = -37.8 kcal·mol⁻¹ (theophylline-bound constraint)</li>
+                            <li>Δ = -37.8 - (-42.3) = +4.5 kcal·mol⁻¹</li>
+                            <li>E<sub>bind</sub> = 9.5 kcal·mol⁻¹ (theophylline)</li>
+                        </ul>
+                        <p><span class="bold-word">Validation:</span> ✓ 0 < 4.5 < 9.5 → Energy balance is correct</p>
+                        <p><span class="bold-word">Structural checks:</span></p>
+                        <ul class="point-list">
+                            <li>✓ SECIS hairpin disrupted in OFF state</li>
+                            <li>✓ SECIS structure recovered in ON state</li>
+                            <li>✓ Theophylline aptamer adopts known bound conformation</li>
+                            <li>✓ 8 base pairs between SECIS and aptamer regions (optimal range)</li>
+                        </ul>
+                    </div>
+
+                    <div class="cards-container">
+                        <div class="card">
+                            <h3 class="card-title">🔍 Structural Validation</h3>
+                            <p>Verify OFF disruption, ON recovery, and CRE conformation through structure prediction and comparison</p>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title">⚖️ Energetic Validation</h3>
+                            <p>Ensure proper energy balance: OFF preferred by default, but ON becomes favored after signal</p>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title">🔗 Interaction Validation</h3>
+                            <p>Count and optimize FRE-CRE pairings to achieve the right balance between repression and switchability</p>
+                        </div>
+                    </div>
+                </section>
+                                <!-- MODEL GUIDANCE SECTION -->
+                <section id="model-guidance">
+                    <h1 class="section-title">How the Model Guided Our Project</h1>
+                    
+                    <p class="section-text">The results of our model were fundamental to our decision-making, not only during the conceptualization but also in the practical phases of the project. The model didn't just allow us to program the TADPOLE software; it <span class="highlight-word">completely guided our wet lab work</span>, serving as the very foundation of our experimental method.</p>
+
+                    <h2 id="software-development" class="section-subtitle">Software Development</h2>
+                    
+                    <p class="section-text">The development of the <span class="bold-word">TADPOLE software</span> was a direct extension of our model: the evaluations, parameter choices, and everything else was based on this model. Through this software, we were able to determine the most promising designs to test in the lab, based on sound thermodynamic and structural criteria.</p>
+
+                    <div class="recommendation-box">
+                        <h4>Model-to-Software Translation</h4>
+                        <p><span class="bold-word">Thermodynamic Validation:</span> All energy calculations (Δ, G<sub>OFF</sub>, G<sub>ON</sub>) implemented directly from model equations</p>
+                        <p><span class="bold-word">Structural Checks:</span> Automated validation of OFF disruption, ON recovery, and CRE conformation</p>
+                        <p><span class="bold-word">Pairing Analysis:</span> Systematic counting and optimization of FRE-CRE interactions</p>
+                        <p><span class="bold-word">Design Space Exploration:</span> Systematic screening of linker sequences based on model criteria</p>
+                    </div>
+
+                    <h2 id="wet-lab-guidance" class="section-subtitle">Wet Lab Guidance</h2>
+                    
+                    <p class="section-text">Our project focused on the <span class="bold-word">SECIS + Theophylline Aptamer system</span>. The model allowed us to identify and pre-select linker designs that were energetically more stable in the OFF state (inactive, without theophylline) and which, upon simulating ligand binding, would efficiently shift to the ON state (active).</p>
+
+                    <p class="section-text">This <span class="italic-word">in silico</span> validation allowed us to create a specific, optimized panel of candidates for synthesis and subsequent validation in the lab. In this way, the model transformed our strategy from an empirical <span class="highlight-word">"needle in a haystack" search</span> to a <span class="highlight-word">targeted selection grounded in bioinformatics</span>.</p>
+
+                    <div class="cards-container">
+                        <div class="card">
+                            <h3 class="card-title">Before Model Guidance</h3>
+                            <p><span class="bold-word">Approach:</span> Empirical trial-and-error</p>
+                            <p><span class="bold-word">Efficiency:</span> Low success rate</p>
+                            <p><span class="bold-word">Cost:</span> High synthesis and testing costs</p>
+                            <p><span class="bold-word">Timeline:</span> Extended experimental cycles</p>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title">After Model Guidance</h3>
+                            <p><span class="bold-word">Approach:</span> Targeted, model-driven selection</p>
+                            <p><span class="bold-word">Efficiency:</span> High-confidence candidates</p>
+                            <p><span class="bold-word">Cost:</span> Reduced synthesis burden</p>
+                            <p><span class="bold-word">Timeline:</span> Accelerated validation</p>
+                        </div>
+                    </div>
+
+                    <h2 id="secis-system" class="section-subtitle">Construct to Test in the Lab: SECIS + Theophylline System</h2>
+
+                    <h3 class="section-subtitle2">SECIS Element Overview</h3>
+                    
+                    <p class="section-text"><span class="bold-word">SECIS (Selenocysteine Insertion Sequence)</span> is a short RNA element found in the 3' untranslated region (3' UTR) of eukaryotic mRNAs that enables the incorporation of the amino acid selenocysteine at UGA codons, which usually indicate a stop.</p>
+
+                    <p class="section-text">Functionally, SECIS performs a task comparable to canonical SCR elements: <span class="highlight-word">allowing translation to continue beyond a stop codon</span>. However, unlike SCR elements, which are generally located immediately downstream of the stop codon, SECIS elements are positioned distally, often hundreds of nucleotides away.</p>
+
+                    <div class="example-box">
+                        <h4>Why SECIS is Ideal for Our System</h4>
+                        <ul class="point-list">
+                            <li><span class="bold-word">Well-characterized structure:</span> Known functional requirements and critical nucleotides</li>
+                            <li><span class="bold-word">Clear functional readout:</span> Stop codon readthrough can be easily measured</li>
+                            <li><span class="bold-word">Structural flexibility:</span> Can be disrupted and recovered through conformational changes</li>
+                            <li><span class="bold-word">Eukaryotic compatibility:</span> Functions in human cell systems</li>
+                        </ul>
+                    </div>
+
+                    <h2 id="secis-selection" class="section-subtitle">Selection of the SECIS Element</h2>
+                    
+                    <p class="section-text">To select a suitable SECIS element for our constructs, we referred to the work by <span class="bold-word">Touat-Hamici et al. (2018)</span>, which provides a comparative analysis of the 26 SECIS elements encoded in the human genome. Their study characterizes the activity and hierarchy of these elements in different cellular contexts, offering insight into which sequences are most robustly recognized by the eukaryotic translation machinery.</p>
+
+                    <p class="section-text">Based on this comparative dataset, we selected the well-performing <span class="highlight-word">SECIS DIO2</span>, with documented efficiency, compatibility in human cells and a good understanding of its functionality. This ensures better reliability when adapting the system to include synthetic regulatory modules such as aptamers.</p>
+
+                    <div class="recommendation-box">
+                        <h4>SECIS DIO2 Selection Criteria</h4>
+                        <p><span class="bold-word">High Activity:</span> Ranked among the top performers in Touat-Hamici et al. comparative study</p>
+                        <p><span class="bold-word">Human Compatibility:</span> Proven function in human cellular systems</p>
+                        <p><span class="bold-word">Well-Characterized:</span> Extensive literature on structure and function</p>
+                        <p><span class="bold-word">Robust Recognition:</span> Reliable interaction with eukaryotic translation machinery</p>
+                    </div>
+
+                    <h3 class="section-subtitle2">SECIS Structure Prediction and Design Strategy</h3>
+                    
+                    <p class="section-text">The structure of the selected SECIS element was predicted using the <span class="bold-word">SECISearch3 web server</span>. This method is homology-based, and aligns candidate sequences to a built-in covariance model that represents known SECIS elements.</p>
+
+                    <p class="section-text">As output, SECISearch3 also offers a colored representation that highlights the key nucleotides for function in green. We focused our design precisely to <span class="highlight-word">disrupt these nucleotides in the OFF state</span>.</p>
+
+                    <h3 class="section-subtitle2">SECIS DIO2 Structure Analysis</h3>
+                    
+                    <p class="section-text">The structure of the chosen SECIS element (DIO2) was predicted by SECISearch3. The prediction highlights in green the most important nucleotides for its function, with a non-canonical pair marked in pink.</p>
+
+                    <div class="recommendation-box">
+                        <h4>Critical SECIS Structural Features</h4>
+                        <p><span class="bold-word">Green-marked nucleotides:</span> Essential for SECIS function - these are the primary targets for disruption in OFF state</p>
+                        <p><span class="bold-word">Non-canonical pairs:</span> Include C-A pair and A-G, G-A, U-U pairs that are crucial for function</p>
+                        <p><span class="bold-word">Structural integrity:</span> These features must be preserved in the ON state for proper function</p>
+                    </div>
+
+                    <h4 class="section-subtitle3">RNAfold vs SECISearch3: Validation Challenges</h4>
+                    
+                    <p class="section-text">An important feature of the SECIS element is its <span class="bold-word">non-canonical base pairs</span>, some unsupported by RNAfold, which include the C-A pair, but also the A-G, G-A, and U-U from the first green-marked section.</p>
+
+                    <p class="section-text">The fact that RNAfold does not predict these pairings raises some concerns. For instance, it needs to be checked if the SECIS structure in the bound (ON) state is the one predicted by SECISearch3. An alternative approach was needed to check the bound (ON) state's feasibility.</p>
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <div class="accordion-title">Structural Prediction Comparison</div>
+                            <div class="accordion-icon"></div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p><span class="bold-word">Key differences observed between RNAfold and SECISearch3:</span></p>
+                                <ul class="point-list">
+                                    <li><span class="bold-word">Yellow highlights:</span> Mismatches that RNAfold is unable to predict (non-canonical pairs)</li>
+                                    <li><span class="bold-word">Purple highlights:</span> Extra pairs predicted by RNAfold but not by SECISearch3</li>
+                                    <li><span class="bold-word">Overall assessment:</span> Despite differences, RNAfold structure fits well with homology-based SECISearch3 prediction</li>
+                                </ul>
+                                
+                                <p><span class="bold-word">Resolution:</span> Taking into account these inaccuracies, RNAfold could be used to explore the effect of sequence variants on the SECIS + aptamer structure. We took the structure predicted by RNAfold as the desired structure that the isolated SECIS element has to adopt in the bound (ON) state.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Model-Guided Design Strategy</h4>
+                        <p><span class="bold-word">Step 1:</span> Identify critical SECIS nucleotides using SECISearch3 predictions (green-marked regions)</p>
+                        <p><span class="bold-word">Step 2:</span> Design linkers that pair with these critical regions in OFF state</p>
+                        <p><span class="bold-word">Step 3:</span> Account for RNAfold limitations with non-canonical pairs</p>
+                        <p><span class="bold-word">Step 4:</span> Validate that theophylline binding can release these pairings</p>
+                        <p><span class="bold-word">Step 5:</span> Confirm SECIS structure recovery in ON state using RNAfold as reference</p>
+                        <p><span class="bold-word">Step 6:</span> Select optimal candidates based on energy balance (Δ ≈ 4.5 kcal·mol⁻¹)</p>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <div class="accordion-title">Theophylline Aptamer Integration</div>
+                            <div class="accordion-icon"></div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p><span class="bold-word">Binding Energy:</span> Literature value of ~9.5 kcal·mol⁻¹ provides strong switching capability</p>
+                                <p><span class="bold-word">Target Energy Gap:</span> Δ ≈ 4.5 kcal·mol⁻¹ (approximately half of binding energy)</p>
+                                <p><span class="bold-word">Structural Compatibility:</span> Theophylline aptamer conformation changes can propagate through linker to SECIS</p>
+                                <p><span class="bold-word">Experimental Validation:</span> Well-established protocols for theophylline-responsive systems</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cards-container">
+                        <div class="card">
+                            <h3 class="card-title">🧬 SECIS DIO2</h3>
+                            <p><span class="bold-word">Function:</span> Stop codon readthrough</p>
+                            <p><span class="bold-word">Source:</span> Human genome (top performer)</p>
+                            <p><span class="bold-word">Validation:</span> SECISearch3 structure prediction</p>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title">🔗 Optimized Linkers</h3>
+                            <p><span class="bold-word">Design:</span> Model-guided selection</p>
+                            <p><span class="bold-word">Target:</span> 6-10 nucleotides</p>
+                            <p><span class="bold-word">Function:</span> Disrupt SECIS in OFF, release in ON</p>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title">☕ Theophylline Aptamer</h3>
+                            <p><span class="bold-word">Binding:</span> ~9.5 kcal·mol⁻¹</p>
+                            <p><span class="bold-word">Response:</span> Conformational change upon binding</p>
+                            <p><span class="bold-word">Validation:</span> Well-established experimental protocols</p>
+                        </div>
+                    </div>
+
+                    <h2 id="riboswitches-background" class="section-subtitle">Riboswitches: Natural RNA Switches</h2>
+                    
+                    <p class="section-text">Riboswitches are systems in which a structured RNA sequence, called an aptamer, changes conformation when it binds to specific small molecules. This change in conformation can shift how a gene is expressed by affecting transcription, translation initiation, or RNA stability.</p>
+
+                    <p class="section-text">In a functional, designed aptamer–RNA construct, the sequence, including the aptamer and other structural RNA elements, folds in the absence of the ligand in a specific way. When the ligand is present and binds to the aptamer, this structure is disrupted, resulting in a new conformation.</p>
+
+                    <div class="example-box">
+                        <h4>Riboswitch Mechanism</h4>
+                        <p><span class="bold-word">Unbound state:</span> Aptamer (red) and functional RNA elements (other colors) adopt one conformation</p>
+                        <p><span class="bold-word">Bound state:</span> Ligand (small brown molecule) binding changes the configuration, disrupting the original structure</p>
+                        <p><span class="bold-word">Functional outcome:</span> Conformational change affects gene expression through various mechanisms</p>
+                    </div>
+
+                    <h3 class="section-subtitle2">Key Factors for Successful Riboswitch Design</h3>
+                    
+                    <p class="section-text">After reviewing extensive literature on aptamers, we found some key factors that can improve the likelihood of ligand binding to the aptamer:</p>
+
+                    <div class="cards-container">
+                        <div class="card">
+                            <h3 class="card-title">Energy Balance</h3>
+                            <p>The energy difference between the ligand-bound and unbound conformations must be relatively small. This allows the system to change between conformations without a high energetic barrier.</p>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title">Interaction Optimization</h3>
+                            <p>The formation of multiple strong interactions, especially ones that the ligand would need to disrupt in order to bind to the aptamer, should be avoided.</p>
+                        </div>
+                    </div>
+
+                    <p class="section-text">These factors were explored further for the development of our system and directly informed our model's energy balance requirements.</p>
+
+                    <h2 id="theophylline-aptamer" class="section-subtitle">The Theophylline Aptamer: An Ideal CRE</h2>
+                    
+                    <p class="section-text">For this project, the <span class="bold-word">theophylline aptamer</span>, a synthetic RNA of about 30 nucleotides, was selected as our Conformational RNA Element (CRE).</p>
+
+                    <h3 class="section-subtitle2">Reasons for Selection</h3>
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <div class="accordion-title">High Specificity</div>
+                            <div class="accordion-icon"></div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p>It binds with high specificity to its ligand, theophylline. The binding affinity is <span class="highlight-word">10,000-fold greater</span> than for caffeine, a closely related molecule.</p>
+                                <p>This exceptional specificity ensures that the switch will only respond to theophylline and not to other similar compounds that might be present in the cellular environment.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <div class="accordion-title">Synthetic Ligand</div>
+                            <div class="accordion-icon"></div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p>Theophylline is not naturally found in mammalian cells, eliminating background interference. It has also been used safely on HEK cells, which are highly relevant as these are the cells used for the experimental part of this project.</p>
+                                <p>This synthetic nature provides clean experimental conditions and precise control over switch activation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <div class="accordion-title">Cross-System Functionality</div>
+                            <div class="accordion-icon"></div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p>It has been shown to work in both prokaryotic and eukaryotic systems, providing versatility for different experimental contexts and potential applications.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <div class="accordion-title">Defined Structure</div>
+                            <div class="accordion-icon"></div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p>Its secondary structure is well understood, simplifying its use in a structure-based design. This structural knowledge was crucial for our model-guided approach.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <div class="accordion-title">Design Flexibility</div>
+                            <div class="accordion-icon"></div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p>Multiple versions of the aptamer are available, allowing for optimization based on specific design requirements and constraints.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-box">
+                        <h4>Theophylline Aptamer in Our Model</h4>
+                        <p><span class="bold-word">Binding Energy:</span> Literature value of ~9.5 kcal·mol⁻¹ provides strong switching capability</p>
+                        <p><span class="bold-word">Target Energy Gap:</span> Δ ≈ 4.5 kcal·mol⁻¹ (approximately half of binding energy)</p>
+                        <p><span class="bold-word">Structural Change:</span> Well-characterized conformational change upon theophylline binding</p>
+                        <p><span class="bold-word">Model Integration:</span> Perfect fit for our FRE-CRE framework as a reliable, well-understood CRE</p>
+                    </div>
+
+                    <h2 id="aptamer-selection" class="section-subtitle">Aptamer Variant Selection</h2>
+                    
+                    <p class="section-text">We reviewed several theophylline-responsive designs from the literature to select the best for our needs. Our criteria included:</p>
+                    
+                    <ul class="point-list">
+                        <li><span class="bold-word">Confirmed activity in eukaryotic cells</span></li>
+                        <li><span class="bold-word">Absence of self-cleaving ribozymes</span></li>
+                        <li><span class="bold-word">Simple and stable secondary structures</span></li>
+                        <li><span class="bold-word">Experimental validation</span></li>
+                    </ul>
+
+                    <div class="aptamer-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Variant</th>
+                                    <th>Pros</th>
+                                    <th>Cons</th>
+                                    <th>Key Features</th>
+                                    <th>Decision</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Gallivan</strong></td>
+                                    <td>High activation, widely studied, optimized design</td>
+                                    <td>Limited testing in eukaryotes</td>
+                                    <td>Spacer between aptamer and RBS improves function</td>
+                                    <td><span class="decision-possible">Possible</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Anzalone</strong></td>
+                                    <td>Used in a similar system, well documented</td>
+                                    <td>Many sequences tested, might be hard to reproduce</td>
+                                    <td>Good documentation</td>
+                                    <td><span class="decision-accepted">✅ Best option</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Smolke (2005)</strong></td>
+                                    <td>Designed for eukaryotes, acts in trans</td>
+                                    <td>Needs extra components</td>
+                                    <td>Ligand triggers aptamer–mRNA interaction</td>
+                                    <td><span class="decision-possible">Possible</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Smolke (2012)</strong></td>
+                                    <td>Mechanism matches design goals</td>
+                                    <td>Includes self-cleaving ribozymes</td>
+                                    <td>Not suitable for our system</td>
+                                    <td><span class="decision-rejected">❌ Rejected</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ogawa (2008)</strong></td>
+                                    <td>Mechanism matches design goals</td>
+                                    <td>Self-cleaving motifs present</td>
+                                    <td>Translation blocked by hybridizing with RBS</td>
+                                    <td><span class="decision-rejected">❌ Rejected</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ogawa (2011)</strong></td>
+                                    <td>Uses IRES for translation bypass</td>
+                                    <td>Limited in vivo data</td>
+                                    <td>Similar functioning as in prokaryotes</td>
+                                    <td><span class="decision-possible">Possible</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Hartig (2012)</strong></td>
+                                    <td>Used in HEK cells</td>
+                                    <td>Self-cleaving</td>
+                                    <td>Derived from Ogawa variants</td>
+                                    <td><span class="decision-rejected">❌ Rejected</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Hartig (2013)</strong></td>
+                                    <td>Designed for viral control</td>
+                                    <td>Self-cleaving</td>
+                                    <td>Derived from Ogawa variants</td>
+                                    <td><span class="decision-rejected">❌ Rejected</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="recommendation-box">
+                        <h4>Selected Aptamer: Theo-ON-5 from Anzalone et al. (2016)</h4>
+                        <p>The theophylline aptamer chosen had to have proven functionality. In a previous work, Anzalone et al. (2016) developed ligand-responsive RNA switches capable of regulating frameshift in eukaryotic cells.</p>
+                        <p>Their system is conceptually similar to the SECIS+Aptamer, as both join an RNA structural element with an aptamer to regulate gene expression. From the aptamers tested, <span class="bold-word">Theo-ON-5 was the most effective</span>, showing the largest difference in frameshift percentage between 0 mM and 30 mM theophylline.</p>
+                        <p>Given the robust experimental validation and modularity of their aptamer designs, it was decided to adopt the theophylline aptamer from their study as the regulatory core of this thesis's synthetic switch.</p>
+                    </div>
+
+                    <h3 class="section-subtitle2">Structural Analysis of Selected Aptamer</h3>
+                    
+                    <p class="section-text">The tested sequences differ from each other in the number of nucleotides at the bottom part of the sequence, but they conserve the core functional part responsible for the binding of the ligand. The core functional region remains conserved. Initial studies highlighted the importance of the core binding pocket. However, later findings pointed out that nearby regions (such as the so-called "entry site") are also important for ligand recognition and structural control.</p>
+
+                    <div class="example-box">
+                        <h4>3D Structure Validation</h4>
+                        <p><span class="bold-word">PDB Structure:</span> 3D structure of the aptamer (PDB code: 8D28) and its predicted 2D structure by RNAfold. Key nucleotides for binding with theophylline are highlighted.</p>
+                        <p><span class="bold-word">Computational Validation:</span> When it comes to structure prediction, Gallivan reported that the aptamer's secondary structure upon ligand binding, predicted using mFold, agrees with NMR data. This means that the current version of RNAfold can be used with a certain degree of confidence.</p>
+                    </div>
+
+                    <h2 id="experimental-design" class="section-subtitle">Experimental Design: Dual Luciferase System</h2>
+                    
+                    <p class="section-text">In order to explain the design of the plasmids, using SnapGene software (www.snapgene.com), this section describes the essential features required for a minimal understanding of the experimental system.</p>
+
+                    <h3 class="section-subtitle2">Dual Luciferase Mechanism</h3>
+                    
+                    <p class="section-text">The system is based on dual luciferase. It consists of two proteins that emit light, with a stop codon placed in the middle. If no readthrough occurs, only the first protein is expressed. However, if readthrough occurs, the second protein will also be expressed.</p>
+
+                    <div class="cards-container">
+                        <div class="card">
+                            <h3 class="card-title">🔴 OFF State</h3>
+                            <p><span class="bold-word">Mechanism:</span> The ribosome ends translation at the STOP codon and only the first protein is synthesised.</p>
+                            <p><span class="bold-word">Result:</span> Single luciferase signal</p>
+                            <p><span class="bold-word">SECIS Status:</span> Disrupted by CRE interaction</p>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title">🟢 ON State</h3>
+                            <p><span class="bold-word">Mechanism:</span> The ribosome bypasses the STOP codon and the two proteins are synthesised.</p>
+                            <p><span class="bold-word">Result:</span> Dual luciferase signal</p>
+                            <p><span class="bold-word">SECIS Status:</span> Functional, enables readthrough</p>
+                        </div>
+                    </div>
+
+                    <h3 class="section-subtitle2">Experimental Considerations</h3>
+                    
+                    <div class="recommendation-box">
+                        <h4>Design Specifications</h4>
+                        <p><span class="bold-word">3' UTR Placement:</span> The SECIS element (and also the aptamer) is placed at the 3′ UTR.</p>
+                        <p><span class="bold-word">Ribosome Protection:</span> The ribosome covers about 30 nucleotides, even if it reads only three. Since the second protein and the SECIS element are consecutive, the SECIS element could influence the ribosome during the translation of the second protein.</p>
+                        <p><span class="bold-word">Safety Distance:</span> To ensure a safety distance between the end of the second protein and the SECIS element, 30 nucleotides of context were included. These correspond to the 30 nucleotides present in the SECIS DIO2 context in the human genome.</p>
+                    </div>
+
+                    <h2 id="linker-analysis" class="section-subtitle">Model-Guided Linker Analysis</h2>
+                    
+                    <p class="section-text">Typical linker length ranges from 4 to about 10 nucleotides. For this study, linkers of length 5, 7, 8 and 9 were chosen for laboratory testing. Linker 5 presented some complexities and will be discussed after the others for clarity.</p>
+
+                    <div class="linker-analysis">
+                        <h3 class="section-subtitle2">Comprehensive Linker Evaluation</h3>
+                        
+                        <div class="linker-grid">
+                            <div class="linker-card">
+                                <h4>Linker 7</h4>
+                                <div class="linker-property">
+                                    <div class="property-label">Energy Difference</div>
+                                    <div class="property-value">~3.5 kcal/mol (OFF more stable than ON)</div>
+                                </div>
+                                <div class="linker-property">
+                                    <div class="property-label">Theophylline Accessibility</div>
+                                    <div class="property-value">Yellow nucleotides (binding sites) mostly free and accessible</div>
+                                </div>
+                                <div class="linker-property">
+                                    <div class="property-label">SECIS Disruption</div>
+                                    <div class="property-value">Some key nucleotides paired with aptamer in OFF state</div>
+                                </div>
+                                <div class="linker-property">
+                                    <div class="property-label">SECIS Recovery</div>
+                                    <div class="property-value">Clearest recovery in ON state, resembles independent form</div>
+                                </div>
+                                <div class="linker-property">
+                                    <div class="property-label">Aptamer-SECIS Pairings</div>
+                                    <div class="property-value">Strong pairings help disrupt SECIS but may hinder ON transition</div>
+                                </div>
+                            </div>
+
+                            <div class="linker-card">
+                                <h4>Linker 8</h4>
+                                <div class="linker-property">
+                                    <div class="property-label">Energy Difference</div>
+                                    <div class="property-value">4.9 kcal/mol (strongest OFF preference)</div>
+                                </div>
+                                <div class="linker-property">
+                                    <div class="property-label">Theophylline Accessibility</div>
+                                    <div class="property-value">Binding sites less accessible than other linkers</div>
+                                </div>
+                                <div class="linker-property">
+                                    <div class="property-label">SECIS Disruption</div>
+                                    <div class="property-value">Key nucleotides paired within SECIS itself (weaker repression)</div>
+                                </div>
+                                <div class="linker-property">
+                                    <div class="property-label">SECIS Recovery</div>
+                                    <div class="property-value">Minor pairings with context, but function should remain intact</div>
+                                </div>
+                                <div class="linker-property">
+                                    <div class="property-label">Aptamer-SECIS Pairings</div>
+                                    <div class="property-value">Too few pairings, resulting in weaker repression</div>
+                                </div>
+                            </div>
+
+                            <div class="linker-card">
+                                <h4>Linker 9 ⭐</h4>
+                                <div class="linker-property">
+                                    <div class="property-label">Energy Difference</div>
+                                    <div class="property-value">4.2 kcal/mol (good OFF stability)</div>
+                                </div>
+                                <div class="linker-property">
+                                    <div class="property-label">Theophylline Accessibility</div>
+                                    <div class="property-value">Binding sites less accessible but still functional</div>
+                                </div>
+                                <div class="linker-property">
+                                    <div class="property-label">SECIS Disruption</div>
+                                    <div class="property-value">Key nucleotides effectively sequestered in OFF state</div>
+                                </div>
+                                <div class="linker-property">
+                                    <div class="property-label">SECIS Recovery</div>
+                                    <div class="property-value">Minor pairings with context, function preserved</div>
+                                </div>
+                                <div class="linker-property">
+                                    <div class="property-label">Aptamer-SECIS Pairings</div>
+                                    <div class="property-value">Best balance: sequesters SECIS without blocking ON transition</div>
+                                </div>
+                            </div>
+
+                            <div class="linker-card">
+                                <h4>Linker 5 (Modified)</h4>
+                                <div class="linker-property">
+                                    <div class="property-label">Energy Difference</div>
+                                    <div class="property-value">Only 0.9 kcal/mol (insufficient OFF stability)</div>
+                                </div>
+                                <div class="linker-property">
+                                    <div class="property-label">SECIS Modifications</div>
+                                    <div class="property-value">First 7 nucleotides changed: ACCAGUG → AAAAGGA</div>
+                                </div>
+                                <div class="linker-property">
+                                    <div class="property-label">Design Rationale</div>
+                                    <div class="property-value">Mutations distant from key nucleotides, complementary pairs preserved</div>
+                                </div>
+                                <div class="linker-property">
+                                    <div class="property-label">Limitation</div>
+                                    <div class="property-value">Low energy difference does not guarantee stable OFF state</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="section-subtitle2">Linker 5 Special Case</h3>
+                    
+                    <p class="section-text">For shorter linkers (<7 nucleotides), no structures were found that satisfied ON/OFF requirements. To broaden possibilities, mutations were introduced into the SECIS element. Since mutations in structural elements can affect both function and folding, precautions were taken:</p>
+                    
+                    <ul class="point-list">
+                        <li><span class="bold-word">Limited scope:</span> Only the first seven nucleotides of the SECIS element were mutated, as they are distant from key nucleotides</li>
+                        <li><span class="bold-word">Paired mutations:</span> Complementary nucleotides were mutated in pairs to preserve base-pairing</li>
+                        <li><span class="bold-word">Result:</span> A viable linker of length 5 was obtained, but the energy difference was only 0.9 kcal/mol, which does not guarantee stability of the OFF state</li>
+                    </ul>
+
+                    <div class="aptamer-table">
+                        <h4>Summary of Linker Properties</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Linker Length</th>
+                                    <th>Pros</th>
+                                    <th>Cons</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>7</strong></td>
+                                    <td>Good energy difference (3.5 kcal/mol). Likely prevents readthrough. Aptamer sites accessible.</td>
+                                    <td>Many aptamer–SECIS pairings.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>8</strong></td>
+                                    <td>Strong energy difference (4.9 kcal/mol). Few aptamer–SECIS pairings.</td>
+                                    <td>OFF state may not fully repress SECIS. Aptamer sites less accessible.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>9</strong></td>
+                                    <td>Good energy difference (4.2 kcal/mol). OFF state strongly represses readthrough. Few aptamer–SECIS pairings.</td>
+                                    <td>Aptamer sites less accessible.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>5</strong></td>
+                                    <td>Few aptamer–SECIS pairings.</td>
+                                    <td>Low energy difference. OFF state may not fully repress SECIS. Aptamer sites less accessible.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="paradigm-shift">
+                        <h4>From Theory to Practice: Model-Driven Experimental Design</h4>
+                        <p>Our model didn't just provide theoretical insights—it became the practical foundation for experimental design. By pre-validating designs computationally, we transformed wet lab work from exploratory to confirmatory, dramatically improving efficiency and success rates. The systematic linker analysis demonstrates how computational predictions can guide targeted experimental validation.</p>
+                    </div>
+                </section>
+            <!-- CORE ASSUMPTIONS SECTION -->
+                <section id="core-assumptions">
+                    <h1 class="section-title">Core Assumptions: Model Transparency</h1>
+                    
+                    <p class="section-text">Our computational model does not reproduce RNA behavior with 100% accuracy. To make it viable and scalable for large-scale design, we have had to make key assumptions, which we detail below.</p>
+
+                    <h2 id="structural-prediction" class="section-subtitle">Structural Prediction</h2>
+                    
+                    <p class="section-text">RNA structure is a critical determinant of function, but for many RNA elements, the structure has not been experimentally resolved. In such cases, computational prediction tools provide a practical way to infer possible structures directly from the sequence.</p>
+
+                    <h3 class="section-subtitle2">How Structural Prediction Works</h3>
+                    
+                    <p class="section-text">Prediction tools take as input the nucleotide sequence (e.g., <span class="code-text">AGUCGUAGUAAUUUCCGAUCG</span>) and return a proposed structure in the so-called <span class="bold-word">"dot-bracket notation"</span>:</p>
+                    
+                    <ul class="point-list">
+                        <li><span class="code-text">.</span> indicates an unpaired nucleotide</li>
+                        <li><span class="code-text">(</span> and <span class="code-text">)</span> indicate paired nucleotides</li>
+                    </ul>
+                    
+                    <p class="section-text">For example, RNAfold predicts the sequence <span class="code-text">AGUCGUAGUAAUUUCCGAUCG</span> to fold into <span class="code-text">.((((.((....)).))))...</span> This can be visualized as a two-dimensional secondary structure.</p>
+
+                    <h3 class="section-subtitle2">RNAfold</h3>
+                    
+                    <p class="section-text">One of the most widely used tools for RNA secondary structure prediction is <span class="bold-word">RNAfold</span>, part of the ViennaRNA package. It uses a thermodynamics-based algorithm to calculate the minimum free energy (MFE) structure—the most stable conformation expected for the sequence. RNAfold outputs both the predicted structure and its associated free energy value, providing an estimate of stability.</p>
+
+                    <h3 class="section-subtitle2">Limitations of RNAfold and Structural Prediction</h3>
+                    
+                    <p class="section-text">While RNAfold and similar tools are powerful, they come with important limitations:</p>
+                    
+                    <div class="cards-container">
+                        <div class="card">
+                            <h3 class="card-title">MFE Bias</h3>
+                            <p>RNA molecules do not always fold into the single most stable structure. In reality, they often exist as an ensemble of conformations, which RNAfold does not fully capture.</p>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title">Context-Dependence</h3>
+                            <p>Predictions are made in isolation, without considering cellular factors such as RNA-binding proteins, molecular crowding, or co-transcriptional folding.</p>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title">Limited Dynamics</h3>
+                            <p>RNA structures are dynamic and can shift in response to signals (as CREs do). Static predictions like those of RNAfold cannot easily account for these conformational changes.</p>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title">Accuracy Trade-offs</h3>
+                            <p>Thermodynamic parameters are derived from simplified experimental systems and may not always generalize to longer or more complex RNAs.</p>
+                        </div>
+                    </div>
+
+                    <h2 id="energy-assumptions" class="section-subtitle">Energy Assumptions for OFF ⇄ ON Switching</h2>
+
+                    <h3 class="section-subtitle2">Notation and Basic Idea</h3>
+                    
+                    <p class="section-text">We work with predicted minimum free energies (MFEs) from a secondary-structure predictor (e.g., RNAfold). Define:</p>
+                    
+                    <div class="equation-box">
+                        <ul class="equation-list">
+                            <li><span class="equation">G<sub>OFF</sub></span> = MFE of the full construct predicted without the external factor (unconstrained fold). This is the free energy of the unbound / OFF configuration.</li>
+                            <li><span class="equation">G<sub>ON</sub></span> = MFE of the full construct predicted with the CRE forced into the conformation that corresponds to having reacted to the external factor. This is the free energy of the would-be ON conformation before accounting for the extra stabilisation supplied by binding.</li>
+                            <li><span class="equation">E<sub>bind</sub></span> = stabilisation energy (positive number, in kcal·mol⁻¹) supplied to the system when the CRE actually binds its partner (ligand, miRNA, etc.). We treat E<sub>bind</sub> as a positive magnitude (e.g., theophylline ≈ 9.5 kcal·mol⁻¹ in literature). If there is no binding (environment-driven CRE), then E<sub>bind</sub> = 0.</li>
+                        </ul>
+                    </div>
+                    
+                    <p class="section-text">Define the on–off energy gap (difference) as:</p>
+                    
+                    <div class="equation-center">
+                        <span class="equation-large">Δ = G<sub>ON</sub> - G<sub>OFF</sub></span>
+                    </div>
+                    
+                    <p class="section-text"><span class="bold-word">Note:</span> G values are negative (more negative = more stable). With this definition:</p>
+                    <ul class="point-list">
+                        <li><span class="equation">Δ > 0</span> means OFF is more stable than ON (because G<sub>OFF</sub> < G<sub>ON</sub>)</li>
+                        <li><span class="equation">Δ < 0</span> would mean ON is already preferred in absence of trigger (bad for an OFF default)</li>
+                    </ul>
+                    
+                    <p class="section-text">When the CRE actually binds, the ON state gains the stabilisation E<sub>bind</sub>. The effective free energy of ON after binding becomes:</p>
+                    
+                    <div class="equation-center">
+                        <span class="equation-large">G<sub>ON,eff</sub> = G<sub>ON</sub> - E<sub>bind</sub></span>
+                    </div>
+
+                    <h3 class="section-subtitle2">Thermodynamic Conditions You Must Check</h3>
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <div class="accordion-title">1. OFF Must Be the Default (No Trigger)</div>
+                            <div class="accordion-icon"></div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p><span class="bold-word">Condition:</span></p>
+                                <div class="equation-center">
+                                    <span class="equation-large">Δ = G<sub>ON</sub> - G<sub>OFF</sub> > 0</span>
+                                </div>
+                                <p><span class="bold-word">Why:</span> In the absence of the external factor we want the system to sit in the OFF state (FRE disrupted). If Δ ≤ 0, the system would be ON by default or ambivalent (unstable OFF).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <div class="accordion-title">2. ON Must Become Preferred After Binding (Binding-based CREs)</div>
+                            <div class="accordion-icon"></div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p><span class="bold-word">Condition (after binding):</span></p>
+                                <div class="equation-center">
+                                    <span class="equation-large">G<sub>ON,eff</sub> < G<sub>OFF</sub> ⟺ Δ < E<sub>bind</sub></span>
+                                </div>
+                                <p><span class="bold-word">Combined requirement (binding-based CRE):</span></p>
+                                <div class="equation-center">
+                                    <span class="equation-large highlight-equation">0 < Δ < E<sub>bind</sub></span>
+                                </div>
+                                <p><span class="bold-word">Why:</span> This ensures the OFF is preferred before binding, and the ON becomes preferred after the CRE supplies the binding stabilisation. If Δ ≥ E<sub>bind</sub>, even binding will not make ON lower energy than OFF (i.e., the switch will be stuck OFF). If Δ ≤ 0, the system is not OFF by default.</p>
+                                
+                                <div class="recommendation-box">
+                                    <h4>Practical Recommendation</h4>
+                                    <p>Choose Δ roughly half of E<sub>bind</sub> (i.e. Δ ≈ E<sub>bind</sub>/2). This yields a robust margin in both directions: OFF is meaningfully favoured without ligand, but binding reliably flips the balance.</p>
+                                    <p><span class="bold-word">Example:</span> theophylline E<sub>bind</sub> ≈ 9.5 kcal → target Δ ≈ 4.5 kcal.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <div class="accordion-title">3. Environment-Driven CREs (Temperature, pH, etc.)</div>
+                            <div class="accordion-icon"></div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p>If the CRE does not supply binding energy but instead changes conformation because of external physical conditions (temperature shift, pH), the logic is different:</p>
+                                <ul class="point-list">
+                                    <li>Set E<sub>bind</sub> = 0. The environment itself alters base-pair stabilities and changes the predicted energies.</li>
+                                    <li>To test viability, predict MFEs at both conditions (e.g., RNAfold supports a temperature parameter):
+                                        <ul class="subnav">
+                                            <li>G<sub>OFF</sub> = MFE predicted under baseline conditions</li>
+                                            <li>G<sub>ON</sub> = MFE predicted under the changed environmental condition</li>
+                                        </ul>
+                                    </li>
+                                    <li>Then require G<sub>ON</sub> < G<sub>OFF</sub> under the activating environment, and G<sub>OFF</sub> < G<sub>ON</sub> under baseline.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="section-subtitle2">Why "About Half the Binding Energy"?</h3>
+                    
+                    <p class="section-text">The inequality <span class="equation">0 < Δ < E<sub>bind</sub></span> is the correct thermodynamic requirement. Choosing Δ near E<sub>bind</sub>/2 gives a comfortable margin so:</p>
+                    
+                    <ul class="point-list">
+                        <li>OFF is clearly favoured in the absence of ligand (so the system is quiet / repressed), and</li>
+                        <li>ON becomes clearly favoured after adding the ligand (so the switch flips decisively).</li>
+                    </ul>
+                    
+                    <p class="section-text">If Δ is too small (close to 0) the system will be noisy and leak (both states may be populated). If Δ is too large (approaching E<sub>bind</sub> or exceeding it) the ligand cannot flip the switch.</p>
+
+                    <h3 class="section-subtitle2">Practical Numeric Guidance and Examples</h3>
+
+                    <div class="example-box">
+                        <h4>Example (Theophylline-like)</h4>
+                        <ul class="point-list">
+                            <li>Literature E<sub>bind</sub> ≈ 9.5 kcal·mol⁻¹</li>
+                            <li>Target Δ ≈ E<sub>bind</sub>/2 ≈ 4.7 kcal·mol⁻¹</li>
+                        </ul>
+                        
+                        <p><span class="bold-word">Suppose your predicted MFEs are:</span></p>
+                        <ul class="point-list">
+                            <li>G<sub>OFF</sub> = -44.0 kcal·mol⁻¹; G<sub>ON</sub> = -39.3 kcal·mol⁻¹</li>
+                            <li>Then Δ = -39.3 - (-44.0) = +4.7 kcal·mol⁻¹ → meets the target</li>
+                            <li>After binding: G<sub>ON,eff</sub> = G<sub>ON</sub> - E<sub>bind</sub> = -39.3 - 9.5 = -48.8, which is lower than -44.0 → ON will be favoured after ligand binding</li>
+                        </ul>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Example (miniRNA Trigger, Small Binding)</h4>
+                        <p>If E<sub>bind</sub> is small (e.g., 1–2 kcal·mol⁻¹), then you need a correspondingly small Δ (≈0.5–1 kcal) — smaller margins reduce robustness and increase sensitivity to modelling error; be cautious and pair with strong structural checks.</p>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>If E<sub>bind</sub> is Unknown</h4>
+                        <p>Use a conservative Minimum ΔMFE between 3–5 kcal·mol⁻¹ as a first pass unless you have stronger estimates. Also perform sensitivity scans across possible E<sub>bind</sub> values and check how many candidate linkers survive.</p>
+                    </div>
+                </section>
+      <!-- REFERENCES -->
+      <section class="references" id="references">
+        <h1 class="section-title">References</h1>
+        <ol>
+          <li><a class="link-text" href="https://www.nature.com/articles/s">Discovery of nuclear RNA polymerases - Nature</a></li>
+          <li><a class="link-text" href="https://www.nature.com/articles/ncomms12307">Cross-talk of transcription factors - Nature Communications</a></li>
+          <li><a class="link-text" href="https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC5753856&blobtype=pdf">Stochastic noise in gene expression - PMC</a></li>
+          <li><a class="link-text" href="https://www.nature.com/articles/s">DNA-binding factors and regulation - Nature</a></li>
+          <li><a class="link-text" href="https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/abs/10.1002/biot.201200120">Computational promoter optimization - Biotechnology Journal</a></li>
+          <li><a class="link-text" href="https://www.mdpi.com/2077-0472/13/2/298">Synthetic promoters and enhancers - Agriculture</a></li>
+          <li><a class="link-text" href="https://link.springer.com/article/10.1007/s">Engineering synthetic promoters - Springer</a></li>
+          <li><a class="link-text" href="https://www.nature.com/articles/s">Maximisation of transcription levels - Nature</a></li>
+          <li><a class="link-text" href="https://www.pnas.org/doi/10.1073/pnas.0707904105">Phenotypic variability in cell populations - PNAS</a></li>
+          <li><a class="link-text" href="https://www.embopress.org/doi/full/10.1038/emboj.2011.344">RNA polymerase regulation - EMBO Journal</a></li>
+          <li><a class="link-text" href="https://elifesciences.org/articles/37272">Gene expression noise and cell fitness - eLife</a></li>
+          <li><a class="link-text" href="https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2024.1451461/full">Transcriptional bursting heterogeneity - Frontiers in Genetics</a></li>
+          <li>Gebauer, F., & Hentze, M. W. (2004). Molecular mechanisms of translational control. Nature Reviews Molecular Cell Biology, 5(10), 827-835.</li>
+          <li>Swami, M. (2010). Gene regulation: Riboswitches step forward. Nature Reviews Genetics, 11(7), 456.</li>
+          <li>Werstuck, G., & Green, M. R. (1998). Controlling gene expression in living cells through small molecule-RNA interactions. Science, 282(5387), 296-298.</li>
+          <li>Rovira, A. R., et al. (2023). Theophylline-responsive riboswitches for synthetic biology applications. Nature Biotechnology, 41(3), 234-241.</li>
+        </ol>
+      </section>
     </div>
   </div>
 </div>
 
-<div class="row mt-4">
-  <div class="col-lg-8">
-    <h2>Overview</h2>
-    <hr />
-    <p>Mathematical models and computer simulations provide a great way to describe the function and operation of Parts and Devices. Synthetic Biology is an engineering discipline, and part of engineering is simulation and modeling to determine the behavior of your design before you build it. Designing and simulating can be iterated many times in a computer before moving to the lab.</p>
-  </div>
-  <div class="col-lg-4">
-    <h2>Inspirations</h2>
-    <hr />
-    <ul>
-      <li><a href="https://2024.igem.wiki/utoronto/model">2024 UToronto</a></li>
-      <li><a href="https://2024.igem.wiki/heidelberg/model">2024 Heidelberg</a></li>
-      <li><a href="https://2024.igem.wiki/waseda-tokyo/model">2024 Waseda-Tokyo</a></li>
-      <li><a href="https://2024.igem.wiki/bnuzh-china/model">2024 BNUZH-China</a></li>
-      <li><a href="https://2024.igem.wiki/cjuh-jlu-china/model">2024 CJUH-JLU-China</a></li>
-      <li><a href="https://2024.igem.wiki/tsinghua/model">2024 Tsinghua</a></li>
-    </ul>
-  </div>
-</div>
+
+
+<style>
+/* Chocolate melting effect */
+.info-card{
+    transform: translateY(-70px);
+}
+.chocolate-card .chocolate-key-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.chocolate-container-inline {
+  display: inline-block;
+  position: relative;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.chocolate-solid {
+  font-size: 1.5rem;
+  transition: all 0.8s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.chocolate-melted {
+  position: absolute;
+  top: 25px;
+  left: 5px;
+  width: 20px;
+  height: 6px;
+  background: linear-gradient(45deg, #8B4513, #D2691E, #CD853F);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scaleX(0);
+  transition: all 0.8s ease;
+}
+
+.chocolate-card:hover .chocolate-solid {
+  transform: scale(0.8) rotate(10deg);
+  opacity: 0.7;
+}
+
+.chocolate-card:hover .chocolate-melted {
+  opacity: 1;
+  transform: scaleX(1);
+  animation: melt 1.5s ease-in-out;
+}
+
+@keyframes melt {
+  0% { transform: scaleX(0); opacity: 0; }
+  50% { transform: scaleX(0.8); opacity: 0.8; }
+  100% { transform: scaleX(1); opacity: 1; }
+}
+
+/* Chocolate key animation */
+.chocolate-key-container {
+  display: inline-block;
+  position: relative;
+  margin-left: 15px;
+  left: 10px;
+  top: 10px;
+  vertical-align: middle;
+}
+
+
+
+.key-symbol {
+  font-size: 2.5rem;
+  position: relative;
+  z-index: 0;
+  transition: all 0.8s ease;
+  left: -30px;
+  top: -18px;
+  transform: rotate(220deg)
+}
+
+.chocolate-wrapper {
+  position: absolute;
+  top: -5px;
+  left: -9px;
+  font-size: 1.8rem;
+  z-index: 3;
+  transition: all 0.8s ease;
+  opacity: 0.9;
+}
+
+.melted-chocolate {
+  position: absolute;
+  top: 20px;
+  left: 0px;
+  width: 25px;
+  height: 8px;
+  background: linear-gradient(45deg, #8B4513, #D2691E, #CD853F);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scaleX(0);
+  transition: all 0.8s ease;
+  z-index: 1;
+}
+
+.chocolate-key-card:hover .chocolate-wrapper {
+  transform: scale(0.7) rotate(15deg);
+  opacity: 0.3;
+}
+
+
+
+.chocolate-key-card:hover .melted-chocolate {
+  opacity: 1;
+  transform: scaleX(1);
+  animation: keyMelt 1.8s ease-in-out;
+}
+
+
+
+/* Comparison table styling */
+        .comparison-table {
+            background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .comparison-header h3 {
+            color: #2d3748;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .comparison-column {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .before-column {
+            border-left: 4px solid #dc2626;
+        }
+
+        .after-column {
+            border-left: 4px solid #16a34a;
+        }
+
+        .column-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #fecaca;
+        }
+
+        .before-header h4 {
+            color: #dc2626;
+            margin-bottom: 0.25rem;
+        }
+
+        .after-header h4 {
+            color: #16a34a;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            font-size: 0.875rem;
+            color: #991b1b;
+            font-style: italic;
+        }
+
+        .comparison-item {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: #fef2f2;
+            border-radius: 6px;
+            border-left: 3px solid #fecaca;
+        }
+
+        .item-label {
+            font-weight: 600;
+            color: #7f1d1d;
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .item-content {
+            color: #2d3748;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .comparison-arrow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        .arrow-symbol {
+            font-size: 2rem;
+            color: #dc2626;
+            margin-bottom: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        .arrow-label {
+            font-weight: 600;
+            color: #dc2626;
+            font-size: 0.875rem;
+            text-align: center;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .paradigm-shift {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .paradigm-shift h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .paradigm-shift p {
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        /* Equation and code styling */
+        .code-text {
+            font-family: 'Courier New', monospace;
+            background: #fef2f2;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #7f1d1d;
+        }
+
+        .equation {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            color: #dc2626;
+            font-weight: 500;
+        }
+
+        .equation-large {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            color: #dc2626;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .equation-center {
+            text-align: center;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #fef2f2;
+            border-radius: 8px;
+            border-left: 4px solid #dc2626;
+        }
+
+        .equation-box {
+            background: #fef2f2;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #991b1b;
+        }
+
+        .equation-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .equation-list li {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: white;
+            border-radius: 6px;
+            border-left: 3px solid #fecaca;
+        }
+
+        .highlight-equation {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            color: #92400e;
+            font-weight: 700;
+        }
+
+        .recommendation-box {
+            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #dc2626;
+        }
+
+        .recommendation-box h4 {
+            color: #991b1b;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .recommendation-box p {
+            margin-bottom: 0.75rem;
+            color: #7f1d1d;
+            line-height: 1.5;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #16a34a;
+        }
+
+        .example-box h4 {
+            color: #15803d;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .example-box p {
+            margin-bottom: 0.75rem;
+            color: #166534;
+            line-height: 1.5;
+        }
+
+        .example-box ul {
+            color: #166534;
+        }
+
+        /* Aptamer comparison table */
+        .aptamer-table {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+        }
+
+        .aptamer-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .aptamer-table th {
+            background: #dc2626;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .aptamer-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #fecaca;
+            vertical-align: top;
+        }
+
+        .aptamer-table tr:nth-child(even) {
+            background: #fef2f2;
+        }
+
+        .decision-accepted {
+            background: #dcfce7;
+            color: #15803d;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .decision-rejected {
+            background: #fee2e2;
+            color: #dc2626;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .decision-possible {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* Linker analysis styling */
+        .linker-analysis {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid #dc2626;
+        }
+
+        .linker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .linker-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #dc2626;
+        }
+
+        .linker-card h4 {
+            color: #dc2626;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .linker-property {
+            margin-bottom: 0.75rem;
+            padding: 0.5rem;
+            background: #fef2f2;
+            border-radius: 4px;
+            border-left: 3px solid #fecaca;
+        }
+
+        .property-label {
+            font-weight: 600;
+            color: #7f1d1d;
+            font-size: 0.875rem;
+        }
+
+        .property-value {
+            color: #2d3748;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .page-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .comparison-arrow {
+                order: 2;
+                flex-direction: row;
+                padding: 0.5rem;
+            }
+            
+            .arrow-symbol {
+                transform: rotate(90deg);
+                margin: 0 0.5rem;
+            }
+            
+            .arrow-label {
+                writing-mode: horizontal-tb;
+                text-orientation: initial;
+            }
+            
+            .before-column {
+                order: 1;
+            }
+            
+            .after-column {
+                order: 3;
+            }
+            
+            .equation-large {
+                font-size: 1rem;
+            }
+            
+            .equation-center {
+                padding: 0.75rem;
+            }
+
+            .linker-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .aptamer-table {
+                overflow-x: auto;
+            }
+        }
+</style>
 
 {% endblock %}
