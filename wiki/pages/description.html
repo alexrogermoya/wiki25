@@ -7,23 +7,39 @@
 
 <div class = "page-container">
   <aside class="sidebar">
-      <ul class="sidebar-nav">
-          <li><a href="#description" class="active">Description</a>
-          <!-- <ul class = "sidebar-subnav">
-            <li><a href="#subtitle1" class="active">Subtítol 1
-              <ul class = "subnav">
-                <li><a href="#subtitle2" class="active">Subtítol 2</a></li>
-              </ul>
-            </li>
-          </ul>
+    <ul class="sidebar-nav">
+      <li><a href="#abstract" class="active">Abstract</a></li>
+      <li><a href="#before">Before Skippit: The world of transcription regulation</a></li>
+      <li><a href="#after">After Skippit: Beyond the Limits of DNA</a>
+        <ul class = "sidebar-subnav">
+          <li><a href="#new">A new design space: Functional RNA Elements (FREs)</a>
+          <li><a href="#model">Skippit model: engineering ligand-responsive FRE switches</a>
+            <ul class = "subnav">
+              <li><a href="#conceptual">Conceptual overview</a></li>
+              <li><a href="#architecture">Molecular architecture and rationale</a></li>
+            </ul>
           </li>
-          <li><a href="#buttons">Botons</a></li>
-          <li><a href="#cards">Cartes</a></li>
-          <li><a href="#accordions">Desplegables</a></li>
-          <li><a href="#lists">Llistes</a></li>
-          <li><a href="#images">Imatges i vídeos</a></li>
-          <li><a href="#references">References</a></li> -->
-      </ul>
+        </ul>
+      </li>
+      <li><a href="#software">Software: Meet Tadpole</a></li>
+      <li><a href="#riboswitch">The SKIPPIT Riboswitch</a>
+      <ul class = "sidebar-subnav">
+          <li><a href="#switch">Theophylline-responsive Stop Codon Readthrough switch</a>
+        </ul>
+      </li>
+      <li><a href="#future">Future</a>
+      <ul class = "sidebar-subnav">
+          <li><a href="#potential">Foundational technology with therapeutic potential</a>
+        </ul>
+      </li>
+      <li><a href="#science">Ressonating science</a>
+      <ul class = "sidebar-subnav">
+          <li><a href="#society">Empowering society against misinformation</a>
+          <li><a href="#offer">Join us, beyond the finish line, and discover all that SKIPPIT has to offer</a>
+        </ul>
+      </li>
+      <li><a href="#references">References</a></li>
+    </ul>
   </aside>
   
   <div class = "page-content">
@@ -32,20 +48,179 @@
       <p class = "page-desc">A next generation tool to control genetic expression during translation</p>
     </div>
     <div class = "content"> 
-      <section id = "description">
-        <h1 class ="section-title">Description</h1>
+      <section id = "abstract">
+        <h1 class ="section-title">Abstract</h1>
         <p class="section-text">
-          Skippit is a synthetic biology project that explores an innovative approach to gene regulation by targeting the translational level, rather than relying on conventional transcriptional control. Classical systems based on promoters and protein regulators often face important limitations, such as slow response times and reduced modularity. To overcome these challenges, Skippit proposes a novel RNA-based strategy that enables ligand-dependent ON/OFF gene expression, without the need for protein regulators.
-          <br><br>
-          Our design is based on the combination of stop codon readthrough (SCR), a natural process in which the ribosome bypasses a stop codon under specific molecular conditions, with riboswitches, RNA structures capable of changing conformation in response to small molecules. By coupling these two mechanisms, we create a modular and highly tunable RNA switch that directly controls protein synthesis.
-          <br><br>
-          To implement this idea, we have developed a computational toolkit that streamlines the design of these translational switches. The software uses coevolutionary analysis to identify conserved structural regions and integrates multiple steps of the design process, including sequence processing, secondary structure prediction, linker engineering, and free energy evaluation. This makes it possible to rapidly prototype RNA devices whose function depends on structure, and extend the system to a broad range of ligands and biological contexts.
-          <br><br>
-          Skippit aims to provide a versatile and scalable platform for translational control in synthetic biology, offering a new layer of regulation that is fast, orthogonal, and easily programmable.
+          As synthetic biology positions itself as a field of the future, the need for new tools that allow better control of protein expression and new options for genetic engineering is clear. SKIPPIT is a platform that uses cutting edge software technology to generate brand new <span class = "italic-word">riboswitches</span> by combining functional RNA elements and conformational RNA elements. The result has been the creation of a software model capable of predicting fused structures of RNA elements and the generation of a brand new tool that allows the bypass of the stop codon during translation. 
         </p>
+      </section>
+      <section id = "before">
+        <h1 class ="section-title">Before Skippit: The world of transcription regulation</h1>
+        <p class="section-text">
+          Synthetic biology aims to design and reprogram biological systems to perform precise, predictable tasks. This is crucial in therapeutic contexts, where gene activity must be tightly controlled in space, time, and quantity to avoid side effects and maximise efficiency (Namy 2004; Hausser 2019).
+          <br><br>
+          For the past 50 years, regulation strategies have revolved around transcription factor switches (Mishler 2014), CRISPR interference (Gilbert 2013), RNA interference (Fire 1998; Jackson 2003), and chemically inducible promoters (Gossen 1992; Chen 2018). While effective, each has limitations: transcriptional control can be slow due to the extra step of mRNA production and processing, RNAi can suffer from off-target effects and limited dynamic range (Jackson2003), and inducible promoters often require bulky proteins or chemicals that are hard to deliver or interfere with cell metabolism (Chen2018). 
+        </p>
+        <div>
+          <div class="image-container row">
+            <img src = "https://static.igem.wiki/teams/5622/images/description/tf-crispr-1.webp" alt = "TF + CRISPR">
+            <!-- <p class = "photo-caption">TF + CRISPR</p> -->
+          </div>
+          <div class="image-container row">
+            <img src = "https://static.igem.wiki/teams/5622/images/description/irna-promoter-1.webp" alt = "iRNA + Promoter">
+            <!-- <p class = "photo-caption">iRNA + Promoter</p> -->
+          </div>
+        </div>
+        <p>
+          As synthetic biology moves into gene therapy, biomanufacturing, and other high-precision fields, demand is growing for regulation methods that are faster, work at multiple layers, and deliver cleaner, noise-resistant control. Skippit is our answer to that challenge.
+        </p> 
+      </section>
+      <section id = "after">
+        <h1 class ="section-title">After Skippit: Beyond the Limits of DNA</h1>
+        <p class="section-text">
+          An alternative method to control protein expression is found in translation-level control, which provides rapid responses and direct protein regulation without altering transcription (Gebauer 2004; Swami 2010). Riboswitches—RNA sequences that change structure upon binding a select molecule—are especially attractive in this context: they are compact, programmable, and highly specific. The theophylline-binding aptamer, for example, has been extensively used to regulate downstream elements when linked to open reading frames (Werstuck 1998; Rovira 2023).
+        </p>
+        <h2 id ="new" class = "section-subtitle">A new design space: Functional RNA Elements (FREs)</h2>
+        <p class="section-text">With SKIPPIT, we are taking a leap forward in the world of translation-level control, by coupling <span class = "bold-word">aptamers</span> to what we define as <span class = "bold-word">Functional RNA Elements</span> (FREs). FREs are RNA sequences able to carry out their function purely through their own structure. These FREs are capable of folding into shapes that control ribosome behaviour [cite], alter reading frames [cite], or enable stop codon readthrough [cite]</p>
+        <div class = "video"></div>
+        <p class="section-text">
+          FREs are the “mechanical executors” of the RNA world, as their function is mechanically constricted. Traditionally, they have been fixed by their sequence and have not been controlled dynamically.
+          <br><br>
+          However, <span class = "highlight-word">we are changing that with SKIPPIT</span>
+        </p>
+        <h2 id ="model" class = "section-subtitle">Skippit model: engineering ligand-responsive FRE switches</h2>
+        <h3 id ="conceptual" class = "section-subtitle2">Conceptual overview</h3>
+        <p class="section-text">
+          The Skippit switch converts a static Functional RNA Element (FRE) into a ligand-responsive device by physically coupling it to a ligand-binding aptamer, connected via a short linker designed with our software
+        </p>
+        <div class = "video"></div>
+        <p class="section-text">
+          In the unbound (OFF) configuration, intentional base-pairing between the aptamer region and the FRE disrupts the FRE's functional fold and prevents its activity. We have focused on the use of a Stop Codon Readthrough Element (SCR) as our FRE, and combined it to a theophylline aptamer to create our SKIPPIT riboswitch. 
+        </p>
+        <div class="image-container">
+          <img src = "https://static.igem.wiki/teams/5622/images/description/off-state.webp" alt = "OFF-state">
+          <!-- <p class = "photo-caption">OFF-state</p> -->
+        </div>
+        <p class="section-text">
+          When the cognate ligand binds the aptamer, those interactions are destabilised (the aptamer adopts its ligand-bound fold), freeing the FRE to refold into its functional conformation and restoring activity (ON). 
+        </p>
+        <div class="image-container">
+          <img src = "https://static.igem.wiki/teams/5622/images/description/on-state.webp" alt = "ON-state">
+          <!-- <p class = "photo-caption">OFF-state</p> -->
+        </div>
+        <p class="section-text">
+          The design challenge is to make these two states robust and mutually exclusive under biological conditions.
+        </p>
+        <h3 id ="architecture" class = "section-subtitle2">Molecular architecture and rationale</h3>
+        <p class="section-text">Each construct is organised as three modular elements:</p>
+        <ol>
+          <li><span class="highlight-word">Aptamer</span> - the ligand sensor. Key requirements: known bound conformation, well-characterised binding pocket, and compact structure. In our proof of concept riboswitch, we have used the <span class="italic-word">theophylline aptamer.</span></li>
+          <li><span class="highlight-word">Linker</span> - a short stretch (we use 6-10 nt as our primary search window) that mediates possible base-pairing between aptamer and FRE; acts as the mechanical hinge controlling coupling vs. decoupling. In our proof of concept riboswitch, we have used a linker generated by our software, <span class="italic-word">Tadpole.</span></li>
+          <li><span class="highlight-word">FRE</span> - the functional RNA motif whose activity depends on adopting a specific secondary structure. In our proof of concept riboswitch, we have used a <span class="italic-word">STOP codon Readthrough (SCR) element.</span></li>
+        </ol>
+        <div class="image-container">
+          <img src = "https://static.igem.wiki/teams/5622/images/description/on-off.webp" alt = "ON/OFF-state">
+          <!-- <p class = "photo-caption">OFF-state</p> -->
+        </div>
+        <p class="section-text">Design principles:</p>
+        <ul class="point-list">
+          <li>The linker must permit specific aptamer &#8596; FRE interactions in the OFF state but avoid creating long, stable helices that trap the molecule kinetically.</li>
+          <li>The aptamer's <span class="bold-word">entry and binding nucleotides</span> must remain accessible for ligand binding in the ON state; in practice, we avoid permanent pairing of the binding pocket bases in the OFF design.</li>
+          <li>Critical base pairs that define FRE function must be intentionally disrupted in the OFF state and recoverable in the ON state.</li>
+        </ul>
+      </section>
+      <section id = "software">
+        <h1 class ="section-title">Software: Meet Tadpole</h1>
+        <p class="section-text">
+          Testing and evaluating all possible RNA switch configurations by hand is a very arduous, extensive task. That's why we developed Tadpole, a software that completely automates the design process of these riboswitches.
+          <br><br>
+          Because standard MFE folding programs cannot fully simulate ligand binding (when using aptamers), miniRNA binding (for theoholds), and so on, we need an alternative to simulate the external signal that changes the conformation of the CRE. Therefore, we use <span class="highlight-word">constrained folding</span> to approximate the effect of the external signal (change of configuration of the CRE). The resulting workflow is:
+        </p>
+        <ol>
+          <li><span class="bold-word">Search space generation</span>
+            <ul class ="point-list">
+              <li>Input: aptamer sequence, FRE sequence</li>
+              <li>Generate linker candidates across the chosen length range (6-10 nt by default) and with a small set of composition heuristics (avoid extreme GC runs; prefer mixed composition to reduce off-target pairing)</li>
+            </ul>
+          </li>
+          <li><span class="bold-word">OFF state prediction</span>
+            <ul class ="point-list">
+              <li>Run RNA secondary-structure prediction (RNAfold / ViennaRNA) on the full sequence to get the default MFE fold</li>
+              <li>Analyse pairing patterns: check whether the FRE is disrupted, inspect the accessibility of FRE functional stems</li>
+            </ul>
+          </li>
+          <li><span class="bold-word">ON state approximation</span>
+            <ul class ="point-list">
+              <li>Impose light constraints to mimic the effects of the external signal on the CRE (change on conformation on the CRE)</li>
+              <li>Recompute folding; evaluate whether the FRE recovers its required functional stems and whether the aptamer binding pocket remains available</li>
+            </ul>
+          </li>
+        </ol>
+        <div class="image-container">
+          <img src = "https://static.igem.wiki/teams/5622/images/description/tadpole-steps.webp" alt = "Tadpole">
+          <!-- <p class = "photo-caption">OFF-state</p> -->
+        </div>
+        <p class="section-text">
+          Tadpole automates these steps: enumerates linkers, runs folding predictions, applies constraints, computes metrics, organises candidates and produces visualisations (structure plots, pairing maps) and a shortlist ready for synthesis.
+          <br><br>
+          No coding needed. Opening RNA switch design to any research team, regardless of expertise.
+        </p>
+      </section>
+      <section id="riboswitch">
+        <h1 class="section-title">The SKIPPIT Riboswitch</h1>
+        <h2 id ="switch" class = "section-subtitle">Theophylline-responsive Stop Codon Readthrough switch</h2>
+        <p class="section-text">Using our model and software, we have built a Proof-of-Concept riboswitch that controls the activity of a Stop Codon Readthrough (SCR) element using a theophylline-binding aptamer [cite]. This system enables the ribosome to skip the stop codon during translation to continue the peptide synthesis only in the presence of the ligand, turning protein expression ON or OFF as desired.</p>
+      </section>
+      <section id="future">
+        <h1 class="section-title">Future</h1>
+        <h2 id ="potential" class = "section-subtitle">Foundational technology with therapeutic potential</h2>
+        <p class="section-text">
+          While still early-stage, this work lays the groundwork for RNA-based switches that could one day regulate genes affected by nonsense mutations, offering a new route to therapies for diseases caused by premature stop codons. By providing precise, ligand-controlled readthrough, our system could complement or improve on current chemical treatments.
+          <br><br>
+          Together, SKIPPIT's modelling, software, and proof-of-concept represent a foundational advance that opens up structural RNA regulation as an accessible, programmable tool for synthetic biology and future biomedical applications.
+        </p>
+      </section>
+      <section id="science">
+        <h1 class="section-title">Ressonating science</h1>
+        <h2 id ="society" class = "section-subtitle">Empowering society against misinformation</h2>
+        <p class="section-text">
+          Alongside our technical innovation, we have a deep rooted duty to transmit the inner workings of science to the population in order to truly advance the field and further scientific progress. Without this context, unchecked claims by non-experts can come across as truth to the general populace, whilst expert fact-based statements can be perceived as deceitful. In a world with rising use of AI and fabricated “facts”, we have focused on developing an educational toolkit designed to demystify the scientific process and the people behind it, fostering critical thinking and trust in science.
+          <br><br>
+          Traditional education often falls short in demonstrating the scientific process and the inner workings of breakthrough technologies. To shed light on these, we have developed five adaptable, low-cost activities that present science as a collective, rigorous, creative, and ethical endeavour. Covering ethics, creativity, experimentation, technology, and communication, these activities target secondary education and early college students, and can be tailored by teachers according to their needs. Supported by collaborations with foundations, associations, and local governments, our toolkit aims to outlast iGEM and help build a scientifically literate society.
+        </p>
+        <div class="image-container">
+          <img src = "https://static.igem.wiki/teams/5622/images/description/reineta.webp" alt = "Tadpole">
+          <!-- <p class = "photo-caption">OFF-state</p> -->
+        </div>
+        <p class="section-text">This foundation is essential to ensure that future innovations, like our RNA switches, are understood, responsibly applied, and resilient against pseudoscience and denialism.</p>
+        <h2 id ="offer" class = "section-subtitle">Join us, beyond the finish line, and discover all that SKIPPIT has to offer</h2>
+        <ul class="point-list">
+          <li><a class="link-text" href="{{ url_for('pages', page='description') }}">Dry Lab</a>: Development of our Model and Tadpole</li>
+          <li><a class="link-text" href="{{ url_for('pages', page='description') }}">Parts</a>: Engineered innovation</li>
+          <li><a class="link-text" href="{{ url_for('pages', page='description') }}">Wet Lab</a>: Testing the SKIPPIT riboswitch & characterisation of a new SCR component</li>
+          <li><a class="link-text" href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>: Understanding the need for RNA switches.</li>
+          <li><a class="link-text" href="{{ url_for('pages', page='entrepreneurship') }}">Entrepreneurship</a>: The impact of the RNA world.</li>
+          <li><a class="link-text" href="{{ url_for('pages', page='education') }}">Education</a>: The 5 sides of science.</li>
+        </ul>
+      </section>
+      <section class ="references" id="references">
+        <h1 class="section-title">References</h1>
+        
       </section>
     </div>
   </div>
 </div>
 
+<style>
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
 {% endblock %}
