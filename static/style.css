@@ -63,7 +63,7 @@ html {
 /* Sidebar*/
 .sidebar {
   width: 25%;
-  padding: 4rem;
+  padding: 3rem;
   padding-left:3rem;
   overflow-y: auto;
   position: sticky;
@@ -148,7 +148,7 @@ html {
   align-items: flex-start;
   min-height: 100vh;
   box-sizing: border-box;
-  padding: 3rem 3rem 4rem 6rem;
+  padding: 3rem 3rem 4rem 2.5rem;
 }
 
 /* .page-content {
