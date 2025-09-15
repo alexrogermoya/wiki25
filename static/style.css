@@ -61,17 +61,10 @@ html {
 
 
 /* Sidebar*/
-.page-container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  min-height: 100vh;
-  box-sizing: border-box;
-}
 .sidebar {
   width: 25%;
   padding: 4rem;
-  padding-left:5rem;
+  padding-left:3rem;
   overflow-y: auto;
   position: sticky;
   top: 70px;
@@ -82,12 +75,12 @@ html {
 }
 
 .sidebar-title {
-    color: var(--color-intense-2);
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--color-soft-2);
-    font-weight: 700;
+  color: var(--color-intense-2);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-soft-2);
+  font-weight: 700;
 }
 
 .sidebar-nav {
@@ -149,6 +142,20 @@ html {
   min-width: 0;
   box-sizing: border-box;
 }
+.page-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 3rem 3rem 4rem 6rem;
+}
+
+/* .page-content {
+  margin-left: 25rem;
+  margin-right:10rem;
+  padding: 1rem 0rem;
+} */
 
 @media (max-width: 900px) {
   .page-container {
