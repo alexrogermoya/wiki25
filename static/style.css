@@ -71,6 +71,7 @@ html {
 
 .nav-link{
   color: var(--text);
+  font-weight: var(--fw-semibold);
 }
 .nav-link:hover{
   color:var(--color-soft-3);
@@ -82,13 +83,39 @@ html {
 }
 
 
-
 .dropdown-menu{
   width: 100vw;
-
 }
 
+.navbar .nav-link.dropdown-toggle::after{
+  content: "";
+  display: inline-block;
+  width: .9em;               
+  height: .55em;             
+  margin-left: .35rem;
+  position: relative;
+  top:3px;
+  border: 0;                 
 
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6' preserveAspectRatio='xMidYMid meet'><polyline points='1,1 5,5 9,1' fill='none' stroke='currentColor' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transform-origin: center;
+  transition: transform .18s ease;
+}
+
+.navbar .nav-link.dropdown-toggle[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+  
+}
+
+.navbar .nav-item.dropdown.show > .nav-link.dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+.navbar .nav-link.dropdown-toggle[aria-expanded="true"] {
+  color:var(--color-soft-3);
+}
 
 /* Sidebar*/
 .sidebar {
@@ -164,6 +191,30 @@ html {
 [id] {
   scroll-margin-top: 80px;
 }
+
+  /* Back to Top Button */
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #FF5249;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 100;
+  }
+
+  .back-to-top.show {
+    opacity: 1;
+  }
 
 
 /* PAGE CONTENT */
@@ -617,3 +668,6 @@ footer a:hover {
   height: 30px;
 }
 
+.footer-pages{
+  display:grid;
+}

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const conclusions = document.getElementById('conclusions');
     
     // Variables for back to top
-    const backToTopBtn = document.getElementById('back-to-top');
+    // const backToTopBtn = document.getElementById('back-to-top');
     
     // Variables for DBTL visualization
     const phasesColumn = document.getElementById('phases-column');
@@ -367,28 +367,28 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Back to top functionality
-    window.addEventListener('scroll', function() {
-        const currentScrollPosition = window.scrollY;
-        const scrollingDown = currentScrollPosition > lastScrollPosition;
-        lastScrollPosition = currentScrollPosition;
+    // window.addEventListener('scroll', function() {
+    //     const currentScrollPosition = window.scrollY;
+    //     const scrollingDown = currentScrollPosition > lastScrollPosition;
+    //     lastScrollPosition = currentScrollPosition;
         
-        if (currentScrollPosition > 300) {
-            backToTopBtn.classList.add('show');
-        } else {
-            backToTopBtn.classList.remove('show');
-        }
+    //     if (currentScrollPosition > 300) {
+    //         backToTopBtn.classList.add('show');
+    //     } else {
+    //         backToTopBtn.classList.remove('show');
+    //     }
         
-        if (dbtlSection.classList.contains('show') && scrollEnabled) {
-            updateVisualization(scrollingDown);
-        }
-    });
+    //     if (dbtlSection.classList.contains('show') && scrollEnabled) {
+    //         updateVisualization(scrollingDown);
+    //     }
+    // });
     
-    backToTopBtn.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
+    // backToTopBtn.addEventListener('click', function() {
+    //     window.scrollTo({
+    //         top: 0,
+    //         behavior: 'smooth'
+    //     });
+    // });
     
     // Generate phases for a cycle
     function generatePhasesForCycle(component, cycle, iterations) {

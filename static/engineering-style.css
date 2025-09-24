@@ -351,29 +351,6 @@
     animation: fadeIn 0.5s ease;
   }
 
-  /* Back to Top Button */
-  .back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #FF5249;
-    color: white;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    transition: all 0.3s ease;
-    z-index: 100;
-  }
-
-  .back-to-top.show {
-    opacity: 1;
-  }
 
   .back-to-top:hover {
     background-color: #FF1D11;
