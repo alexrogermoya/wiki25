@@ -1,0 +1,1741 @@
+{% extends "layout.html" %}
+  
+{% block title %}TADPOLE Technicalities{% endblock %}
+{% block lead %}{% endblock %}
+
+{% block page_content %}
+
+<div class="page-container">
+  <aside class="sidebar">
+      <ul class="sidebar-nav">
+          <li><a href="#search" class="active">Search</a>
+            <ul class="sidebar-subnav">
+              <li><a href="#brute-force">Brute Force (BF)</a></li>
+              <li><a href="#genetic-algorithm">Genetic Algorithm (GA)</a></li>
+              <li><a href="#comparison">Comparison</a></li>
+            </ul>
+          </li>
+          <li><a href="#results-visualization">Visualization of the Results</a></li>
+           <li><a href="#principles" class="active">Design Principles</a></li>
+        <li><a href="#essential-inputs">Essential Inputs</a></li>
+        <li><a href="#advanced-parameters">Advanced Parameters</a></li>
+          <li><a href="#references">References</a></li>
+      </ul>
+      
+      <!--EXTRA INFO-->
+      <div class="info-card" id="mfe-info">
+        <div class="card">
+          <h3 class="card-title">Minimum Free Energy (MFE)</h3>
+          <p>The minimum free energy is a thermodynamic measure that predicts the stability of an RNA structure. More negative values indicate more stable structures.</p>
+        </div>
+      </div>
+
+      <div class="info-card" id="fre-info">
+        <div class="card">
+          <h3 class="card-title">FRE (Functional RNA Element)</h3>
+          <p>Functional RNA element that maintains its specific structure and function within the molecular switching system.</p>
+        </div>
+      </div>
+
+      <div class="info-card" id="fitness-info">
+        <div class="card">
+          <h3 class="card-title">Fitness Function</h3>
+          <p>Metric that quantifies the quality of a solution in the genetic algorithm, based on structural and energetic criteria.</p>
+        </div>
+      </div>
+  </aside>
+<div class="info-card" id="extra1">
+        <div class="card">
+          <h3 class="card-title">Pseudoknots & Non-canonical pairs</h3>
+          <p>RNAFold cannot predict pseudoknots or non-canonical base pairs (e.g., A–C, G–A). Use RNAFold's web server to get a simplified structure without these features for your input.</p>
+        </div>
+      </div>
+
+      <div class="info-card" id="extra2">
+        <div class="card">
+          <h3 class="card-title">Energy Calculations</h3>
+          <p>The minimum energy difference ensures OFF state dominates without ligand binding, and ON state dominates once binding adds stabilizing energy.</p>
+        </div>
+      </div>
+
+      <div class="info-card" id="extra3">
+        <div class="card">
+          <h3 class="card-title">Search Space Complexity</h3>
+          <p>Brute Force becomes impractical for linkers >7 nt or when mutations are enabled. Use Genetic Algorithm for complex designs.</p>
+        </div>
+      </div>
+
+      <div class="info-card" id="extra4">
+        <div class="card">
+          <h3 class="card-title">Constraint Notation</h3>
+          <p>Use ( ) for forced pairs, x for unpaired, < > for directional pairing permissions, and . for no restrictions.</p>
+        </div>
+      </div>
+  </aside>
+
+  <div class="page-content">
+    <div class="header">
+      <h1 class="page-title">TADPOLE: Technicalities</h1>
+      <p class="page-desc">Understand Tadpole's technical aspects to harness its full potential.</p>
+    </div>
+    
+    <div class="content">
+      <!-- Search -->
+      <section id="search">
+        <h1 class="section-title">Search</h1>
+        <p class="section-text">The search step determines how <span class="highlight-word">TADPOLE</span> explores the RNA sequence space to find sequences that satisfy the desired folding and switching criteria. There are two main strategies: <span class="bold-word">Brute Force (BF)</span> and <span class="bold-word">Genetic Algorithm (GA)</span>.</p>
+      </section>
+
+      <!-- TRANSPARENCY NOTE -->
+      <section id="transparency">
+        <h1 class="section-title">Transparency Note</h1>
+        <div class="card">
+          <h3 class="card-title">Current Implementation</h3>
+          <p>As currently implemented, the search is not executed in parallel, but both search strategies could in principle run concurrently. In all cases, the individual evaluations are independent of each other, which means the brute force approach could be parallelized except for the final step of selecting the best candidate.</p>
+          <br>
+          <p>Similarly, in the genetic algorithm, the <span class="highlight-word info-word" data-target="fitness-info">fitness</span> evaluations within a generation can also be carried out independently.</p>
+          <br>
+          <p><span class="bold-word">Therefore, while the process may appear slow, in theory we could achieve roughly a 5× speedup without re-implementing it in another language, assuming ~8 threads on modern CPUs.</span> For the genetic algorithm, we could also scale the population size by this factor and expect better results in the same runtime.</p>
+        </div>
+      </section>
+
+      <!-- BRUTE FORCE -->
+      <section id="brute-force">
+        <h1 class="section-title">Brute Force (BF)</h1>
+        <p class="section-text">The brute force method guarantees that all possible solutions are explored, but it has important limitations regarding time and scalability.</p>
+
+        <h3 id="bf-workflow" class="section-subtitle">Workflow of Brute Force</h2>
+        
+        <div class="accordion">
+          <div class="accordion-header">
+              <div class="accordion-title">Detailed BF Process Steps</div>
+              <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+              <div class="accordion-content-inner">
+                  <p><span class="bold-word">1. Linker generation:</span> All specified linker lengths are iterated, and all possible nucleotide combinations (A, U, G, C) are generated.</p>
+                  <p><span class="bold-word">2. Evaluation:</span> The linker is concatenated with RNA1 and RNA3 to form the complete sequence.</p>
+                  <p><span class="bold-word">3. Prediction:</span> The structure and Minimum Free Energy (MFE) are predicted.</p>
+                  <p><span class="bold-word">4. Filtering:</span> Designs are discarded if they fail the established criteria.</p>
+              </div>
+          </div>
+        </div>
+       <div style="text-align: center;">
+              <img 
+                src="{{ url_for('static', filename='images/BF_workflow.png') }}" 
+                alt="BF workflow" 
+                style="width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+              >
+              <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Workflow of the Brute Force algorithm. </p>
+        
+            </div> 
+        
+
+        <h3 id="linker-generation" class="section-subtitle2">Linker generation</h3>
+        <p class="section-text">All specified linker lengths are iterated, and all possible nucleotide combinations <span class="italic-word">(A, U, G, C)</span> are generated.</p>
+
+        <h3 id="evaluation" class="section-subtitle2">Evaluation of each linker</h3>
+        <ul class="point-list">
+          <li>The linker is concatenated with RNA1 and RNA3 to form the complete sequence</li>
+          <li>The structure and <span class="highlight-word info-word" data-target="mfe-info">Minimum Free Energy (MFE)</span> are predicted</li>
+          <li>Designs are discarded if they fail the following criteria:</li>
+        </ul>
+
+        <div class="cards-container">
+          <div class="card">
+            <h3 class="card-title">OFF-State (without ligand)</h3>
+            <p>• Number of base pairs between RNA1 and RNA3 ≤ Maximum number of FRE-CRE pairings<br>
+            • Watched positions in <span class="highlight-word info-word" data-target="fre-info">FRE</span> must change state to construct the OFF conformation</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">ON-State (with ligand)</h3>
+            <p>• The FRE substructure must remain functional, allowing only a limited number of changes<br>
+            • Maximum changes on the FRE structure</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">Delta MFE</h3>
+            <p>• The difference between ON and OFF MFE must exceed Minimum Energy difference (kcal/mol)<br>
+            • Fundamental energetic criterion for switching</p>
+          </div>
+        </div>
+
+        <h4 class="section-subtitle3">Optional FRE mutations</h4>
+        <p class="section-text">If <span class="italic-word">"allow mutations in FRE"</span> is checked, mutations in FRE are tried for linkers that fail the delta MFE, and the criteria are re-evaluated.</p>
+
+        
+        <h2 id="bf-limitations" class="section-subtitle">Limitations and When to Use BF</h2>
+        <div class="card">
+          <h3 class="card-title">Usage Recommendations</h3>
+          <p><span class="bold-word">Recommended for short linkers</span> (up to 6–7 nucleotides), where the search space is manageable.</p>
+          <br>
+          <p><span class="highlight-word">Complexity grows exponentially</span> with linker length or RNA1 mutations:</p>
+          <ul class="point-list">
+            <li>Length 6 → 4^6 = 4,096 combinations</li>
+            <li>Two FRE mutations → 4^6 × 3^2 = 36,864 combinations</li>
+          </ul>
+          <p>For longer linkers or systems requiring mutations, BF becomes computationally infeasible.</p>
+        </div>
+      </section>
+
+      <!-- GENETIC ALGORITHM -->
+      <section id="genetic-algorithm">
+        <h1 class="section-title">Genetic Algorithm (GA)</h1>
+        <p class="section-text">The GA is a more efficient method for exploring large, complex search spaces without evaluating every possible combination. It is inspired by biological evolution and optimizes solutions over multiple generations.</p>
+
+        <h2 id="ga-concepts" class="section-subtitle">Key Concepts</h2>
+        <div class="cards-container">
+          <div class="card">
+            <h3 class="card-title">Population</h3>
+            <p>a set of potential solutions (individuals or chromosomes)</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">Genes</h3>
+            <p>features of each solution (e.g., nucleotides in the linker)</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">Fitness function</h3>
+            <p>scores how close each individual is to the desired solution</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">Evolutionary cycle</h3>
+            <p>evaluation → selection → recombination (crossover) → mutation → new generation</p>
+          </div>
+        </div>
+
+        <h2 id="ga-workflow" class="section-subtitle">Workflow of GA for Linker Search</h2>
+        <div style="text-align: center; margin: 20px 0;">
+              <img 
+                src="{{ url_for('static', filename='images/GA_workflow.png') }}" 
+                alt="GA workflow" 
+                style="width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+              >
+              <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Workflow of the Genetic Algorithm. </p>
+        
+            </div> 
+        
+        <div class="accordion">
+          <div class="accordion-header">
+              <div class="accordion-title">Initial population</div>
+              <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+              <div class="accordion-content-inner">
+                  <p>A population of random linkers of fixed length is generated.</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-header">
+              <div class="accordion-title">Fitness evaluation</div>
+              <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+              <div class="accordion-content-inner">
+                  <p>Each linker is evaluated using the same criteria as BF: OFF-state, ON-state, delta MFE, and optional FRE mutations.</p>
+                  <p>Linkers failing criteria receive a very low fitness score.</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-header">
+              <div class="accordion-title">Selection</div>
+              <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+              <div class="accordion-content-inner">
+                  <p>The best linkers are chosen to reproduce the next generation.</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-header">
+              <div class="accordion-title">Crossover (recombination)</div>
+              <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+              <div class="accordion-content-inner">
+                  <p>Parts of two parent linkers are combined to produce new child linkers.</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-header">
+              <div class="accordion-title">Mutation</div>
+              <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+              <div class="accordion-content-inner">
+                  <p>Nucleotides are randomly altered in the linker, and the allowed positions on the FRE to maintain diversity and avoid local optima.</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-header">
+              <div class="accordion-title">Iteration</div>
+              <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+              <div class="accordion-content-inner">
+                  <p>Steps 2–5 are repeated until stopping criteria are met (e.g., target fitness, max generations, or convergence).</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-header">
+              <div class="accordion-title">Results</div>
+              <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+              <div class="accordion-content-inner">
+                  <p>Linker sequences, ON/OFF structures, MFE, mutations, fitness scores, and clustering of structures are saved.</p>
+              </div>
+          </div>
+        </div>
+
+        <h2 id="ga-when-use" class="section-subtitle">When to Use GA</h2>
+        <div class="card">
+          <h3 class="card-title">Recommended Usage</h3>
+          <p><span class="bold-word">Recommended for long linkers (>7 nucleotides)</span> or when FRE mutations are needed.</p>
+          <br>
+          <p>Efficiently explores large search spaces, finding diverse solutions without exhaustive enumeration.</p>
+          <br>
+          <p>The complexity of GA can be controlled through parameters such as population size and number of cycles, and in principle should grow linearly with them. A useful way to visualize its behavior is to plot how the fitness (average or minimum) evolves across cycles—this information is already tracked in the code.</p>
+          <br>
+          <p><span class="highlight-word">While GA cannot guarantee the absolute best solution in very large search spaces, it is expected to consistently provide a "good enough" solution.</span></p>
+        </div>
+
+        
+
+      <!-- COMPARISON -->
+      <section id="comparison">
+        <h1 class="section-title">Comparison BF vs GA</h1>
+        
+        <div style="overflow-x: auto; margin: 20px 0;">
+          <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <thead>
+              <tr style="background: #f8f9fa;">
+                <th style="padding: 15px; text-align: left; border-bottom: 2px solid #dee2e6; font-weight: 600;">Feature</th>
+                <th style="padding: 15px; text-align: left; border-bottom: 2px solid #dee2e6; font-weight: 600;">Brute Force (BF)</th>
+                <th style="padding: 15px; text-align: left; border-bottom: 2px solid #dee2e6; font-weight: 600;">Genetic Algorithm (GA)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 12px 15px; border-bottom: 1px solid #dee2e6; font-weight: 500;">Solution coverage</td>
+                <td style="padding: 12px 15px; border-bottom: 1px solid #dee2e6;">All possible solutions</td>
+                <td style="padding: 12px 15px; border-bottom: 1px solid #dee2e6;">Subset of promising solutions</td>
+              </tr>
+              <tr style="background: #f8f9fa;">
+                <td style="padding: 12px 15px; border-bottom: 1px solid #dee2e6; font-weight: 500;">Execution time</td>
+                <td style="padding: 12px 15px; border-bottom: 1px solid #dee2e6;">Exponential with length</td>
+                <td style="padding: 12px 15px; border-bottom: 1px solid #dee2e6;">Efficient in large search spaces</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 15px; border-bottom: 1px solid #dee2e6; font-weight: 500;">Recommended linker length</td>
+                <td style="padding: 12px 15px; border-bottom: 1px solid #dee2e6;">Short (≤6–7 nt)</td>
+                <td style="padding: 12px 15px; border-bottom: 1px solid #dee2e6;">Long (>7 nt)</td>
+              </tr>
+              <tr style="background: #f8f9fa;">
+                <td style="padding: 12px 15px; border-bottom: 1px solid #dee2e6; font-weight: 500;">FRE mutations</td>
+                <td style="padding: 12px 15px; border-bottom: 1px solid #dee2e6;">Feasible only in small combinations</td>
+                <td style="padding: 12px 15px; border-bottom: 1px solid #dee2e6;">Easily handled</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 15px; border-bottom: 1px solid #dee2e6; font-weight: 500;">Solution diversity</td>
+                <td style="padding: 12px 15px; border-bottom: 1px solid #dee2e6;">High (all solutions)</td>
+                <td style="padding: 12px 15px; border-bottom: 1px solid #dee2e6;">High if diversity maintained</td>
+              </tr>
+              <tr style="background: #f8f9fa;">
+                <td style="padding: 12px 15px; font-weight: 500;">Implementation complexity</td>
+                <td style="padding: 12px 15px;">Simple</td>
+                <td style="padding: 12px 15px;">Requires fitness function and GA operators</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; margin: 30px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+          <div style="background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; text-align: center;">
+            <h2 style="color: #2c3e50; font-size: 28px; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;"> CONCLUSION</h2>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
+              <div style="background: #e8f5e8; padding: 20px; border-radius: 10px; border-left: 5px solid #27ae60; flex: 1; min-width: 250px;">
+                <h3 style="color: #27ae60; font-weight: bold; margin-bottom: 10px; font-size: 20px;"> BRUTE FORCE (BF)</h3>
+                <p style="color: #2c3e50; font-size: 16px; font-weight: 500;">Use for <strong>exhaustive searches in small spaces</strong></p>
+              </div>
+              <div style="background: #e8f4fd; padding: 20px; border-radius: 10px; border-left: 5px solid #3498db; flex: 1; min-width: 250px;">
+                <h3 style="color: #3498db; font-weight: bold; margin-bottom: 10px; font-size: 20px;"> GENETIC ALGORITHM (GA)</h3>
+                <p style="color: #2c3e50; font-size: 16px; font-weight: 500;">Use for <strong>large problems, long linkers, and/or with mutations</strong>, efficiently exploring diverse solutions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESULTS VISUALIZATION -->
+      <section id="results-visualization">
+        <h1 class="section-title">Visualization and Download of Results</h1>
+        <p class="section-text">Once the software has completed the search and clustering of designs, the results are presented clearly and interactively through the Streamlit interface. In addition to visualization on the platform, TADPOLE provides several options for downloading and exporting data, ensuring reproducibility and compatibility with other tools.</p>
+
+        <h2 class="section-subtitle" style="color: #9D0800;">Compressed File (.zip)</h2>
+        <p class="section-text">For quick and complete access to all search data, TADPOLE generates a compressed file (.zip) that meticulously organizes all relevant files. This download package is essential for archiving your work results or sharing them with other researchers. The contents of the .zip file include:</p>
+
+        <div class="accordion">
+          <div class="accordion-header">
+              <div class="accordion-title">Organization by Cluster</div>
+              <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+              <div class="accordion-content-inner">
+                  <p>Within the .zip, files are organized in separate folders, one for each cluster of structurally similar designs. This facilitates navigation and analysis of solution families.</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-header">
+              <div class="accordion-title">Structure Files</div>
+              <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+              <div class="accordion-content-inner">
+                  <p>For each design, you will find:</p>
+                  <ul class="point-list">
+                    <li><span class="bold-word">Structure Images:</span> High-quality visualizations of the predicted secondary structures for ON and OFF states.</li>
+                    <li><span class="bold-word">.ps Files:</span> PostScript format files that allow high-resolution visualization and are compatible with bioinformatics tools like R-scape.</li>
+                    <li><span class="bold-word">Text Files (.txt):</span> Text documents with the RNA sequence, folding energies (MFE and ΔMFE), and structures in dot-bracket notation for each design. This allows you to easily import the data into other scripts or databases.</li>
+                  </ul>
+              </div>
+          </div>
+        </div>
+
+        <h2 class="section-subtitle" style="color: #9D0800;">Detailed HTML Report</h2>
+        <p class="section-text">The HTML report can be viewed immediately or downloaded as an independent file, allowing users to quickly access a summary of the results. This document provides a comprehensive analysis of the search, designed to help you make an informed decision about which designs to take to the laboratory.</p>
+
+        
+
+        <h5 class="section-subtitle2">Metrics Analysis and Design Ranking</h3>
+        <p class="section-text">Rather than including graphs, the report presents the most promising designs in two ordered lists. This allows users who don't want to perform exhaustive analysis to quickly identify the best options. Designs are ordered as follows:</p>
+
+        <div class="cards-container">
+          <div class="card">
+            <h3 class="card-title">By Minimum Free Energy (ΔMFE)</h3>
+            <p>Designs are listed from highest to lowest according to the closeness of their ΔMFE to the input value provided by the user. The closest design is considered the best in terms of stability.</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">By FRE-CRE Pairings</h3>
+            <p>Designs are ordered from highest to lowest according to the closeness of the number of base pairs between the FRE and CRE to the input value. A good design will have a number of pairings close to the optimal value for the desired state.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Success Criteria</h5>
+          <p>These two criteria are crucial for determining the success of an RNA switch. <span class="highlight-word">The best design will be one that combines adequate folding energy with the correct number of pairings.</span></p>
+        </div>
+
+        <h5 class="section-subtitle2">Cluster Analysis</h5>
+        <p class="section-text">For each cluster of designs, the report shows only the representative. This representative is the design that has the minimum free energy (MFE) closest to the MFE of the structure you provided as input. This helps you understand the common structural solutions found and identify the most robust design families, choosing the best from each group.</p>
+        <h5 class="section-subtitle2">Example Report</h5>
+        <div style="border: 2px dashed #999; border-radius: 8px; padding: 10px; margin: 20px 0;">
+            <object 
+              data="{{ url_for('static', filename='images/report.html') }}" 
+              type="text/html" 
+              style="width: 100%; height: 600px;"
+            >
+              Your browser does not support embedding HTML.
+            </object>
+          </div>
+        <h2 class="section-subtitle" style="color: #9D0800;">SBOL3 Format Export</h2>
+        <p class="section-text">TADPOLE offers the option to export designs in SBOL3 (Synthetic Biology Open Language), a crucial standard for interoperability in synthetic biology. This format allows standardized representation of designs, ensuring they can be shared and used in other tools.</p>
+
+        <div class="cards-container">
+          <div class="card">
+            <h3 class="card-title">Design Description</h3>
+            <p>The SBOL3 file (.jsonld) contains a complete description of your RNA switch. This includes the complete RNA sequence as well as additional metadata in JSON format.</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">RNA Component (sbol3:Component)</h3>
+            <p>Each design is exported as an RNA component. This component has a unique identifier and defined role, making it compatible with other systems that handle the SBOL standard.</p>
+          </div>
+        </div>
+
+        <h3 class="section-subtitle2">Key Metadata</h3>
+        <p class="section-text">Within the JSON description, the following parameters are included for each design:</p>
+        
+        <div class="accordion">
+          <div class="accordion-header">
+              <div class="accordion-title">Structural Information</div>
+              <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+              <div class="accordion-content-inner">
+                  <ul class="point-list">
+                    <li><span class="bold-word">structure_unconstrained:</span> The dot-bracket structure of the OFF state.</li>
+                    <li><span class="bold-word">structure_constrained:</span> The dot-bracket structure of the ON state.</li>
+                  </ul>
+              </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-header">
+              <div class="accordion-title">Energetic Information</div>
+              <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+              <div class="accordion-content-inner">
+                  <ul class="point-list">
+                    <li><span class="bold-word">mfe_unconstrained:</span> The minimum free energy of the OFF state.</li>
+                    <li><span class="bold-word">mfe_constrained:</span> The minimum free energy of the ON state.</li>
+                  </ul>
+              </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-header">
+              <div class="accordion-title">Mutation Information</div>
+              <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+              <div class="accordion-content-inner">
+                  <p><span class="bold-word">mutations:</span> Information about any mutations performed in the SRE to optimize the design.</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Interoperability and Collaboration</h3>
+          <p>The ability to export in this format is essential for collaboration and reproducibility, allowing your designs to integrate seamlessly into the broader synthetic biology ecosystem.</p>
+          <br>
+          <p><span class="highlight-word">This standardized format ensures that your RNA switch designs can be easily shared, validated, and reused across different research groups and computational platforms.</span></p>
+        </div>
+
+        <h3 class="section-subtitle2">Example: How to Read the Exported Results in Your Own Project</h3>
+        <div class="code-container">
+          <pre><code class="language-python">
+>>> import sbol3
+>>> doc = sbol3.Document()
+>>> doc.read('/path/to/all_linkers.jsonld')
+
+# Once the document is loaded, you can access both the sequences and the associated metadata
+>>> for obj in doc.objects:
+...     print(obj.identity, obj.name)
+...     if hasattr(obj, "sequences"):
+...         for seq in obj.sequences:
+...             print("  Sequence:", seq.elements)
+          </code></pre>
+        </div>
+
+        <p class="section-text">This way, you can not only reuse the generated constructs but also inspect their contextual information (names, descriptions, annotations, etc.), making it easier to integrate them into other projects or tools.</p>
+      </section>
+    
+
+    <!-- DESIGN PRINCIPLES -->
+      <section id="principles">
+        <h1 class="section-title">Principles for Selecting a Functional RNA Switch</h1>
+        <!-- QUICK START SECTION -->
+    <div class="quick-start-section">
+      <h2 class="section-title">Quick Start Guide</h2>
+      <p class="section-text">Get started with TADPOLE in 4 simple steps:</p>
+      
+      <div class="quick-start-grid">
+        <div class="quick-start-card">
+          <div class="step-number">1</div>
+          <h3>Add FRE Sequence</h3>
+          <p>Input your functional RNA element sequence</p>
+        </div>
+        
+        <div class="quick-start-card">
+          <div class="step-number">2</div>
+          <h3>Add CRE Sequence</h3>
+          <p>Input your conformational RNA element</p>
+        </div>
+        <div class="quick-start-card">
+          <div class="step-number">3</div>
+          <h3>Add CRE Structure</h3>
+          <p>The theoretical structure of your CRE element</p>
+        </div>
+        <div class="quick-start-card">
+          <div class="step-number">4</div>
+          <h3>Set Target Structure</h3>
+          <p>Define the functional structure in dot-bracket notation</p>
+        </div>
+        
+        
+      </div>
+    </div>
+        <p class="section-text">To construct a functional regulatory RNA switch, it is not enough to simply join an FRE and a CRE. A <span class="highlight-word">linker of defined length (typically 6–10 nucleotides)</span> is essential to connect the two modules and control whether they influence each other.</p>
+        
+        <p class="section-text">The activation mechanism follows a ligand-dependent energy shift:</p>
+        
+        <div class="cards-container">
+          <div class="card">
+            <h3 class="card-title">OFF State (unbound)</h3>
+            <p>Without the ligand, the RNA adopts the most stable configuration, where the structural element is disrupted, preventing readthrough.</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">ON State (bound)</h3>
+            <p>Ligand binding stabilizes the aptamer, restoring the functional structure of the structural element, thus allowing readthrough.</p>
+          </div>
+        </div>
+        
+        <h2 id="main-criteria" class="section-subtitle">Main Design Criteria</h2>
+        <p class="section-text">The main design criteria for selecting a suitable linker are (See more information on the <a class="link-text" href="{{ url_for('pages', page='model')}}">Model Page</a>):</p>
+        
+        <div class="cards-container">
+          <div class="card">
+            <h3 class="card-title">Energy difference</h3>
+            <p>The OFF-state must initially be more stable than the ON-state by roughly half the ligand binding energy. Ligand binding then lowers the energy of the ON-state, making it the most stable configuration.</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">Limited inter-module pairings</h3>
+            <p>Pairings between the aptamer and structural element in the unbound state must be limited, so the switch can properly transition between OFF and ON.</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">Accessible binding sites</h3>
+            <p>Nucleotides forming the aptamer's entry and binding sites should be mostly free to allow ligand interaction.</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">Structural element disruption in OFF-state</h3>
+            <p>Key nucleotides responsible for structural element function should be disrupted in the OFF state to ensure the switch is inactive.</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">Structural element preservation in ON-state</h3>
+            <p>The same functional nucleotides should form their correct structure upon ligand binding.</p>
+          </div>
+        </div>
+        
+        <h2 id="important-notes" class="section-subtitle">Important Notes</h2>
+        <p class="section-text">All this is evaluated from the inputs of the user. The user needs to know necessarily: <span class="highlight-word">The sequence and structure (even if just predicted) of their FRE, and the functional parts of the structure</span> (the key substructures for function).</p>
+        
+        <p class="section-text"><span class="bold-word">In case the FRE's structure you aim to study is not well characterised, follow the next steps:</span></p>
+        <ul class="point-list">
+          <li>Use RNAFold to predict the structure of your element.</li>
+          <li>In order to identify the functional parts of your structure, this software includes an evolutionary analysis using a multiple sequence alignment (MSA) to help characterise conserved structural features.</li>
+        </ul>
+      </section>
+
+      <!-- ESSENTIAL INPUTS -->
+      <section id="essential-inputs">
+        <h1 class="section-title">Essential Inputs</h1>
+        
+        <p class="section-text">Designing a switch with TADPOLE starts with a small set of inputs. At its core, you only need to tell the software two things:</p>
+        
+        <ul class="point-list">
+          <li><span class="bold-word">The RNA element that performs the function (FRE).</span></li>
+          <li><span class="bold-word">The RNA element that acts as the control (CRE).</span></li>
+        </ul>
+        
+        <p class="section-text">From there, you can refine your design by specifying desired structures, constraints, and the type of search method to use. The default values are based on our <span class="highlight-word">SECIS+theophylline aptamer system</span> 
+          (See the tutorial on the <a class="link-text" href="{{ url_for('pages', page='software') }}">Software Page</a> for a guided explanation), 
+          so you can start experimenting right away without having to configure everything from scratch.</p>
+
+        <!-- FRE Sequence Accordion -->
+        <div class="accordion" id="fre-sequence">
+          <div class="accordion-header">
+            <div class="accordion-title">Functional RNA Element (FRE) Sequence</div>
+            <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p class="section-text">The RNA sequence of your functional element — the part that performs the biological action in the ON state.</p>
+              
+             <div class="example-container">
+                <h4 class="example-title">Example: SECIS Element</h4>
+                <div class="example-content">
+                  <div class="sequence-display">
+                    <span class="sequence-label">FRE Sequence:</span>
+                    <div class="sequence-box">
+                      <code>GGGCUCUGAAGCCGCUGAGCAAUGACCCUUUGGGUUCUGAGGCCCUGCUUUGGGGCGCAGGGACUUAAACCC</code>
+                    </div>
+                  </div>
+                  <p class="example-description">The SECIS element enables stop codon readthrough to insert selenocysteine.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CRE Sequence Accordion -->
+        <div class="accordion" id="cre-sequence">
+          <div class="accordion-header">
+            <div class="accordion-title">Conformational RNA Element (CRE) Sequence </div>
+            <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p class="section-text">The RNA sequence of your control element — the part that changes conformation in response to a signal.</p>
+              
+              <div class="example-container">
+                <h4 class="example-title">Example: Theophylline Aptamer</h4>
+                <div class="example-content">
+                  <div class="sequence-display">
+                    <span class="sequence-label">CRE Sequence:</span>
+                    <div class="sequence-box">
+                      <code>GAUACCAGCAUCGUCUUGAUGCCCUUGGCAGCACCUUGCUAAGCCAUGA</code>
+                    </div>
+                  </div>
+                  <p class="example-description">An aptamer sequence that binds a ligand and changes shape to regulate translation.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Targeted Structure Accordion -->
+        <div class="accordion" id="targeted-structure">
+          <div class="accordion-header">
+            <div class="accordion-title">Targeted Structure of the FRE (dot-bracket) </div>
+            <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p class="section-text">This input defines the exact RNA structure that your Functional RNA Element (FRE) must adopt in its active ON state.</p>
+              
+              <p class="section-text">The structure is written using dot-bracket notation, a standard way to describe RNA folding:</p>
+              
+              <div class="notation-grid">
+                <div class="notation-item">
+                  <span class="notation-symbol">()</span>
+                  <span class="notation-desc">Paired bases</span>
+                </div>
+                <div class="notation-item">
+                  <span class="notation-symbol">.</span>
+                  <span class="notation-desc">Unpaired bases</span>
+                </div>
+              </div>
+              
+              <div class="example-container">
+                <h4 class="example-title">Example: SECIS Structure</h4>
+                <div class="example-content">
+                  <div class="structure-display">
+                    <span class="sequence-label">Target Structure:</span>
+                    <div class="structure-box">
+                      <code>.((((.((....)).)))).</code>
+                    </div>
+                  </div>
+                  <p class="example-description">Without this targeted structure, the FRE would not carry out its function (e.g., enabling stop codon readthrough in SECIS).</p>
+                </div>
+              </div>
+              
+              <h3 class="section-subtitle2">How it is used in TADPOLE</h3>
+              <p class="section-text">Unlike constraints, this structure is not forced during folding prediction. Instead, TADPOLE generates candidate folds (via RNAFold) and then checks whether the predicted FRE conformation matches the structure you provided.</p>
+              
+              <div class="cards-container">
+                <div class="card">
+                  <h4 class="card-title">If it matches</h4>
+                  <p>The design is considered functionally valid.</p>
+                </div>
+                <div class="card">
+                  <h4 class="card-title">If it does not match</h4>
+                  <p>The design is rejected.</p>
+                </div>
+              </div>
+              
+              <p class="section-text">This ensures that the FRE only counts as "ON" when it naturally adopts the conformation required for its function (e.g., a SECIS element forming the correct stem–loop for stop codon readthrough).</p>
+              
+              <p class="section-text"><span class="highlight-word info-word" data-target="extra1">Important note on pseudoknots and non-canonical pairs</span>: RNAFold cannot predict certain RNA features, such as pseudoknots or non-canonical base pairs (e.g., A–C, G–A). If your FRE relies on these features, the software will never predict them, and therefore, it will never "match" your input if you include them.</p>
+              
+              <h4 class="section-subtitle3">Solution:</h4>
+              <ol class="point-list">
+                <li>First, fold your FRE independently in RNAFold's web server.</li>
+                <li>Take the predicted structure without pseudoknots or non-canonical pairs (which will still be a reasonable approximation of the true fold).</li>
+                <li>Use this simplified structure as your FRE input (struct1).</li>
+              </ol>
+
+              <p class="section-text">This way, TADPOLE will be able to match predicted folds against your input and still filter valid ON states correctly, even if the biological element is more complex in reality.</p>
+
+              <div class="example-container">
+                <h4 class="example-title">📋 Example: SECIS FRE</h4>
+                <div class="example-content">
+                  <p>In our own construct, the theoretical structure for the SECIS element had G-A, A-G and U-U pairs that are non-canonical, and therefore, RNAFold can't predict. Following the steps mentioned above, we predicted the structure on RNAFold and got a similar structure overall, but without those non-canonical pairs. That is the structure used on our design and the default option for TADPOLE.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Watched Positions Accordion -->
+        <div class="accordion" id="watched-positions">
+          <div class="accordion-header">
+            <div class="accordion-title">Watched Positions for FRE</div>
+            <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <h3 class="section-subtitle2">What it is</h3>
+              <p class="section-text">Watched positions are a user-defined set of nucleotides in the Functional RNA Element (FRE) that are structurally critical for function. The idea is:</p>
+              
+              <ul class="point-list">
+                <li>These positions do not have to be the only important sites, but if they are disrupted in the OFF state, the FRE is considered non-functional (which is the desired outcome for an OFF state).</li>
+                <li>TADPOLE evaluates these positions relative to the OFF-state structure: if these nucleotides change their pairing status (paired ↔ unpaired) compared to the functional ON state, the FRE is considered disrupted.</li>
+                <li>In short, these positions act as reporter sites: their disruption indicates loss of function.</li>
+              </ul>
+
+              <p class="section-text"><span class="bold-word">Note:</span> The ON state is defined by your reference structure (dot-bracket input). The check is whether these positions are disrupted in the OFF state.</p>
+
+              <h3 class="section-subtitle2">How to use</h3>
+              <p class="section-text"><span class="bold-word">Input format:</span> a list of 1-based indices referring to positions within the FRE sequence.</p>
+              
+              <div class="example-container">
+                <h4 class="example-title">📋 Example: SECIS Watched Positions</h4>
+                <div class="example-content">
+                  <div class="position-display">
+                    <span class="sequence-label">Watched Positions:</span>
+                    <div class="position-box">
+                      <code>14, 15, 16, 17, 56, 57, 58, 59</code>
+                    </div>
+                  </div>
+                  <div class="position-explanation">
+                    <p><strong>Functional core region:</strong> nucleotides 10–63</p>
+                    <p><strong>Strategy:</strong> Monitor key stem positions that maintain structural integrity</p>
+                  </div>
+                </div>
+              </div>
+
+              <h3 class="section-subtitle2">Effect of changing this input</h3>
+              <div class="cards-container">
+                <div class="card">
+                  <h4 class="card-title">Fewer watched positions</h4>
+                  <p>More permissive search, higher chance to find candidates, but subtle structural drift may occur in the core.</p>
+                </div>
+                <div class="card">
+                  <h4 class="card-title">More watched positions</h4>
+                  <p>Tighter structural control and higher confidence, but the search may be over-constrained and discard viable solutions.</p>
+                </div>
+              </div>
+
+              <h3 class="section-subtitle2">Practical tips</h3>
+              <ul class="point-list">
+                <li><span class="bold-word">Start minimal:</span> pick 1–2 sentinel sites that truly report on function (e.g., stem-closing pair + 1–2 loop residues).</li>
+                <li><span class="bold-word">Don't watch everything:</span> a representative subset is usually enough.</li>
+                <li><span class="bold-word">Paired bases:</span> if a nucleotide is paired, you don't need to watch both sides—disruption of one will inherently affect the other.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Restriction Chain Accordion -->
+        <div class="accordion" id="restriction-chain">
+          <div class="accordion-header">
+            <div class="accordion-title">Restriction Chain for the CRE (constraint)</div>
+            <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p class="section-text">This input is used to simulate the structural change that the Conformational RNA Element (CRE) undergoes in response to an external factor (e.g., ligand binding, temperature shift, miRNA interaction).</p>
+              
+              <p class="section-text">Since TADPOLE cannot explicitly model how every possible external signal alters RNA folding, the constraint string acts as a proxy: it restricts or permits base pairing in specific regions, guiding RNAFold to approximate the desired conformational shift.</p>
+              
+              <h3 class="section-subtitle2">How it works</h3>
+              <ul class="point-list">
+                <li>The constraint is a dot-bracket–like string aligned to the CRE sequence (must have the same length).</li>
+                <li>During folding prediction, these rules tell RNAFold which bases may or may not interact, and in which direction.</li>
+                <li>Unlike the FRE target structure, here the constraint is imposed: the algorithm will enforce it.</li>
+              </ul>
+              
+              <h3 class="section-subtitle2">Notation</h3>
+              <p class="section-text"><span class="highlight-word info-word" data-target="extra4">Constraint notation guide</span>:</p>
+              <div class="cards-container">
+                <div class="card">
+                  <h4 class="card-title">( )</h4>
+                  <p>Forced paired bases</p>
+                </div>
+                <div class="card">
+                  <h4 class="card-title">x</h4>
+                  <p>Forced unpaired base</p>
+                </div>
+                <div class="card">
+                  <h4 class="card-title">&lt;</h4>
+                  <p>Base may only pair with nucleotides on its 3′ side (to the right)</p>
+                </div>
+                <div class="card">
+                  <h4 class="card-title">&gt;</h4>
+                  <p>Base may only pair with nucleotides on its 5′ side (to the left)</p>
+                </div>
+                <div class="card">
+                  <h4 class="card-title">.</h4>
+                  <p>No restriction</p>
+                </div>
+              </div>
+
+              <p class="section-text">Think of &lt; and &gt; as soft pairing permissions: they don't fix exact partners, just limit the possible direction of interactions.</p>
+              
+              <h3 class="section-subtitle2">Two ways to use constraints</h3>
+              
+              <div class="cards-container">
+                <div class="card">
+                  <h4 class="card-title">Full explicit fold (hard constraint)</h4>
+                  <p>Provide the complete secondary structure of the CRE (dot-bracket).</p>
+                  <p><span class="bold-word">Pros:</span> ensures the fold matches a known conformation.</p>
+                  <p><span class="bold-word">Cons:</span> can be over-constraining; the algorithm is forced to a structure that may not be realistic, reducing design robustness.</p>
+                </div>
+                
+                <div class="card">
+                  <h4 class="card-title">Minimal restrictions (soft constraints, recommended)</h4>
+                  <p>Instead of fixing the entire structure, define only the critical bases (e.g., which must stay unpaired, or which region must look 5′/3′ for pairing).</p>
+                  <p><span class="bold-word">Pros:</span> allows RNAFold to find natural low-energy states while still simulating the effect of the external stimulus.</p>
+                  <p><span class="bold-word">Cons:</span> requires some prior knowledge of which regions are essential.</p>
+                </div>
+              </div>
+              
+             <div class="example-container">
+                <h4 class="example-title">📋 Example: Aptamer binding site</h4>
+                <div class="example-content">
+                  <p class="section-text">In our theophylline aptamer design:</p>
+                  <div class="linker-options">
+                    <div class="option">
+                      <span class="option-label">Binding Pocket:</span>
+                      <code class="option-value">Must remain free to interact with the ligand</code>
+                    </div>
+                    <div class="option">
+                      <span class="option-label">Flanking Region:</span>
+                      <code class="option-value">Tends to pair towards the 5′</code>
+                    </div>
+                  </div>
+                  <p class="section-text">So instead of forcing the whole fold, we assign a subtle constraint such as:</p>
+                  <div class="code-display">
+                    <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>
+                  </div>
+                  <p class="section-text">This is enough to bias the folding towards the desired functional conformation without overfitting the model.</p>
+                </div>
+              </div>
+              <h3 class="section-subtitle2">Practical tips</h3>
+              <ul class="point-list">
+                <li><span class="bold-word">Start minimal:</span> use &lt; and &gt; windows around key regions. Add x or () only if strictly necessary.</li>
+                <li><span class="bold-word">Avoid over-constraining:</span> long forced stems (((((....))))) can produce designs that look good in silico but fail in real conditions.</li>
+                <li><span class="bold-word">Remember limitations:</span> RNAFold cannot predict pseudoknots or non-canonical pairs. Constraints also cannot force true pseudoknots.</li>
+                <li><span class="bold-word">Match lengths:</span> the constraint string must have exactly the same number of characters as the CRE sequence.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        
+      </section>
+
+      <!-- ADVANCED PARAMETERS -->
+      <section id="advanced-parameters">
+        <h1 class="section-title">Advanced Parameters</h1>
+        <!-- Search Method Accordion -->
+        <div class="accordion" id="search-method">
+          <div class="accordion-header">
+            <div class="accordion-title">Search Method</div>
+            <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p class="section-text">Finally, you must choose how TADPOLE explores the design space. Two options are available:</p>
+              
+              <div class="cards-container">
+                <div class="card">
+                  <h4 class="card-title">Brute Force</h4>
+                  <p>Systematically evaluates all possible combinations.</p>
+                  <p><span class="bold-word">Best for small search spaces;</span> guarantees that the optimal solution will be found.</p>
+                  <p><span class="bold-word">Computationally expensive:</span> becomes impractical for long linkers or when mutations are allowed.</p>
+                  <p>Suitable only for simple systems where the search space is limited.</p>
+                </div>
+                
+                <div class="card">
+                  <h4 class="card-title">Genetic Algorithm (GA)</h4>
+                  <p>Uses evolutionary strategies to iteratively improve designs.</p>
+                  <p><span class="bold-word">Scales well</span> to larger, more complex problems (e.g., long linkers, designs with mutations).</p>
+                  <p><span class="bold-word">Does not guarantee</span> the absolute global optimum, but reliably finds high-quality solutions within reasonable time.</p>
+                </div>
+              </div>
+              
+              <p class="section-text">In short, <span class="highlight-word">Brute Force prioritizes completeness</span>, while the <span class="highlight-word">Genetic Algorithm prioritizes efficiency</span>. <span class="highlight-word info-word" data-target="extra3">This flexibility allows TADPOLE to support both quick tests and ambitious, large-scale explorations.</span></p>
+
+              <p class="section-text">In our experience, Brute Force works well for linkers shorter than 7 nucleotides. For longer linkers or when mutations are enabled, the computational cost becomes too high, making the Genetic Algorithm the more practical choice.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Mutable Positions Accordion -->
+        <div class="accordion" id="mutable-positions">
+          <div class="accordion-header">
+            <div class="accordion-title">Mutable Positions for FRE</div>
+            <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <h3 class="section-subtitle2">What it is</h3>
+              <p class="section-text">This parameter allows you to define which nucleotides in the FRE can mutate. The goal is to explore sequence variants without breaking the essential biological function of the RNA switch.</p>
+              
+              <p class="section-text">Mutations are allowed only in positions that do not compromise the functional RNA element. If a nucleotide is paired in a stem, its complementary partner is automatically adjusted to maintain the pairing — preserving the secondary structure and avoiding functional disruption.</p>
+              
+              <h3 class="section-subtitle2">How to use</h3>
+              <ul class="point-list">
+                <li>Define a list of mutable positions, numbered from the first nucleotide of the FRE sequence.</li>
+                <li>Only the listed positions can change during the search; all other nucleotides remain fixed.</li>
+                <li>If you specify a nucleotide that is part of a pair, its paired base will mutate accordingly to maintain complementarity and preserve the fold.</li>
+              </ul>
+              
+              <div class="example-container">
+                <h4 class="example-title">📋 Example: SECIS FRE</h4>
+                <div class="example-content">
+                  <p>The functional core lies between nucleotides **10–63**. Therefore, only nucleotides outside this region (1–9 and those after 63) should be mutable.</p>
+                  <p>Paired bases in stems are automatically co-mutated to preserve Watson–Crick pairing.</p>
+                  <div class="linker-options">
+                    <div class="option">
+                      <span class="option-label">Functional Region:</span>
+                      <code class="option-value">10–63</code>
+                    </div>
+                    <div class="option">
+                      <span class="option-label">Mutable Positions:</span>
+                      <code class="option-value">1–9</code>
+                    </div>
+                  </div>
+                  <p>This setup ensures that the critical region remains intact, while the flanking nucleotides can introduce diversity without compromising function. The illustrative setup highlights:</p>
+                  <ul class="point-list">
+                    <li>Watched (FRE): select a few apical-loop residues and both sides of key stem pairs within 10–63.</li>
+                    <li>Mutable (FRE): 1–9 (and >63 if present).</li>
+                    <li>Result: the core keeps its functional architecture; flanks supply sequence diversity.</li>
+                  </ul>
+                </div>
+              </div>
+              <h3 class="section-subtitle2">Practical tips</h3>
+              <ul class="point-list">
+                <li>Start with a small set of mutable positions to limit the search space and reduce the risk of generating non-functional variants.</li>
+                <li>Remember that mutability expands the search space exponentially; Brute Force is impractical when mutations are included, so use the Genetic Algorithm.</li>
+                <li><span class="bold-word">Best practice:</span> avoid putting watched indices themselves into the mutable list; watch them to preserve structure and functionality, mutate around them to explore diversity.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Linker Length Accordion -->
+        <div class="accordion" id="linker-length">
+          <div class="accordion-header">
+            <div class="accordion-title">Linker Length</div>
+            <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <h3 class="section-subtitle2">What it is</h3>
+              <p class="section-text">The linker is the sequence of nucleotides placed between the FRE and the CRE. Its length directly influences how the two elements can interact.</p>
+              
+              <div class="cards-container">
+                <div class="card">
+                  <h4 class="card-title">Short linker</h4>
+                  <p>Restricts flexibility, often forcing the CRE and FRE into rigid orientations.</p>
+                </div>
+                <div class="card">
+                  <h4 class="card-title">Long linker</h4>
+                  <p>Introduces more conformational freedom, which expands the number of possible folds but also enlarges the search space.</p>
+                </div>
+                <div class="card">
+                  <h4 class="card-title">Too long linker</h4>
+                  <p>Can cause the FRE to interact only with the linker itself, reducing effective FRE–CRE interactions.</p>
+                </div>
+              </div>
+
+              <p class="section-text">TADPOLE treats linker length as a design parameter. In the Brute Force search, you can define a range to systematically explore. In the Genetic Algorithm (GA) search, linker length is optimized dynamically along with sequence variation.</p>
+              
+              <h3 class="section-subtitle2">How to use</h3>
+              <p class="section-text">Provide either:</p>
+              <ul class="point-list">
+                <li><span class="bold-word">A single value</span> (e.g., linker length = 7), or</li>
+                <li><span class="bold-word">A range</span> (e.g., 5–12), if using Brute Force.</li>
+              </ul>
+              
+              <p class="section-text">When a range is given, Brute Force will systematically test each linker length in that interval.</p>
+              <p class="section-text">The default range in TADPOLE is chosen based on literature as the most biologically plausible window.</p>
+
+              <div class="example-container">
+                <h4 class="example-title">📋 Example: SECIS + aptamer system</h4>
+                <div class="example-content">
+                  <div class="linker-options">
+                    <div class="option">
+                      <span class="option-label">Tested Linker Lengths:</span>
+                      <code class="option-value">5–9 nucleotides</code>
+                    </div>
+                    <div class="option">
+                      <span class="option-label">Brute Force Results:</span>
+                      <code class="option-value">No valid linker found for <7 nt</code>
+                    </div>
+                    <div class="option">
+                      <span class="option-label">Genetic Algorithm (with mutations):</span>
+                      <code class="option-value">Functional linkers found in 5-9 nt range</code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h3 class="section-subtitle2">Practical tips</h3>
+              <ul class="point-list">
+                <li>Be aware that search complexity grows rapidly with longer linkers, especially if mutations are enabled.</li>
+                <li>For long linkers, Brute Force is not recommended — the GA is more efficient and practical.</li>
+                <li>If the FRE is highly structured, avoid overly long linkers, as they may divert interactions away from the CRE.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Maximum Changes on FRE Structure Accordion -->
+        <div class="accordion" id="max-changes-fre">
+          <div class="accordion-header">
+            <div class="accordion-title">Maximum Changes on the FRE Structure</div>
+            <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <h3 class="section-subtitle2">What it is</h3>
+              <p class="section-text">This parameter defines how much your functional RNA (FRE) structure can vary during the design search. In other words, it limits TADPOLE's tolerance for changes relative to the target FRE structure. This is important to preserve biological function while exploring new sequences or conformations.</p>
+              
+              <h3 class="section-subtitle2">How it works</h3>
+              <ul class="point-list">
+                <li>The parameter is usually expressed as the maximum number of nucleotides whose state (paired vs unpaired) can differ from the target.</li>
+                <li>If a design exceeds this number, it is automatically discarded.</li>
+                <li>This allows exploration of variants with some flexibility without compromising functionality.</li>
+              </ul>
+
+              <div class="example-container">
+                <h4 class="example-title">📋 Example: SECIS Tolerances</h4>
+                <div class="example-content">
+                  <p>Not all nucleotides in the SECIS are critical for its function. This means that some parts of the structure can change without losing functionality. For example, theoretically, the nucleotides at the base of the SECIS must be paired. However, in our constructs, we used designs where the first few bases were paired with nearby flanking sequences rather than strictly within the SECIS itself. This demonstrates that certain regions can tolerate structural changes while preserving function.</p>
+                </div>
+              </div>
+              
+              <h3 class="section-subtitle2">Why it is important</h3>
+              <p class="section-text">Provides a balance between exploration and control:</p>
+              
+              <div class="cards-container">
+                <div class="card">
+                  <h4 class="card-title">Too restrictive</h4>
+                  <p>Very few possible solutions, search is over-constrained.</p>
+                </div>
+                <div class="card">
+                  <h4 class="card-title">Too permissive</h4>
+                  <p>High risk of losing the FRE's biological function.</p>
+                </div>
+                <div class="card">
+                  <h4 class="card-title">Balanced approach</h4>
+                  <p>Helps the genetic or brute-force search focus on plausible solutions.</p>
+                </div>
+              </div>
+
+              <h3 class="section-subtitle2">How to use it</h3>
+              <ul class="point-list">
+                <li>Define the reference FRE structure (dot-bracket).</li>
+                <li>Decide how many changes to allow, depending on how strict the structure needs to be for function.</li>
+                <li>Enter that number in TADPOLE as the Maximum changes on the FRE structure.</li>
+              </ul>
+
+              <h3 class="section-subtitle2">Practical tips</h3>
+              <ul class="point-list">
+                <li><span class="bold-word">For very sensitive FREs:</span> start with a low value (1–2) to ensure functionality.</li>
+                <li><span class="bold-word">For FREs whose function depends only on certain parts of the structure, or for exploratory designs:</span> allow up to 10 changes to increase diversity.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Maximum Number of FRE-CRE Pairings Accordion -->
+        <div class="accordion" id="max-fre-cre-pairings">
+          <div class="accordion-header">
+            <div class="accordion-title">Maximum Number of FRE-CRE Pairings</div>
+            <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <h3 class="section-subtitle2">What it is</h3>
+              <p class="section-text">This parameter sets the maximum number of base-pair interactions that can form between the FRE and the CRE in the OFF state. It controls how strongly the FRE and CRE can bind to each other, which directly affects folding, stability, and the ability to switch back to the ON state.</p>
+              
+              <h3 class="section-subtitle2">How it works</h3>
+              <ul class="point-list">
+                <li>Expressed as a number.</li>
+                <li>If a design produces more pairings than the limit, it is automatically discarded.</li>
+                <li>The idea is that the OFF state should be stable, but not so stable that it prevents transition back to the ON state.</li>
+              </ul>
+
+              <div class="example-container">
+                <h4 class="example-title">📋 Example: SECIS Pairing</h4>
+                <div class="example-content">
+                  <div class="linker-options">
+                    <div class="option">
+                      <span class="option-label">Allowed Pairings:</span>
+                      <code class="option-value">Up to 10</code>
+                    </div>
+                    <div class="option">
+                      <span class="option-label">Functionality:</span>
+                      <code class="option-value">Enough to disrupt the ON structure while still allowing recovery</code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h3 class="section-subtitle2">Why it is important</h3>
+              <ul class="point-list">
+                <li><span class="bold-word">Avoids excessive binding:</span> too many FRE–CRE pairings in the OFF state can "lock" the system, making it too hard to switch back ON.</li>
+                <li><span class="bold-word">Keeps the search realistic:</span> limiting the maximum interactions prevents an explosion of unfeasible designs dominated by over-stabilized OFF states.</li>
+              </ul>
+
+              <h3 class="section-subtitle2">How to use it</h3>
+              <ul class="point-list">
+                <li>Look at the length of your FRE and CRE.</li>
+                <li>Decide a maximum number of pairings based on how strong you want the OFF state to be.</li>
+                <li>A good rule of thumb is around 10% of the nucleotides in your FRE.</li>
+                <li>Enter that number in TADPOLE as Maximum number of FRE-CRE pairings.</li>
+              </ul>
+
+              <h3 class="section-subtitle2">Practical tips</h3>
+              <ul class="point-list">
+                <li>If your ON state is fragile or hard to stabilize → set a low limit (few pairings).</li>
+                <li>If your OFF state is too weak or unstable → allow more pairings.</li>
+                <li>Adjust the value depending on whether you want the system to favor easier activation (ON) or stronger repression (OFF).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Energy Difference Accordion -->
+        <div class="accordion" id="min-energy-diff">
+          <div class="accordion-header">
+            <div class="accordion-title">Minimum Energy Difference (kcal/mol)</div>
+            <div class="accordion-icon"></div>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <h3 class="section-subtitle2">What it is</h3>
+              <p class="section-text">This parameter defines the minimum energy gap that must exist between the OFF and ON states of the FRE, ensuring a clear functional distinction between the two conformations. It is expressed in kcal/mol and provides a thermodynamic threshold that designs must satisfy to be considered valid.</p>
+
+              <p class="section-text">There are three common cases:</p>
+              <ol class="point-list">
+                <li><span class="bold-word">Ligand-aptamer designs:</span> the ON state is stabilized by ligand binding to the CRE.</li>
+                <li><span class="bold-word">miniRNA designs:</span> the OFF state is stabilized by interactions with a small complementary RNA sequence.</li>
+                <li><span class="bold-word">Intrinsic folding switches:</span> the RNA shifts between ON and OFF conformations without an external binding partner.</li>
+              </ol>
+              
+              <p class="section-text">The energy difference is calculated as the difference between the OFF and ON states. The system must satisfy the minimum energy threshold to ensure proper switching behavior.</p>
+
+              <h3 class="section-subtitle2">Why it is important</h3>
+              <ul class="point-list">
+                <li>Ensures that the OFF state dominates in the absence of the CRE (or ligand).</li>
+                <li>Guarantees that binding of the CRE (or ligand) is sufficient to flip the system into the ON state.</li>
+                <li>Prevents ambiguous folding outcomes where neither conformation is clearly preferred.</li>
+              </ul>
+
+              <h3 class="section-subtitle2">How to use it</h3>
+              <p class="section-text">Choose the minimum energy difference based on the type of switch:</p>
+              <ul class="point-list">
+                <li><span class="bold-word">Ligand/aptamer systems:</span> typically 3–5 kcal/mol.</li>
+                <li><span class="bold-word">miniRNA-based switches:</span> smaller thresholds (1–2 kcal/mol) may be sufficient.</li>
+                <li><span class="bold-word">Intrinsic folding switches:</span> may require stronger differences (5+ kcal/mol).</li>
+              </ul>
+              <p class="section-text">Enter the chosen value into TADPOLE as the Minimum Energy Difference.</p>
+
+              <h3 class="section-subtitle2">Practical tips</h3>
+              <ul class="point-list">
+                <li>Too low a value → OFF and ON states may coexist, leading to leaky function.</li>
+                <li>Too high a value → CRE binding might not be sufficient to flip the switch.</li>
+                <li>Moderate values (3–5 kcal/mol) often give the best balance between robustness and responsiveness.</li>
+              </ul>
+
+              <p class="section-text"><span class="highlight-word info-word" data-target="extra2">The minimum energy difference ensures OFF state dominates without ligand binding, and ON state dominates once binding adds stabilizing energy.</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- REFERENCES -->
+      <section class="references" id="references">
+        <h1 class="section-title">References</h1>
+        <ol>
+          <li>TADPOLE: Targeted Design of Programmable Ligand-Responsive RNA Elements</li>
+          <li><a class="link-text" href="https://doi.org/10.1093/nar/gkab123">Computational approaches for RNA design and optimization</a></li>
+          <li><a class="link-text" href="https://www.nature.com/articles/s41592-019-0634-9">Genetic algorithms in bioinformatics applications</a></li>
+        </ol>
+      </section>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Quick Start Section Styles */
+.quick-start-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 32px;
+  color: white;
+}
+
+.quick-start-section .section-title {
+  color: white;
+  margin-bottom: 16px;
+}
+
+.quick-start-section .section-text {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 24px;
+}
+
+.quick-start-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.quick-start-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.quick-start-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0 auto 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.quick-start-card h3 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.quick-start-card p {
+  margin: 0 0 16px 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.quick-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.quick-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Example Container Styles */
+.example-container {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.example-title {
+  color: #2563eb;
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.example-content {
+  margin-top: 12px;
+}
+
+.sequence-display, .structure-display, .position-display, .constraint-display, .mutation-display {
+  margin: 16px 0;
+}
+
+.sequence-label, .structure-label, .position-label, .constraint-label {
+  display: block;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.sequence-box, .structure-box, .position-box, .constraint-box, .mutation-box {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: auto;
+  word-break: break-all;
+}
+
+.sequence-box code, .structure-box code, .position-box code, .constraint-box code, .mutation-box code {
+  color: #1f2937;
+  background: none;
+  padding: 0;
+}
+
+.example-description {
+  color: #6b7280;
+  font-style: italic;
+  margin-top: 12px;
+}
+
+/* Structure Visual */
+.structure-visual {
+  margin: 16px 0;
+  padding: 16px;
+  background: #f1f5f9;
+  border-radius: 8px;
+}
+
+.structure-ascii {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #475569;
+  margin: 8px 0;
+}
+
+/* Info and Warning Boxes */
+.info-box, .warning-box {
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+.info-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+}
+
+.warning-box {
+  background: #fef3c7;
+  border: 1px solid #fbbf24;
+}
+
+.info-box h4, .warning-box h4 {
+  margin: 0 0 12px 0;
+  color: #1e40af;
+}
+
+.warning-box h4 {
+  color: #92400e;
+}
+
+/* Notation Grid */
+.notation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.notation-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.notation-symbol {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 16px;
+  color: #3b82f6;
+  min-width: 30px;
+}
+
+.notation-desc {
+  color: #374151;
+  font-size: 14px;
+}
+
+/* Method Comparison */
+.method-comparison {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.method-card {
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.method-card.recommended {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+.method-card.recommended::before {
+  content: "✨ Recommended";
+  display: block;
+  color: #10b981;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.method-card h3 {
+  margin: 0 0 16px 0;
+  color: #1f2937;
+}
+
+.method-details p {
+  margin: 8px 0;
+  color: #6b7280;
+}
+
+.performance-metrics {
+  margin-top: 20px;
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.metric-label {
+  min-width: 80px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.metric-bar {
+  flex: 1;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.metric-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  transition: width 0.3s ease;
+}
+
+.metric-value {
+  font-weight: 600;
+  color: #1f2937;
+  min-width: 40px;
+  text-align: right;
+}
+
+/* Decision Helper */
+.decision-helper {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.decision-tree {
+  margin-top: 16px;
+}
+
+.decision-node {
+  margin: 16px 0;
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.decision-branches {
+  display: flex;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.branch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.branch-label {
+  padding: 4px 8px;
+  background: #3b82f6;
+  color: white;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.branch-result {
+  color: #374151;
+  font-weight: 500;
+}
+
+/* Energy Formula Styles */
+.energy-formula {
+  background: #f1f5f9;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.formula-container {
+  margin-top: 16px;
+}
+
+.formula-line {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 12px 0;
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.formula-label {
+  min-width: 140px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.formula-math {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Times New Roman', serif;
+  font-size: 16px;
+}
+
+.math-symbol {
+  font-weight: bold;
+  color: #3b82f6;
+}
+
+.math-operator {
+  font-weight: bold;
+  color: #6b7280;
+}
+
+.math-term {
+  color: #1f2937;
+}
+
+/* Guidelines and Balance */
+.energy-guidelines, .energy-balance {
+  margin: 20px 0;
+}
+
+.guideline-grid {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.guideline-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.system-type {
+  font-weight: 500;
+  color: #374151;
+}
+
+.energy-range {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  color: #3b82f6;
+  background: #eff6ff;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.balance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.balance-item {
+  padding: 16px;
+  border-radius: 8px;
+  border: 2px solid;
+}
+
+.balance-item.warning {
+  background: #fef3c7;
+  border-color: #f59e0b;
+}
+
+.balance-item.success {
+  background: #d1fae5;
+  border-color: #10b981;
+}
+
+.balance-item h5 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.balance-item.warning h5 {
+  color: #92400e;
+}
+
+.balance-item.success h5 {
+  color: #065f46;
+}
+
+
+</style>
+
+
+{% endblock %}
