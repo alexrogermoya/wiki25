@@ -1,0 +1,520 @@
+
+/* Chocolate melting effect */
+.info-card{
+    transform: translateY(-70px);
+}
+.chocolate-card .chocolate-key-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.chocolate-container-inline {
+  display: inline-block;
+  position: relative;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.chocolate-solid {
+  font-size: 1.5rem;
+  transition: all 0.8s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.chocolate-melted {
+  position: absolute;
+  top: 25px;
+  left: 5px;
+  width: 20px;
+  height: 6px;
+  background: linear-gradient(45deg, #8B4513, #D2691E, #CD853F);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scaleX(0);
+  transition: all 0.8s ease;
+}
+
+.chocolate-card:hover .chocolate-solid {
+  transform: scale(0.8) rotate(10deg);
+  opacity: 0.7;
+}
+
+.chocolate-card:hover .chocolate-melted {
+  opacity: 1;
+  transform: scaleX(1);
+  animation: melt 1.5s ease-in-out;
+}
+
+@keyframes melt {
+  0% { transform: scaleX(0); opacity: 0; }
+  50% { transform: scaleX(0.8); opacity: 0.8; }
+  100% { transform: scaleX(1); opacity: 1; }
+}
+
+/* Chocolate key animation */
+.chocolate-key-container {
+  display: inline-block;
+  position: relative;
+  margin-left: 15px;
+  left: 10px;
+  top: 10px;
+  vertical-align: middle;
+}
+
+
+
+.key-symbol {
+  font-size: 2.5rem;
+  position: relative;
+  z-index: 0;
+  transition: all 0.8s ease;
+  left: -30px;
+  top: -18px;
+  transform: rotate(220deg)
+}
+
+.chocolate-wrapper {
+  position: absolute;
+  top: -5px;
+  left: -9px;
+  font-size: 1.8rem;
+  z-index: 3;
+  transition: all 0.8s ease;
+  opacity: 0.9;
+}
+
+.melted-chocolate {
+  position: absolute;
+  top: 20px;
+  left: 0px;
+  width: 25px;
+  height: 8px;
+  background: linear-gradient(45deg, #8B4513, #D2691E, #CD853F);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scaleX(0);
+  transition: all 0.8s ease;
+  z-index: 1;
+}
+
+.chocolate-key-card:hover .chocolate-wrapper {
+  transform: scale(0.7) rotate(15deg);
+  opacity: 0.3;
+}
+
+
+
+.chocolate-key-card:hover .melted-chocolate {
+  opacity: 1;
+  transform: scaleX(1);
+  animation: keyMelt 1.8s ease-in-out;
+}
+
+
+
+/* Comparison table styling */
+        .comparison-table {
+            background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .comparison-header h3 {
+            color: #2d3748;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .comparison-column {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .before-column {
+            border-left: 4px solid #dc2626;
+        }
+
+        .after-column {
+            border-left: 4px solid #16a34a;
+        }
+
+        .column-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #fecaca;
+        }
+
+        .before-header h4 {
+            color: #dc2626;
+            margin-bottom: 0.25rem;
+        }
+
+        .after-header h4 {
+            color: #16a34a;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            font-size: 0.875rem;
+            color: #991b1b;
+            font-style: italic;
+        }
+
+        .comparison-item {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: #fef2f2;
+            border-radius: 6px;
+            border-left: 3px solid #fecaca;
+        }
+
+        .item-label {
+            font-weight: 600;
+            color: #7f1d1d;
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .item-content {
+            color: #2d3748;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .comparison-arrow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        .arrow-symbol {
+            font-size: 2rem;
+            color: #dc2626;
+            margin-bottom: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        .arrow-label {
+            font-weight: 600;
+            color: #dc2626;
+            font-size: 0.875rem;
+            text-align: center;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .paradigm-shift {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .paradigm-shift h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .paradigm-shift p {
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        /* Equation and code styling */
+        .code-text {
+            font-family: 'Courier New', monospace;
+            background: #fef2f2;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #7f1d1d;
+        }
+
+        .equation {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            color: #dc2626;
+            font-weight: 500;
+        }
+
+        .equation-large {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            color: #dc2626;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .equation-center {
+            text-align: center;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #fef2f2;
+            border-radius: 8px;
+            border-left: 4px solid #dc2626;
+        }
+
+        .equation-box {
+            background: #fef2f2;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #991b1b;
+        }
+
+        .equation-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .equation-list li {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: white;
+            border-radius: 6px;
+            border-left: 3px solid #fecaca;
+        }
+
+        .highlight-equation {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            color: #92400e;
+            font-weight: 700;
+        }
+
+        .recommendation-box {
+            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #dc2626;
+        }
+
+        .recommendation-box h4 {
+            color: #991b1b;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .recommendation-box p {
+            margin-bottom: 0.75rem;
+            color: #7f1d1d;
+            line-height: 1.5;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #16a34a;
+        }
+
+        .example-box h4 {
+            color: #15803d;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .example-box p {
+            margin-bottom: 0.75rem;
+            color: #166534;
+            line-height: 1.5;
+        }
+
+        .example-box ul {
+            color: #166534;
+        }
+
+        /* Aptamer comparison table */
+        .aptamer-table {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+        }
+
+        .aptamer-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .aptamer-table th {
+            background: #dc2626;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .aptamer-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #fecaca;
+            vertical-align: top;
+        }
+
+        .aptamer-table tr:nth-child(even) {
+            background: #fef2f2;
+        }
+
+        .decision-accepted {
+            background: #dcfce7;
+            color: #15803d;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .decision-rejected {
+            background: #fee2e2;
+            color: #dc2626;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .decision-possible {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* Linker analysis styling */
+        .linker-analysis {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid #dc2626;
+        }
+
+        .linker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .linker-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #dc2626;
+        }
+
+        .linker-card h4 {
+            color: #dc2626;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .linker-property {
+            margin-bottom: 0.75rem;
+            padding: 0.5rem;
+            background: #fef2f2;
+            border-radius: 4px;
+            border-left: 3px solid #fecaca;
+        }
+
+        .property-label {
+            font-weight: 600;
+            color: #7f1d1d;
+            font-size: 0.875rem;
+        }
+
+        .property-value {
+            color: #2d3748;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .page-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .comparison-arrow {
+                order: 2;
+                flex-direction: row;
+                padding: 0.5rem;
+            }
+            
+            .arrow-symbol {
+                transform: rotate(90deg);
+                margin: 0 0.5rem;
+            }
+            
+            .arrow-label {
+                writing-mode: horizontal-tb;
+                text-orientation: initial;
+            }
+            
+            .before-column {
+                order: 1;
+            }
+            
+            .after-column {
+                order: 3;
+            }
+            
+            .equation-large {
+                font-size: 1rem;
+            }
+            
+            .equation-center {
+                padding: 0.75rem;
+            }
+
+            .linker-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .aptamer-table {
+                overflow-x: auto;
+            }
+        }

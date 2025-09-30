@@ -34,7 +34,11 @@
 
 
   <!-- Footer: MUST mention license AND have a link to team wiki's repository on gitlab.igem.org -->
-  {% include 'footer.html' %}
+  {% if request.endpoint == 'home' %}
+    {% include 'footer-home.html' %}
+  {% else %}
+    {% include 'footer.html' %}
+  {% endif %}
 
   <!-- Bootstrap Bundle with Popper -->
   <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
