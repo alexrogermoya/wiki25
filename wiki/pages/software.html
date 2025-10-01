@@ -177,16 +177,17 @@
         <h2 class="section-subtitle" style="color: #9D0800; text-align: center; margin-bottom: 15px;">Watch this detailed overview to understand everything necessary for Tadpole:</h2>
 
           <div style="text-align: center; margin: 0 auto 40px auto; max-width: 800px;">
-            <video 
-              src="{{ url_for('static', filename='images/Barcelona-UB TADPOLE Tutorial (2025) [English].mp4') }}" 
-              controls 
-              autoplay 
-              loop 
-              muted
-              style="width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
-            >
-              Your browser does not support the video tag.
-            </video>
+                     <div style="position: relative; width: 100%; aspect-ratio: 16/9;">
+            <iframe 
+              src="https://video.igem.org/videos/embed/wXrShi5JHm5u2VHSD1XjTP?autoplay=1&loop=1&muted=1" 
+              title="Barcelona-UB: TADPOLE Tutorial (2025) [English]" 
+              allow="autoplay; fullscreen" 
+              sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-presentation"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 0;"
+            ></iframe>
+          </div>
+
+
             <ul class="point-list">
               <li>Model on which it's based</li>
               <li>User-friendly / Developer tools</li>
@@ -246,18 +247,16 @@
           and in the ON state the FRE is released and functional.
         </p>
         
-        <div style="text-align: center; ">
-              <video 
-              src="{{ url_for('static', filename='images/Parts_intro.mp4') }}" 
-              controls 
-              autoplay 
-              loop 
-              muted
-              style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
-            >
-              Your browser does not support the video tag.
-            </video>
-            </div>
+        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+          <iframe 
+            src="https://video.igem.org/videos/embed/kx2BKv5nyAubWDtj65cmda?autoplay=1&loop=1&muted=1" 
+            title="Barcelona-UB: Parts_intro (2025) [English]" 
+            allow="autoplay; fullscreen" 
+            sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-presentation"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+                   border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 0;"
+          ></iframe>
+        </div>
 
       </section>
 
@@ -583,18 +582,17 @@
             <p class="section-text">The linker, a short 6–10 nucleotide RNA hinge, is crucial for connecting a <span class = "highlight-word info-word" data-target="cre-info">Conformational RNA Element (CRE)</span>  to a <span class = "highlight-word info-word" data-target="fre-info">Functional RNA Element (FRE)</span> ) and enabling reliable switching. Its sequence and length shape how the CRE and FRE fold and interact. With proper design, the linker ensures consistent ON/OFF control <span class="italic-word">(<a class="link-text" href="{{ url_for('pages', page='parts') }}">More details on aptamers are available on its Part Composite page</a>)</span></p>
             
             <p class="section-text">By fusing a SECIS element with an aptamer, we created a novel translational ON/OFF switch. In the absence of the aptamer's ligand, the SECIS element is inactive, and the ribosome stops at the UGA codon, leading to an incomplete protein. However, when the ligand is present, it binds to the aptamer and forces a structural change that activates the SECIS element. This allows the ribosome to "read through" the stop codon, producing a full-length, functional protein <span class="italic-word">(<a class="link-text" href="{{ url_for('pages', page='parts') }}">more on our specific construct can be found on its Part Composite page</a>)</span>.</p>
-            <div style="text-align: center; ">
-              <video 
-              src="{{ url_for('static', filename='images/RNA_Switches.mp4') }}" 
-              controls 
-              autoplay 
-              loop 
-              muted
-              style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
-            >
-              Your browser does not support the video tag.
-            </video>
+            <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+              <iframe 
+                src="https://video.igem.org/videos/embed/muyboCpS2HhfYNCueDWDvT?autoplay=1&loop=1&muted=1" 
+                title="Barcelona-UB: RNA_Switches (2025) [English]" 
+                allow="autoplay; fullscreen" 
+                sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-presentation"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+                       border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 0;"
+              ></iframe>
             </div>
+
           </section>
 
         <section id="our-approach" class="need-content-section">
@@ -767,18 +765,17 @@
           <p class="section-text">
             TADPOLE offers an <a class="link-text" href="https://toolkit-m4g6.onrender.com/">interactive web</a> interface that serves as the most accessible entry point for users of all skill levels. Built with Streamlit, it transforms complex bioinformatics workflows into a simple, guided process without requiring programming knowledge.
           </p>
-          <div style="text-align: center; margin: 0 auto 40px auto; max-width: 800px;">
-            <video 
-              src="{{ url_for('static', filename='images/Tadpole_render.mp4') }}" 
-              controls 
-              autoplay 
-              loop 
-              muted
-              style="width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
-            >
-              Your browser does not support the video tag.
-            </video>
+          <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+            <iframe 
+              src="https://video.igem.org/videos/embed/cZqT8Nfzo6KkXv7zkn9tma?autoplay=1&loop=1&muted=1" 
+              title="Barcelona-UB: Tadpole_render (2025) [English]" 
+              allow="autoplay; fullscreen" 
+              sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-presentation"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+                     border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 0;"
+            ></iframe>
           </div>
+
           <h3 class="section-subtitle2">Design and Usability</h3>
           <p class="section-text">
             The Streamlit interface is intuitive and structured, with tabs and side menus (st.sidebar) that let users navigate through the main functionalities: from core design tools to a detailed help section. Elements like buttons, radio selectors (st.radio), and text input fields (st.text_input) collect essential user data, including RNA sequences and search parameters.
