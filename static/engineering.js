@@ -66,7 +66,25 @@ document.addEventListener('DOMContentLoaded', function() {
                             test: 'The RNAz analysis did not detect a fully conserved consensus structure across the species.',
                             learn: 'We learned that RNAz\'s limitation to fully conserved structures meant it could fail to detect functional motifs that might be conserved at the substructure level. This observation prompted us to design a more granular approach to identify these specific motifs.'
                         }
-                }
+                    },
+                    {
+                        name: 'Structure Prediction with Bioinformatics Tools',
+                        phases: {
+                            design: 'Our first objective was to identify the structure of the target RNA element to understand its functional motifs. We hypothesized that existing computational tools could predict a consistent structure. We tested multiple 3D predictors, including AlphaFold, FARNA, RNAComposer, and Vfold. We referred to a recent review on RNA structure prediction to guide our choices [1].',
+                            build: 'We ran our RNA sequence through AlphaFold, FARNA, RNAComposer, and Vfold.',
+                            test: 'The results were inconsistent; the predicted structures from different tools varied significantly.',
+                            learn: 'The lack of a consensus structure indicated that we needed to introduce additional biological constraints to guide the prediction. We concluded that leveraging evolutionary conservation data would provide the necessary evidence to move forward.'
+                        }
+                    },
+                    {
+                        name: 'Structure Prediction with Bioinformatics Tools',
+                        phases: {
+                            design: 'Our first objective was to identify the structure of the target RNA element to understand its functional motifs. We hypothesized that existing computational tools could predict a consistent structure. We tested multiple 3D predictors, including AlphaFold, FARNA, RNAComposer, and Vfold. We referred to a recent review on RNA structure prediction to guide our choices [1].',
+                            build: 'We ran our RNA sequence through AlphaFold, FARNA, RNAComposer, and Vfold.',
+                            test: 'The results were inconsistent; the predicted structures from different tools varied significantly.',
+                            learn: 'The lack of a consensus structure indicated that we needed to introduce additional biological constraints to guide the prediction. We concluded that leveraging evolutionary conservation data would provide the necessary evidence to move forward.'
+                        }
+                    }
             ]
                 },
                 2: {
@@ -86,18 +104,90 @@ document.addEventListener('DOMContentLoaded', function() {
                             phases: {
                                 design: 'Based on the previous iteration\'s finding, we designed a new tool to automate the manual process. The goal was to create a solution that was accurate but also fast, reproducible, and accessible to others.',
                                 build: 'We developed a web-deployable software tool based on RNAfold. The tool automatically overlays nucleotide conservation scores onto the predicted 2D structures and compares base pairings across species to highlight conserved complementarity.',
-                                test: 'White nucleotides: not paired, so the analysis does not apply\r\nYellow: pairings are not conserved\r\nBlue: pairings are almost always conserved (except in up to two sequences)\r\nRed: always conserved. \r\nConfirmed earlier prediction: conserved motif is structurally feasible in all species.',
+                                test: `White nucleotides: not paired, so the analysis does not apply<br>
+                                        Yellow: pairings are not conserved<br>
+                                        Blue: pairings are almost always conserved (except in up to two sequences)<br>
+                                        Red: always conserved.<br>
+                                        Confirmed earlier prediction: conserved motif is structurally feasible in all species.
+                                        <div class="image-container">
+                                          <img src="https://static.igem.wiki/teams/5622/images/engineering/engineerin-1.webp" alt="AlphaFold2 Pipeline Design">
+                                          <div class="photo-caption">Figure 1: Computational pipeline design for SCR-D structure prediction using AlphaFold2</div>
+                                        </div>`,
                                 learn: 'The developed tool provides a faster, more reproducible, and accessible workflow for identifying conserved structural motifs. This scalable approach goes beyond the specific needs of our project and can be used to analyze a wide range of RNA elements.'
                             }
                         },
                         {
                             name: 'Identification of key structural elements',
                             phases: {
-                                design: 'From the resulting data obtained from Cycle 2, we were able to increase our accuracy predicting SCR-D\'s secondary structure, from which we delimited regions of interest. Our goal is to generate multiple constructs including different regions in order to test their relevance in SCR-D\'s function. We have a series of hypothesis we wish to confirm with these experiments: Hypothesis 1: The Pre-diapin sequence is highly important to cause a readthrough. Argument: The high conservation of the sequence observed in the co-evolutionary study suggests it has a key role in the readthrough\'s function. Hypothesis 2: The Diapin structure is important to cause a readthrough. Argument: The Diapin region\'s structure shows high conservation from the co-evolutionary study, and whilst it does not necessarily conserve the exact sequence, it conserves complementary pairings that maintain its secondary structure as predicted by bioinformatic tools. Hypothesis 3: The Hypopin\'s sequence and structure might play a small role in the function of the readthrough Argument: The results of the co-evolutionary study do not show high conservation of the sequence, suggesting a lower importance in the function of the readthrough. To confirm the aforementioned hypotheses, we have generated two series of constructs: Constructs that maintain or eliminate certain regions of the stop codon readthrough element. Constructs that modify the sequence of the regions but maintain their secondary structure. We have designed a total of 3 modified SCR-D structures, each maintaining the open reading frame as the original sequence: Name: Pre - diapin, Pertaining Hypothesis: Hypothesis 1, Modifications: Removed Diapin, Hypopin and Post-hypopin, maintaining only the Pre-diapin region. Registry name: TBD. Predicted structure: imatge > 1.3.1: Pre-diapin - Predicted structure. Name: Modified diapin, Pertaining Hypothesis: Hypothesis 2, Modifications: Altered conserved base pairings of the Diapin region to maintain its structure whilst modifying its sequence. Registry name: TBD. Predicted structure: imatge > 1.3.1: Modified diapin - Predicted structure. Name: No Hypopin, Pertaining Hypothesis: Hypothesis 3, Modifications: Removed Hypopin and post-hypopin regions, maintaining the Pre–diapin and Diapin regions. Registry name: TBD. Predicted structure: imatge > 1.3.1: Pre+diapin - Predicted structure. *Llegenda → Imatge > 1.3.1: Llegenda - Predicted structures',
-                            build: 'The different constructs were introduced in the “Mod SCR-D” section of the plasmid, which was ordered to be synthesised by Genscript. Upon receiving the plasmid, we verified its sequence with Sanger sequencing and amplified the plasmid sample. Imatge > 1.3.2 PLASMID',
-                            test: 'Constructs were transfected into HEK293 human cells, and cultivated. We then analysed Renilla and Firefly Luciferases’ reporter levels using the Dual-Luciferase® Reporter Assay System from Promega.',
-                            learn: 'Ups, the only conserved structure (diapin) is not important for function, therefore the functionality does not depend on the structure.'
-                        }
+                                  design: `
+                                    From the resulting data obtained from Cycle 2, we were able to increase our accuracy predicting SCR-D's secondary structure, from which we delimited regions of interest. Our goal is to generate multiple constructs including different regions in order to test their relevance in SCR-D's function. 
+
+                                    <p>We have a series of hypotheses we wish to confirm with these experiments:</p>
+                                    <ul>
+                                      <li><strong>Hypothesis 1:</strong> The Pre-diapin sequence is highly important to cause a readthrough.<br>
+                                      <em>Argument:</em> The high conservation of the sequence observed in the co-evolutionary study suggests it has a key role in the readthrough's function.</li>
+
+                                      <li><strong>Hypothesis 2:</strong> The Diapin structure is important to cause a readthrough.<br>
+                                      <em>Argument:</em> The Diapin region's structure shows high conservation from the co-evolutionary study, and whilst it does not necessarily conserve the exact sequence, it conserves complementary pairings that maintain its secondary structure as predicted by bioinformatic tools.</li>
+
+                                      <li><strong>Hypothesis 3:</strong> The Hypopin's sequence and structure might play a small role in the function of the readthrough.<br>
+                                      <em>Argument:</em> The results of the co-evolutionary study do not show high conservation of the sequence, suggesting a lower importance in the function of the readthrough.</li>
+                                    </ul>
+
+                                    <p>To confirm the aforementioned hypotheses, we generated constructs that either maintain or eliminate certain regions of the stop codon readthrough element, or that modify sequences but preserve secondary structure. Below are the designs:</p>
+
+                                    <table style="border-collapse: collapse; width: 100%; text-align: left;">
+                                      <thead>
+                                        <tr>
+                                          <th style="border: 1px solid #ccc; padding: 6px;">Name</th>
+                                          <th style="border: 1px solid #ccc; padding: 6px;">Pertaining Hypothesis</th>
+                                          <th style="border: 1px solid #ccc; padding: 6px;">Modifications</th>
+                                          <th style="border: 1px solid #ccc; padding: 6px;">Registry name</th>
+                                          <th style="border: 1px solid #ccc; padding: 6px;">Predicted structure</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td style="border: 1px solid #ccc; padding: 6px;">Pre - diapin</td>
+                                          <td style="border: 1px solid #ccc; padding: 6px;">Hypothesis 1</td>
+                                          <td style="border: 1px solid #ccc; padding: 6px;">Removed Diapin, Hypopin and Post-hypopin, maintaining only the Pre-diapin region.</td>
+                                          <td style="border: 1px solid #ccc; padding: 6px;">TBD</td>
+                                          <td style="border: 1px solid #ccc; padding: 6px;">Imatge &gt; 1.3.1: Pre-diapin - Predicted structure</td>
+                                        </tr>
+                                        <tr>
+                                          <td style="border: 1px solid #ccc; padding: 6px;">Modified diapin</td>
+                                          <td style="border: 1px solid #ccc; padding: 6px;">Hypothesis 2</td>
+                                          <td style="border: 1px solid #ccc; padding: 6px;">Altered conserved base pairings of the Diapin region to maintain its structure whilst modifying its sequence.</td>
+                                          <td style="border: 1px solid #ccc; padding: 6px;">TBD</td>
+                                          <td style="border: 1px solid #ccc; padding: 6px;">Imatge &gt; 1.3.1: Modified diapin - Predicted structure</td>
+                                        </tr>
+                                        <tr>
+                                          <td style="border: 1px solid #ccc; padding: 6px;">No Hypopin</td>
+                                          <td style="border: 1px solid #ccc; padding: 6px;">Hypothesis 3</td>
+                                          <td style="border: 1px solid #ccc; padding: 6px;">Removed Hypopin and post-hypopin regions, maintaining the Pre–diapin and Diapin regions.</td>
+                                          <td style="border: 1px solid #ccc; padding: 6px;">TBD</td>
+                                          <td style="border: 1px solid #ccc; padding: 6px;">Imatge &gt; 1.3.1: Pre+diapin - Predicted structure</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+
+                                    <p><em>*Llegenda → Imatge &gt; 1.3.1: Llegenda - Predicted structures</em></p>
+                                  `,
+                                  build: `
+                                    The different constructs were introduced in the “Mod SCR-D” section of the plasmid, which was ordered to be synthesised by Genscript. Upon receiving the plasmid, we verified its sequence with Sanger sequencing and amplified the plasmid sample. 
+                                    <br><br>
+                                    Imatge &gt; 1.3.2 PLASMID
+                                  `,
+                                  test: `
+                                    Constructs were transfected into HEK293 human cells, and cultivated. 
+                                    We then analysed Renilla and Firefly Luciferases’ reporter levels using the Dual-Luciferase® Reporter Assay System from Promega.
+                                  `,
+                                  learn: `
+                                    The only conserved structure (diapin) is not important for function, therefore the functionality does not depend on the structure. <br> 
+                                    This allowed us to determine the particular nucleotides stimulation readthrough to get a more compact tool.
+                                  `
+                                }
+
                     }
              ]
             }
@@ -366,29 +456,93 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Back to top functionality
-    // window.addEventListener('scroll', function() {
-    //     const currentScrollPosition = window.scrollY;
-    //     const scrollingDown = currentScrollPosition > lastScrollPosition;
-    //     lastScrollPosition = currentScrollPosition;
-        
-    //     if (currentScrollPosition > 300) {
-    //         backToTopBtn.classList.add('show');
-    //     } else {
-    //         backToTopBtn.classList.remove('show');
-    //     }
-        
-    //     if (dbtlSection.classList.contains('show') && scrollEnabled) {
-    //         updateVisualization(scrollingDown);
-    //     }
-    // });
     
-    // backToTopBtn.addEventListener('click', function() {
-    //     window.scrollTo({
-    //         top: 0,
-    //         behavior: 'smooth'
-    //     });
-    // });
+    // === START REPLACEMENT: Scroll handler & updateVisualization ===
+
+// Scroll handler: drives the DBTL visualization as the user scrolls
+    window.addEventListener('scroll', function() {
+        // guard conditions
+        if (!currentCycle || !dbtlSection.classList.contains('show') || !scrollEnabled) return;
+
+        // compute a stable progress value between 0..1
+        const scrollPos = window.scrollY;
+        const start = dbtlSection.offsetTop; // when scrollY === start -> progress 0
+        const total = scrollSpacer.offsetHeight || (currentIterations * window.innerHeight);
+        const progress = Math.max(0, Math.min(1, (scrollPos - start) / total));
+
+        // map progress to iteration and phase
+        const iterationProgress = progress * currentIterations;               // 0..currentIterations
+        const newIteration = Math.min(
+            Math.max(1, Math.floor(iterationProgress) + 1),
+            currentIterations
+        );
+
+        const intraIterationProgress = (iterationProgress - (newIteration - 1)) * phases.length; // 0..phases.length
+        const newPhaseIndex = Math.min(Math.floor(intraIterationProgress), phases.length - 1);
+        const newPhase = phases[newPhaseIndex];
+
+        // update state + UI only when something changed
+        if (newIteration !== currentIteration || newPhaseIndex !== currentPhase) {
+            currentIteration = newIteration;
+            currentPhase = newPhaseIndex;
+            updateIterationIndicator();
+            updateNavigationButtons();
+            showPhase(currentIteration, newPhase);
+        }
+
+        // completion / conclusions visibility
+        if (currentIteration === currentIterations && newPhase === 'learn') {
+            showCompletionTick();
+            conclusions.classList.add('show');
+        } else {
+            hideCompletionTick();
+            conclusions.classList.remove('show');
+        }
+
+        // keep lastScrollPosition for any uses
+        lastScrollPosition = scrollPos;
+    });
+
+    // Replace the old implementation with this more robust function (kept for backward compatibility)
+    function updateVisualization(scrollingDown) {
+        if (!currentCycle || !dbtlSection.classList.contains('show')) return;
+
+        const scrollPos = window.scrollY;
+        const start = dbtlSection.offsetTop;
+        const total = scrollSpacer.offsetHeight || (currentIterations * window.innerHeight);
+        const progress = Math.max(0, Math.min(1, (scrollPos - start) / total));
+
+        const iterationProgress = progress * currentIterations;
+        const newIteration = Math.min(Math.max(1, Math.floor(iterationProgress) + 1), currentIterations);
+        const intraIterationProgress = (iterationProgress - (newIteration - 1)) * phases.length;
+        const newPhaseIndex = Math.min(Math.floor(intraIterationProgress), phases.length - 1);
+        const newPhase = phases[newPhaseIndex];
+
+        if (newIteration !== currentIteration || newPhaseIndex !== currentPhase) {
+            currentIteration = newIteration;
+            currentPhase = newPhaseIndex;
+            updateIterationIndicator();
+            updateNavigationButtons();
+            showPhase(currentIteration, newPhase);
+        }
+
+        if (currentIteration === currentIterations && newPhase === 'learn') {
+            showCompletionTick();
+            conclusions.classList.add('show');
+        } else {
+            hideCompletionTick();
+            conclusions.classList.remove('show');
+        }
+    }
+    // === END REPLACEMENT ===
+
+    //Back to top functionality
+    backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
     
     // Generate phases for a cycle
     function generatePhasesForCycle(component, cycle, iterations) {
@@ -574,41 +728,5 @@ document.addEventListener('DOMContentLoaded', function() {
         circleSvg.classList.remove('circle-active');
     }
     
-    function updateVisualization(scrollingDown) {
-        if (!currentCycle || !dbtlSection.classList.contains('show')) return;
-        
-        const dbtlTop = dbtlSection.getBoundingClientRect().top;
-        const visibleHeight = Math.min(0, dbtlTop);
-        const totalScrollableHeight = scrollSpacer.offsetHeight;
-        const scrollProgress = Math.max(0, Math.min(1, -visibleHeight / totalScrollableHeight));
-        
-        const iterationProgress = scrollProgress * currentIterations;
-        const newIteration = Math.min(
-            Math.max(1, Math.ceil(iterationProgress)),
-            currentIterations
-        );
-        
-        const intraIterationProgress = (iterationProgress - (newIteration - 1)) * 4;
-        const newPhaseIndex = Math.min(Math.floor(intraIterationProgress), 3);
-        const newPhase = phases[newPhaseIndex];
-        
-        if (newIteration !== currentIteration) {
-            currentIteration = newIteration;
-            currentPhase = newPhaseIndex;
-            
-            updateIterationIndicator();
-            updateNavigationButtons();
-            showPhase(currentIteration, newPhase);
-        } else if (newPhaseIndex !== currentPhase) {
-            currentPhase = newPhaseIndex;
-            showPhase(currentIteration, newPhase);
-        }
-        
-        if (currentIteration === currentIterations && newPhase === 'learn') {
-            showCompletionTick();
-            conclusions.classList.add('show');
-        } else {
-            hideCompletionTick();
-        }
-    }
+    
 });
