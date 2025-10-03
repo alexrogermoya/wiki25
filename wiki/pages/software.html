@@ -37,16 +37,16 @@
     </div>
   </div>
 
-  <div class="info-card" id="viennarna-info">
+  <div class="info-card" id="ViennaRNA<sup>[1]</sup>-info">
     <div class="card">
-      <h3 class="card-title">ViennaRNA</h3>
+      <h3 class="card-title">ViennaRNA<sup>[1]</sup></h3>
       <p>A widely used bioinformatics library for RNA secondary structure prediction and analysis. Tadpole connects directly with it.</p>
     </div>
   </div>
 
-  <div class="info-card" id="biopython-info">
+  <div class="info-card" id="Biopython<sup>[2]</sup>-info">
     <div class="card">
-      <h3 class="card-title">Biopython</h3>
+      <h3 class="card-title">Biopython<sup>[2]</sup></h3>
       <p>A Python library for computational biology. It provides tools for handling biological sequences and structures, which Tadpole leverages.</p>
     </div>
   </div>
@@ -74,12 +74,12 @@
       <div class = "info-card" id="fre-info">
         <div class="card">
           <h3 class="card-title">Functional RNA Element (FRE)</h3>
-          <p>RNA sequences that perform specific biological functions when folded, such as frameshift elements, ribozymes, or stop codon readthrough sequences.</p>
+          <p>RNA sequences that perform specific biological functions when folded, such as frameshift elements, ribozymes, or Stop Codon Readthrough<sup>[3]</sup> sequences.</p>
         </div>
       </div>
       <<div class="info-card" id="stopcodon-info">
     <div class="card">
-      <h3 class="card-title">Stop Codon Readthrough element</h3>
+      <h3 class="card-title">Stop Codon Readthrough<sup>[3]</sup> element</h3>
       <p>A genetic element that allows the ribosome to continue translation past a stop codon, enabling new protein functions.</p>
     </div>
   </div>
@@ -129,7 +129,7 @@
       <div class = "info-card" id="cre-info">
         <div class="card">
           <h3 class="card-title">Conformational RNA Element (CRE)</h3>
-          <p>RNA structures that can change conformation in response to stimuli, including aptamers, miniRNAs, and temperature-sensitive motifs.</p>
+          <p>RNA structures that can change conformation in response to stimuli, including Aptamer<sup>[4]</sup>s, miniRNAs, and temperature-sensitive motifs.</p>
         </div>
       </div>
 
@@ -242,8 +242,8 @@
         <h2 class="section-subtitle">The Tadpole Tool</h2>
         <p class="section-text">
           Tadpole designs RNA switches by linking a <span class = "highlight-word info-word" data-target="fre-info">Functional RNA Element (FRE)</span> 
-          (e.g., frameshift element, ribozyme, stop codon readthrough) with a <span class = "highlight-word info-word" data-target="cre-info">Conformational RNA Element (CRE)</span> 
-          (e.g., aptamer, miniRNA, temperature-sensitive motif). The software generates a linker and designs a system so that in the OFF state the CRE blocks the FRE, 
+          (e.g., frameshift element, ribozyme, Stop Codon Readthrough<sup>[3]</sup>) with a <span class = "highlight-word info-word" data-target="cre-info">Conformational RNA Element (CRE)</span> 
+          (e.g., Aptamer<sup>[4]</sup>, miniRNA, temperature-sensitive motif). The software generates a linker and designs a system so that in the OFF state the CRE blocks the FRE, 
           and in the ON state the FRE is released and functional.
         </p>
         
@@ -291,7 +291,7 @@
   <h2 class="section-subtitle">Validation & Accessibility</h2>
   <p class="section-text">
     Tadpole has been validated both <span class="italic-word">in silico</span> and in the <span class="italic-word">wet lab</span>
-    with a <span class="highlight-word info-word" data-target="stopcodon-info">Stop Codon Readthrough element</span> and an 
+    with a <span class="highlight-word info-word" data-target="stopcodon-info">Stop Codon Readthrough<sup>[3]</sup> element</span> and an 
     <span class="highlight-word info-word" data-target="aptamer-info">aptamer</span>. 
     Its <span class="highlight-word info-word" data-target="webinterface-info">web interface</span> allows users to design RNA switches without programming or using a terminal, 
     making the tool accessible to iGEM teams and non-experts. For local deployment, Tadpole can be installed easily via 
@@ -303,7 +303,7 @@
     <p><strong>  In Silico Validation:</strong> Comprehensive <strong>computational testing</strong> ensures <strong>structural stability</strong> and predicted functionality of designed RNA switches.</p>
 
     <p><strong>  Wet Lab Validation:</strong> <strong>Experimental verification</strong> conducted with 
-      <span class="highlight-word info-word" data-target="stopcodon-info">Stop Codon Readthrough element</span> and 
+      <span class="highlight-word info-word" data-target="stopcodon-info">Stop Codon Readthrough<sup>[3]</sup> element</span> and 
       <span class="highlight-word info-word" data-target="aptamer-info">aptamer</span> systems, demonstrating <strong>real-world functionality</strong>.
     </p>
 
@@ -329,8 +329,8 @@
     Beyond the interface, Tadpole can be used as a 
     <span class="highlight-word info-word" data-target="pythonpkg-info">Python package</span> 
     and through an <span class="highlight-word info-word" data-target="api-info">API</span>, 
-    supporting <span class="highlight-word info-word" data-target="viennarna-info">ViennaRNA</span> 
-    and <span class="highlight-word info-word" data-target="biopython-info">Biopython</span> for seamless integration into computational pipelines.  
+    supporting <span class="highlight-word info-word" data-target="ViennaRNA<sup>[1]</sup>-info">ViennaRNA<sup>[1]</sup></span> 
+    and <span class="highlight-word info-word" data-target="Biopython<sup>[2]</sup>-info">Biopython<sup>[2]</sup></span> for seamless integration into computational pipelines.  
     Its <span class="highlight-word info-word" data-target="docker-info">Dockerized code</span>, 
     openly available on <span class="highlight-word info-word" data-target="gitlab-info">GitLab</span> under an 
     <span class="highlight-word info-word" data-target="license-info">open-source license</span>, guarantees 
@@ -340,7 +340,7 @@
   <div class="integration-details">
     <p><strong>  Python Package:</strong> Install via <strong>pip</strong> for integration into existing Python workflows and computational pipelines.</p>
     <p><strong>  API Access:</strong> <strong>RESTful API</strong> enables integration into web applications and automated systems.</p>
-    <p><strong>  ViennaRNA & Biopython Support:</strong> Built-in compatibility with standard bioinformatics tools and libraries.</p>
+    <p><strong>  ViennaRNA<sup>[1]</sup> & Biopython<sup>[2]</sup> Support:</strong> Built-in compatibility with standard bioinformatics tools and libraries.</p>
     <p><strong>  Open Source:</strong> <strong>Modular</strong>, <strong>documented</strong> code available under an OSI-approved license for community development.</p>
   </div>
 
@@ -577,7 +577,7 @@
                 </div>
             </div>
             
-            <p class="section-text">This is precisely where our project began. We aimed to combine an FRE, a SCR element known as <span class="bold-word">"SECIS"</span>, with a ligand-responsive aptamer.</p>
+            <p class="section-text">This is precisely where our project began. We aimed to combine an FRE, a SCR element known as <span class="bold-word">"SECIS"</span><sup>[5]</sup></span>, with a ligand-responsive aptamer.</p>
             
             <p class="section-text">The linker, a short 6–10 nucleotide RNA hinge, is crucial for connecting a <span class = "highlight-word info-word" data-target="cre-info">Conformational RNA Element (CRE)</span>  to a <span class = "highlight-word info-word" data-target="fre-info">Functional RNA Element (FRE)</span> ) and enabling reliable switching. Its sequence and length shape how the CRE and FRE fold and interact. With proper design, the linker ensures consistent ON/OFF control <span class="italic-word">(<a class="link-text" href="{{ url_for('pages', page='parts') }}">More details on aptamers are available on its Part Composite page</a>)</span></p>
             
@@ -604,7 +604,7 @@
             <p class="section-text">It automates the design process focused on achieving two distinct, stable states: ON and OFF:</p>
              <ul class="point-list">
                 <li><span class="bold-word">Design Proposal Generation:</span> TADPOLE's algorithms (<a class="link-text" href="{{ url_for('pages', page='software-technicalities') }}">which you will learn about in our Software Technicalities page</a>) systematically generate a large number of RNA sequence proposals.</li>
-                <li><span class="bold-word">Structural and Thermodynamic Prediction:</span> Powered by ViennaRNA, for each sequence, the secondary structures and minimum free energies (MFEs) are predicted for both the ON and OFF states.</li>
+                <li><span class="bold-word">Structural and Thermodynamic Prediction:</span> Powered by ViennaRNA<sup>[1]</sup>, for each sequence, the secondary structures and minimum free energies (MFEs) are predicted for both the ON and OFF states.</li>
                 <li><span class="bold-word">Design Evaluation:</span> The software evaluates each proposal against a set of key design principles, such as the required energy difference between the ON and OFF states (ΔMFE) and the structural stability of each conformation (<a class="link-text" href="{{ url_for('pages', page='model') }}">see more information on the Model page</a>).</li>
                 <li><span class="bold-word">Linker Optimisation:</span> A key part of the process is designing the optimal linker sequence between the FRE and the CRE. TADPOLE's algorithms ensure this linker facilitates the correct folding of both the ON and OFF conformations.</li>
                 <li><span class="bold-word">Output Analysis:</span> Finally, it provides you with a set of optimal designs that meet all of the design criteria, ready for experimental testing.</li>
@@ -740,7 +740,7 @@
                 <p style="font-size: 0.9em; margin-bottom: 15px; opacity: 0.9;">SBOL3 export & open standards</p>
                 <ul style="text-align: left; font-size: 0.85em; list-style: none; padding: 0; opacity: 0.8;">
                   <li>✓ SBOL3 format support</li>
-                  <li>✓ ViennaRNA & Biopython</li>
+                  <li>✓ ViennaRNA<sup>[1]</sup> & Biopython<sup>[2]</sup></li>
                   <li>✓ MIT open-source license</li>
                 </ul>
               </div>
@@ -868,7 +868,7 @@
           </p>
           
            <ul class="point-list">
-            <li><strong>Installation:</strong> The setup.py file specifies all project dependencies, ensuring a smooth and reliable installation. A single command (pip install .) installs the package along with essential libraries such as ViennaRNA, Biopython, sbol3, and scikit-learn. Any other external installation is explicited.</li>
+            <li><strong>Installation:</strong> The setup.py file specifies all project dependencies, ensuring a smooth and reliable installation. A single command (pip install .) installs the package along with essential libraries such as ViennaRNA<sup>[1]</sup>, Biopython<sup>[2]</sup>, sbol3, and scikit-learn. Any other external installation is explicited.</li>
             <li><strong>Modular Code:</strong> Each functionality (genetic algorithm, clustering, secondary structure prediction) is implemented in an independent module. Users can import and reuse specific parts of TADPOLE in their own scripts or workflows without loading the full application. For example, the secondary structure prediction or linker search functions can be integrated directly into custom code.</li>
             <li><strong>Interoperability:</strong> As a Python-based package, TADPOLE integrates seamlessly with the rich ecosystem of Python libraries. This simplifies data conversions, whether to text strings, FASTA files, or other synthetic biology standards like SBOL.</li>
           </ul>
@@ -950,7 +950,7 @@
           </p>
           
            <ul class="point-list">
-            <li><strong>System Dependencies Installation:</strong> TADPOLE relies on complex packages such as ViennaRNA for structure prediction and Ghostscript for visualization. The Dockerfile installs these dependencies automatically, avoiding manual, error-prone setups.</li>
+            <li><strong>System Dependencies Installation:</strong> TADPOLE relies on complex packages such as ViennaRNA<sup>[1]</sup> for structure prediction and Ghostscript for visualization. The Dockerfile installs these dependencies automatically, avoiding manual, error-prone setups.</li>
             <li><strong>Environment Configuration:</strong> The file sets up the Conda and Python environment, installing all required libraries from requirements.txt.</li>
             <li><strong>Code Copying:</strong> The application code is copied into the container, making it fully self-contained.</li>
             <li><strong>Port Exposure:</strong> The Dockerfile exposes port 8501, the default port used by Streamlit, so the web interface is accessible outside the container.</li>
@@ -969,7 +969,7 @@
           <h3 class="section-subtitle2">Technical Advantages</h3>
            <ul class="point-list">
             <li><strong>One-Command Setup:</strong> Install and run TADPOLE with a single Docker command</li>
-            <li><strong>Complete Environment:</strong> All dependencies including ViennaRNA, Python libraries, and system requirements pre-configured</li>
+            <li><strong>Complete Environment:</strong> All dependencies including ViennaRNA<sup>[1]</sup>, Python libraries, and system requirements pre-configured</li>
             <li><strong>Cross-Platform:</strong> Runs identically on Windows, macOS, and Linux systems</li>
             <li><strong>Version Control:</strong> Tagged releases ensure consistent results across different environments</li>
             <li><strong>Lightweight Design:</strong> Optimized container size for fast deployment</li>
@@ -1047,7 +1047,7 @@
             TADPOLE builds on widely-used, well-documented libraries, ensuring reliability and smooth integration.
           </p>
            <ul class="point-list">
-            <li><strong>Reliability and Consistency:</strong> The software uses libraries like ViennaRNA for RNA structure prediction and Biopython for sequence handling and alignments. Leveraging these recognized tools guarantees that TADPOLE results are consistent with community bioinformatics standards.</li>
+            <li><strong>Reliability and Consistency:</strong> The software uses libraries like ViennaRNA<sup>[1]</sup> for RNA structure prediction and Biopython<sup>[2]</sup> for sequence handling and alignments. Leveraging these recognized tools guarantees that TADPOLE results are consistent with community bioinformatics standards.</li>
             <li><strong>Seamless Integration:</strong> As a Python-based package, TADPOLE integrates seamlessly with the rich ecosystem of Python libraries. This simplifies data conversions, whether to text strings, FASTA files, or other synthetic biology standards like SBOL.</li>
             <li><strong>Flexibility for Data Handling:</strong> Users can work with their data in the format that best suits their workflow, whether combining TADPOLE functionality with other Python libraries or converting outputs for downstream analysis.</li>
           </ul>
@@ -1505,7 +1505,7 @@
                   <li>Select appropriate FRE based on desired function:</li>
                   <li style="margin-left: 20px;">• <strong>Ribozyme:</strong> For signal amplification through RNA cleavage</li>
                   <li style="margin-left: 20px;">• <strong>Self-splicing intron:</strong> For conditional RNA processing</li>
-                  <li style="margin-left: 20px;">• <strong>SECIS element:</strong> For stop codon readthrough control</li>
+                  <li style="margin-left: 20px;">• <strong>SECIS element:</strong> For Stop Codon Readthrough<sup>[3]</sup> control</li>
                   <li>Design optimal linker using TADPOLE algorithms</li>
                   <li>Ensure proper folding in both ON and OFF states</li>
                 </ul>
@@ -1621,6 +1621,26 @@
           </div>
         </section>
       </section>
+      <section class="references" id="references">
+    <h1 class="section-title">References</h1>
+    <ol>
+        <li>Lorenz, R., Bernhart, S. H., Höner zu Siederdissen, C., Tafer, H., Flamm, C., Stadler, P. F., & Hofacker, I. L. (2011). ViennaRNA Package 2.0. <i>Algorithms for Molecular Biology, 6</i>, 26. <a class="link-text" href="https://doi.org/10.1186/1748-7188-6-26">https://doi.org/10.1186/1748-7188-6-26</a></li>
+
+        <li>Cock, P. J. A., Antao, T., Chang, J. T., Chapman, B. A., Cox, C. J., Dalke, A., Friedberg, I., Hamelryck, T., Kauff, F., Wilczynski, B., & De Hoon, M. J. L. (2009). Biopython: Freely available Python tools for computational molecular biology and bioinformatics. <i>Bioinformatics, 25</i>(11), 1422–1423. <a class="link-text" href="https://doi.org/10.1093/bioinformatics/btp163">https://doi.org/10.1093/bioinformatics/btp163</a></li>
+
+        <li>Rodnina, M. V., Korniy, N., Klimova, M., Karki, P., Peng, B. Z., Senyushkina, T., Belardinelli, R., Maracci, C., Wohlgemuth, I., & Samatova, E. (2019). Translational recoding: Canonical translation mechanisms reinterpreted. <i>Nucleic Acids Research, 48</i>(3), 1056–1067. <a class="link-text" href="https://doi.org/10.1093/nar/gkz783">https://doi.org/10.1093/nar/gkz783</a></li>
+
+        <li>Jenison, R. D., Gill, S. C., Pardi, A., & Polisky, B. (1994). High-resolution molecular discrimination by RNA. <i>Science, 263</i>(5152), 1425–1429. <a class="link-text" href="https://doi.org/10.1126/science.7510417">https://doi.org/10.1126/science.7510417</a></li>
+
+        <li>Berry, M. J., Banu, L., Harney, J. W., & Larsen, P. R. (1993). Functional characterization of the eukaryotic SECIS elements that direct selenocysteine insertion at UGA codons. <i>EMBO Journal, 12</i>(8), 3315–3322. <a class="link-text" href="https://doi.org/10.1002/j.1460-2075.1993.tb05983.x">https://doi.org/10.1002/j.1460-2075.1993.tb05983.x</a></li>
+
+        <li>Mathews, D. H., Sabina, J., Zuker, M., & Turner, D. H. (1999). Expanded sequence dependence of thermodynamic parameters improves prediction of RNA secondary structure. <i>Journal of Molecular Biology, 288</i>(5), 911–940. <a class="link-text" href="https://doi.org/10.1006/jmbi.1999.2700">https://doi.org/10.1006/jmbi.1999.2700</a></li>
+
+        <li>Holland, J. H. (1992). <i>Adaptation in Natural and Artificial Systems</i>. MIT Press.</li>
+    </ol>
+</section>
+
+
     </div>
   </div>
 </div>
