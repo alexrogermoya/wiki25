@@ -418,7 +418,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         {
                             name: 'Design and testing of the SCR switch',
                             phases: {
-                                design2: `
+                                design: `
                                 <p>To design a <b>STOP-codon readthrough swich</b>, we developed a <b>model and software</b> to calculate optimal energies of <b>ON</b> and <b>OFF</b> states. In essence, the <b>OFF state structure</b> of the swich needs to be <b>more stable (lower energy values)</b> than the ON state structure without the ligand. However, the addition of the ligand makes the <b>ON structure</b> more stable. For further details on these concepts, please consult our <b>Model</b> page.</p>
                                     
                                 <p>Our swich is composed of the previously tested parts of this branch: the <b>Theo-ON-5 aptamer</b> and the <b>SECIS DIO2 element</b>. The sequences of these elements were run through our software, <b>TADPOLE</b>, which outputted a variable set of linkers and swich structures. Thanks to our model, we were able to discriminate the <b>most energetically optimal candidates</b> that met our conditions.</p>
