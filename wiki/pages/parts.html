@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
   
-{% block title %}Plant{% endblock %}
+{% block title %}Parts{% endblock %}
 {% block lead %}This award is designed to celebrate exemplary work done in plant synthetic biology.{% endblock %}
 
 {% block page_content %}
@@ -8,7 +8,8 @@
 <div class = "page-container">
   <aside class="sidebar">
       <ul class="sidebar-nav">
-          <li><a href="#parts" class="active">New Basic Parts</a></li>
+          <li><a href="#basic" class="active">New Basic Parts</a></li>
+          <li><a href="#composite" class="active">Composite Parts</a></li>
       </ul>
   </aside>
   
@@ -20,12 +21,17 @@
     <div class = "content"> 
       <section>
         <div class="overview-wrapper">
-          The SKIPPIT part collection gives you all the tools needed to <span class = "bold-word">control translation</span> at the STOP codon site. It contains the parts that compose our <span class = "bold-word">riboswitch</span>, as well as parts to test and characterise it, offering a full <span class = "bold-word">starter kit</span> for anyone who wants to experiment with this brand new technology. 
+          The SKIPPIT part collection gives you all the tools needed to <span class = "bold-word">control translation</span> at the STOP codon site. It contains the parts that compose our <span class = "bold-word">swich</span>, as well as parts to test and characterise it, offering a full <span class = "bold-word">starter kit</span> for anyone who wants to experiment with this brand new technology. 
         </div>
         <p class="section-text">
           For the last 50 years, transcription-level control has dominated gene and protein expression regulation. To go beyond, we need more tools that allow further, finer, control over our genes, and that means expanding the foundations of synthetic biology. SKIPPIT has revolved from the start to doing just that, which we have accomplished by generating a new tool for translation-level control. 
           <br><br>
-          Our part collection is composed of multiple basic parts, which constitute our Composite parts. These can either be riboswitches or Device parts to test said riboswitches. Overall, the University of Barcelona 2025 iGEM team offers widely versatile, documented, tools for anyone interested in exploring the world of translation-level control. You can find our part collection <a class="link-text" href="https://registry.igem.org/collections/0fee4d88-b063-4e24-929b-e03a1283de71">here</a>. 
+          Our part collection is composed of multiple basic parts, which constitute our Composite parts. These can either be swiches or Device parts to test said swiches. Overall, the University of Barcelona 2025 iGEM team offers widely versatile, documented, tools for anyone interested in exploring the world of translation-level control. You can find our part collection <a class="link-text" href="https://registry.igem.org/collections/0fee4d88-b063-4e24-929b-e03a1283de71">here</a>. 
+        </p>
+
+        <h2 class="section-title">Highlighting Innovation</h2>
+        <p class="section-text">
+                    Throughout the last 21 years of the iGEM competition, the Selenocysteine Insertion Sequence (SECIS) has not once been the focus of an iGEM project. As a matter of fact, <span class = "bold-word">no project before has revolved on the study and implementation of STOP codon readthroughs</span>, whatsoever. They have only been used occasionally in experiments to test other parts.
         </p>
         <div class ="accordion-wrapper">
           <div class="accordion">
@@ -33,17 +39,16 @@
                 <div class="accordion-title">Highlighting innovation</div>
                 <div class="accordion-icon"></div>
             </div>
+
             <div class="accordion-content">
                 <div class="accordion-content-inner">
-                  <p class="section-text">
-                    Throughout the last 21 years of the iGEM competition, the Selenocysteine Insertion Sequence (SECIS) has not once been the focus of an iGEM project. As a matter of fact, <span class = "bold-word">no project before has revolved on the study and implementation of STOP codon readthroughs</span>, whatsoever. They have only been used occasionally in experiments to test other parts.
-                  </p>
+                  
                   <p class="section-text">
                     It is undeniable that SKIPPIT is the first of its kind in the iGEM competition, and that it is paving the way to a new approach of controlling protein expression, through unique control of translation. <span class="bold-word">We are pushing boundaries that the iGEM competition did not even know existed.</span>
                     <br><br>
                     We are the <span class="bold-word">first team to publish the SECIS sequence</span> to the iGEM registry. This part is so intricate and unique in its functionality and activity, that we needed the iGEM registry team to add a new “type” to better classify this part. It is, after all, a 3’-UTR sequence that regulates ribosomal function.
                     <br><br>
-                    Although hundreds of teams have developed RNA switches and riboswitches, only some have been able to code their <span class="bold-word"> own software model</span> to design them, and even less have had the time to test their creation in the wet lab. At SKIPPIT we have been able to do all of the above in human cells, to add to its complexity. The result has been the creation of a riboswitch that allows the user to <span class="bold-word">control a STOP codon readthrough’s activity</span>, with a dual-protein regulatory approach. This riboswitch is particularly special due to how far the riboswitch sequence can be from its action site. This means that the riboswitch doesn’t need to be translated to perform its function, and that it will not affect the protein sequence. To highlight just how innovative this technology is, there is no previous literature describing the existence of a STOP codon readthrough RNA switch. 
+                    Although hundreds of teams have developed RNA switches and riboswitches, only some have been able to code their <span class="bold-word"> own software model</span> to design them, and even less have had the time to test their creation in the wet lab. At SKIPPIT we have been able to do all of the above in human cells, to add to its complexity. The result has been the creation of a swich that allows the user to <span class="bold-word">control a STOP codon readthrough’s activity</span>, with a dual-protein regulatory approach. This swich is particularly special due to how far the swich sequence can be from its action site. This means that the swich doesn’t need to be translated to perform its function, and that it will not affect the protein sequence. To highlight just how innovative this technology is, there is no previous literature describing the existence of a STOP codon readthrough RNA switch. 
                     We hope that our project can inspire many of the future iGEM teams to <span class="bold-word">push the boundaries</span> of what is known, and to create brand new technologies that define the future of synthetic biology. 
                   </p>
                 </div>
@@ -51,45 +56,235 @@
           </div>
         </div>  
       </section>
-      <section id = "parts">
+      <section id = "basic">
         <h1 class ="section-title">New Basic Parts</h1>
         <p class="section-text"> 
-          The SKIPPIT STOP-Codon Readthrough Riboswitch was designed using our software tool TADPOLE, and as such it is composed of three main parts: 
+          The SKIPPIT STOP-Codon Readthrough Switch was designed using our software tool TADPOLE, and as such it is composed of three main parts: 
           <ol>
             <li>Conformational RNA Element (CRE): RNA elements which suffer a structural shift when exposed to a certain stimulant, such as an aptamer, miniRNA or a temperature-sensitive motif.</li>
             <li>Functional RNA Element (FRE): RNA elements whose catalytic or regulatory activity relies on their secondary structure, such as a frameshift, ribozyme or STOP codon readthrough element.</li>
             <li>Linker: Designed by our software tool and model TADPOLE, that considers the optimal energy of secondary structures to generate these synthetic linkers.</li>
           </ol>
         </p>
-        <div class= "video" style="position: relative; padding-top: 56.25%;">
-          <!-- <iframe title="Barcelona-UB: Switch On/Off (2025)" width="80%" height="80%" src="https://video.igem.org/videos/embed/p48BH5uKQAHwLpVJusJndB?loop=1&amp;autoplay=1" style="border: 0px; position: absolute; inset: 0px;" allow="fullscreen" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe> -->
+        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+          <iframe 
+          title="Barcelona-UB: Parts_intro (2025) [English]" width="560" height="315" 
+          src="https://video.igem.org/videos/embed/kx2BKv5nyAubWDtj65cmda?autoplay=1&loop=1&muted=1" 
+          allow="autoplay; fullscreen" 
+          sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-presentation" 
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+                     border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 0;"></iframe>  
         </div> 
+        <br><br><br><br>
         <p class="section-text">
           We have categorised the basic parts in our collection as CREs, FREs, Linkers, Characterising, and Structural. The “type” corresponds to the part type in the iGEM registry. 
         </p> 
-        <table class="parts-table">
-          <tr>
-            <th>Registry Code</th>
-            <th>Part name</th>
-            <th>Category</th>
-            <th>Type</th>
-          </tr>
-          <tr>
-            <td><a href="https://registry.igem.org/parts/bba-25ermnvd">BBa_25ERMNVD</a></td>
-            <td>SECIS</td>
-            <td>FRE</td>
-            <td>3'UTR</td>
-          </tr> 
-        </table>
-      </section>
-      <section class ="references">
-        <h1 class="section-title">References</h1>
-        <ol>
-          <li>WHO EMRO | Stroke, Cerebrovascular accident | Health topics.</li>
-          <li>Feigin, V. L., Nguyen, G., Cercy, K., Johnson, C. O., Alam, T., Parmar, P. G., Abajobir, A. A., Abate, K. H., Abd-Allah, F., Abejie, A. N., Abyu, G. Y., Ademi, Z., Agarwal, G., Ahmed, M. B., Akinyemi, R. O., Al-Raddadi, R., Aminde, L. N., Amlie-Lefond, C., Ansari, H., … Roth, G. A. (2018). GLOBAL, REGIONAL, AND COUNTRY-SPECIFIC LIFETIME RISK OF STROKE, 1990–2016. The New England Journal of Medicine, 379(25), 2429–2437. <a class="link-text" src="https://doi.org/10.1056/NEJMoa1804492">Paper</a></li>
-          <li>Ischaemic stroke | Stroke Association. <a class="link-text" src="https://www.stroke.org.uk/stroke/types/ischaemic">Website</a></li>
-        </ol>
-      </section>
+        <table class="parts-table" style="border-collapse: collapse; width: 100%;">
+          <colgroup>
+  <col>
+  <col>
+  <col>
+  <col>
+  <col>
+</colgroup>
+
+  <tr style="background-color: #f2f2f2;">
+    <th style="padding: 10px; border-bottom: 2px solid #ccc;">Registry Code</th>
+    <th style="padding: 10px; border-bottom: 2px solid #ccc;">Part name</th>
+    <th style="padding: 10px; border-bottom: 2px solid #ccc;">Category</th>
+    <th style="padding: 10px; border-bottom: 2px solid #ccc;">Type</th>
+    <th style="padding: 10px; border-bottom: 2px solid #ccc;">Status</th>
+  </tr>
+  <tr>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-25ermnvd" class="link-text">BBa_25ERMNVD</a></td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Selenocysteine Insertion Sequence (SECIS) DIO2</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">FRE</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">3’UTR</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-25i8bqt4" class="link-text">BBa_25I8BQT4</a></td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">7 bp Mutated Selenocysteine Insertion Sequence (SECIS) DIO2</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">FRE</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">3'UTR</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-25m42989" class="link-text">BBa_25M42989</a></td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Theophylline Aptamer Theo-ON-5</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">CRE</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Oligo</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-257j2532" class="link-text">BBa_257J2532</a></td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">-1 Programmed Ribosomal Frameshift (-1 PRF) with pseudoknot</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">FRE</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Coding</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-254kt5er" class="link-text">BBa_254KT5ER</a></td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">SKIPPIT Stop Codon Readthrough (SCR) Riboswitch Linker 5</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Linker</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Oligo</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-25snfrfi" class="link-text">BBa_25SNFRFI</a></td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">SKIPPIT Stop Codon Readthrough (SCR) Riboswitch Linker 7</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Linker</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Oligo</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-25ppffx9" class="link-text">BBa_25PPFFX9</a></td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">SKIPPIT Stop Codon Readthrough (SCR) Riboswitch Linker 8</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Linker</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Oligo</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-25n3k8w1" class="link-text">BBa_25N3K8W1</a></td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">SKIPPIT Stop Codon Readthrough (SCR) Riboswitch Linker 9</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Linker</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Oligo</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-256as085" class="link-text">BBa_256AS085</a></td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Renilla Luciferase</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Characterising</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Coding</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-25959xs7" class="link-text">BBa_25959XS7</a></td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Firefly Luciferase</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Characterising</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Coding</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-k3244020" class="link-text">BBa_K3244020</a></td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">2&#1616;A Cleavage</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Structural</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Coding</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Previously existing part</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-25ubvi8j" class="link-text">BBa_25UBVI8J</a></td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">T2A peptide 5’</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Structural</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Coding</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-25k0vqdj" class="link-text">BBa_25K0VQDJ</a></td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Selenocysteine Insertion Sequence (SECIS) DIO2 5’ context</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Structural</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">3’-UTR</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-25a9dkgu" class="link-text">BBa_25A9DKGU</a></td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">TGA STOP codon readthrough prone context</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Structural</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Coding</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-k5121007" class="link-text">BBa_K5121007</a></td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">T7 Promoter from Reb1 Cleaned</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Structural</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Regulatory</td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">Previously existing part</td>
+  </tr>
+</table>
+</section>
+<section id="composite">
+ <h1 class ="section-title">Composite Parts</h1>
+        <p class="section-text"> 
+          Our composite parts are categorised into riboswitches and measurement devices. 
+        </p>
+
+<table class="parts-table" style="border-collapse: collapse; width: 100%;">
+  <colgroup>
+  <col>
+  <col>
+  <col>
+  <col>
+  <col>
+</colgroup>
+
+    <tr style="background-color: #f2f2f2;">
+      <th style="padding: 10px; border-bottom: 2px solid #ccc;">Registry Code</th>
+      <th style="padding: 10px; border-bottom: 2px solid #ccc;">Part name</th>
+      <th style="padding: 10px; border-bottom: 2px solid #ccc;">Category</th>
+      <th style="padding: 10px; border-bottom: 2px solid #ccc;">Type</th>
+      <th style="padding: 10px; border-bottom: 2px solid #ccc;">Status</th>
+    </tr>
+ 
+
+    <tr>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-25tc7kvp" class="link-text">BBa_25TC7KVP</a></td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">STOP Codon Readthrough theophylline riboswitch with Linker 5</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">Riboswitch</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">Riboswitch</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+    </tr>
+
+    <tr>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-25zkod5q" class="link-text">BBa_25ZKOD5Q</a></td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">STOP Codon Readthrough theophylline riboswitch with Linker 7</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">Riboswitch</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">Riboswitch</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+    </tr>
+
+    <tr>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-25zne3g6" class="link-text">BBa_25ZNE3G6</a></td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">STOP Codon Readthrough theophylline riboswitch with Linker 8</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">Riboswitch</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">Riboswitch</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+    </tr>
+
+    <tr>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-25fu0lgz" class="link-text">BBa_25FU0LGZ</a></td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">STOP Codon Readthrough theophylline riboswitch with Linker 9</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">Riboswitch</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">Riboswitch</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+    </tr>
+
+    <tr>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-258lw76f" class="link-text">BBa_258LW76F</a></td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">-1 Programmed Ribosomal Frameshift theophylline induced riboswitch</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">Riboswitch</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">Riboswitch</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+    </tr>
+
+    <tr>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-25xji9b6" class="link-text">BBa_25XJI9B6</a></td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">-1 Ribosomal Frameshift rate Dual-Luciferase measurement device</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">Measurement device</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">Measurement</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+    </tr>
+
+    <tr>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;"><a href="https://registry.igem.org/parts/bba-25mg0qvo" class="link-text">BBa_25MG0QVO</a></td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">STOP Codon Readthrough rate Dual-Luciferase measurement device</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">Measurement device</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc;">Measurement</td>
+      <td style="padding: 8px; border-bottom: 1px solid #ccc; color: #9D0800;">★New part</td>
+    </tr>
+</table>
+</section>
+
+      
     </div>
   </div>
 </div> 
@@ -103,13 +298,23 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.parts-table{
-  width:100%;
-
-}
+.parts-table {
+    width: 100%;
+    table-layout: fixed; 
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
 .parts-table th{
   background-color: var(--color-soft-1);
 }
+.parts-table th, .parts-table td {
+    word-wrap: break-word; 
+  }
+.parts-table col:nth-child(1) { width: 14%; } /* Registry Code */
+.parts-table col:nth-child(2) { width: 47%; } /* Part name */
+.parts-table col:nth-child(3) { width: 13%;  } /* Category */
+.parts-table col:nth-child(4) { width: 12%;  } /* Type */
+.parts-table col:nth-child(5) { width: 14%;  } /* Status */
 </style>
 
 {% endblock %}
