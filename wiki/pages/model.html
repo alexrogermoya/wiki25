@@ -20,22 +20,29 @@
               <ul class="sidebar-subnav">
                   <li><a href="#fres">Functional RNA Elements</a></li>
                   <li><a href="#cres">Conformational RNA Elements</a></li>
-                  <li><a href="#combining">Combining FREs and CREs</a>
-                      <ul class="subnav">
-                          <li><a href="#linker">The Linker</a></li>
-                      </ul>
-                  </li>
+                  
               </ul>
           </li>
           <li><a href="#value">Value</a></li>
           <li><a href="#key-aspects">Key Aspects to Consider</a></li>
           <li><a href="#model-guidance">How the Model Guided Our Project</a></li>
-          <li><a href="#core-assumptions">Core Assumptions</a>
+          <ul class="sidebar-subnav">
+              
+              <li><a href="#secis-section">SECIS Element</a></li>
+              <li><a href="#theophylline-aptamer">Theophylline Aptmaer</a></li>
+              <li><a href="#combining">Combining FREs and CREs</a>
+                      <ul class="subnav">
+                          <li><a href="#linker">The Linker</a></li>
+                      </ul>
+                  </li>
+              <li><a href="#core-assumptions"><b>Core Assumptions</b></a>
               <ul class="sidebar-subnav">
                   <li><a href="#structural-prediction">Structural Prediction</a></li>
                   <li><a href="#energy-assumptions">Energy Assumptions</a></li>
               </ul>
           </li>
+            </ul>
+          <li><a href="#validation">Experimental Validation</a></li>
           <li><a href="#references">References</a></li>
       </ul>
       
@@ -46,7 +53,14 @@
           <p>DNA-binding proteins that regulate gene expression by controlling the rate of transcription from DNA to mRNA. They can act as activators or repressors.</p>
         </div>
       </div>
-
+       <div class="info-card" id="semi-rational">
+    <div class="card">
+      <h3 class="card-title">Semi-rational design</h3>
+      <p>semi-rational design uses rational guidance to narrow down the possibilities, 
+        even if the exact behaviour cannot be exactly predicted, while still relying on experimental 
+        testing of a manageable set of candidates.</p>
+    </div>
+  </div>
       <div class="info-card" id="riboswitches">
         <div class="card">
           <h3 class="card-title">Riboswitches</h3>
@@ -226,79 +240,7 @@
         </div>
 
         <!-- COMBINING SECTION -->
-        <h2 id="combining" class="section-subtitle">Combining FREs and CREs: Creating an ON/OFF Switch</h2>
-        
-        <p class="section-text">Individually, FREs are functional elements that only work if they maintain a precise shape, while CREs are sensors that change shape in response to a signal but have no function by themselves. When we link a CRE to an FRE, we can create a <span class="highlight-word">programmable molecular switch</span> that controls the FRE's activity.</p>
-
-        <h3 class="section-subtitle2">How It Works</h3>
-        
-        <div class="cards-container">
-          <div class="card">
-            <h3 class="card-title">OFF State (no signal)</h3>
-            <p>The CRE is in its resting shape, which stabilizes the FRE in an inactive fold. In this state, the FRE cannot perform its function.</p>
-          </div>
-          
-          <div class="card">
-            <h3 class="card-title">ON State (signal present)</h3>
-            <p>When the CRE detects its signal, it changes shape. This conformational change propagates to the FRE through a connecting linker, allowing the FRE to adopt its active fold.</p>
-          </div>
-        </div>
-
-        <div class="card chocolate-key-card">
-              <h3 class="card-title">Simple Analogy: Chocolate Around a Key
-              <div class="chocolate-key-container">
-                <div class="key-symbol">🗝️</div>
-                <div class="chocolate-wrapper">🍫</div>
-                <div class="melted-chocolate"></div>
-              </div>
-              </h3>
-          <ul class="point-list">
-                  <p><span class="bold-word">FRE = key</span><br>
-                  <span class="bold-word">CRE = chunk of chocolate surrounding the key</span></p>
-                  
-                  <ul class="point-list">
-                      <li><span class="bold-word">No signal (chocolate is solid):</span> The chocolate is hard and holds the key in the wrong shape, so it cannot enter the lock → FRE inactive (OFF)</li>
-                      <li><span class="bold-word">Signal present (chocolate melts):</span> The chocolate softens, releasing the key so it can take its proper shape → key can enter the lock → FRE active (ON)</li>
-                  </ul>
-                  
-                  <p>Here, the CRE itself doesn't do the work; it modulates whether the FRE can fold into its functional shape, creating a signal-dependent ON/OFF switch.</p>
-        </div>
-          
-
-        <p class="section-text">By combining CREs and FREs, we gain precise, modular control over RNA-based regulation. This allows us to design custom RNA switches that respond to a wide variety of signals while controlling any functional element, expanding beyond traditional riboswitches or sRNA-based methods.</p>
-        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
-              <iframe 
-                src="https://video.igem.org/videos/embed/muyboCpS2HhfYNCueDWDvT?autoplay=1&loop=1&muted=1" 
-                title="Barcelona-UB: RNA_Switches (2025) [English]" 
-                allow="autoplay; fullscreen" 
-                sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-presentation"
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-                       border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 0;"
-              ></iframe>
-            </div>
-
-        <!-- LINKER SECTION -->
-        <h3 id="linker" class="section-subtitle2">The Linker: The Dynamic Hinge of the RNA Switch</h3>
-        
-        <p class="section-text">Simply placing a Conformational RNA Element (CRE) next to a Functional RNA Element (FRE) is not enough to create a reliable ON/OFF switch. The key component that orchestrates their interaction is the <span class="bold-word">linker</span>, a short RNA segment, typically 6–10 nucleotides long, that acts as a mechanical hinge connecting the sensor (CRE) to the effector (FRE).</p>
-
-        <h4 class="section-subtitle3">Function of the Linker</h4>
-        <p class="section-text">The linker is not a passive connector. Its sequence and length determine how the CRE and FRE fold and interact. A properly designed linker ensures that the system can reliably toggle between OFF and ON states.</p>
-                <div style="text-align: center; margin: 20px 0;">
-              <img 
-                src="{{ url_for('static', filename='images/Tadpole_steps.png') }}" 
-                alt="Ejemplo de imagen" 
-                style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
-              >
-            </div>
-        <h4 class="section-subtitle3">Design Principles</h4>
-        <ul class="point-list">
-            <li><span class="bold-word">Avoid excessive binding:</span> The linker should allow enough pairing to maintain the OFF state, but not so much that the switch gets "stuck" and cannot activate when the signal arrives</li>
-            <li><span class="bold-word">Optimal length:</span> Too short a linker may prevent the necessary OFF-state interaction; too long can introduce unwanted folding or too much flexibility, reducing switch precision. Typically, <span class="highlight-word">6–10 nucleotides</span> work well</li>
-            <li><span class="bold-word">Enable conformational change:</span> The linker must be designed so that when the CRE changes shape, the energy released is sufficient to break the OFF-state pairings, allowing the FRE to fold into its functional ON-state</li>
-        </ul>
-      </section>
-
+    </section>
 
       <!-- VALUE SECTION -->
       <section id="value">
@@ -614,8 +556,19 @@
                 <section id="model-guidance">
                     <h1 class="section-title">How the Model Guided Our Project</h1>
                     
-                    <p class="section-text">The results of our model were fundamental to our decision-making, not only during the conceptualization but also in the practical phases of the project. The model didn't just allow us to program the TADPOLE software; it <span class="highlight-word">completely guided our wet lab work</span>, serving as the very foundation of our experimental method.</p>
+                    <p class="section-text">
+                    Our project revolves around a <b>model</b> that captures the <b>structural behaviour of RNA</b> and its role in <b>gene regulation</b>. The model describes how <b>two sequences</b> can fold into <b>functional structures</b>, and how these structures can be dynamically altered by <b>external signals</b>. By translating these <b>structural changes</b> into <b>measurable effects on gene expression</b>, the model provided us with a framework to design <b>regulatory RNA switches</b>, which we were able to build and test successfully in the <b>lab</b>.<br><br>
 
+                    This <b>framework</b> was not an add-on but <b>central</b> to our entire <b>design–build–test–learn cycle</b>. It allowed us to build a <b>software</b> following the model guidelines, with which we propose <b>switchable RNA parts</b>, predict their behaviour, and then guide the <b>construction of new parts</b> that we later successfully tested in the lab.<br><br>
+                                        
+                    The <b>experimental results</b> obtained from testing the <b>individual elements (SECIS and Aptamer)</b> that made up our final switch design were fed back into the <b>modelling</b> of our <b>SKIPPIT switch</b>. This helped us refine both our understanding of <b>RNA folding dynamics</b> and the specific parameters of the system we were building. In this way, the model directly connected <b>abstract structural predictions</b> with <b>concrete laboratory outcomes</b>.<br><br>
+                                        
+                    The <b>approach</b> is intentionally <b>general</b>: while we focused on one system for our <b>proof of concept</b>, the same <b>modelling principles</b> could inspire future iGEM teams to design other <b>RNA-based regulatory elements</b>. To make the model <b>scalable</b> for real design, we were transparent about <b>key assumptions</b>. <b>Structural predictions</b> were generated using <b>RNAfold</b>, which estimates the <b>most stable folding pattern</b> and its <b>free energy</b>. We assumed that these predicted <b>minimum free energy (MFE) structures</b> represent useful approximations of real conformations, even though <b>RNA molecules</b> in cells can occupy ensembles and are influenced by <b>proteins</b> and <b>co-transcriptional folding</b>. This simplification let us move quickly from <b>sequence</b> to <b>predicted function</b>, while keeping in mind that predictions would need <b>experimental confirmation</b>.<br><br>
+                                        
+                    By grounding our <b>software tool</b> and <b>lab work</b> in this model, we ensured that <b>modelling</b> was not just theoretical but an <b>active design driver</b>. The <b>insights</b> shaped our <b>constructs</b>, explained <b>unexpected results</b>, and ultimately demonstrated that <b>RNA switches</b> can be engineered as <b>modular, tunable elements</b> for <b>synthetic biology</b>.
+                                        
+
+                    </p>
                     <h2 id="software-development" class="section-subtitle">Software Development</h2>
                     
                     <p class="section-text">The development of the <span class="bold-word">TADPOLE software</span> was a direct extension of our model: the evaluations, parameter choices, and everything else was based on this model. Through this software, we were able to determine the most promising designs to test in the lab, based on sound thermodynamic and structural criteria.</p>
@@ -654,7 +607,7 @@
 
                     <h2 id="secis-system" class="section-subtitle">Construct to Test in the Lab: SECIS + Theophylline System</h2>
 
-                    <h3 class="section-subtitle2">SECIS Element Overview</h3>
+                    <h2 id="secis-section" class="section-subtitle">SECIS Element Overview</h3>
                     
                     <p class="section-text"><span class="bold-word">SECIS (Selenocysteine Insertion Sequence)</span> is a short RNA element found in the 3' untranslated region (3' UTR) of eukaryotic mRNAs that enables the incorporation of the amino acid selenocysteine at UGA codons, which usually indicate a stop.</p>
                         <div style="text-align: center; margin: 0 auto 40px auto; max-width: 800px;">
@@ -715,8 +668,8 @@
                     <h3 class="section-subtitle2">SECIS DIO2 Structure Analysis</h3>
                     <div style="text-align: center; margin: 20px 0;">
                           <img 
-                            src="{{ url_for('static', filename='images/SECIS.png') }}" 
-                            alt="Workflow of the Software Tool" 
+                            src="https://static.igem.wiki/teams/5622/images/model/secis.webp" 
+                            alt="SECIS element" 
                             style="width: 10%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
                           >
                         </div> 
@@ -753,8 +706,8 @@
 
             <!-- Imatges comparatives -->
             <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
-                <img src="{{ url_for('static', filename='images/SECIS.png') }}"  alt="RNAfold structure" style="max-width: 48%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-                <img src="{{ url_for('static', filename='images/SECIS_RNAFOLD.png') }}"  alt="SECISearch3 structure" style="max-width: 48%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                <img src="https://static.igem.wiki/teams/5622/images/model/secis.webp"  alt="RNAfold structure" style="max-width: 48%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                <img src="https://static.igem.wiki/teams/5622/images/model/secis-rnafold.webp"  alt="SECISearch3 structure" style="max-width: 48%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
             </div>
         </div>
     </div>
@@ -977,7 +930,7 @@
                         <h4>3D Structure Validation</h4>
                         <div style="text-align: center; margin: 20px 0;">
                               <img 
-                                src="{{ url_for('static', filename='images/Aptamer3D.png') }}" 
+                                src="https://static.igem.wiki/teams/5622/images/model/aptamer3d.webp" 
                                 alt="Workflow of the Software Tool" 
                                 style="width: 50%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
                               >
@@ -1218,6 +1171,135 @@
                         <p>Our model didn't just provide theoretical insights—it became the practical foundation for experimental design. By pre-validating designs computationally, we transformed wet lab work from exploratory to confirmatory, dramatically improving efficiency and success rates. The systematic linker analysis demonstrates how computational predictions can guide targeted experimental validation.</p>
                     </div>
                 </section>
+    <h2 id="combining" class="section-subtitle">Combining FREs and CREs: Creating an ON/OFF Switch</h2>
+        
+        <p class="section-text">Individually, FREs are functional elements that only work if they maintain a precise shape, while CREs are sensors that change shape in response to a signal but have no function by themselves. When we link a CRE to an FRE, we can create a <span class="highlight-word">programmable molecular switch</span> that controls the FRE's activity.</p>
+
+        <h3 class="section-subtitle2">How It Works</h3>
+        Our model is based on the principle of structural change from stimuli:<br>
+
+        <b>Initial structure</b>
+  <span style="color: #007acc; font-weight: bold;">&nbsp;➜&nbsp;</span>
+  <b>Application of external signal</b>
+  <span style="color: #007acc; font-weight: bold;">&nbsp;➜&nbsp;</span>
+  <b>Changed structure</b> <br>
+
+  One of these two structures (<b>initial</b> or <b>changed</b>) will maintain the function of the 
+  <b>FRE ON (active)</b>, and the other will <b>disrupt its structure</b>, therefore turning it 
+  <b>OFF (inactive)</b>.
+  This <b>ON structure</b> is the <b>functional structure</b>, the structure that the <b>FRE</b> needs 
+  to have to <b>perform its function</b>:
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/model/fre-struct.webp" 
+    alt="Tadpole steps" 
+    style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  >
+</div>
+Se we could have <br>
+  <b>FRE disrupted structure (OFF)</b>
+  <span style="color:#007acc; font-weight:bold;">&nbsp;➜&nbsp;</span>
+  <b>External signal</b>
+  <span style="color:#007acc; font-weight:bold;">&nbsp;➜&nbsp;</span>
+  <b>FRE functional structure (ON)</b>
+  <br>
+  We call this the ON-ON alternative, as FRE is active when the external signal is present.<br>
+   
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/model/on-on.webp" 
+    alt="Tadpole steps" 
+    style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  >
+</div>
+Or, <br>
+<b>Structure disrupted (OFF) </b>
+  <span style="color:#007acc; font-weight:bold;">&nbsp;➜&nbsp;</span>
+  <b>External signal</b>
+  <span style="color:#007acc; font-weight:bold;">&nbsp;➜&nbsp;</span>
+  <b>Structure maintained (ON)</b>
+  <br>
+  We call this the OFF-ON alternative, as the FRE is inactive when the external signal is present.
+
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/model/on-on.webp" 
+    alt="Tadpole steps" 
+    style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  >
+</div>
+
+Both models follow the same energetic, complementarity, etc. principles. To facilitate the understanding of the design considerations of the model, we will be using an ON-ON/OFF-OFF type riboswitch as an example to explain the model’s intricacies.
+
+All following explanations can be applied to an ON-ON or an ON-OFF switch, the only difference being when the FRE is disrupted according to the external signal. 
+<br>
+<h3>Considering the ON-ON case</h3>
+        <div class="cards-container">
+          <div class="card">
+            <h3 class="card-title">OFF State (no signal)</h3>
+            <p>The CRE is in its resting shape, which stabilizes the FRE in an inactive fold. In this state, the FRE cannot perform its function.</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">ON State (signal present)</h3>
+            <p>When the CRE detects its signal, it changes shape. This conformational change propagates to the FRE through a connecting linker, allowing the FRE to adopt its active fold.</p>
+          </div>
+        </div>
+
+        <div class="card chocolate-key-card">
+              <h3 class="card-title">Simple Analogy: Chocolate Around a Key
+              <div class="chocolate-key-container">
+                <div class="key-symbol">🗝️</div>
+                <div class="chocolate-wrapper">🍫</div>
+                <div class="melted-chocolate"></div>
+              </div>
+              </h3>
+          <ul class="point-list">
+                  <p><span class="bold-word">FRE = key</span><br>
+                  <span class="bold-word">CRE = chunk of chocolate surrounding the key</span></p>
+                  
+                  <ul class="point-list">
+                      <li><span class="bold-word">No signal (chocolate is solid):</span> The chocolate is hard and holds the key in the wrong shape, so it cannot enter the lock → FRE inactive (OFF)</li>
+                      <li><span class="bold-word">Signal present (chocolate melts):</span> The chocolate softens, releasing the key so it can take its proper shape → key can enter the lock → FRE active (ON)</li>
+                  </ul>
+                  
+                  <p>Here, the CRE itself doesn't do the work; it modulates whether the FRE can fold into its functional shape, creating a signal-dependent ON/OFF switch.</p>
+        </div>
+          
+
+        <p class="section-text">By combining CREs and FREs, we gain precise, modular control over RNA-based regulation. This allows us to design custom RNA switches that respond to a wide variety of signals while controlling any functional element, expanding beyond traditional riboswitches or sRNA-based methods.</p>
+        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+              <iframe 
+                src="https://video.igem.org/videos/embed/muyboCpS2HhfYNCueDWDvT?autoplay=1&loop=1&muted=1" 
+                title="Barcelona-UB: RNA_Switches (2025) [English]" 
+                allow="autoplay; fullscreen" 
+                sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-presentation"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+                       border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 0;"
+              ></iframe>
+            </div>
+
+        <!-- LINKER SECTION -->
+        <h3 id="linker" class="section-subtitle2">The Linker: The Dynamic Hinge of the RNA Switch</h3>
+        
+        <p class="section-text">Simply placing a Conformational RNA Element (CRE) next to a Functional RNA Element (FRE) is not enough to create a reliable ON/OFF switch. The key component that orchestrates their interaction is the <span class="bold-word">linker</span>, a short RNA segment, typically 6–10 nucleotides long, that acts as a mechanical hinge connecting the sensor (CRE) to the effector (FRE).</p>
+
+        <h4 class="section-subtitle3">Function of the Linker</h4>
+        <p class="section-text">The linker is not a passive connector. Its sequence and length determine how the CRE and FRE fold and interact. A properly designed linker ensures that the system can reliably toggle between OFF and ON states.</p>
+                <div style="text-align: center; margin: 20px 0;">
+              <img 
+                src="https://static.igem.wiki/teams/5622/images/software/tadpole-steps.webp" 
+                alt="Tadpole steps" 
+                style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+              >
+            </div>
+        <h4 class="section-subtitle3">Design Principles</h4>
+        <ul class="point-list">
+            <li><span class="bold-word">Avoid excessive binding:</span> The linker should allow enough pairing to maintain the OFF state, but not so much that the switch gets "stuck" and cannot activate when the signal arrives</li>
+            <li><span class="bold-word">Optimal length:</span> Too short a linker may prevent the necessary OFF-state interaction; too long can introduce unwanted folding or too much flexibility, reducing switch precision. Typically, <span class="highlight-word">6–10 nucleotides</span> work well</li>
+            <li><span class="bold-word">Enable conformational change:</span> The linker must be designed so that when the CRE changes shape, the energy released is sufficient to break the OFF-state pairings, allowing the FRE to fold into its functional ON-state</li>
+        </ul>
+
             <!-- CORE ASSUMPTIONS SECTION -->
                 <section id="core-assumptions">
     <h1 class="section-title">Core Assumptions: Model Transparency</h1>
@@ -1406,6 +1488,56 @@
     </div>
 </section>
 
+
+<section id="validation">
+    <h1 class="section-title">Experimental Validation</h1>
+    <p class="section-text">We are very pleased to say that of the 4 different systems we tried in the lab,
+         all of them successfully modulated the FRE element in the presence and absence of the ligand as an
+          OFF-ON switch. 
+        <br>
+    We have been able to convert our switches from an in silico design to reality. 
+    For further details, you can check the Results or Parts page    
+    <br>
+    About how the results affect the model: we obtained 4 functional switches for 
+    each different proposal tested in the lab. We saw how the addition of theophylline 
+    provoked some changes in the system that led to a reduction in the level of readthrough.  
+    <br>
+    However, let’s go beyond, analysing the expectations we had on our model:
+    <br>
+    The systems designed with aptamers are usually built by testing hundreds or even thousands of possible sequences, until one is found that performs the expected behaviour. 
+     <br>
+    However, we could not afford that method so if we wanted to design some switches we needed something to narrow it down. So we built Tadpole, a tool that automatises the design of the desired switches. 
+    The aim was to be able to build two structures, that had
+        <ul class="point-list">
+            <li>Similar energies, so none would be much more stable than the other, 
+                and the switch would be possible.</li>
+            <li>
+                Enough complementarity (aided by the linker) in order to make the pairing 
+                of the CRE to the FRE possible, so it would disrupt it. 
+
+            </li>
+        </ul>
+        The software also predicts the structures, to try to have an approximation to what the final design is
+         going to look like, and if it’s going to be an ON-ON or an OFF-ON. However, as was acknowledged 
+         on the Core Assumptions section, RNAFold has limitations on structure prediction, so it’s not 100% 
+         reliable. In fact, the structures predicted for our systems indicated an ON-ON system, but the lab 
+         results demonstrate it is an OFF-ON.<br>
+
+         With this, we can affirm that our model can be used to build RNAswitches, 
+         and that we have a software tool able to automate it, with which anyone can make a <span class="highlight-word info-word" data-target="semi-rational">semi-rational design</span>, 
+         so they can create a handful of sequences to test in the lab, instead of what would be the usual 
+         when working with aptamers: testing hundreds and hundreds.
+         <br>
+         We didn’t just make our project possible with this model and our software tool.
+          We created a framework that empowers other teams to design and test these systems
+           more easily and efficiently.
+         <br>
+        
+    </p>
+
+
+
+</section>
      <!-- REFERENCES -->
 <section class="references" id="references">
   <h1 class="section-title">References</h1>

@@ -81,7 +81,7 @@
     display: flex;
     position: sticky;
     top: 20px;
-    height: 80vh;
+    height: 100vh;
     min-height: 600px;
     z-index: 10;
   }
@@ -92,7 +92,6 @@
     flex-direction: column;
     justify-content: center;
     padding-right: 2rem;
-    max-height: 80vh;
     overflow-y: auto;
   }
 

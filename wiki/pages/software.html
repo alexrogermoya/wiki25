@@ -9,17 +9,12 @@
 <div class = "page-container">
   <aside class="sidebar">
       <ul class="sidebar-nav">
-          <li><a href="#overview-section" class="active">OVERVIEW</a></li>
-          <li><a href="#need">THE NEED FOR TADPOLE</a>
-            <ul class="sidebar-subnav">
-              <li><a href="#rna-control">Unlocking RNA Control</a></li>
-              <li><a href="#design-space">A New Design Space</a></li>
-              <li><a href="#our-approach">Our Approach</a></li>
-              <li><a href="#tadpole-play">TADPOLE Solution</a></li>
-            </ul>
+          <li><a href="#overview-section" class="active">Overview</a></li>
+          <li><a href="#need">The Need for TADPOLE</a>
           </li>
-          <li><a href="#exceeding-standards">EXCEEDING STANDARDS</a></li>
-          <li><a href="#impact-section">IMPACT</a></li>
+          <li><a href="#exceeding-standards">Exceeding Standards</a></li>
+          <li><a href="#impact-section">Impact</a></li>
+          <li><a href="#validation">Experimental Validation</a></li>
       </ul>
       
       <!--EXTRA INFO-->
@@ -30,6 +25,14 @@
     </div>
   </div>
 
+  <div class="info-card" id="semi-rational">
+    <div class="card">
+      <h3 class="card-title">Semi-rational design</h3>
+      <p>semi-rational design uses rational guidance to narrow down the possibilities, 
+        even if the exact behaviour cannot be exactly predicted, while still relying on experimental 
+        testing of a manageable set of candidates.</p>
+    </div>
+  </div>
   <div class="info-card" id="api-info">
     <div class="card">
       <h3 class="card-title">API</h3>
@@ -225,16 +228,6 @@
       <section id="overview-section">
         <h1 class="main-section-title">Overview</h1>
         <p class="main-section-desc">A comprehensive introduction to Tadpole and its capabilities</p>
-        <div style="text-align: center; margin: 20px 0;">
-              <img 
-                src="{{ url_for('static', filename='images/Tadpole_workflow.png') }}" 
-                alt="Workflow of the Software Tool" 
-                style="width: 50%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
-              >
-            </div> 
-        <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Workflow of the Software Tool. 
-            For more information, see the software-technicalities page, where you can find diagrams of the different algorithms used.</p>
-        
 
       </section>
       <!-- THE TADPOLE TOOL -->
@@ -287,7 +280,7 @@
       </section>
 
       <!-- VALIDATION & ACCESSIBILITY --> 
-<section id="validation">
+        <section id="validation-overview">
   <h2 class="section-subtitle">Validation & Accessibility</h2>
   <p class="section-text">
     Tadpole has been validated both <span class="italic-word">in silico</span> and in the <span class="italic-word">wet lab</span>
@@ -300,11 +293,15 @@
   </p>
 
   <div class="validation-details">
-    <p><strong>  In Silico Validation:</strong> Comprehensive <strong>computational testing</strong> ensures <strong>structural stability</strong> and predicted functionality of designed RNA switches.</p>
+    <p><strong>  In Silico Validation:</strong> Comprehensive <strong>computational testing</strong> 
+      ensures <strong>structural stability</strong> and predicted functionality of designed RNA switches.</p>
 
     <p><strong>  Wet Lab Validation:</strong> <strong>Experimental verification</strong> conducted with 
-      <span class="highlight-word info-word" data-target="stopcodon-info">Stop Codon Readthrough<sup>[3]</sup> element</span> and 
-      <span class="highlight-word info-word" data-target="aptamer-info">aptamer</span> systems, demonstrating <strong>real-world functionality</strong>.
+      <span class="highlight-word info-word" data-target="stopcodon-info">Stop Codon Readthrough<sup>[3]</sup> 
+        element</span> and 
+      <span class="highlight-word info-word" data-target="aptamer-info">aptamer</span> systems, 
+      demonstrating <strong>real-world functionality</strong>. <b>Of the 4 designed systems, 
+      all 4 proved to be switches</b> (see the <a href="#validation" style="text-decoration: none;"><span class="highlight-word info-word">Experimental Validation</span></a>  section for more information).
     </p>
 
     <p><strong>  Accessibility Features:</strong> 
@@ -317,10 +314,11 @@
       <span class="highlight-word info-word" data-target="docker-info">Docker</span> deployment ensures reproducible execution across systems, and the 
       <span class="highlight-word info-word" data-target="seed-info">user-defined seed</span> for the 
       <span class="highlight-word info-word" data-target="ga-info">Genetic Algorithm (GA)</span> guarantees <strong>consistent and repeatable results</strong>. 
-      Since the <span class="highlight-word info-word" data-target="ga-info">Genetic Algorithm (GA)</span> uses random choices, the seed lets users reproduce the same run.
+      Since the <span class="highlight-word info-word" data-target="ga-info">Genetic Algorithm (GA)</span> uses random choices, wihtout a seed, 
+      user could not help others reproduce their results. That is bad for reproductability, so we added the seed to allow users reproduce the same results.
     </p>
   </div>
-</section>
+        </section>
 
       <!-- EXTENSIBILITY & SUSTAINABILITY -->
       <section id="extensibility">
@@ -341,18 +339,41 @@
     <p><strong>  Python Package:</strong> Install via <strong>pip</strong> for integration into existing Python workflows and computational pipelines.</p>
     <p><strong>  API Access:</strong> <strong>RESTful API</strong> enables integration into web applications and automated systems.</p>
     <p><strong>  ViennaRNA<sup>[1]</sup> & Biopython<sup>[2]</sup> Support:</strong> Built-in compatibility with standard bioinformatics tools and libraries.</p>
-    <p><strong>  Open Source:</strong> <strong>Modular</strong>, <strong>documented</strong> code available under an OSI-approved license for community development.</p>
+    <p><strong>  Documentation:</strong> Comented code with architecture diagrams and an evalutaion on 
+      the two algorithms that can be used and recomendations on when to use each
+      (see <a style="text-decoration: none;" 
+      href="https://2025.igem.wiki/barcelona-ub/software-technicalities">
+      <span class="highlight-word">Software Technicalities</span></a> page).
+      The <a style="text-decoration: none;" onclick="window.open('https://gitlab.igem.org/2025/software-tools/barcelona-ub/-/blob/main/README.md?ref_type=heads', '_blank')">
+        <span class="highlight-word">README file</span></a> includes instructions
+       on how to download and use the code for each of the 
+       <a style="text-decoration: none;" href="#exceeding-standards"><span class="highlight-word">possibilities</span></a>, 
+       as well as instructions on how to use the execution scripts.</p>
+      <p><strong>  Open Source:</strong> <strong>Modular</strong>, <strong>documented</strong> code, made available under an OSI-approved license for community development.</p>
   </div>
 
       </section>
-      
-      
+      <h2 class="section-subtitle">Where to Find the Information</h2>
+      In this page, you will find the above informaiton detailed and extended.
+      For more information, see the software-technicalities page, 
+      where you can find diagrams of the different algorithms used, detailed explanations and
+      tips for the inputs, and explanation on the results presentation.</p>
+        
+      <div style="text-align: center; margin: 20px 0;">
+              <img 
+                src="https://static.igem.wiki/teams/5622/images/software/tadpole-workflow.webp" 
+                alt="Workflow of the Software Tool" 
+                style="width: 50%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+              >
+            </div> 
+        <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Workflow of the Software Tool. 
+            
       <!-- THE NEED FOR TADPOLE -->
       <h1 class="main-section-title", id="need">The Need for TADPOLE</h1>
         <p class="main-section-desc">Moving beyond traditional transcriptional control to unlock RNA-level regulation</p>
        <!-- Title outside the menu box -->
         <div class="mb-4">
-    <h2 class="text-xl font-extrabold tracking-wide text-slate-800" style="color: var(--color-intense-2);">CLICK EACH ELEMENT TO EXPLORE THE SECTIONS</h2>
+    <h2 class="text-xxl font-extrabold tracking-wide text-slate-800" style="color: var(--color-intense-2);"> <span class="highlight-word">CLICK EACH ELEMENT TO EXPLORE THE SECTIONS</span></h2>
 </div>
         <!-- INTERACTIVE TADPOLE OVERVIEW -->
         <div class="w-full h-80 bg-white text-slate-100 rounded-2xl relative overflow-hidden shadow-lg mb-8">
@@ -528,9 +549,9 @@
             </div>
 
        <!-- CONTENT SECTIONS -->
-        <section id="rna-control" class="need-content-section">
+        <section id="rna-control" class="need-content-section  active">
             <h1 class="section-title">🔓 Unlocking RNA control beyond the old playbook</h1>
-            <p class="section-text"><span class="italic-word">(<a class="link-text" href="{{ url_for('pages', page='model') }}">see more on Model</a>)</span></p>
+            <p class="section-text"><span class="italic-word">(<a class="link-text" href="https://2025.igem.wiki/barcelona-ub/model">see more on Model</a>)</span></p>
             <p class="section-text">Synthetic biology aims to program biological systems to perform defined tasks. For decades, the field has primarily relied on transcriptional control, using DNA elements like promoters and transcription factors to regulate gene expression. While this approach has enabled countless breakthroughs, it comes with significant limitations.</p>
             
             <p class="section-text">Transcriptional regulation is a complex and often slow process. It involves numerous factors like the binding of proteins to DNA, the intricate dynamics of RNA polymerase, and the presence of regulatory sequences (enhancers and silencers). This complexity can lead to undesirable effects such as cross-talk between low-specificity transcription factors, stochastic noise in gene expression, and slow response times, as the process involves multiple steps from DNA to protein. These shortcomings create a bottleneck for advanced applications like biomanufacturing and gene therapy, which demand precise, rapid, and multi-layered control.</p>
@@ -542,46 +563,52 @@
             <h1 class="section-title">A new design space: Functional RNA Elements</h1>
             <p class="section-text">The next leap in this field is to use more sophisticated <span class = "highlight-word info-word" data-target="fre-info">Functional RNA Element (FRE)</span>  to engineer highly specific and efficient translational switches. An FRE is a sequence of RNA that, when folded into a specific secondary or tertiary structure, performs a biological function without the need for a protein catalyst. The crucial distinction with a <span class = "highlight-word info-word" data-target="cre-info">Conformational RNA Element (CRE)</span>  is that a FRE's folded shape performs a specific function, unlike a CRE, which simply adopts a particular structure in response to external factors like aptamers, temperature, or small RNAs, without a concrete function.</p>
             
-            <p class="section-text"><span class="italic-word">(<a class="link-text" href="{{ url_for('pages', page='model') }}">more details on Functional RNA Elements and Conformational RNA Elements can be found on our Model page</a>)</span></p>
+            <p class="section-text"><span class="italic-word">(<a class="link-text" href="https://2025.igem.wiki/barcelona-ub/model">more details on Functional RNA Elements and Conformational RNA Elements can be found on our Model page</a>)</span></p>
             
             <!-- KEY CONCEPTS CARDS -->
             <div class="cards-container">
                 <div class="card">
                     <h3 class="card-title">CRE - Conformational RNA Element</h3>
                     <p>RNA sequence that adopts a particular structure in response to external factors like ligands, temperature, or sRNAs.</p>
-                    <a class=" btn btn-primary" href="{{ url_for('pages', page='model') }}">Learn More</a>
+                    <a class=" btn btn-primary" href="https://2025.igem.wiki/barcelona-ub/model">Learn More</a>
                 </div>
                 
                 <div class="card">
                     <h3 class="card-title">FRE - Functional RNA Element</h3>
                     <p>RNA sequence that performs a biological function when folded into specific structure, without needing protein catalyst.</p>
-                    <a class=" btn btn-primary" href="{{ url_for('pages', page='model') }}">Learn More</a>
+                    <a class=" btn btn-primary" href="https://2025.igem.wiki/barcelona-ub/model">Learn More</a>
                 </div>
                 
                 <div class="card">
                     <h3 class="card-title">SECIS Element</h3>
                     <p>Highly conserved RNA hairpin that directs ribosome to bypass UGA stop codon and incorporate selenocysteine.</p>
-                    <a class=" btn btn-primary" href="{{ url_for('pages', page='parts') }}">Part Details</a>
+                    <a class=" btn btn-primary" href="https://2025.igem.wiki/barcelona-ub/parts">Part Details</a>
                 </div>
                 
                 <div class="card">
                     <h3 class="card-title">Aptamer</h3>
                     <p>Short RNA/DNA molecule that folds into 3D shape to bind target ligand, changing structure to control gene expression.</p>
-                    <a class=" btn btn-primary" href="{{ url_for('pages', page='parts') }}">Part Details</a>
+                    <a class=" btn btn-primary" href="https://2025.igem.wiki/barcelona-ub/parts">Part Details</a>
                 </div>
                 
                 <div class="card">
                     <h3 class="card-title">Linker</h3>
                     <p>Short 6-10 nucleotide RNA hinge crucial for connecting CRE to FRE and enabling reliable switching.</p>
-                    <a class=" btn btn-primary" href="{{ url_for('pages', page='parts') }}">Part Details</a>
+                    <a class=" btn btn-primary" href="https://2025.igem.wiki/barcelona-ub/parts">Part Details</a>
                 </div>
             </div>
             
             <p class="section-text">This is precisely where our project began. We aimed to combine an FRE, a SCR element known as <span class="bold-word">"SECIS"</span><sup>[5]</sup></span>, with a ligand-responsive aptamer.</p>
             
-            <p class="section-text">The linker, a short 6–10 nucleotide RNA hinge, is crucial for connecting a <span class = "highlight-word info-word" data-target="cre-info">Conformational RNA Element (CRE)</span>  to a <span class = "highlight-word info-word" data-target="fre-info">Functional RNA Element (FRE)</span> ) and enabling reliable switching. Its sequence and length shape how the CRE and FRE fold and interact. With proper design, the linker ensures consistent ON/OFF control <span class="italic-word">(<a class="link-text" href="{{ url_for('pages', page='parts') }}">More details on aptamers are available on its Part Composite page</a>)</span></p>
+            <p class="section-text">The linker, a short 6–10 nucleotide RNA hinge, is crucial for connecting a <span class = "highlight-word info-word" data-target="cre-info">Conformational RNA Element (CRE)</span>  to a <span class = "highlight-word info-word" data-target="fre-info">Functional RNA Element (FRE)</span> ) and enabling reliable switching. Its sequence and length shape how the CRE and FRE fold and interact. With proper design, the linker ensures consistent ON/OFF control <span class="italic-word">(<a class="link-text" href="https://2025.igem.wiki/barcelona-ub/parts">More details on aptamers are available on its Part Composite page</a>)</span></p>
             
-            <p class="section-text">By fusing a SECIS element with an aptamer, we created a novel translational ON/OFF switch. In the absence of the aptamer's ligand, the SECIS element is inactive, and the ribosome stops at the UGA codon, leading to an incomplete protein. However, when the ligand is present, it binds to the aptamer and forces a structural change that activates the SECIS element. This allows the ribosome to "read through" the stop codon, producing a full-length, functional protein <span class="italic-word">(<a class="link-text" href="{{ url_for('pages', page='parts') }}">more on our specific construct can be found on its Part Composite page</a>)</span>.</p>
+            <p class="section-text">By fusing There are two possible RNA switch designs: ON-ON and OFF-ON (IMAGES). 
+            <ul class="point-list">
+              <li>ON-ON configuration: When the CRE is stimulated by the external input, the FRE is active.</li>
+              <li>OFF-ON configuration: When the CRE is not stimulated by the external input, the FRE is active. </li>
+            </ul>
+            To simplify the explanation of our Software’s inner workings, we will be using an ON-ON case example. Both types of RNA switches (ON-ON/OFF-ON) follow the same basic design principles. 
+            </p>
             <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
               <iframe 
                 src="https://video.igem.org/videos/embed/muyboCpS2HhfYNCueDWDvT?autoplay=1&loop=1&muted=1" 
@@ -603,15 +630,15 @@
             
             <p class="section-text">It automates the design process focused on achieving two distinct, stable states: ON and OFF:</p>
              <ul class="point-list">
-                <li><span class="bold-word">Design Proposal Generation:</span> TADPOLE's algorithms (<a class="link-text" href="{{ url_for('pages', page='software-technicalities') }}">which you will learn about in our Software Technicalities page</a>) systematically generate a large number of RNA sequence proposals.</li>
+                <li><span class="bold-word">Design Proposal Generation:</span> TADPOLE's algorithms (<a class="link-text" href="https://2025.igem.wiki/barcelona-ub/software-technicalities">which you will learn about in our Software Technicalities page</a>) systematically generate a large number of RNA sequence proposals.</li>
                 <li><span class="bold-word">Structural and Thermodynamic Prediction:</span> Powered by ViennaRNA<sup>[1]</sup>, for each sequence, the secondary structures and minimum free energies (MFEs) are predicted for both the ON and OFF states.</li>
-                <li><span class="bold-word">Design Evaluation:</span> The software evaluates each proposal against a set of key design principles, such as the required energy difference between the ON and OFF states (ΔMFE) and the structural stability of each conformation (<a class="link-text" href="{{ url_for('pages', page='model') }}">see more information on the Model page</a>).</li>
+                <li><span class="bold-word">Design Evaluation:</span> The software evaluates each proposal against a set of key design principles, such as the required energy difference between the ON and OFF states (ΔMFE) and the structural stability of each conformation (<a class="link-text" href="https://2025.igem.wiki/barcelona-ub/model">see more information on the Model page</a>).</li>
                 <li><span class="bold-word">Linker Optimisation:</span> A key part of the process is designing the optimal linker sequence between the FRE and the CRE. TADPOLE's algorithms ensure this linker facilitates the correct folding of both the ON and OFF conformations.</li>
                 <li><span class="bold-word">Output Analysis:</span> Finally, it provides you with a set of optimal designs that meet all of the design criteria, ready for experimental testing.</li>
             </ul>
             <div style="text-align: center; margin: 20px 0;">
               <img 
-                src="{{ url_for('static', filename='images/Tadpole_steps.png') }}" 
+                src="https://static.igem.wiki/teams/5622/images/software/tadpole-steps.webp" 
                 alt="Ejemplo de imagen" 
                 style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
               >
@@ -619,10 +646,10 @@
 
         </section>
 
-        <section id="tadpole-play" class="need-content-section active">
+        <section id="tadpole-play" class="need-content-section">
             <div class="highlight-section">
               <h1 class="section-title featured-title">
-                <img src="{{ url_for('static', filename='images/tadpole.png') }}" 
+                <img src="https://static.igem.wiki/teams/5622/images/software/tadpole.webp" 
                      alt="Frog icon" 
                      style="height: 2em; vertical-align: middle; margin-right: 8px;">
                 TADPOLE Comes into Play
@@ -761,7 +788,7 @@
 
         <!-- DETAILED SECTIONS -->
         <section id="web-interface" class="detail-section" style="display: none;">
-          <h2 class="section-subtitle2">Interactive Web Interface (Streamlit)</h2>
+          <h2 class="section-subtitle2">Interactive Web Interface (User Friendly)</h2>
           <p class="section-text">
             TADPOLE offers an <a class="link-text" href="https://toolkit-m4g6.onrender.com/">interactive web</a> interface that serves as the most accessible entry point for users of all skill levels. Built with Streamlit, it transforms complex bioinformatics workflows into a simple, guided process without requiring programming knowledge.
           </p>
@@ -795,7 +822,7 @@
               <!-- Imagen ON state -->
               <div>
                 <h3>ON state</h3>
-                <img src="{{ url_for('static', filename='images/on_state.png') }}" 
+                <img src="https://static.igem.wiki/teams/5622/images/software/on-state.webp" 
                      alt="ON state" 
                      style="width: 300px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
               </div>
@@ -803,7 +830,7 @@
               <!-- Imagen OFF state -->
               <div>
                 <h3>OFF state</h3>
-                <img src="{{ url_for('static', filename='images/off_state.png') }}" 
+                <img src="https://static.igem.wiki/teams/5622/images/software/off-state.webp" 
                      alt="OFF state" 
                      style="width: 300px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
               </div>
@@ -862,14 +889,16 @@
             TADPOLE goes beyond the web interface by providing a full Python package and a command-line interface (CLI), offering advanced users and developers a flexible and powerful way to interact with the software.
           </p>
           
-          <h3 class="section-subtitle2">Python Package</h3>
+          <h3 class="section-subtitle2">Python Package (Intermediate)</h3>
           <p class="section-text">
             TADPOLE is packaged as a Python library, making it easy to install and use in any development environment.
           </p>
           
            <ul class="point-list">
             <li><strong>Installation:</strong> The setup.py file specifies all project dependencies, ensuring a smooth and reliable installation. A single command (pip install .) installs the package along with essential libraries such as ViennaRNA<sup>[1]</sup>, Biopython<sup>[2]</sup>, sbol3, and scikit-learn. Any other external installation is explicited.</li>
-            <li><strong>Modular Code:</strong> Each functionality (genetic algorithm, clustering, secondary structure prediction) is implemented in an independent module. Users can import and reuse specific parts of TADPOLE in their own scripts or workflows without loading the full application. For example, the secondary structure prediction or linker search functions can be integrated directly into custom code.</li>
+            <li><strong>Modular Code:</strong> Each functionality (genetic algorithm, clustering, secondary structure prediction) is implemented in an independent module. 
+              Users can import and reuse specific parts of TADPOLE in their own scripts or workflows without loading the full application. 
+              For example, the secondary structure prediction or linker search functions can be integrated directly into custom code. Examples are provided on the README file in Gitlab.</li>
             <li><strong>Interoperability:</strong> As a Python-based package, TADPOLE integrates seamlessly with the rich ecosystem of Python libraries. This simplifies data conversions, whether to text strings, FASTA files, or other synthetic biology standards like SBOL.</li>
           </ul>
           
@@ -899,9 +928,8 @@
         </section>
 
         <section id="rest-api" class="detail-section" style="display: none;">
-          <h2 class="section-subtitle2">REST API</h2>
+          <h2 class="section-subtitle2">REST API (Advanced)</h2>
           
-          <h3 class="section-subtitle2">RESTful API</h3>
           <p class="section-text">
             TADPOLE features a robust RESTful API built with the Flask micro-framework. This API transforms the software into a programmable tool, allowing other services and scripts to interact directly with its core RNA design functions. This architecture is essential for automation, integration into broader computational workflows, and the development of custom applications.
           </p>
@@ -934,9 +962,10 @@
         </section>
 
         <section id="docker-container" class="detail-section" style="display: none;">
-          <h2 class="section-subtitle2">Containerized Environment (Docker)</h2>
+          <h2 class="section-subtitle2">Containerized Environment (Docker, Advanced)</h2>
           <p class="section-text">
-            TADPOLE's use of Docker represents a robust solution to common installation and reproducibility challenges in bioinformatics. Docker packages the entire application environment, ensuring the software runs identically on any system.
+            TADPOLE's use of Docker represents a robust solution to common installation and reproducibility challenges in bioinformatics. 
+            Docker packages the entire application environment, ensuring the software runs identically on any system. Instructions on how to set up the Docker container can be found on the READ ME file in Gitlab.
           </p>
           
           <h3 class="section-subtitle2">What is a Docker Container?</h3>
@@ -1121,8 +1150,8 @@
          <div class="image-container">
           <!-- Title outside the menu box -->
         <div class="mb-4">
-    <h2 class="text-xl font-extrabold tracking-wide text-slate-800" style="color: var(--color-intense-2);">CLICK EACH ELEMENT TO EXPLORE THE SECTIONS</h2>
-</div>
+          <h2 class="text-xl font-extrabold tracking-wide text-slate-800" style="color: var(--color-intense-2);">CLICK EACH ELEMENT TO EXPLORE THE SECTIONS</h2>
+        </div>
         
           <div style="background: linear-gradient(135deg, #e74c3c, #c0392b); padding: 40px; border-radius: 15px; color: white; margin: 30px 0;">
             <h3 style="text-align: center; margin-bottom: 30px; font-size: 1.8em;">TADPOLE Impact Categories</h3>
@@ -1329,7 +1358,7 @@
               <p style="margin-top: 15px;"><strong>This represents a paradigm shift:</strong> from kill switches as backup safety measures to kill switches as precise, real-time control systems that can be trusted for critical applications.</p>
             </div>
           </div>
-        </section>
+      </section>
 
         <section id="riboswitches" class="impact-detail-section" style="display: none;">
           <h2 class="section-subtitle2">🔬 Improving Traditional Riboswitches</h2>
@@ -1621,6 +1650,110 @@
           </div>
         </section>
       </section>
+
+      <section id="validation">
+          <h1 class="main-section-title">Experimental Validation</h1>
+
+          In <a style="text-decoration: none;" href="#need">
+            <span class="highlight-word info-word">The Need for TADPOLE</span>
+          </a> section, 'Our Approach' subsection, we explained the expectations we had when building the software, 
+          and how exactly we expected it to help us design our systems: with 
+          <span class="highlight-word info-word" data-target="semi-rational">semi-rational design.</span>
+        
+          <p>
+            <b>And the results reflect this approach perfectly:</b>
+          </p>
+        
+          <ul class="point-list">
+            <li>
+              We finally did not need to rely on experimental testing as 
+              <span class="highlight-word">all 4 different systems we tested in the lab correctly worked as switches</span>. 
+              This shows that our considerations about energy and nucleotide complementarity were good enough to design functional systems. 
+              It would be virtually impossible to obtain 4 working switches by chance from just 4 random sequences.
+            </li>
+            <li>
+              At the same time, the structural predictions were not completely accurate.
+              While the software suggested an ON–ON system, the lab results showed an OFF–ON system 
+              (see details in the Model or Engineering page).
+            </li>
+          </ul>
+        
+          <p>
+            This outcome validates the value of a semi-rational approach: even with imperfect structural 
+            predictions, our tool could reduce the design space enough to reliably generate functional switches.
+          </p>
+        
+          <h2>What happened exactly?</h2>
+          <p>The results in the lab show that:</p>
+          <ul>
+            <li>With theophylline: we have Readthrough</li>
+            <li>Without theophylline: less Readthrough</li>
+          </ul>
+        
+          <b>Important consideration</b><br><br>
+          Despite the fact we have been dealing in absolutes regarding FRE activity ("Functional / Non-functional"), it is important to remember that in the lab these systems work in relatives. <br>
+          Elements like STOP codon readthrough sequences, or frameshift structures, are able to trigger their function to a certain level, but they never reach 100%.
+          <br><br>
+          When isolated, SECIS performed in a cell-free assay with an up to 14% readthrough induction.
+          <br><br>
+          What we predicted as the OFF state shows 4% of Readthrough, <b>therefore our prediction of the OFF state was correct</b>: there is indeed a reduction on the level of Readthrough.
+          <br><br>
+          However, what should have been the ON state, shows less Readthrough: about half (2%). 
+          This means that, instead of recovering its functional structure, when theophylline is added, 
+          the structural change disrupts the FRE even more. This deviation with predictions is most likely
+          due to the limitations we already explained about RNAFold, more precisely, the fact that <b>it is not
+          able to predict the non-canonical base pairings located at the heart of the functional core of SECIS, the most important part of the element</b>.
+          <br><br>
+        
+          <h3>So what is working?</h3>
+          <div style="margin-bottom: 0.1rem;  background: #f9f9f9; border-left: 4px solid #560400; padding: 12px 16px; border-radius: 8px;">
+            <p>
+              We wanted the model to compute two states in which the addition of theophylline would provoke a structural change.
+              <span style="color:#007acc;">&#8594;</span>
+              <b>There is a structural change in our system when theophylline is added that modulates functionality</b>
+              <span style="color:#007acc;">&#8594;</span>
+              <span style="color:green; font-weight:600;">✔️ Checked</span>
+            </p>
+          
+            <p>
+              We also needed these two states with energies close enough so that it would allow us to pivot between the two conformations.
+              <span style="color:#007acc;">&#8594;</span>
+              As the functionality is modulated when theophylline is added, there has to be a 
+              <b>conformational change</b>
+              (we eliminated other possibilities) and therefore we are able to pivot.
+              <span style="color:#007acc;">&#8594;</span>
+              <span style="color:green; font-weight:600;">✔️ Checked</span>
+            </p>
+          </div>
+        <br><br>
+          <h3>What is not working?</h3>
+          <div style= "margin-bottom: 0.1rem; background: #f9f9f9; border-left: 4px solid #560400; padding: 12px 16px; border-radius: 8px;">
+            
+          <p>
+            As expected, the structural prediction of the state with theophylline is not accurate, which is explained by RNAFold limitations. 
+            <u>We were able to build two conformations that would result in a switch</u> (we were able to design a switch) 
+            but we were <b>not able to predict the exact behaviour of our system 
+            due to the current limitations on structural prediction</b>. 
+            <b>This limitations comply</b> with the definition af a <span class="highlight-word info-word" data-target="semi-rational">semi-rational</span> designing tool.
+          </p>
+          </div>
+          <br><br>
+          <h3>Therefore, what can other people expect from TADPOLE?</h3>
+          <p>
+            We were able to make a semi-rational design that <span class="highlight-word">worked properly</span> 
+            for the system we tested in the lab, 
+            <span class="highlight-word">one of the most difficult systems</span> 
+            (due to the non-canonical pairings) <span class="highlight-word">we could have presented</span>. 
+            <br>
+            <b>We proved how it can work even outside of ordinary cases.</b> 
+            <br>
+            Therefore, with FRE elements without these uncommon structures, 
+            our tool should predict even more accurate results and.
+            <br><br>
+            <span class="highlight-word">Others can use this tool as a functional semi-rational design tool.</span>
+          </p>
+        </section>
+
       <section class="references" id="references">
     <h1 class="section-title">References</h1>
     <ol>
@@ -2414,7 +2547,7 @@ document.addEventListener('DOMContentLoaded', function() {
     drawDNAHelices();
     
     // Set default active section
-    selectNode('tadpole-play');
+    selectNode('rna-control');
 });
 </script>
 {% endblock %}
