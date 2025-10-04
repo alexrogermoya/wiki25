@@ -1,0 +1,165 @@
+.homepage{
+    width:100vw;
+}
+
+.hero{
+    background-image: url(https://static.igem.wiki/teams/5622/images/home/homepage-switches-background.webp);
+    justify-content: center;
+    align-items: center;
+}
+
+
+.dna-container {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    transform: translateY(-50%);
+    z-index: 10;
+    overflow: hidden;
+}
+
+.dna-half {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.dna-half.left {
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+}
+
+.dna-half.right {
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+}
+
+.dna-half.broken.left {
+    transform: translateX(-200px);
+}
+
+.dna-half.broken.right {
+    transform: translateX(200px);
+}
+
+.helix-strand {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.helix-strand.strand1 {
+    z-index: 2;
+}
+
+.helix-strand.strand2 {
+    z-index: 1;
+}
+
+.helix-point {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.helix-point.strand1 {
+    background: var(--main-color);
+}
+
+.helix-point.strand2 {
+    background: var(--color-intense-2);
+}
+
+
+
+.nucleotide-label {
+    position: absolute;
+    font-size: 10px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.revealed-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.3);
+    text-align: center;
+    color: #1e1e1e;
+    opacity: 0;
+    transition: all 0.2s cubic-bezier(0, 0, 0, 1) 0.2s;
+    z-index: 5;
+    max-width: 600px;
+    padding: 40px;
+}
+
+.revealed-text.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.revealed-text h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #1e1e1e;
+    font-weight: bold;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.scroll-indicator {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    text-align: center;
+    opacity: 0.7;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 0.3; }
+}
+
+.content-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 40px;
+}
+
+.gradient{
+    height:20rem;   
+    background: linear-gradient(180deg,rgba(253, 253, 253, 1) 0%, rgba(155, 36, 33, 1) 100%);
+}
+.final{
+    color:var(--bg-main);
+    height:auto;
+    margin-bottom:-3.5rem;
+    background: var(--alt-color);
+}
+
+.final p{
+    font-size: var(--fs-h1);
+    font-weight: var(--fw-subsemibold);
+}
+
+.join-us{
+    font-size: 5rem;
+    font-weight: var(--fw-bold);
+}

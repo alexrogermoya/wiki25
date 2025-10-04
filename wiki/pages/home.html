@@ -4,12 +4,47 @@
 {% block lead %}{% endblock %}
 
 {% block page_content %}
-<div class="page-container">
+<link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+<script src="{{ url_for('static', filename='home.js') }}"></script>
+
+<!-- <div class="page-container"> -->
   <div class="homepage">
-    <h1 class="page-title">Skippit</h1>
-    <button class="btn btn-primary" onclick = "window.location.href='demo'">How to wiki</button>
+    <!-- <h1 class="page-title">Skippit</h1>
+    <button class="btn btn-primary" onclick = "window.location.href='demo'">How to wiki</button> -->
+    <div class="hero">
+      <img src="https://static.igem.wiki/teams/5622/images/brand/skippit-hd-full-logo.webp" alt="Skippit Logo">
+    </div>
+    <div class="dna-container">
+      <div class="dna-half left" id="leftHalf">
+          <div class="helix-strand strand1" id="leftStrand1"></div>
+          <div class="helix-strand strand2" id="leftStrand2"></div>
+      </div>
+      <div class="dna-half right" id="rightHalf">
+          <div class="helix-strand strand1" id="rightStrand1"></div>
+          <div class="helix-strand strand2" id="rightStrand2"></div>
+      </div>
+      <div class="revealed-text" id="revealedText">
+        <h1>Unlock protein<br>expression beyond<br>the limits of DNA</h1>
+      </div>
+    </div>
+    
+    <section class = "ribosome"></section>
+    <section class="home-table"></section>
+    <section class="special"></section>
+    <div class="gradient"></div>
+    <section class="final">
+      <p>SKIPPIT is proof that the future of synthetic biology starts now.</p>
+      <p>New tools, new regulation, and a new world of possibilities.</p>
+      <div class ="join-us">Join us,<br> BEYOND THE finish line</div>
+      <div class="discover">
+        DISCOVER OUR PROJECT...
+        <div class="carrousel"></div>
+      </div>
+    </section>
   </div>
-</div>
+<!-- </div> -->
+
 {% endblock %}
+
 
 
