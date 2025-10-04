@@ -1,0 +1,313 @@
+{% extends "layout.html" %}
+  
+{% block title %}MSA Tool - Evolutionary Structural Analysis{% endblock %}
+{% block lead %}Secondary analytical module for exploring evolutionary and structural conservation of RNA elements{% endblock %}
+
+{% block page_content %}
+
+<div class="page-container">
+  <aside class="sidebar">
+      <ul class="sidebar-nav">
+          <li><a href="#overview-section" class="active">Overview</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#output-overview">Output Overview</a></li>
+          <li><a href="#significance">Significance</a></li>
+          <li><a href="#access-points">Access Points</a></li>
+          <li><a href="#references">References</a></li>
+      </ul>
+      
+      <!-- INFO CARDS -->
+      <div class="info-card" id="msa-info">
+        <div class="card">
+          <h3 class="card-title">Multiple Sequence Alignment (MSA)</h3>
+          <p>A bioinformatics technique that aligns homologous sequences to identify conserved regions and evolutionary relationships.</p>
+        </div>
+      </div>
+
+      <div class="info-card" id="fre-info">
+        <div class="card">
+          <h3 class="card-title">Functional RNA Element (FRE)</h3>
+          <p>RNA sequences that perform specific biological functions when folded, such as frameshift elements, ribozymes, or Stop Codon Readthrough sequences.</p>
+        </div>
+      </div>
+
+      <div class="info-card" id="scr-info">
+        <div class="card">
+          <h3 class="card-title">SCR Element</h3>
+          <p>Stop Codon Readthrough element - a genetic element that allows the ribosome to continue translation past a stop codon.</p>
+        </div>
+      </div>
+
+      <div class="info-card" id="rnafold-info">
+        <div class="card">
+          <h3 class="card-title">RNAFold</h3>
+          <p>A computational tool from the ViennaRNA<sup>[2]</sup> package that predicts RNA secondary structure based on minimum free energy.</p>
+        </div>
+      </div>
+
+      <div class="info-card" id="conservation-info">
+        <div class="card">
+          <h3 class="card-title">Conservation Score</h3>
+          <p>A measure from 0 (variable) to 1 (fully conserved) indicating how well a nucleotide position is preserved across evolutionary time.</p>
+        </div>
+      </div>
+
+      <div class="info-card" id="clustering-info">
+        <div class="card">
+          <h3 class="card-title">Structural Clustering</h3>
+          <p>Computational method to group RNA structures based on similarity, revealing evolutionary conservation patterns.</p>
+        </div>
+      </div>
+  </aside>
+
+  <div class="page-content">
+    <div class="header">
+      <h1 class="page-title">MSA Tool — Evolutionary Structural Analysis</h1>
+      <p class="page-desc">Secondary analytical module for exploring evolutionary and structural conservation of RNA elements</p>
+    </div>
+    
+    <div class="content">
+      <!-- OVERVIEW SECTION -->
+      <section id="overview-section">
+        <h1 class="section-title">Overview</h1>
+        
+        <p class="section-text">The <span class="highlight-word info-word" data-target="msa-info">MSA Tool</span> 
+          is a secondary analytical module developed as part of our modelling and software framework. While our
+           main software (see <a class="link-text" href="https://2025.igem.wiki/barcelona-ub/software">Software</a>
+            and <a class="link-text" href="https://2025.igem.wiki/barcelona-ub/software-technicalities">Software Technicalities</a> pages) focuses on designing and simulating 
+           functional RNA switches, this complementary tool was created to explore the evolutionary and structural
+            conservation of naturally occurring RNA elements.</p>
+        
+        <p class="section-text">We specifically designed the MSA Tool during our attempt 
+          to use an <span class="highlight-word info-word" data-target="scr-info">SCR element</span> 
+          as our <span class="highlight-word info-word" data-target="fre-info">Functional RNA Element 
+            (FRE)</span> (see <a class="link-text" href="https://2025.igem.wiki/barcelona-ub/model">Model</a> and <a class="link-text" href="https://2025.igem.wiki/barcelona-ub/software">Software</a> pages). Because the SCR's structure was not well 
+            characterized, we needed a way to test whether it showed conserved structural motifs that 
+            could indicate a functional secondary structure.</p>
+        
+        <p class="section-text">T
+          When studying protein function, researchers often rely on structure prediction tools such as AlphaFold<sup>[2]</sup> or conservation analysis pipelines that use evolutionary information to identify key residues.
+          However, for RNA, there is no equivalent integrated tool that allows researchers to visualise structural conservation in an evolutionary context.
+            <br>
+          This tool provided the framework to perform such an analysis — 
+          allowing us to visualize structural conservation directly on the RNA secondary structure. 
+          Ultimately, experiments designed using the insights from this tool confirmed that no important 
+          structure was conserved, helping us move forward with other FRE candidates.</p>
+
+        
+      </section>
+      <!-- ACCESS POINTS -->
+      <section id="access-points">
+        <h1 class="section-title">Access Points</h1>
+       
+        <div class="cards-container">
+          <div class="card">
+            <h3 class="card-title">💻 GitLab Source Code (Official Repository)</h3>
+            <p>All MSA Tool source code is openly available on our GitLab repository under an OSI-approved license.</p>
+            <button class="btn btn-secondary" onclick="window.open('https://gitlab.igem.org/2025/software-tools/barcelona-ub', '_blank')">Access GitLab Repository</button>
+          </div>
+         
+          <div class="card">
+            <h3 class="card-title">🌐 Web Deployment (For Non-Experts)</h3>
+            <p>A live web deployment of the MSA Tool that can be accessed directly from any browser, no installation required.</p>
+            <button class="btn btn-primary" onclick="window.open('https://toolkit-m4g6.onrender.com/', '_blank')">Try MSA Tool Online</button>
+          </div>
+         
+          <div class="card">
+            <h3 class="card-title">📋 Docker, Package & API Instructions (README)</h3>
+            <p>Step-by-step installation guide including instructions for Docker, the Python package, and the MSA Tool API.</p>
+            <button class="btn btn-outline" onclick="window.open('https://gitlab.igem.org/2025/software-tools/barcelona-ub/-/blob/main/README.md?ref_type=heads', '_blank')">View Technical Documentation</button>
+          </div>
+        </div>
+        Example of how to use the tool:
+        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+          <iframe 
+            src="https://video.igem.org/videos/embed/qnnTam5a6UPbK7jqZcbsdL"
+            title="Barcelona-UB: MSA-tool (2025) [English]" 
+            allow="autoplay; fullscreen" 
+            sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-presentation"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+                   border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 0;"
+          ></iframe>
+        </div>
+      </section>
+      <!-- HOW IT WORKS -->
+      <section id="how-it-works">
+        <h1 class="section-title"> How It Works</h1>
+        
+        <p class="section-text">The MSA Tool takes a <span class="highlight-word info-word" data-target="msa-info">Multiple Sequence Alignment (MSA)</span> file and analyzes both sequence conservation and predicted RNA secondary structures, integrating evolutionary information with <span class="highlight-word info-word" data-target="rnafold-info">RNA folding predictions</span>.</p>
+        
+        <h2 class="section-subtitle">Supported formats:</h2>
+        <ul class="point-list">
+          <li><span class="bold-word">FASTA</span> (.fasta, .fa) and <span class="bold-word">Clustal</span> (.aln) — up to 200 MB per file</li>
+          <li>You can drag and drop your file, or upload it manually</li>
+        </ul>
+        
+        <p class="section-text"> A folder named <span class="italic-word">"examples"</span> is available in the tool's web interface — it includes a sample FASTA file you can try directly on the platform.</p>
+        
+        <p class="section-text">The first sequence in the alignment is considered the reference sequence, and its predicted structure is used as a baseline for comparison and visualization.</p>
+      </section>
+
+      <!-- OUTPUT OVERVIEW -->
+      <section id="output-overview">
+        <h1 class="section-title"> Output Overview</h1>
+        
+        <p class="section-text">Once the file is processed, three result tabs are generated:</p>
+
+        <!-- Tab 1: General Information -->
+        <h2 class="section-subtitle"> 1. General Information</h2>
+        
+        <p class="section-text">This section provides the predicted structure and folding energy of the reference sequence, alongside a <span class="highlight-word info-word" data-target="conservation-info">conservation map</span> showing how conserved each base is across the alignment.</p>
+        
+        <h3 class="section-subtitle2">Example structure:</h3>
+        <div class="code-container">
+          <pre><code>.((.(((.....))).)).....(((((.(((.....((((........))))....)))))))). 
+          Energy: -15.00 kcal/mol</code></pre>
+        </div>
+        
+        <p class="section-text">The conservation map displays a score between 0 (variable) and 1 (fully conserved) for each nucleotide, visualized on the RNAFold-predicted structure. High conservation across base-paired regions indicates possible structural or functional importance.</p>
+        <div style="text-align: center; margin: 20px 0;">
+              <img 
+                src="https://static.igem.wiki/teams/5622/images/software/example.webp" 
+                alt="Ejemplo de imagen" 
+                style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+              >
+            </div>
+
+          <div style="text-align: center; margin: 20px 0;">
+              <img 
+                src="https://static.igem.wiki/teams/5622/images/software/example-an.webp" 
+                alt="Ejemplo de imagen" 
+                style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+              >
+            </div>
+       <div class="legend-item">
+            <span class="legend-color" style="background-color: var(--color-intense-1);"></span>
+            <span class="bold-word" style="color: green;">always</span> — present in all sequences
+        </div>
+        <div class="legend-item">
+            <span class="legend-color" style="background-color: var(--color-soft-3);"></span>
+            <span class="bold-word" style="color: blue;">almost always conserved</span> — absent in up to two sequences
+        </div>
+        <div class="legend-item">
+            <span class="legend-color" style="background-color: var(--color-soft-2);"></span>
+            <span class="bold-word" style="color: yellow;">others</span> — less consensus
+        </div>
+        <div class="legend-item">
+            <span class="legend-color" style="background-color: var(--grey);"></span>
+            <span class="bold-word">not paired (white)</span> — unpaired positions
+        </div>
+
+
+        <!-- Tab 2: Clustering Analysis -->
+        <h2 class="section-subtitle"> 2. Clustering Analysis</h2>
+        
+        <p class="section-text">This tab summarizes the <span class="highlight-word info-word" data-target="clustering-info">structural diversity</span> observed across the alignment — showing how many unique structures exist and how they cluster together.</p>
+        
+        <h3 class="section-subtitle2">Example:</h3>
+        <div class="code-container">
+          <pre><code>Total Structures: 20
+Unique Structures: 4
+Cluster 0 — 9 structures
+Cluster 1 — 9 structures
+Cluster 2 — 1 structure
+Cluster 3 — 1 structure</code></pre>
+        </div>
+        <div style="text-align: center; margin: 20px 0;">
+              <img 
+                src="https://static.igem.wiki/teams/5622/images/software/unique.webp" 
+                alt="Ejemplo de imagen" 
+                style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+              >
+            </div>
+        <p class="section-text">A low number of unique clusters, compared with the number of sequences, indicates a highly conserved overall fold, while higher diversity suggests that the sequence may not rely on a stable conserved structure for its function.</p>
+
+        <!-- Tab 3: Visualise All Structures -->
+        <h2 class="section-subtitle"> 3. Visualise All Structures</h2>
+        
+        <p class="section-text">This section allows you to explore each predicted structure individually — including sequence, folding energy, and base-pairing pattern — for a deeper look into how mutations may influence the RNA's folding.</p>
+        
+        
+      </section>
+
+      <!-- SIGNIFICANCE -->
+      <section id="significance">
+        <h1 class="section-title"> Significance</h1>
+        
+        <p class="section-text">The MSA Tool was designed to shed light on the potential structural role of naturally occurring RNA elements, offering an evidence-based approach rather than working <span class="italic-word">"in the dark."</span></p>
+        
+        <p class="section-text">By integrating evolutionary conservation, structure prediction, and clustering analysis, it helps determine:</p>
+        
+        <div class="cards-container">
+          <div class="card">
+            <h3 class="card-title">Whether a conserved structure exists</h3>
+            <p>Identifies if the RNA element maintains consistent folding patterns across evolutionary time</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">Which regions may be functionally important</h3>
+            <p>Highlights conserved base-paired regions that likely contribute to biological function</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">How much structural diversity occurs among homologous sequences</h3>
+            <p>Quantifies the range of structural variation within related sequences</p>
+          </div>
+        </div>
+        
+        <p class="section-text">In our case, it ultimately demonstrated that the SCR element lacked significant structural conservation, leading us to conclude that it was unlikely to function as a reliable FRE. This insight was crucial in guiding the next steps of our <span class="bold-word">design–build–test–learn</span> cycle.</p>
+      </section>
+
+      
+
+      <!-- REFERENCES -->
+<section class="references" id="references">
+  <h1 class="section-title">References</h1>
+  <ol>
+    <li>Jumper, J., Evans, R., Pritzel, A., Green, T., Figurnov, M., Ronneberger, O., ... & Hassabis, D. (2021). Highly accurate protein structure prediction with AlphaFold. Nature, 596(7873), 583-589. <a class="link-text" href="https://doi.org/10.1038/s41586-021-03819-2">Paper</a></li>
+    <li>Lorenz, R., Bernhart, S. H., Höner zu Siederdissen, C., Tafer, H., Flamm, C., Stadler, P. F., & Hofacker, I. L. (2011). ViennaRNA Package 2.0. Algorithms for Molecular Biology, 6(1), 26. <a class="link-text" href="https://doi.org/10.1186/1748-7188-6-26">Paper</a></li>
+  </ol>
+</section>
+
+    </div>
+  </div>
+</div>
+
+<style>
+
+
+.code-container pre {
+  margin: 0;
+  overflow-x: auto;
+}
+
+.code-container code {
+  color: #560400;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.image-container {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.photo-caption {
+  font-size: 14px;
+  color: var(--grey);
+  font-style: italic;
+  margin-top: 12px;
+}
+
+</style>
+
+
+{% endblock %}
