@@ -60,14 +60,15 @@ html {
 
 /* Navbar */
 .navbar{
-  /* background-color: var(--bg-main);
-  box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.075); */
-  background: rgba(255, 255, 255, 0.43);
+  background-color: var(--bg-main);
+  box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.03);
   /* border-radius: 16px; */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(11px);
-  -webkit-backdrop-filter: blur(11px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+  
+  /* background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.25); */
 }
 
 .nav-link{
@@ -84,9 +85,84 @@ html {
 }
 
 
-.dropdown-menu{
-  width: 100vw;
+.dropdown {
+  position: static !important;
 }
+
+/* .dropdown-menu {
+  margin-top: 0px !important;
+  width: 100% !important;
+
+  position: relative;
+  background: transparent;           
+  border: transparent;               
+  overflow: hidden;                  
+  z-index: 1000;
+}
+
+.dropdown-menu::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 0;                        
+  pointer-events: none;              
+}
+
+.dropdown-menu > * {
+  position: relative;
+  z-index: 1;
+} */
+.dropdown-menu {
+  margin-top: 0px !important;
+  width: 100% !important;
+  border:transparent;
+  background-color: var(--bg-main);
+  box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+}
+
+.menu-section{  
+  padding: 0% 20%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.menu-section p{
+  padding-left:0.5rem;
+  margin-bottom:0.5rem;
+  font-weight: var(--fw-bold);
+  color:var(--alt-color);
+}
+
+.menu-section a{
+  font-size:1.2rem;
+  font-weight: var(--fw-semibold);
+  padding:0.5rem;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 20px 0px;
+}
+
+
+.dropdown-item:hover{
+  background-color: transparent;
+  color:var(--color-soft-3);
+  transition: fade-in- 0.3s;
+}
+
+@media (max-width: 900px){
+  .column{
+    float:left;
+    width: 100%;
+    padding:20px 0px;
+  }
+}
+
 
 .navbar .nav-link.dropdown-toggle::after{
   content: "";
