@@ -27,11 +27,18 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbar-project" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Project 
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbar-project">
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering</a></li>
-          </ul>
+          <div class="dropdown-menu" aria-labelledby="navbar-project">
+            <div class="menu-section">
+              <div class="column">
+                <a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Project Description</a>
+              </div>
+              <div class="column">
+                <a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a>
+              </div>
+              <div class="column">
+                <a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering</a>
+              </div>
+          </div>
         </li>
 
         <!-- WET LAB -->
@@ -39,12 +46,21 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbar-wet-lab" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Wet Lab
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbar-wet-lab">
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experimental overview</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a></li>
-          </ul>
+          <div class="dropdown-menu" aria-labelledby="navbar-wet-lab">
+            <div class="menu-section">
+              <div class="column">
+                <a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experimental overview</a>
+                <a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a>
+              </div>
+              <div class="column">
+                <a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a>
+                <a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a>
+              </div>
+              <div class="column">
+                <a class="dropdown-item" href="{{ url_for('pages', page='pivotal-changes') }}">Pivotal changes and milestones</a>
+              </div>
+            </div>
+          </div>
         </li>
 
         <!-- DRY LAB -->
@@ -52,10 +68,18 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbar-dry-lab" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dry Lab
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbar-dry-lab">
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Model</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='software') }}">Software</a></li>
-          </ul>
+          <div class="dropdown-menu" aria-labelledby="navbar-dry-lab">
+            <div class="menu-section">
+              <div class="column">
+                <a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Model</a>
+              </div>
+              <div class="column">
+                <p>Software</p>
+                <a class="dropdown-item" href="{{ url_for('pages', page='software') }}">Software</a>
+                <a class="dropdown-item" href="{{ url_for('pages', page='technicalities') }}">Software technicalities</a>
+              </div>
+            </div>
+          </div>
         </li>
 
         <!-- BEYOND THE BENCH -->
@@ -63,12 +87,26 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbar-engagement" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Beyond the Bench
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbar-engagement">
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Human Practices</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='entrepreneurship') }}">Entrepreneurship</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='education') }}">Education</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='safety-and-security') }}">Safety</a></li>
-          </ul>
+          <div class="dropdown-menu" aria-labelledby="navbar-engagement">
+            <div class="menu-section">
+              <div class="column">
+                <p>Education</p>
+                <a class="dropdown-item" href="{{ url_for('pages', page='education') }}">Overview</a>
+                <a class="dropdown-item" href="{{ url_for('pages', page='education-toolkit') }}">Toolkit</a>
+                <a class="dropdown-item" href="{{ url_for('pages', page='outside-toolkit') }}">Outside the Toolkit</a> 
+              </div>
+              <div class="column">
+                <p>Human Practices</p>
+                <a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Overview</a>
+                <a class="dropdown-item" href="{{ url_for('pages', page='dual-use') }}">Dual-Use Assessment</a>
+              </div>
+              <div class="column">
+                <p style="color:transparent">Empty</p>
+                <a class="dropdown-item" href="{{ url_for('pages', page='entrepreneurship') }}">Entrepreneurship</a>
+                <a class="dropdown-item" href="{{ url_for('pages', page='safety-and-security') }}">Safety</a>
+              </div>
+            </div>
+          </div>
         </li>
 
         <!-- TEAM -->
@@ -76,13 +114,20 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbar-team" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Team
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbar-team">
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='members') }}">Meet the Team</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='collaborations') }}">Collaborations</a></li>
-          </ul>
+          <div class="dropdown-menu" aria-labelledby="navbar-team">
+            <div class="menu-section">
+              <div class="column">
+                <a class="dropdown-item" href="{{ url_for('pages', page='members') }}">Meet the Team</a>
+              </div>
+              <div class="column">
+                <a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions</a>
+              </div>
+              <div class="column">
+                <a class="dropdown-item" href="{{ url_for('pages', page='collaborations') }}">Collaborations</a>
+              </div>
+            </div>
+          </div>
         </li>
-
       </ul>
     </div>
   </div>
