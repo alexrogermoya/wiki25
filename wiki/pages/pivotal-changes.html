@@ -1,0 +1,263 @@
+{% extends "layout.html" %}
+
+{% block title %}Milestones{% endblock %}
+{% block lead %}Pivotal changes and milestones during our laboratory work{% endblock %}
+
+{% block page_content %}
+
+<div class="page-container">
+  <aside class="sidebar">
+    <ul class="sidebar-nav">
+      <li><a href="#intro" class="active">Introduction</a></li>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#milestone1">Milestone 1</a></li>
+      <li><a href="#milestone2">Milestone 2</a></li>
+      <li><a href="#milestone3">Milestone 3</a></li>
+      <li><a href="#references">References</a></li>
+    </ul>
+  </aside>
+
+  <div class="page-content">
+    <div class="header">
+      <h1 class="page-title">Milestones</h1>
+      <p class="page-desc">Pivotal changes and milestones during our laboratory work</p>
+    </div>
+
+    <div class="content">
+      <!-- INTRODUCTION -->
+      <section id="intro">
+        <h1 class="section-title">Introduction</h1>
+        <p class="section-text">During our time in the laboratory, there have been several <span class="bold-word">paradigm shifts</span> and important moments that have defined our experiments. We have adapted the procedures according to the needs of our project, incorporating or removing elements from the assays, optimising protocols, radically changing experimental techniques, or making complete modifications to what we had done up to that point.</p>
+        <p class="section-text">In this section, we want to highlight <span class="highlight-word">three key moments</span> in the development of our laboratory work over the past months, with the aim of perhaps helping other iGEM teams who may face difficulties in their experimental work, or providing ideas about what might be going wrong if the experimental results are not as expected.</p>
+      </section>
+
+      <!-- OVERVIEW -->
+      <section id="overview">
+        <h1 class="section-title">Overview</h1>
+        <div class="image-container">
+          <img src="https://static.igem.wiki/teams/5622/images/wetlab/schememilestones.webp" alt="Scheme of the three most important milestones during experimental work">
+          <p class="photo-caption" style="text-align: center;">Scheme of the three most important milestones during the experimental work of our project</p>
+        </div>
+      </section>
+
+      <!-- MILESTONE 1 -->
+      <section id="milestone1">
+        <h1 class="section-title">Milestone 1: Optimization of Cell-Based Assay</h1>
+        <p class="section-text">Throughout our work in the laboratory, we have carried out several rounds of assays in <span class="bold-word">HEK293T cells</span>. We were able to optimize the process in some of its experimental and procedural variables after reviewing the results and making various observations throughout the procedure.</p>
+        
+        <h2 class="section-subtitle">Cell Density</h2>
+        <p class="section-text">The first step for the HEK293T cell assay is seeding a specific cell density in 24- or 48-well plates. In our case, we used <span class="highlight-word">48-well plates</span>. After several trials, we determined that the optimal cell density was <span class="bold-word">30,000 cells per well</span>.</p>
+        <p class="section-text">It is important to note that the cell assay lasts <span class="italic-word">5 days</span>, so if we seed the cells on day 1, they will go through 3–4 cell division cycles before we measure luciferase levels. Therefore, the initial number of cells seeded must be relatively low to avoid:</p>
+        <ul class="point-list">
+          <li>The cells reaching confluence and stopping proliferation</li>
+          <li>Renilla luciferase levels becoming so high that they exceed the luminometer's detection limit</li>
+        </ul>
+
+        <h2 class="section-subtitle">Treatment Timing Optimization</h2>
+        <p class="section-text">After reviewing the literature, we found an article <span class="highlight-word info-word" data-target="ref1">[1]</span> in which, after transfecting the cells, only <span class="bold-word">4 hours</span> were allowed before starting the theophylline treatment, followed by <span class="bold-word">20 hours</span> of treatment until luciferase reading. This article reported successful results.</p>
+        <p class="section-text">Up to that point, we had been waiting <span class="italic-word">24 hours</span> before treating the cells with theophylline and selenium to allow recovery from transfection and then <span class="italic-word">48 hours</span> for the treatments to take effect.</p>
+        
+        <div style="display: grid; grid-template-columns: 1.6fr 1fr; gap: 2rem; margin: 2rem 0;">
+          <div class="card">
+            <h3 class="card-title">Literature Protocol</h3>
+            <p>4 hours post-transfection + 20 hours treatment</p>
+            <p>The luciferase values obtained were quite low, considering that we usually need to dilute the samples due to excessive signal beyond the luminometer's detection limit, which was not the case here as the values were lower.</p>
+            <p><span class="highlight-word">This assay did not yield satisfactory results</span></p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Our Optimized Protocol</h3>
+            <p>24 hours post-transfection + 48 hours treatment</p>
+            <p><span class="highlight-word">Consistently produced satisfactory results with appropriate signal levels.</span></p>
+          </div>
+        </div>
+        
+        <style>
+        @media (max-width: 768px) {
+          div[style*="grid-template-columns: 1.6fr 1fr"] {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        </style>
+        
+        <p class="section-text">We decided to revert to the <span class="bold-word">24- and 48-hour timings</span> as they provided more reliable and reproducible results for our experimental conditions.</p>
+
+        <h2 class="section-subtitle">Selenium Supplementation</h2>
+        <p class="section-text">Paul Copeland recommended supplementing the culture with a selenium concentration of <span class="bold-word">50 nM</span>. In the article <span class="italic-word">Factors impacting the aminoglycoside-induced UGA stop codon readthrough in selenoprotein translation</span> <span class="highlight-word info-word" data-target="ref2">[2]</span>, they used <span class="highlight-word">50–250 nM Na₂SeO₃</span> in human HEK293 cell culture with UGA-SECIS reporters, which also improved readthrough efficiency with aminoglycosides.</p>
+        <p class="section-text">In our experiments, we tested supplementation with <span class="bold-word">50 nM and 100 nM</span>. We concluded that selenium supplementation was not necessary under our conditions, as the <span class="highlight-word">FBS component</span> of the medium contains variable traces of selenium. Under our experimental conditions, these traces were sufficient so that the selenocysteine amino acid concentration was not limiting.</p>
+
+        <h2 class="section-subtitle">Theophylline Optimization</h2>
+        <p class="section-text">Theophylline was a <span class="bold-word">real challenge</span> in the laboratory. We faced two main challenges:</p>
+        
+        <div style="border-left: 4px solid var(--color-soft-2); padding-left: 2rem; margin: 2rem 0;">
+          <h3 class="section-subtitle2" style="color: var(--color-intense-2); margin-top: 0;">A) Concentration Selection Challenge</h3>
+          <p class="section-text">First, it was important to determine which theophylline concentrations we wanted to use for treating the cells. After a thorough literature review, we found several articles describing a treatment range from <span class="highlight-word">0 mM to 10 mM</span>.</p>
+          <p class="section-text">In the study by Namba et al., 1980 <span class="highlight-word info-word" data-target="ref3">[3]</span>, concentrations of <span class="bold-word">1–3 mM</span> were used. At 3 mM, normal cells exhibited strong growth inhibition (cell cycle arrest).</p>
+          <p class="section-text">In the study by Liao et al., 1983 <span class="highlight-word info-word" data-target="ref4">[4]</span>, at 2 mM, a <span class="bold-word">99% reduction in seeding efficiency</span> was observed. We conducted our own toxicity assay and found that concentrations above <span class="highlight-word">5 mM</span> led to reduced proliferation and increased cell death.</p>
+          <p class="section-text"><span class="bold-word">Selected concentrations: 0 mM, 0.5 mM, 1 mM, and 5 mM</span></p>
+        </div>
+
+        <div style="border-left: 4px solid var(--color-soft-2); padding-left: 2rem; margin: 2rem 0;">
+          <h3 class="section-subtitle2" style="color: var(--color-intense-2); margin-top: 0;">B) Stock Solution Preparation Challenge</h3>
+          <p class="section-text">Once we had chosen the target concentrations, we needed to prepare the stock solution. Initially, we prepared a <span class="italic-word">25 mM theophylline stock in water</span>. However, with 48-well plates and a final medium volume of <span class="highlight-word">300 µL</span>, the required volume exceeded the maximum that can be added while preserving medium properties (2%).</p>
+          <p class="section-text">We prepared a more concentrated stock solution. The solubility of theophylline is <span class="bold-word">8 g/L (44 mM)</span>, so we started with a <span class="highlight-word">40 mM stock solution</span>. We weighed 0.14 g of theophylline powder and dissolved it in 20 mL of MilliQ water.</p>
+          <p class="section-text">We further improved by preparing the <span class="bold-word">40 mM theophylline stock directly in DMEM</span>, ensuring the added volume didn't limit the culture. <span class="highlight-word">Always control pH after adding theophylline solution</span>.</p>
+        </div>
+
+        <h2 class="section-subtitle">Dilution for Luciferase Assay</h2>
+        <p class="section-text">In the initial rounds of the cell assay, luciferase values were sometimes so high that they exceeded the luminometer's detection limit. After performing several trials and with the guidance of the technicians and PhD students assisting us, we determined that the optimal dilution under our conditions was <span class="bold-word">1/60</span>. With this dilution, the luciferase values were reduced and readable by the luminometer.</p>
+      </section>
+
+      <!-- MILESTONE 2 -->
+      <section id="milestone2">
+        <h1 class="section-title">Milestone 2: The Transition from Cell-Based Assays to Cell-Free System Assays</h1>
+        <p class="section-text">One of the key moments in our experimental work and in our project overall was the <span class="bold-word">transition from cell-based assays to cell-free system assays</span>. Below, we explain why we made this transition and the considerations involved.</p>
+        
+        <p class="section-text">In the various HEK293T cell assays, <span class="highlight-word">SECIS control showed good results</span>. However, the aptamer control only performed well in the first round. Despite attempting to replicate the conditions of that initial round in subsequent experiments, we were unsuccessful. At this point, we formulated hypotheses about what might be happening. There were mainly two possibilities:</p>
+        
+        <ul class="point-list">
+          <li>Our aptamer control construct does not function.</li>
+          <li>Some step in the experimental process is not optimized or ideal for the cells, or there is an additional factor in HEK293T cells that prevents the aptamer control construct from functioning.</li>
+        </ul>
+
+        <p class="section-text">To investigate and continue the project without stalling, we tested the aptamer control in a <span class="bold-word">cell-free system</span>. If it worked there, it would indicate that the construct itself was functional and that the issue lay within the experimental process.</p>
+        
+        <p class="section-text">The <span class="highlight-word">in vitro system worked</span>, confirming that the construct was functional, but something in HEK293T cells prevented the aptamer control from functioning. Our aptamer control construct was designed based on the construct described in Anzalone's article <span class="highlight-word info-word" data-target="ref5">[5]</span>, which had been tested in yeast cells. We contacted Anzalone to clarify two main points:</p>
+        
+        <ul class="point-list">
+          <li>We wanted to know whether he had tested his construct in HEK293T cells.</li>
+          <li>We wanted his opinion on the following hypothesis: theophylline aptamer folding might be highly temperature-dependent. Yeast, which Anzalone used, grows at <span class="bold-word">30ºC</span>, and the cell-free system is also conducted at <span class="bold-word">30ºC</span>. In contrast, HEK293T cells grow at <span class="bold-word">37ºC</span>, and this 7ºC difference might prevent proper aptamer folding.</li>
+        </ul>
+
+        <p class="section-text">Anzalone replied that he had tested the construct in HEK293T cells and obtained results similar to ours—<span class="italic-word">it did not function in this context</span>. He considered our hypothesis plausible and noted that frameshift efficiency is inherently low in HEK293T cells.</p>
+        
+        <p class="section-text">Since the cell-based experiments did not succeed and the underlying reason could not be addressed in the short term, we shifted focus to the cell-free system. This process uses <span class="highlight-word">TnT® Coupled Reticulocyte Lysate Systems from Promega®</span>, catalog #L1170, and involves artificial transcription and translation.</p>
+
+        <h2 class="section-subtitle">Cell-Free System Considerations</h2>
+        <p class="section-text">The cell-free assay worked for both the SECIS control and the aptamer control constructs. However, several considerations had to be taken into account:</p>
+
+        <div style="border-left: 4px solid var(--main-color); padding-left: 2rem; margin: 2rem 0; background: rgba(157, 8, 0, 0.05); padding: 1.5rem; border-radius: 8px;">
+          <h3 class="section-subtitle2" style="color: var(--main-color); margin-top: 0;">Aptamer Control</h3>
+          <p class="section-text">This construct is <span class="bold-word">theophylline-dependent</span>, so we needed to add theophylline solution. To ensure equal volumes in all tubes, we prepared theophylline solutions at different concentrations and added them to the tubes to achieve the desired final concentrations.</p>
+        </div>
+
+        <div style="border-left: 4px solid var(--main-color); padding-left: 2rem; margin: 2rem 0; background: rgba(157, 8, 0, 0.05); padding: 1.5rem; border-radius: 8px;">
+          <h3 class="section-subtitle2" style="color: var(--main-color); margin-top: 0;">SECIS Control</h3>
+          <p class="section-text">This was more complex and required two main considerations:</p>
+          
+          <div style="border-left: 3px solid var(--color-soft-3); padding-left: 1.5rem; margin: 1rem 0;">
+            <h4 style="color: var(--color-intense-2); font-size: 1.2rem; font-weight: 600; margin: 0.5rem 0;">A) Selenium supplementation</h4>
+            <p class="section-text">SECIS requires <span class="highlight-word">selenium supplementation</span> to function. Paul Copeland recommends <span class="bold-word">500 nM selenium</span>. However, our tests showed no significant difference, so we stopped supplementing selenium. The Rabbit Reticulocyte Lysate may contain sufficient selenium traces.</p>
+          </div>
+          
+          <div style="border-left: 3px solid var(--color-soft-3); padding-left: 1.5rem; margin: 1rem 0;">
+            <h4 style="color: var(--color-intense-2); font-size: 1.2rem; font-weight: 600; margin: 0.5rem 0;">B) SBP2 supplementation</h4>
+            <p class="section-text"><span class="bold-word">SBP2 is essential</span> for incorporating selenocysteine into proteins. In cell-free systems, it's present in very low amounts, so supplementation is required via Copeland's plasmid. The optimal ratio between our construct and Copeland's plasmid was <span class="highlight-word">1:1</span>.</p>
+          </div>
+        </div>
+
+        <h2 class="section-subtitle">All Constructs</h2>
+        <p class="section-text">For all constructs in the cell-free system, two key considerations were essential:</p>
+        
+        <div style="border-left: 4px solid var(--color-intense-1); padding-left: 2rem; margin: 2rem 0;">
+          <h3 class="section-subtitle2" style="color: var(--color-intense-1); margin-top: 0;">A) PolyA Tail Strategy</h3>
+          <p class="section-text">DNA can be introduced as <span class="bold-word">plasmid or PCR product</span>. We used PCR products for our constructs, while Copeland's plasmid was added as plasmid.</p>
+          <p class="section-text">The polyA tail, which stabilizes mRNA, is normally added by cellular enzymes. In the artificial system, these enzymes are absent, so directly using plasmid DNA would result in mRNA without a polyA tail, reducing stability and efficiency.</p>
+          <p class="section-text">Our strategy: amplify via PCR using a reverse primer containing the Firefly luciferase sequence and <span class="highlight-word">49 thymidines</span>. This produced mRNA with a <span class="bold-word">49-adenine polyA tail</span>.</p>
+        </div>
+
+        <div style="border-left: 4px solid var(--color-intense-1); padding-left: 2rem; margin: 2rem 0;">
+          <h3 class="section-subtitle2" style="color: var(--color-intense-1); margin-top: 0;">B) Promoter Consistency</h3>
+          <p class="section-text">All DNA elements added to the cell-free system must be under the same promoter. In our case, the <span class="highlight-word">T7 promoter</span> was used.</p>
+          <p class="section-text">This is crucial, as the kit selection depends on the promoter controlling the constructs.</p>
+        </div>
+
+        <div class="image-container">
+          <img src="https://static.igem.wiki/teams/5622/images/wetlab/polyatail.webp" alt="Scheme of how the primer with 49 thymidines produces a PolyA tail in the mRNA">
+          <p class="photo-caption" style="text-align: center;">Scheme of how the primer with 49 thymidines produces a PolyA tail in the mRNA</p>
+        </div>
+      </section>
+
+      <!-- MILESTONE 3 -->
+      <section id="milestone3">
+        <h1 class="section-title">Milestone 3: Back to the Fundamentals</h1>
+        <p class="section-text">Now that we have obtained some good results in the cell-free system, it is worth mentioning that in the first experiments of this type, the results turned out to be <span class="bold-word">really strange</span>. It was very curious because the pattern of successful results seemed inverted: while in HEK293T cells we obtained good results with the SECIS control construct and poor results with the aptamer control, in the cell-free system <span class="italic-word">the opposite occurred</span>.</p>
+        
+        <p class="section-text">Sometimes, when the results look so unusual, it is very likely that one of the fundamental steps is not working as it should. That is why it is important to <span class="highlight-word">carefully review everything again</span>. That is what we did, and we discovered that the <span class="bold-word">PCR step</span>, performed prior to the cell-free assay, was not working correctly. Specifically, we found that the reverse primer was not amplifying properly.</p>
+        
+        <p class="section-text">Firstly, this primer did not present very specific annealing, since it was <span class="bold-word">not fully complementary</span> to the DNA sequence. In other words, part of the primer (outside of the 49 thymines) was not binding to the DNA. Secondly, the primer was not amplifying our construct, meaning that <span class="highlight-word">our construct was excluded from the PCR product</span>.</p>
+        
+        <p class="section-text">This happened with the SECIS control plasmid, as well as with the riboswitch plasmids. The aptamer control plasmid, however, did include the construct of interest within the PCR product and did have total complementarity with the reverse primer. This is because the aptamer control is located in a slightly different plasmid compared to the others.</p>
+        
+        <p class="section-text">Once we realized this, we <span class="bold-word">designed new primers</span>, ordered them, and repeated the PCR. The resulting gel is the one shown:</p>
+
+        <div class="image-container">
+          <img src="https://static.igem.wiki/teams/5622/images/wetlab/gel.webp" alt="Gel of the PCR products created with the new primers">
+          <p class="photo-caption" style="text-align: center;">Gel of the PCR products created with the new primers</p>
+        </div>
+        
+        <p class="section-text">The new primers worked successfully, and with the resulting PCR products we obtained <span class="highlight-word">good and consistent results</span>. For us, this was an important lesson: sometimes the problem is simpler than it seems, and we may underestimate certain aspects, such as the primers in a PCR, assuming that they will amplify the desired region without issue.</p>
+        
+        <p class="section-text">In addition, this experience taught us the importance of <span class="bold-word">reviewing and double-checking the most fundamental steps</span> of laboratory procedures, since they are like the foundations of a building—if one of them fails, the whole structure collapses.</p>
+      </section>
+
+      <!-- REFERENCES -->
+      <section class="references" id="references">
+        <h1 class="section-title">References</h1>
+        <ol>
+          <li>Hsu HT, Lin YH, Chang KY. Synergetic regulation of translational reading-frame switch by ligand-responsive RNAs in mammalian cells. <i>Nucleic Acids Res.</i> 2014 Dec 16;42(22):14070-82. doi: 10.1093/nar/gku1233. Epub 2014 Nov 20. PMID: 25414357; PMCID: PMC4267651</li>
+          <li>Janine Martitz, Peter Josef Hofmann, Jörg Johannes, Josef Köhrle, Lutz Schomburg, Kostja Renko, Factors impacting the aminoglycoside-induced UGA stop codon readthrough in selenoprotein translation, <i>Journal of Trace Elements in Medicine and Biology</i>, Volume 37, 2016, Pages 104-110, ISSN 0946-672X, <a class="link-text" href="https://doi.org/10.1016/j.jtemb.2016.04.010">https://doi.org/10.1016/j.jtemb.2016.04.010</a></li>
+          <li>Namba M, Nishitani K, Kimoto T. Effects of theophylline on the cell growth of normal and malignant human cells transformed in culture. <i>Gan.</i> 1980 Oct;71(5):621-7. PMID: 6262174</li>
+          <li>Liao SK, Kwong PC, Smith JW, Dent PB, Clark DA. Association of morphological differentiation with enhanced surface antigen expression and susceptibility to natural killer cell lysis in theophylline-treated human melanoma cells. <i>J Biol Response Mod.</i> 1983;2(3):280-92. PMID: 6644341.</li>
+          <li>Anzalone, A., Lin, A., Zairis, S. et al. Reprogramming eukaryotic translation with ligand-responsive synthetic RNA switches. <i>Nat Methods</i> 13, 453–458 (2016). <a class="link-text" href="https://doi.org/10.1038/nmeth.3807">https://doi.org/10.1038/nmeth.3807</a></li>
+        </ol>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script>
+// Smooth scrolling for navigation links
+document.querySelectorAll('.sidebar-nav a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Remove active class from all links
+    document.querySelectorAll('.sidebar-nav a').forEach(l => l.classList.remove('active'));
+    
+    // Add active class to clicked link
+    this.classList.add('active');
+    
+    // Smooth scroll to target
+    const targetId = this.getAttribute('href');
+    const targetSection = document.querySelector(targetId);
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+// Update active navigation based on scroll position
+window.addEventListener('scroll', function() {
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.sidebar-nav a');
+  
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (window.pageYOffset >= sectionTop - 200) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+});
+</script>
+
+{% endblock %}
