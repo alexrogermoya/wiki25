@@ -273,73 +273,73 @@ body {
     <div class="tree-container">
         <h2 class="tree-title">🌳 Results Tree</h2>
         
-        <svg class="tree-svg" viewBox="0 0 1000 600">
-            <!-- Tree Trunk -->
-            <rect class="tree-trunk" x="490" y="300" width="20" height="300" rx="10"/>
-            
-            <!-- Main Branches - from bottom to top, alternating sides -->
-            
-            <!-- Branch 1 - Bottom Left -->
-            <path class="tree-branch branch-1" d="M490 550 L280 450"/>
-            
-            <!-- Branch 2 - Left (with sub-branches) -->
-            <path class="tree-branch branch-2" d="M490 500 L250 380"/>
-            <path class="tree-sub-branch sub-2a" d="M250 380 L150 320"/>
-            <path class="tree-sub-branch sub-2b" d="M250 380 L200 280"/>
-            
-            <!-- Branch 3 - Bottom Right -->
-            <path class="tree-branch branch-3" d="M510 550 L720 450"/>
-            
-            <!-- Branch 4 - Right (with sub-branches) -->
-            <path class="tree-branch branch-4" d="M510 500 L750 380"/>
-            <path class="tree-sub-branch sub-4a" d="M750 380 L850 320"/>
-            <path class="tree-sub-branch sub-4b" d="M750 380 L800 280"/>
-            
-            <!-- Branch 5 - Upper Left -->
-            <path class="tree-branch branch-5" d="M490 420 L280 300"/>
-            
-            <!-- Branch 6 - Top Center (Future Steps) -->
-            <path class="tree-branch branch-6" d="M500 380 L500 220"/>
-            
-            <!-- Main Branch Leaves -->
-            <!-- Branch 1: SCR-D Element -->
-            <circle class="tree-leaf leaf-1" cx="280" cy="450" r="35" fill="#FF5249" onclick="showContent('branch1-main')" data-branch="1"/>
-            <text class="leaf-text" x="280" y="450">SCR-D</text>
-            
-            <!-- Branch 2: SECIS Element (main) -->
-            <circle class="tree-leaf leaf-2-main" cx="250" cy="380" r="30" fill="#FF1D11" onclick="showContent('branch2-main')" data-branch="2-main"/>
-            <text class="leaf-text" x="250" y="380">SECIS</text>
-            
-            <!-- Branch 2 Sub-leaves -->
-            <circle class="tree-leaf leaf-2a" cx="150" cy="320" r="25" fill="#E70C00" onclick="showContent('branch2-secis')" data-branch="2a"/>
-            <text class="leaf-text small" x="150" y="320">Element</text>
-            
-            <circle class="tree-leaf leaf-2b" cx="200" cy="280" r="25" fill="#CC0600" onclick="showContent('branch2-controls')" data-branch="2b"/>
-            <text class="leaf-text small" x="200" y="280">Controls</text>
-            
-            <!-- Branch 3: Sensing Element -->
-            <circle class="tree-leaf leaf-3" cx="720" cy="450" r="35" fill="#9D0800" onclick="showContent('branch3-main')" data-branch="3"/>
-            <text class="leaf-text" x="720" y="450">Sensing</text>
-            
-            <!-- Branch 4: Cell-Free (main) -->
-            <circle class="tree-leaf leaf-4-main" cx="750" cy="380" r="30" fill="#9b2421" onclick="showContent('branch4-main')" data-branch="4-main"/>
-            <text class="leaf-text" x="750" y="380">Cell-Free</text>
-            
-            <!-- Branch 4 Sub-leaves -->
-            <circle class="tree-leaf leaf-4a" cx="850" cy="320" r="25" fill="#7A1D1A" onclick="showContent('branch4-aptamer')" data-branch="4a"/>
-            <text class="leaf-text small" x="850" y="320">Aptamer</text>
-            
-            <circle class="tree-leaf leaf-4b" cx="800" cy="280" r="25" fill="#560400" onclick="showContent('branch4-secis')" data-branch="4b"/>
-            <text class="leaf-text small" x="800" y="280">SECIS CF</text>
-            
-            <!-- Branch 5: Riboswitch -->
-            <circle class="tree-leaf leaf-5" cx="280" cy="300" r="35" fill="#ff918b" onclick="showContent('branch5-constructs')" data-branch="5"/>
-            <text class="leaf-text" x="280" y="300">Riboswitch</text>
-            
-            <!-- Branch 6: Future Steps -->
-            <circle class="tree-leaf leaf-6" cx="500" cy="220" r="35" fill="#ffdcda" onclick="showContent('branch6-future')" data-branch="6"/>
-            <text class="leaf-text" x="500" y="220" fill="#9D0800">Future</text>
-        </svg>
+        <svg class="tree-svg" viewBox="0 0 1000 700">
+  <!-- Tree Trunk -->
+  <rect class="tree-trunk" x="490" y="150" width="20" height="400" rx="10"/>
+
+  <!-- Branch 1 - Bottom Left -->
+  <path class="tree-branch branch-1" d="M490 500 L280 420"/>
+
+  <!-- Branch 2 - Left (with sub-branches) -->
+  <path class="tree-branch branch-2" d="M490 440 L250 350"/>
+  <path class="tree-sub-branch sub-2a" d="M250 350 L150 300"/>
+  <path class="tree-sub-branch sub-2b" d="M250 350 L200 250"/>
+
+  <!-- Branch 3 - Bottom Right -->
+  <path class="tree-branch branch-3" d="M510 500 L720 420"/>
+
+  <!-- Branch 4 - Right (with sub-branches) -->
+  <path class="tree-branch branch-4" d="M510 440 L750 350"/>
+  <path class="tree-sub-branch sub-4a" d="M750 350 L850 300"/>
+  <path class="tree-sub-branch sub-4b" d="M750 350 L800 250"/>
+
+  <!-- Branch 5 - Upper Left -->
+  <path class="tree-branch branch-5" d="M490 360 L280 250"/>
+
+  <!-- Branch 6 - Top Center (Future Steps) -->
+  <path class="tree-branch branch-6" d="M500 180 L500 140"/>
+
+  <!-- Leaves -->
+
+  <!-- Branch 1: SCR-D -->
+  <circle class="tree-leaf leaf-1" cx="280" cy="420" r="35" fill="#FF5249" onclick="showContent('branch1-main')" data-branch="1"/>
+  <text class="leaf-text" x="280" y="420">SCR-D</text>
+
+  <!-- Branch 2: SECIS -->
+  <circle class="tree-leaf leaf-2-main" cx="250" cy="350" r="30" fill="#FF1D11" onclick="showContent('branch2-main')" data-branch="2-main"/>
+  <text class="leaf-text" x="250" y="350">SECIS</text>
+
+  <!-- Branch 2 Sub-leaves -->
+  <circle class="tree-leaf leaf-2a" cx="150" cy="300" r="25" fill="#E70C00" onclick="showContent('branch2-secis')" data-branch="2a"/>
+  <text class="leaf-text small" x="150" y="300">Element</text>
+
+  <circle class="tree-leaf leaf-2b" cx="200" cy="250" r="25" fill="#CC0600" onclick="showContent('branch2-controls')" data-branch="2b"/>
+  <text class="leaf-text small" x="200" y="250">Controls</text>
+
+  <!-- Branch 3: Sensing -->
+  <circle class="tree-leaf leaf-3" cx="720" cy="420" r="35" fill="#9D0800" onclick="showContent('branch3-main')" data-branch="3"/>
+  <text class="leaf-text" x="720" y="420">Sensing</text>
+
+  <!-- Branch 4: Cell-Free -->
+  <circle class="tree-leaf leaf-4-main" cx="750" cy="350" r="30" fill="#9b2421" onclick="showContent('branch4-main')" data-branch="4-main"/>
+  <text class="leaf-text" x="750" y="350">Cell-Free</text>
+
+  <!-- Branch 4 Sub-leaves -->
+  <circle class="tree-leaf leaf-4a" cx="850" cy="300" r="25" fill="#7A1D1A" onclick="showContent('branch4-aptamer')" data-branch="4a"/>
+  <text class="leaf-text small" x="850" y="300">Aptamer</text>
+
+  <circle class="tree-leaf leaf-4b" cx="800" cy="250" r="25" fill="#560400" onclick="showContent('branch4-secis')" data-branch="4b"/>
+  <text class="leaf-text small" x="800" y="250">SECIS CF</text>
+
+  <!-- Branch 5: Riboswitch -->
+  <circle class="tree-leaf leaf-5" cx="280" cy="250" r="35" fill="#ff918b" onclick="showContent('branch5-constructs')" data-branch="5"/>
+  <text class="leaf-text" x="280" y="250">Riboswitch</text>
+
+  <!-- Branch 6: Future Steps -->
+  <circle class="tree-leaf leaf-6" cx="500" cy="140" r="35" fill="#ffdcda" onclick="showContent('branch6-future')" data-branch="6"/>
+  <text class="leaf-text" x="500" y="140" fill="#9D0800">Future</text>
+</svg>
+
         
         <div class="branch-legend">
             <div class="legend-item">

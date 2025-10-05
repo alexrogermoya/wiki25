@@ -42,12 +42,12 @@
         
         <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
           <div class="controls">
-            <button class="control-btn active" onclick="showFace('ethics')">Ethics</button>
+            <button class="control-btn active" onclick="showFace('reset')">Reset</button>
+            <button class="control-btn" onclick="showFace('ethics')">Ethics</button>
             <button class="control-btn" onclick="showFace('communication')">Communication</button>
             <button class="control-btn" onclick="showFace('art')">Art</button>
             <button class="control-btn" onclick="showFace('technology')">Technology</button>
             <button class="control-btn" onclick="showFace('experimental')">Experimental</button>
-            <button class="control-btn" onclick="resetCube('reset')">Reset</button>
           </div>
 
           <div class="cube-container">
@@ -178,7 +178,8 @@
             height: 250px;
             position: relative;
             transform-style: preserve-3d;
-            transform: rotateX(-10deg) rotateY(15deg);
+              /* tHis determines the face to be shownwhen the page is loaded */
+            transform: rotateX(80deg) rotateY(15deg);
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: grab;
             margin: 50px;
@@ -455,38 +456,43 @@
         const descTitle = document.getElementById('descTitle');
         const descContent = document.getElementById('descContent');
 
-        let currentFace = 'ethics';
+        let currentFace = 'reset';
         let isDragging = false;
         let startX = 0;
         let startY = 0;
         let currentRotationX = -10;
         let currentRotationY = -165;
-
+        // The numbers here indicate the face that will appear
         const faces = {
             technology: {
                 title: 'Technology',
                 description: 'Technology has always advanced alongside science, and we must adapt to it. A modern scientist should have basic knowledge on how to take advantage of these emerging tools: AI, bioinformatics, programming, data management.... Read more',
-                rotation: { x: -10, y: 15 }
+                rotation: { x: -10, y: -165 },
             },
             communication: {
                 title: 'Communication',
                 description: 'In today’s “information age”, it is crucial to know how to navigate the vast ocean of the internet and distinguish what is true and reliable from what has been designed only to manipulate our perception. Read more',
-                rotation: { x: -10, y: -75 }
+                rotation: { x: -10, y: -75 },
             },
             ethics: {
                 title: 'Ethics',
                 description: 'How far should science go? How can we regulate new techniques when they are appearing at such a rapid rate? We must keep in mind the social and ethical impact of our research, and a competent scientist should possess the capacity to assess, reason critically, and reflect upon these dimensions. Read more',
-                rotation: { x: -10, y: -165 }
+                rotation: { x: -10, y: 15 }
             },
             experimental: {
                 title: 'Experimental',
                 description: ' Laboratory skills are the first notion that comes to mind when thinking about science and synthetic biology: cells, researchers in lab coats and safety glasses peering through a microscope… And it is indeed true that this stage constitutes an exciting period in the life of a scientist. Read more',
-                rotation: { x: -10, y: 105 }
+                 rotation: { x: -10, y: 105 }  
             },
             art: {
                 title: 'Art',
                 description: 'Art and science have always been thought to be opposites, however there is both art in science (creativity, beauty, innovation…) and science in art (music theory, pigments, sculpture materials…). Even when we talk about papers and articles, we are talking about literature! Read more',
-                rotation: { x: 80, y: 15 }
+                rotation: { x: -75, y: 15 }
+            },
+            reset: {
+                title: 'The Many Faces of Science',
+                description: 'Use the buttons to explore each face of the cube or drag it to rotate it manually.',
+                rotation: { x: 80, y: 15 },
             }
         };
 
@@ -529,7 +535,7 @@
                 descriptionText.classList.add('show');
             }, 200);
         }
-
+           
         function resetCube() {
             currentRotationX = 80;
             currentRotationY = 15;
@@ -614,7 +620,7 @@
 
         // Initialize
         window.addEventListener('load', () => {
-            updateDescription('technology');
+            updateDescription('reset');
             setTimeout(() => {
                 descriptionText.classList.add('show');
             }, 500);
