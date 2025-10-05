@@ -595,8 +595,7 @@ Let’s take a look at what our results revealed!
     Readthrough efficiency was measured as the ratio of Firefly to Renilla luminescence, normalized to a 
     <span class="bold-word">CGA construct</span> as a positive control which represents 100% readthrough.
   </p>
-
-  <button class="btn btn-outline" onclick="window.location.href='{{ url_for('pages', page='experiments') }}'">
+<button class="btn btn-outline" onclick="window.location.href='/experiments'">
     View constructs
   </button>
 
@@ -698,17 +697,151 @@ Let’s take a look at what our results revealed!
 
         <!-- Branch 3 Content -->
         <div class="content-section" id="branch3-main">
-            <h1 class="content-title">📈 Branch 3: Sensing Element in HEK Cells</h1>
-            <h2 class="content-subtitle">Testing the Sensing Element</h2>
-            <p class="content-text">
-                Results from testing our theophylline sensing element functionality in HEK293T cells, including dose-response curves and specificity studies.
-            </p>
-            
-            <div class="placeholder-content">
-                <div class="placeholder-icon">📈</div>
-                <h3 style="color: var(--main-color);">Sensing Results</h3>
-                <p style="color: var(--grey);">Add your sensing element experimental data here.</p>
-            </div>
+  <h1 class="section-title">Branch 3: Validating the Sensing Element in HEK293T Cells</h1>
+
+  <h2 class="section-subtitle">Background</h2>
+  <p class="section-text">
+    The <span class="bold-word">theophylline aptamer</span> was selected as our ligand-responsive element because of its exceptional 
+    <span class="bold-word">specificity</span> for theophylline [7eng], its absence in mammalian cells [8eng], and its proven biocompatibility in HEK cells [9eng]. 
+    Moreover, this aptamer has shown <span class="bold-word">cross-system functionality</span> [10,11eng] and possesses a 
+    <span class="bold-word">well-characterized secondary structure</span>, making it an excellent candidate for riboswitch engineering.
+    <br><br>
+    Among the various versions available, we chose the <span class="bold-word">Theo-ON-5 variant</span> [13eng], as it displayed the largest ON/OFF ratio in frameshift efficiency. 
+    Before incorporating it into our riboswitch, we aimed to:
+  </p>
+
+  <ul class="point-list">
+    <li><span class="bold-word">Validate its responsiveness to theophylline.</span></li>
+    <li>Identify the <span class="bold-word">optimal experimental conditions</span> for reliable use in HEK 293T cells.</li>
+  </ul>
+
+  <p class="section-text">
+    The aptamer construct used for this validation was adapted from Anzalone et al. (2016). 
+    This design places the theophylline aptamer with a <span class="bold-word">frameshift-inducing pseudoknot</span> 
+    between the Renilla and Firefly luciferase genes.
+    <br><br>
+    In this system, the aptamer’s folding state determines whether a ribosomal frameshift occurs:
+  </p>
+
+  <ul class="point-list">
+    <li>Without theophylline, the pseudoknot structure does not fold correctly, preventing frameshifting and blocking Firefly luciferase expression.</li>
+    <li>With theophylline, the aptamer binds the ligand and releases the pseudoknot, allowing ribosomal frameshifting and placing the Firefly luciferase gene in-frame, enabling its expression.</li>
+  </ul>
+
+  <p class="section-text">
+    This setup allows a direct measure of aptamer responsiveness by quantifying 
+    <span class="bold-word">Firefly/Renilla luminescence</span>, normalized to the 
+    <span class="bold-word">CGA control</span> (representing 100% translation readthrough).
+  </p>
+
+  <button class="btn btn-outline" onclick="window.location.href='/experiments'">
+    View constructs
+  </button>
+
+  <p class="section-text">
+    Because <span class="bold-word">theophylline</span> was required for this assay, and <span class="bold-word">selenium</span> had been tested in parallel for SECIS constructs, 
+    we evaluated both factors together to ensure compatibility.
+    <br><br>
+    Four experimental rounds were carried out in HEK 293T cells, progressively refining cell density, treatment timing, and ligand concentrations, 
+    following the same approach used for SECIS characterization with a further refining week, as detailed in Table 2.
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/7r-conditions.webp" alt="Experimental parameters for Frameshift and Aptamer Construct">
+    <p class="photo-caption">Table 2. Experimental parameters used in each round of experiments for the Frameshift and Aptamer Construct.</p>
+  </div>
+
+  <h2 class="section-subtitle">Results</h2>
+  <p class="section-text">
+    This first round shows promising and consistent results. 
+    The aptamer seems to respond to theophylline, with frameshift rates increasing from 
+    <span class="bold-word">3–4%</span> at <span class="bold-word">0 mM</span> to 
+    <span class="bold-word">6–8%</span> at <span class="bold-word">0.5–1 mM</span> theophylline. 
+    At <span class="bold-word">5 mM</span>, readthrough drops below <span class="bold-word">5%</span>, likely due to 
+    <span class="bold-word">cytotoxicity</span> (see toxicity assay in <span class="highlight-word" ><a onclick="showContent('branch3-controls')" style="text-decoration: none;">Controls</a></span> ).
+    These results suggest that the aptamer is being responsive to theophylline, even though the ratio is not increasing very much.
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/8r-fsapt-hek1.webp" alt="Frameshift Aptamer HEK 1 results">
+    <p class="photo-caption">Fig. 6. Raw Renilla (before frameshift pseudoknot) and Firefly (after frameshift pseudoknot) Luciferase Values and Normalized FLuc/RLuc rate in different theophylline concentrations.</p>
+  </div>
+
+  <p class="section-text">
+    The second round introduces <span class="bold-word">selenium</span> to test its potential interference, and keeps evaluating responsiveness to 
+    <span class="bold-word">theophylline</span>. In this case, the results were already expected as less reliable, and we can see they are less reproducible.
+    <br><br>
+    <span class="bold-word">Frameshift rates</span> appear to be between <span class="bold-word">2–4%</span>, with some outlier values (~7%) only in the presence of selenium. 
+    This low replicability prevented clear conclusions, and the <span class="bold-word">addition of selenium seemed to reduce experimental consistency</span>, 
+    possibly by destabilizing the construct or interacting with the translation machinery. 
+    Consequently, further refinement of the experimental conditions was required, and we considered stopping the use of selenium, 
+    since it was not essential for SECIS function and seemed to hinder reproducibility.
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/9r-fsapt-hek2.webp" alt="Frameshift Aptamer HEK 2 results">
+    <p class="photo-caption">Fig. 7. Raw Renilla (before frameshift pseudoknot) and Firefly (after frameshift pseudoknot) Luciferase Values and Normalized FLuc/RLuc rate in different theophylline and selenium concentrations. Second round of experiments.</p>
+  </div>
+
+  <p class="section-text">
+    In the third round, despite improved replicability, we observed <span class="bold-word">no clear responsiveness</span> to theophylline. 
+    Frameshift rates remained stable around <span class="bold-word">3–4%</span>, regardless of ligand concentration. 
+    This suggested that, under the tested conditions, the aptamer was <span class="bold-word">not reliably functional</span> in HEK cells.
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/10r-fsapt-hek3.webp" alt="Frameshift Aptamer HEK 3 results a">
+    <p class="photo-caption">Fig. 8a. Raw Renilla and Firefly Luciferase Values and Normalized FLuc/RLuc rate in different theophylline concentrations.</p>
+  </div>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/11r-fsapt-hek3.webp" alt="Frameshift Aptamer HEK 3 results b">
+    <p class="photo-caption">Fig. 8b. Normalized rate for better visualization.</p>
+  </div>
+
+  <p class="section-text">
+    To test whether the promising results from the first round could be reproduced, we did a final round replicating the first round’s conditions (30,000 cells/well, 48 h incubation), as detailed in Table 2. 
+    The results show a similar trend: <span class="bold-word">frameshift ratios slightly increase in response to theophylline again (from ~4% to ~6%), but not with sufficient difference to confirm consistent responsiveness.</span> 
+    At 5 mM, the ratio decreases below 4% again due to toxicity, as we can see in Figure 9.
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/12r-fsapt-hek4.webp" alt="Frameshift Aptamer HEK 4 results">
+    <p class="photo-caption">Fig. 9. Raw Renilla and Firefly Luciferase Values and Normalized FLuc/RLuc rate in different theophylline concentrations. Fourth round of experiments.</p>
+  </div>
+
+  <p class="section-text">
+    We also confirmed that the issue lies in the sensing element rather than in theophylline itself. 
+    This conclusion comes from analyzing the CGA positive control in each experimental round, which behaved consistently and as expected: higher theophylline concentrations led to a gradual decrease in overall luminescence due to cytotoxicity (see the Positive Control in Figure 10). 
+    This demonstrates that <span class="bold-word">the ligand is active and functional, but that the aptamer construct does not respond as intended.</span>
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/13r-fsapt-hek4.webp" alt="Frameshift Aptamer Positive Control">
+    <p class="photo-caption">Fig. 10. Renilla and Firefly Luciferase Values and Normalized FLuc/RLuc rate in different theophylline concentrations, for both the positive control (CGA construct) and the Frameshift Element + Aptamer Construct.</p>
+  </div>
+
+  <h2 class="section-subtitle">Discussion and Implications</h2>
+  <p class="section-text">
+    Across all experimental rounds, the theophylline aptamer construct <span class="bold-word">failed to show consistent or reproducible responsiveness</span> in HEK 293T cells. 
+    Although some data hints at the expected trend, the differences are minor and not as large as those reported in literature.
+    <br><br>
+    Our team hypothesized that this could be due to temperature-related instability, as the aptamer was originally characterized at 30 °C. 
+    Using it under HEK293T culture conditions (37 °C) might cause partial denaturation of its structure, impairing proper folding and ligand binding.
+    <br><br>
+    To further investigate this, we contacted Dr. Anzalone, who developed and characterized the <span class="bold-word">Theo-ON-5 aptamer</span> used in our study. 
+    He confirmed that his team had observed similar inconsistencies when testing their frameshifting riboswitches in HEK293T cells. 
+    He also noted that both the <span class="bold-word">temperature difference</span> and the 
+    <span class="bold-word">intrinsic inefficiency of ribosomal frameshifting</span> in HEK cells likely contributed to these results.
+    <br><br>
+    Based on his advice, and with additional input from <span class="bold-word">Dr. Paul Copeland</span> and our team discussions, 
+    we decided to test the construct in a <span class="bold-word">cell-free system (rabbit reticulocyte lysate)</span>, which operates at 30 °C: 
+    a more suitable temperature for this aptamer. This platform provides tighter control of experimental conditions and has already been shown by Anzalone’s group to improve reproducibility.
+    <br><br>
+    In conclusion, while the <span class="bold-word">theophylline aptamer</span> remains a promising and well-characterized sensing element in other systems, our results indicate that it 
+    <span class="bold-word">performs inconsistently in HEK293T cells.</span> Future experiments in <span class="bold-word">cell-free systems</span> will allow us to evaluate its switching behavior more accurately and validate its use in combination with the SECIS element for riboswitch building.
+  </p>
+
         </div>
  <!-- Branch 3 Sub-content -->
         
