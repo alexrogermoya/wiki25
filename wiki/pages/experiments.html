@@ -71,6 +71,19 @@
     <p>Explanation of the workflow from Engineering design to Wet Lab experiments.</p>
   </div>
 </div>
+<div class="info-card" id="hp-card1">
+  <div class="card">
+    <h3 class="card-title">HP CARD</h3>
+    <p>
+      At the <strong>Discover-Glo conference</strong> by <strong>Promega</strong>, we had the chance to talk to 
+      <strong>Irena Montiel</strong> and <strong>Eric Rovira</strong>, who suggested using the 
+      <strong>dual-luciferase assay</strong> to test our construct.
+      See <a href="https://2025.igem.wiki/barcelona-ub/human-practices" class="highlight-word info-word" style="text-decoration: none;">HP</a>
+      and <a href="https://2025.igem.wiki/barcelona-ub/engineering" class="highlight-word info-word" style="text-decoration: none;">Engineering</a>
+    
+    </p>
+  </div>
+</div>
 
         
     </aside>
@@ -82,20 +95,96 @@
      <div class="content">
     <h2 class="section-title">Organization</h2>
     <p>
-        The experimental section of our project is organized around the two <span class="highlight-word info-word" data-target="fre-info">SCRs</span> we have worked with: <strong>SCR-D</strong> and <strong>SECIS</strong>.
-    </p>
-    <p>
-        The experimental part of <strong>SCR-D</strong> is intended to complete <span class="highlight-word info-word" data-target="semi-rational">Engineering Cycle 2</span> of Branch 1: <span class="highlight-word info-word" data-target="cre-info">SCR-D structure prediction</span>, identification of key structural elements.
-    </p>
-    <p>
-        The experimental part of <strong>SECIS</strong> is intended to complete all <span class="highlight-word info-word" data-target="secis-info">Engineering Cycles</span> of Branch 2: Creation of an <span class="highlight-word info-word" data-target="aptamer-info">aptamer-controlled SCR</span>.
-    </p>
-    <p>
-        A detailed explanation of the workflow <span class="highlight-word info-word" data-target="riboswitches">Engineering → Wet Lab</span> can be found in the <a class="link-text" href="https://2025.igem.wiki/barcelona-ub/model">Model Page</a>.
-    </p>   
+        The experimental work of our project aims to complete the various cycles described in the Engineering section. In the table below, each wet lab branch is associated with the engineering cycle it seeks to complete and provide experimental validation for.
+ </p>
+ <br>
+  <table class="parts-table" style="border-collapse: collapse; width: 100%; margin-bottom: 2rem;">
+  <colgroup>
+    <col style="width: 50%; border-right: 2px solid #ccc;">
+    <col style="width: 50%;">
+  </colgroup>
 
+  <tr style="background-color: #f2f2f2;">
+    <th style="padding: 10px; border-bottom: 2px solid #ccc;">Engineering</th>
+    <th style="padding: 10px; border-bottom: 2px solid #ccc;">Wet Lab</th>
+  </tr>
+
+  <tr>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">
+      <strong>Branch:</strong> SCR-D structure prediction<br>
+      &nbsp;&nbsp;<strong>Cycle 2:</strong> Identification of key structural elements<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;- Complete iteration 3
+    </td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">
+      <strong>Branch 1:</strong> SCR-D element
+    </td>
+  </tr>
+
+  <tr>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">
+      <strong>Branch:</strong> Creation of an aptamer-controlled SCR<br>
+      &nbsp;&nbsp;<strong>Cycle 2:</strong> Aptamer<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;- Complete iteration 2
+    </td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">
+      <strong>Branch 2:</strong> SECIS element
+    </td>
+  </tr>
+
+  <tr>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">
+      <strong>Branch:</strong> Creation of an aptamer-controlled SCR<br>
+      &nbsp;&nbsp;<strong>Cycle 3:</strong> Riboswitch<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;- Complete iteration 1
+    </td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">
+      <strong>Branch 3:</strong> Sensing element<br>
+      <strong>Branch 4:</strong> Cell-free validation
+    </td>
+  </tr>
+
+  <tr>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">
+      <strong>Branch:</strong> Creation of an aptamer-controlled SCR<br>
+      &nbsp;&nbsp;<strong>Cycle 3:</strong> Switch<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;- Complete iteration 1
+    </td>
+    <td style="padding: 8px; border-bottom: 1px solid #ccc;">
+      <strong>Branch 5:</strong> Switch
+    </td>
+  </tr>
+</table>
+<p>A detailed explanation of the workflow Engineering → Wet Lab can be found in the <a class="link-text" href="https://2025.igem.wiki/barcelona-ub/model">Model Page</a>.</p>
+<br><br>
+<h1>Experimental workflow</h1>
+
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/wetlab/generalscheme.webp" 
+    alt="General scheme of experimental workflow" 
+    style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  >
+</div>
+
+<p>In the laboratory, we mainly carried out two types of assays: <strong>cell-based assays</strong> and <strong>cell-free system assays</strong>. Both assays share a <strong>common preliminary part</strong>.</p>
+<br><br>
+<h2>Common part</h2>
+<p>The constructs arrived from the supplier in plasmid form. In order to amplify the plasmids, we performed a standard amplification procedure using <strong>E. coli DH5α</strong>:</p>
+
+<ol>
+  <li><strong>Transformation:</strong> We carried out a bacterial transformation by heat shock of <strong>E. coli DH5α</strong> with the plasmids of interest, and plated the bacteria.</li>
+  <li><strong>Incubation:</strong> The following day, we collected colonies from the plates and incubated them in tubes with <strong>LB medium</strong>.</li>
+  <li><strong>Plasmid purification:</strong> One day later, we purified the plasmids of interest, obtaining the desired concentration.</li>
+  <li><strong>Verification:</strong> Finally, to verify the efficiency of the procedure, we measured the concentration of the purified plasmids using a <strong>Nanodrop</strong>.</li>
+</ol>
+
+<p>All plasmids underwent this process before being used in the assays.</p>
+<br><br>
+<h2>Cell-based assays in HEK293T</h2>
+<p>Starting from the purified plasmids, we performed the assays in HEK293T cells, with plasmids of SCR-D and SECIS. A complete assay takes one week, so we always began on Monday and finished over the weekend. The process is as follows:
+</p>
         
-    <div class="content">
+ 
     <div class="calendar-container">
         <div class="calendar-header">
             <h2 class="calendar-title">Weekly Experimental Timeline</h2>
@@ -168,7 +257,7 @@
                 <div class="day-content">
                     <div class="activity-title">Luciferase Assay</div>
                     <div class="activity-description">
-                        We performed   <span class="highlight-word">cell lysis and dual-luciferase assay</span> <span class="emoji">💡</span>(Dual-Luciferase® Reporter Assay System from Promega®, catalog #E1910), obtaining raw data on gene expression.
+                        We performed   <span class="highlight-word">cell lysis and dual-luciferase assay</span> <span class = "highlight-word info-word" data-target="hp-card1">&#128161</span>(Dual-Luciferase® Reporter Assay System from Promega®, catalog #E1910), obtaining raw data on gene expression.
                     </div>
                 </div>
             </div>
@@ -188,14 +277,120 @@
             </div>
         </div>
     </div>
-    </div>
-    <div class="process-flow">
-        <h3 class="flow-title">Complete Experimental Workflow</h3>
-        <p class="flow-description">
-            Starting from purified plasmids, our HEK293T cell-based assays follow a structured 7-day protocol. Each experiment begins on Monday with cell seeding and concludes over the weekend with comprehensive data analysis and presentation preparation. This systematic approach ensures reproducible results and allows for thorough evaluation of our SCR-D and SECIS constructs under various treatment conditions.
-        </p>
-    </div>
+   <p>This procedure shows variations across the different rounds carried out, since we have conducted an optimization process of the various variables and time points that influence the experiment. For more details about this process, please refer to the <a class="link-text" href="https://2025.igem.wiki/barcelona-ub/pivotal-changes">Pivotal changes and milestones Page</a>.</p>
   </div>
+<br><br>
+  <h2>Cell-free system assays</h2>
+
+<p>Starting from the purified plasmids, we performed the <strong>cell-free system assays</strong> (<em>TnT® Coupled Reticulocyte Lysate Systems</em> from Promega®, catalog #L1170), but in this case only <strong>SECIS plasmids</strong> and <strong>SECIS-related plasmids</strong> were tested. A complete assay takes one or two days. The process is as follows:</p>
+
+<ol>
+  <li><strong>Starting Material:</strong> The starting point can be either a purified plasmid or a PCR product. We incorporated <strong>Paul Copeland’s plasmid</strong> in purified plasmid form. However, we performed a PCR on the SECIS plasmids to incorporate our construct as a PCR product, since in this form it was more stable. Therefore, the first step was to run a <strong>PCR</strong> and an <strong>agarose gel electrophoresis</strong>.</li>
+  
+  <li><strong>Assay Setup:</strong> Once we had the PCR product, we proceeded with the cell-free system assay. The different samples were treated with <strong>selenium</strong> and/or <strong>theophylline</strong>, which were added prior to the incubation period during which <strong>transcription and translation</strong> occurred simultaneously.</li>
+  
+  <li><strong>Measurement:</strong> Gene expression was measured through a <strong>dual-luciferase assay</strong>. Finally, we plotted and analyzed the results in <strong>RStudio</strong> and prepared a presentation to share with our PI and instructors.</li>
+</ol>
+<br><br>
+<h3>Other Procedures</h3>
+
+<ul>
+  <li><strong>Split:</strong> This routine procedure in the team is used to replace the medium of <strong>HEK293T cells</strong> with trypsin, thereby ensuring their survival over time.</li>
+  
+  <li><strong>Toxicity assay:</strong> This procedure involves seeding cells at different densities and treating them with increasing concentrations of <strong>theophylline</strong>, in order to establish toxicity thresholds.</li>
+</ul>
+
+<p>More information about lab procedures and protocols can be found at the <a class="link-text" href="https://2025.igem.wiki/barcelona-ub/notebook">Notebook section</a>.</p>
+<br><br>
+<h2><a class="link-text" href="https://2025.igem.wiki/barcelona-ub/parts">Constructs </a> used in the lab</h2>
+<br>
+<p>Classification of the constructs that we used in the lab</p>
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/wetlab/constructs.webp" 
+    alt="General Constructs" 
+    style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  >
+</div>
+<br>
+<br>
+<br>
+
+<h3>SCR-D</h3>
+<p><strong>A: Normal SCR-D (TGA):</strong> This construct is the complete SCR-D along with the STOP codon on which it must act to produce readthrough, allowing the ribosome to bypass it. This way, Firefly luciferase will be expressed.</p>
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/wetlab/tganormal.webp" 
+    alt="Normal SCR-D (TGA)" 
+    style="width: 70%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  >
+</div>
+<br>
+<br>
+<h3>B: SCR-D controls</h3>
+<p><strong>1- CGA:</strong> This construct has the first nucleotide of the STOP codon mutated from T to C, so the codon is no longer a STOP codon but instead encodes an arginine. In other words, each reading of the construct’s mRNA gives rise to both luciferase proteins, Renilla and Firefly. This serves to normalize the activity of the two luciferases and to generate cleaner and more reliable graphs.</p>
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/wetlab/cga.webp" 
+    alt="CGA construct" 
+    style="width: 70%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  >
+</div>
+<br>
+
+<p><strong>2- TAAA:</strong> This construct serves as a negative control for the Dual-Luciferase Assay. In this case, the STOP codon was modified by changing its central nucleotide (G → A) and adding one extra nucleotide immediately after it, introducing a frameshift. As a result, even if the ribosome continues translation beyond this point, the downstream Firefly luciferase gene will be out of frame and cannot be correctly translated. Therefore, no Firefly signal should be detected. This control ensures that any measured Firefly activity in experimental constructs truly results from readthrough events rather than from frameshifting or reinitiation.</p>
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/wetlab/taaa.webp" 
+    alt="TAAA construct" 
+    style="width: 70%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  >
+</div>
+<br>
+
+<p><strong>3- TGA postATG mutated:</strong> This construct was designed to control for ribosomal reinitiation. In the natural SCR-D sequence, there is an internal ATG start codon located downstream of the stop codon. This ATG could allow the ribosome to detach and then reinitiate translation, leading to Firefly luciferase expression that is not due to true readthrough. To prevent this, the internal ATG was mutated in a way that preserved the SCR-D RNA structure while eliminating the reinitiation site. As a result, any Firefly luciferase produced from this construct must come exclusively from readthrough events. By comparing this construct to the normal SCR-D (TGA) construct, we can quantify and subtract the contribution of reinitiation.</p>
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/wetlab/atgmutated.webp" 
+    alt="TGA postATG mutated construct" 
+    style="width: 70%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  >
+</div>
+<br>
+<br>
+<h2>C: SCR-D parts</h2>
+<br>
+<br>
+<p><strong>1- Only pre-diapin:</strong> This construct contains only the Pre-diapin region of SCR-D, and it is used to test whether this isolated part is capable of producing readthrough on its own. It allows us to quantify the percentage contribution of Pre-diapin to readthrough, if it is indeed able to induce it.</p>
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/wetlab/onlyprediapin.webp" 
+    alt="SCR-D pre-diapin construct" 
+    style="width: 70%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  >
+</div>
+<br>
+<br>
+<p><strong>2- No hypopin:</strong> This construct contains all parts of SCR-D except for the Hypopin. It is used to determine whether this region is essential for readthrough to occur, or if SCR-D can bypass the STOP codon without it. It allows us to quantify the percentage contribution of Hypopin to readthrough.</p>
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/wetlab/nohypopin.webp" 
+    alt="SCR-D no hypopin construct" 
+    style="width: 70%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  >
+</div>
+<br>
+<br>
+<p><strong>3- Mutated Diapin:</strong> This construct is nearly identical to the normal SCR-D (TGA) element, except that the nucleotide sequence of the Diapin region was altered while maintaining its predicted base pairing and secondary structure. It was designed to determine whether the Diapin’s specific sequence is essential for promoting readthrough, or whether its structural configuration alone is sufficient for SCR-D function. This distinction is particularly important for our project, as we are exploring structure-dependent mechanisms to build a riboswitch.</p>
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/wetlab/mutateddiapin.webp" 
+    alt="SCR-D mutated diapin construct" 
+    style="width: 70%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  >
+</div>
+<br>
+
 </div>
 </div>
 <style>
@@ -206,6 +401,7 @@
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     overflow: hidden;
     margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 
 .calendar-header {
@@ -375,6 +571,18 @@
     grid-column: 1 / -1; /* ocupa todas las columnas debajo de la semana */
 }
 
+.parts-table {
+    width: 100%;
+    table-layout: fixed; 
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+.parts-table th{
+  background-color: var(--color-soft-1);
+}
+.parts-table th, .parts-table td {
+    word-wrap: break-word; 
+  }
 </style>
 
 {% endblock %}
