@@ -8,8 +8,17 @@
 <div class = "page-container">
  <aside class="sidebar">
   <ul class="sidebar-nav">
-    <li><a href="#using-scr">Using SCR</a></li>
+    <li><a href="#using-scr">Using SCR</a>
+    <ul class="sidebar-subnav">
+      <li><a href="#understanding-rt">Understanding the readthrough</a></li>
+      <li><a href = "#scr to modulate">SCR to modulate protein expression</a></li>
+      <li><a href = "#proposed implementations">Proposed implementations</a></li>
+    </ul></li>
     <li><a href="#riboswitch">Our riboswitch</a></li>
+    <ul class="sidebar-subnav">
+      <li><a href="#benefit of using">The benefit of using riboswitches</a></li>
+      <li><a href="#proposed">Proposed implementations</a></li>
+    </ul>
     <li><a href="#beyond-scr">Beyond SCR: TADPOLE</a></li>
     <li><a href="#betting-innovation">Betting on innovation</a></li>
   </ul>
@@ -53,7 +62,7 @@
   
   <div class = "page-content">
     <div class = "header">
-      <h1 class = "page-title">Applications</h1>
+      <h1 class = "page-title">Implementation</h1>
       <p class = "page-desc">The revolution of translational control and its potential applications</p>
     </div>
 
@@ -64,11 +73,10 @@
   <p>The proposed implementations found in this section are just some ideas we have developed ourselves or that have been developed by the experts of various fields we have consulted. This page is a glimpse into the world SKIPPIT offers, where the boundaries of synthetic biology are being constantly pushed. The only limitation to our technology’s applications is the user’s own creativity, as this translational-level control can be applied to any protein and it can be used in any field: from genomics, agriculture, biomanufacturing, therapeutics, biosensing and many more. The revolution of translational control is now.</p>
 </div>
 <section id="using-scr">
-<h2>Using SCR</h2>
-
-<h3>Understanding the readthrough</h3>
+<h1 class = "section-title">Using SCR</h1>
+<h2 id ="understanding-rt" class = "section-subtitle">Understanding the readthrough</h2>
 <p>STOP codon readthrough elements (SCR) are sequences in mRNA transcripts that interact with the ribosome as it reads the STOP codon. This interaction allows the STOP to be recoded, meaning that instead of termination occurring by the release factor complex, the STOP is decoded by a near-cognate tRNA. This near cognate tRNA recognizes the STOP codon and adds a modified aminoacid, such as selenocysteine, to the peptide chain, which allows translation to continue beyond the STOP. [1]</p>
-
+<br>
 <div style="position: relative; width: 100%; aspect-ratio: 16/9;">
                                     <iframe 
                                         src="https://video.igem.org/videos/embed/8XtKPTSBDUzrMUf8iKdYBa?autoplay=1&loop=1&muted=1" 
@@ -78,13 +86,14 @@
                                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 0;"
                                     ></iframe>
                                 </div>
-
+<br><br>
 <p>Essentially, when using a SCR element, we are favoring that when the release factor complex and the near-cognate tRNA interact, the near-cognate tRNA wins. 
 It’s important to note that readthrough is always expressed residually, but in 99.9% of instances, the release factor complex successfully induces termination.</p>
 
-<h3>SCR to modulate protein expression</h3>
+<h2 id="scr to modulate" class="section-subtitle">SCR to modulate protein expression</h2>
 <p>The most interesting application for SCR elements is that of dual-protein regulation for two proteins encoded on the same transcript. Essentially, we separate two proteins, two exons or two translational units with a STOP codon. The first proteins, encoded before the STOP codon, have the expression level of the promoter that drives the transcription of the mRNA. The second proteins, encoded after the STOP codon, are only expressed according to the readthrough rate induced by the SCR element.
 Therefore, for one singular transcript, we have two different protein expression rates.</p>
+<br>
 <div style="text-align: center; margin: 20px 0;">
     <img 
       src="https://static.igem.wiki/teams/5622/images/implementation/working-scr.webp" 
@@ -92,6 +101,7 @@ Therefore, for one singular transcript, we have two different protein expression
       style="border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
     >
 </div> 
+<br><br>
 <p>For example, during our project we have worked with two different SCR elements: SCR-D and SECIS. SCR-D, in its WT state, induces a 9% readthrough rate in HEK cells. However, SECIS induces a 10% readthrough rate in HEK cells, and up to 14% in cell-free systems. We also designed and tested new SCR elements, derived from SCR-D, that induce variable readthrough rates (5~8%). Using our SCR library, we can design multiple constructs with different SCR elements, inducing variable readthrough rates. This means we can test many combinations of two proteins at different expression levels. This is especially interesting for fields such as therapeutics and biomanufacturing, were low expression levels of certain proteins, and dual-drug delivery have become a necessity.</p>
 
 <div class="accordion">
@@ -113,7 +123,7 @@ Therefore, for one singular transcript, we have two different protein expression
 
 
 
-<h2>Proposed implementations</h2>
+<h2 id="proposed implementations" class="section-subtitle">Proposed implementations</h2>
 <p>SCR elements are especially interesting to study protein effect and to increase protein control when performing cellular biology experiments and when characterising new parts. There is a very wide range of possible applications, but we have focused on its potential use to treat diseases and develop new therapeutics.</p>
 
 <h3>Diseases that stem from a premature STOP codon.</h3>
@@ -130,11 +140,12 @@ Therefore, for one singular transcript, we have two different protein expression
 </ul>
 </section>
 <section id="riboswitch">
-<h3 class="section-title">Our riboswitch</h3>
+<h1 class="section-title">Our riboswitch</h1>
 <p>Our STOP Codon Readthrough (SCR) and aptamer riboswitch represents an innovative approach to gene expression regulation by enabling ligand-dependent modulation of readthrough rates. 
 This method is a precise, reversible and dynamic method to exercise control over RNA transcripts on the translational level, and it increases the possible uses for SCR elements, especially those that require modulable protein expression.</p>
 
 <p>We have thus far been able to develop an OFF-ON type riboswitch, but in future iterations of our design we want to be able to generate an ON-ON type riboswitch.</p>
+<br>
 <div style="position: relative; width: 100%; aspect-ratio: 16/9;">
                                     <iframe 
                                         src="https://video.igem.org/videos/embed/u9BPQQPQVKFPqu7pvDErbk?autoplay=1&loop=1&muted=1" 
@@ -145,10 +156,9 @@ This method is a precise, reversible and dynamic method to exercise control over
                                     ></iframe>
                                 </div>
 <br><br>
-<h3>The benefit of using riboswitches</h3>
+<h2 id="benefit of using" class="section-subtitle">The benefit of using riboswitches</h2>
 <p>Riboswitches are slowly positioning themselves as the key tool to revolutionise synthetic biology. They are small components that can be reactive to many different types of external inputs, that allow fine-tuning of gene expression without trans acting factors. They offer a very reliable platform from a biosafety standard, especially when it comes to controlling toxicity. RNA switches with aptamers are of special interest due to their reduced size, which allows performing very small genetic modifications to the genes we want to control <span class = "highlight-word info-word" data-target="hp-card1">&#128161</span>.</p>
-<br><br>
-<h2>Proposed implementations</h2>
+<h2 id="proposed"class="section-subtitle">Proposed implementations</h2>
 <p>Any disease, technique, and sensor that can be designed using a SCR element can be further improved by the additional layer of control added with a modulable SCR riboswitch. These riboswitches push the applications of SCR even further.
 Compared to promoter-based regulation, the SCR switch significantly reduces unintended basal expression of the downstream protein. Even when promoters are in an "off" state, transcription can still occur due to factors such as chromatin accessibility and incomplete repressor binding. In contrast, SCR inherently defaults to termination in the absence of a ligand, effectively blocking translation elongation and preventing unnecessary protein production.</p>
 
@@ -207,7 +217,7 @@ This is particularly valuable in gene therapy, where constitutive transgene expr
 </ul>
 </section>
 <section id="beyond-scr">
-<h3>Beyond SCR: TADPOLE</h3>
+<h1 class="section-title">Beyond SCR: TADPOLE</h1>
 <p>What if we were not limited to the use of a readthrough element, what if we could use any functional RNA? 
 With TADPOLE we can dare to create any riboswitch with any functional RNA with conserved structure. That means anything is possible. From controlling translational termination, to controlling ribosome adhesion, to controlling frameshifting and splicing and gene silencing.
 With new ribozymes being identified every year, the range that can be accomplished with TADPOLE and tailored RNA switches is infinite, the only limitation is that of knowledge and imagination.</p>
@@ -224,7 +234,7 @@ With new ribozymes being identified every year, the range that can be accomplish
 
 </section>
 <section id="betting-innovation">
-<h3>Betting on innovation</h3>
+<h1 class="section-title">Betting on innovation</h1>
 <p>The SKIPPIT SCR and RNA switch tools are the first of their kind, and are a testament to the new approaches to synthetic biology and genetic regulation. We want to highlight their most important features:</p>
 
 <ul class="point-list">
