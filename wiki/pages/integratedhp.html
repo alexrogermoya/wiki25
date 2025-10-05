@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+  
+{% block title %}Human Practices{% endblock %}
+{% block lead %}We ask every team to think deeply and creatively about whether their project is responsible and good for the world. Consider how the world affects your work and how your work affects the world.{% endblock %}
+
+{% block page_content %}
+
+<div class = "page-container">
+  <aside class="sidebar">
+      <ul class="sidebar-nav">
+          <li><a href="#MatMod" class="active">Maturity Models</a></li>
+          <li><a href="#Explore" class="active">Explore</a></li>
+      </ul>
+      <div class ="info-card hp-card" id="hp-card">
+        <div class="card">
+          <h3 class="card-title">HP Card</h3>
+          <p>Throughout the wiki you will find lightbulbs like this one, in which we acknowledge the contributions of researchers and stakeholders, and highlight the impact of Skippit inside and outside the lab.</p>
+          <button class="btn btn-outline" onclick = "window.location.href='Link-overview-7'">Learn more</button>
+         </div>
+       </div>
+  </aside>
+
+
+<div class = "page-content">
+<div class = "header">
+<h1 class = "page-title">Human Practices</h1>
+<p class = "page-desc">Way, <span class="italic-word">way</span> beyond the lab</p>
+</div>
+
+<p class = "section-text">When we first outlined our idea of creating an RNA-based tool for modulable translation, we knew that the <span class="bold-word">project’s success would depend on more than just technical design</span>. To strengthen it, we reached out to stakeholders from very different backgrounds, <span class="bold-word">opening a continuous dialogue</span> that shaped the project at every stage. 
+</p>
+</div>
+</div>
+{% endblock %}
