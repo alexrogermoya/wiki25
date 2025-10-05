@@ -576,7 +576,9 @@ section{
   transition: display 1s ease;
 }
 
-
+.hp-icon{
+  font-size:var(--fs-h4); 
+}
 
 
 /*Dropdowns*/

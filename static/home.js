@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let isBreaking = false;
         
         window.addEventListener('scroll', () => {
-            const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+            const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)*2;
             const leftHalf = document.getElementById('leftHalf');
             const rightHalf = document.getElementById('rightHalf');
             const revealedText = document.getElementById('revealedText');
