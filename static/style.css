@@ -199,13 +199,11 @@ html {
 .sidebar {
   width: 25%;
   padding: 3rem;
-  padding-left:3rem;
+  padding-left: 3rem;
   position: sticky;
+  top: 70px; /* keeps it below your navbar */
   overflow-y: auto;
-  top: 70px;
-  left: 0;
-  height: fit-content;
-  align-self: flex-start;
+  max-height: calc(100vh - 70px); /* this makes it scrollable */
   box-sizing: border-box;
 }
 
