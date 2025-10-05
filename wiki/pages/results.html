@@ -6,12 +6,10 @@
 {% block page_content %}
 
 <style>
-body {
-  box-sizing: border-box;
-}
+
 
 .results-container {
-    max-width: 1400px;
+    max-width: 80%;
     margin: 0 auto;
     padding: 2rem;
 }
@@ -19,20 +17,13 @@ body {
 .tree-container {
     background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
     border-radius: 20px;
-    padding: 2rem;
     box-shadow: var(--shadow);
     position: relative;
     overflow: hidden;
     margin-bottom: 2rem;
+    max-height: 600px;
 }
 
-.tree-title {
-    text-align: center;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 2rem;
-}
 
 .tree-svg {
     width: 100%;
@@ -211,18 +202,20 @@ body {
 }
 
 .branch-legend {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    right: 1rem;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 10px;
-    padding: 1rem;
-    font-size: 0.85rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
+  position: relative;  
+  margin: 1rem auto 0 auto;
+  max-width: 80%; 
+  background: rgba(255,255,255,0.95);
+  border-radius: 10px;
+  padding: 1rem;
+  font-size: 0.85rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
+
+
 
 .legend-item {
     display: flex;
@@ -267,7 +260,13 @@ body {
 }
 </style>
 
+
 <div class="results-container">
+    <div class = "page-content">
+    <div class = "header">
+      <h1 class = "page-title">Results</h1>
+      <p class = "page-desc">Explore the results obtained on the Wet Lab.</p>
+    </div>
     <!-- Tree Visualization -->
     <div class="tree-container">
         
@@ -275,71 +274,74 @@ body {
   <!-- Tree Trunk -->
   <rect class="tree-trunk" x="490" y="150" width="20" height="400" rx="10"/>
 
-  <!-- Branch 1 - Bottom Left -->
+  <!-- Branch 1 -  -->
   <path class="tree-branch branch-1" d="M490 500 L280 420"/>
 
-  <!-- Branch 2 - Left (with sub-branches) -->
-  <path class="tree-branch branch-2" d="M490 440 L250 350"/>
-  <path class="tree-sub-branch sub-2a" d="M250 350 L150 300"/>
-  <path class="tree-sub-branch sub-2b" d="M250 350 L200 250"/>
+  <!-- Branch 2 -  -->
+  <path class="tree-branch branch-2" d="M490 440 L250 350"/>  
+  <path class="tree-sub-branch sub-2a" d="M250 350 L200 250"/>
 
-  <!-- Branch 3 - Riboswitch -->
+  <!-- Branch 3 - aptamer -->
   <path class="tree-branch branch-3" d="M510 300 L720 250"/>
+    <path class="tree-sub-branch sub-3b" d="M300 250 L200 150"/>
 
-  <!-- Branch 4 - Right (with sub-branches) -->
+  <!-- Branch 4 -  -->
   <path class="tree-branch branch-4" d="M510 440 L750 350"/>
-  <path class="tree-sub-branch sub-4a" d="M750 350 L850 300"/>
-  <path class="tree-sub-branch sub-4b" d="M750 350 L800 250"/>
 
-  <!-- Branch 5 - Upper Left -->
+  <!-- Branch 5 -  -->
   <path class="tree-branch branch-5" d="M490 360 L280 250"/>
 
-  <!-- Branch 6 - Top Center (Future Steps) -->
+    <!-- Branch 6 - -->
+<path class="tree-branch branch-4" d="M510 440 L750 450"/>
+
+  <!-- Branch 7 - Top Center (Future Steps) -->
   <path class="tree-branch branch-6" d="M500 180 L500 140"/>
 
   <!-- Leaves -->
 
   <!-- Branch 1: SCR-D -->
   <circle class="tree-leaf leaf-1" cx="280" cy="420" r="35" fill="#FF5249" onclick="showContent('branch1-main')" data-branch="1"/>
-  <text class="leaf-text" x="280" y="420" font-size="12" text-anchor="middle" dominant-baseline="middle">SCR-D</text>
+  <text class="leaf-text" x="280" y="420" font-size="12" text-anchor="middle" dominant-baseline="middle">1-SCR-D</text>
 
   <!-- Branch 2: SECIS -->
   <circle class="tree-leaf leaf-2-main" cx="250" cy="350" r="30" fill="#FF1D11" onclick="showContent('branch2-main')" data-branch="2-main"/>
-  <text class="leaf-text" x="250" y="350" font-size="12" text-anchor="middle" dominant-baseline="middle">SECIS</text>
+  <text class="leaf-text" x="250" y="350" font-size="12" text-anchor="middle" dominant-baseline="middle">2-SECIS</text>
 
   <!-- Branch 2 Sub-leaves -->
-  <circle class="tree-leaf leaf-2a" cx="150" cy="300" r="25" fill="#E70C00" onclick="showContent('branch2-secis')" data-branch="2a"/>
-  <text class="leaf-text small" x="150" y="300" " text-anchor="middle" dominant-baseline="middle">Element</text>
-
-  <circle class="tree-leaf leaf-2b" cx="200" cy="250" r="25" fill="#CC0600" onclick="showContent('branch2-controls')" data-branch="2b"/>
+ 
+  <circle class="tree-leaf leaf-2a" cx="200" cy="250" r="25" fill="#CC0600" onclick="showContent('branch2-controls')" data-branch="2a"/>
   <text class="leaf-text small" x="200" y="250" font-size="12" text-anchor="middle" dominant-baseline="middle">Controls</text>
 
-  <!-- Branch 3: Sensing -->
-<circle class="tree-leaf leaf-5" cx="280" cy="250" r="35" fill="#ff918b" onclick="showContent('branch5-constructs')" data-branch="5"/>
-  <text class="leaf-text" x="280" y="250" font-size="12" text-anchor="middle" dominant-baseline="middle">Sensing</text>
+  <!-- Branch 3: Aptmaer -->
+<circle class="tree-leaf leaf-5" cx="280" cy="250" r="37" fill="#ff918b" onclick="showContent('branch3-main')" data-branch="3"/>
+  <text class="leaf-text" x="280" y="250" font-size="12" text-anchor="middle" dominant-baseline="middle">3-Aptamer</text>
+<!-- Branch 3 Sub-leaves -->
+ 
+  <circle class="tree-leaf leaf-2a" cx="200" cy="150" r="25" fill="#CC0600" onclick="showContent('branch3-controls')" data-branch="3a"/>
+  <text class="leaf-text small" x="200" y="150" font-size="12" text-anchor="middle" dominant-baseline="middle">Controls</text>
 
-  <!-- Branch 4: Cell-Free -->
-  <circle class="tree-leaf leaf-4-main" cx="750" cy="350" r="30" fill="#9b2421" onclick="showContent('branch4-main')" data-branch="4-main"/>
-  <text class="leaf-text" x="750" y="350" font-size="12" text-anchor="middle" dominant-baseline="middle">Cell-Free</text>
+  
+  <!-- Branch 4: S Cell-Free -->
+  <circle class="tree-leaf leaf-4-main" cx="750" cy="450" r="40" fill="#9b2421" onclick="showContent('branch4-main')" data-branch="4"/>
+  <text class="leaf-text" x="750" y="450" font-size="12" text-anchor="middle" dominant-baseline="middle">4-SECIS CF</text>
 
-  <!-- Branch 4 Sub-leaves -->
-  <circle class="tree-leaf leaf-4a" cx="850" cy="300" r="25" fill="#7A1D1A" onclick="showContent('branch4-aptamer')" data-branch="4a"/>
-  <text class="leaf-text small" x="850" y="300" font-size="12" text-anchor="middle" dominant-baseline="middle">Aptamer</text>
+  <!-- Branch 5: A Cell-Free -->
+  <circle class="tree-leaf leaf-4-main" cx="750" cy="350" r="40" fill="#9b2421" onclick="showContent('branch5-main')" data-branch="5"/>
+  <text class="leaf-text" x="750" y="350" font-size="12" text-anchor="middle" dominant-baseline="middle">5-Aptamer CF</text>
 
-  <circle class="tree-leaf leaf-4b" cx="800" cy="250" r="25" fill="#560400" onclick="showContent('branch4-secis')" data-branch="4b"/>
-  <text class="leaf-text small" x="800" y="250" font-size="12" text-anchor="middle" dominant-baseline="middle">SECIS CF</text>
 
-  <!-- Branch 5: Riboswitch -->
-  <circle class="tree-leaf leaf-3" cx="720" cy="250" r="35" fill="#9D0800" onclick="showContent('branch3-main')" data-branch="3"/>
-  <text class="leaf-text" x="720" y="250" font-size="12" text-anchor="middle" dominant-baseline="middle">Riboswitch</text>
+ 
+  <!-- Branch 6: switch -->
+  <circle class="tree-leaf leaf-3" cx="720" cy="250" r="35" fill="#9D0800" onclick="showContent('branch6-main')" data-branch="6"/>
+  <text class="leaf-text" x="720" y="250" font-size="12" text-anchor="middle" dominant-baseline="middle">6-Switch</text>
 
-  <!-- Branch 6: Future Steps -->
-  <circle class="tree-leaf leaf-6" cx="500" cy="140" r="35" fill="#B30000" onclick="showContent('branch6-future')" data-branch="6"/>
+  <!-- Branch 7: Future Steps -->
+  <circle class="tree-leaf leaf-6" cx="500" cy="140" r="35" fill="#B30000" onclick="showContent('branch7-future')" data-branch="6"/>
   <text class="leaf-text" x="500" y="140" fill="#9D0800" font-size="12" text-anchor="middle" dominant-baseline="middle">Future</text>
 </svg>
 
-        
-        <div class="branch-legend">
+    </div>
+<div class="branch-legend">
             <div class="legend-item">
                 <div class="legend-color" style="background: #FF5249;"></div>
                 <span>Branch 1: SCR-D Element</span>
@@ -364,9 +366,7 @@ body {
                 <div class="legend-color" style="background: #B30000;"></div>
                 <span>Future Steps</span>
             </div>
-        </div>
-    </div>
-
+</div>
     <!-- Content Area -->
     <div class="content-area">
         
@@ -422,19 +422,7 @@ body {
         </div>
 
         <!-- Branch 2 Sub-content -->
-        <div class="content-section" id="branch2-secis">
-            <h1 class="content-title">🧬 Branch 2a: SECIS Element Analysis</h1>
-            <h2 class="content-subtitle">SECIS Element Things</h2>
-            <p class="content-text">
-                Comprehensive analysis of SECIS element functionality in HEK293T cells, including selenocysteine incorporation efficiency and optimization studies.
-            </p>
-            
-            <div class="placeholder-content">
-                <div class="placeholder-icon">🧬</div>
-                <h3 style="color: var(--main-color);">SECIS Element Results</h3>
-                <p style="color: var(--grey);">Add your SECIS element experimental data here.</p>
-            </div>
-        </div>
+        
 
         <div class="content-section" id="branch2-controls">
             <h1 class="content-title">🔬 Branch 2b: Experimental Controls</h1>
@@ -464,6 +452,22 @@ body {
                 <p style="color: var(--grey);">Add your sensing element experimental data here.</p>
             </div>
         </div>
+ <!-- Branch 3 Sub-content -->
+        
+
+        <div class="content-section" id="branch3-controls">
+            <h1 class="content-title">🔬 Branch 3a: Experimental Controls</h1>
+            <h2 class="content-subtitle">Controls for Experimental Design in HEK</h2>
+            <p class="content-text">
+                Detailed analysis of our control experiments, validation studies, and experimental design considerations for HEK293T cell-based assays.
+            </p>
+            
+            <div class="placeholder-content">
+                <div class="placeholder-icon">🔬</div>
+                <h3 style="color: var(--main-color);">Control Results</h3>
+                <p style="color: var(--grey);">Add your control experiment data and analysis here.</p>
+            </div>
+        </div>
 
         <!-- Branch 4 Main Content -->
         <div class="content-section" id="branch4-main">
@@ -484,37 +488,10 @@ body {
             </div>
         </div>
 
-        <!-- Branch 4 Sub-content -->
-        <div class="content-section" id="branch4-aptamer">
-            <h1 class="content-title">🎯 Branch 4a: Aptamer Validity</h1>
-            <h2 class="content-subtitle">Aptamer's Validity in Cell-Free System</h2>
-            <p class="content-text">
-                Validation of theophylline aptamer functionality using cell-free expression systems, demonstrating construct viability outside cellular environments.
-            </p>
-            
-            <div class="placeholder-content">
-                <div class="placeholder-icon">🎯</div>
-                <h3 style="color: var(--main-color);">Aptamer Validation</h3>
-                <p style="color: var(--grey);">Add your aptamer validation data here.</p>
-            </div>
-        </div>
 
-        <div class="content-section" id="branch4-secis">
-            <h1 class="content-title">🧪 Branch 4b: SECIS in Cell-Free</h1>
-            <h2 class="content-subtitle">SECIS Element in Cell-Free System</h2>
-            <p class="content-text">
-                Analysis of SECIS element behavior in cell-free expression systems, comparing performance with cellular environments.
-            </p>
-            
-            <div class="placeholder-content">
-                <div class="placeholder-icon">🧪</div>
-                <h3 style="color: var(--main-color);">Cell-Free SECIS</h3>
-                <p style="color: var(--grey);">Add your cell-free SECIS data here.</p>
-            </div>
-        </div>
 
         <!-- Branch 5 Content -->
-        <div class="content-section" id="branch5-constructs">
+        <div class="content-section" id="branch5-main">
             <h1 class="content-title">🔗 Branch 5: Riboswitch with Linkers</h1>
             <h2 class="content-subtitle">Testing the Built Riboswitch with Designed Linkers</h2>
             <p class="content-text">
@@ -527,8 +504,22 @@ body {
                 <p style="color: var(--grey);">Add your complete construct testing data here.</p>
             </div>
         </div>
-
-        <div class="content-section" id="branch6-future">
+<!-- Branch 6 Content -->
+        <div class="content-section" id="branch6-main">
+            <h1 class="content-title">🔗 Branch 6: Riboswitch with Linkers</h1>
+            <h2 class="content-subtitle">Testing the Built Riboswitch with Designed Linkers</h2>
+            <p class="content-text">
+                Testing of our complete riboswitch constructs with designed linkers in cell-free systems, demonstrating full system functionality with theophylline aptamer, linkers, and SECIS element.
+            </p>
+            
+            <div class="placeholder-content">
+                <div class="placeholder-icon">🔗</div>
+                <h3 style="color: var(--main-color);">Complete Riboswitch System</h3>
+                <p style="color: var(--grey);">Add your complete construct testing data here.</p>
+            </div>
+        </div>
+        <!-- future-->
+        <div class="content-section" id="branch7-future">
             <h1 class="content-title">🚀 Future Steps After Wiki Freeze</h1>
             <h2 class="content-subtitle">Future Steps in the Lab</h2>
             <p class="content-text">
@@ -544,7 +535,7 @@ body {
 
     </div>
 </div>
-
+</div>
 <script>
 function showContent(contentId) {
     // Hide all content sections
