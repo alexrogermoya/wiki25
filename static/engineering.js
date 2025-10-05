@@ -455,7 +455,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                                     
                                 <div   style="text-align: center; margin: 20px auto;">
-                                  <img src="https://static.igem.wiki/teams/5622/images/engineering/25.webp" alt="swich 4">
+                                  <img src="https://static.igem.wiki/teams/5622/images/engineering/linker-9-energies.webp" alt="swich 4">
                                   <div class="photo-caption">Figure 15: Linker 9 state energies.</div>
                                 </div>
                                     
