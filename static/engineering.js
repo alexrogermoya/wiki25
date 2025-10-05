@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // To add an image:
     // design: `We designed a computational approach using AlphaFold2 and ColabFold to predict the 3D structure of SCR-D. The design focused on identifying key structural motifs and binding sites.
                             
-    //                         <div class="image-container" style="text-align: center; margin: 20px auto;">
+    //                         <div   style="text-align: center; margin: 20px auto;">
     //                             <img src="https://via.placeholder.com/400x250/FF5249/FFFFFF?text=AlphaFold2+Pipeline" alt="AlphaFold2 Pipeline Design">
     //                             <div class="photo-caption">Figure 1: Computational pipeline design for SCR-D structure prediction using AlphaFold2</div>
     //                         </div>`,
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 build: `We developed a web-deployable software tool based on RNAfold. The tool automatically overlays nucleotide conservation 
                                                 scores onto the predicted 2D structures and compares base pairings across species to highlight conserved complementarity.`,
                                 test: `Confirmed earlier prediction: conserved motif is structurally feasible in all species.
-                                        <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                        <div   style="text-align: center; margin: 20px auto;">
                                           <img src="https://static.igem.wiki/teams/5622/images/engineering/pairings-conserved-scr-d.webp" alt="AlphaFold2 Pipeline Design">
                                           <div class="photo-caption">Figure 1.1: Image depicting the conserved pairings from the co-evolutionary structures of SCR-D family sequences.
                                         Blue: unpaired or non-conserved pairings.
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         </div>
                                         
 
-                                        <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                        <div   style="text-align: center; margin: 20px auto;">
                                           <img src="https://static.igem.wiki/teams/5622/images/engineering/bp-conserved-scr-d.webp" alt="AlphaFold2 Pipeline Design">
                                           <div class="photo-caption">Figure 1.2: Image depicting the conserved nucleotides from the co-evolutionary study of SCR-D family sequences.
                                             Blue: low conserved nucleotides.
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     Our goal is to generate multiple constructs including different regions in order to test their relevance in SCR-D's function. 
                                     <p>The delimited structural regions following the sequence evolutionary conservation analysis are the following:</p>
                                     Listed from 5’ to 3’:
-                                     <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                     <div   style="text-align: center; margin: 20px auto;">
                                      <img src="https://static.igem.wiki/teams/5622/images/engineering/3.webp" alt="AlphaFold2 Pipeline Design">
                                          <div class="photo-caption">Figure 2: Structural Parts of the SCR-D element.</div>
                                      </div>
@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                           <td style="border: 1px solid #ccc; padding: 6px;">Removed Diapin, Hypopin and Post-hypopin, maintaining only the Pre-diapin region.</td>
                                           <td style="border: 1px solid #ccc; padding: 6px;">TBD</td>
                                           <td style="border: 1px solid #ccc; padding: 6px;">
-                                          <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                          <div   style="text-align: center; margin: 20px auto;">
                                      <img src="https://static.igem.wiki/teams/5622/images/engineering/4.webp" alt="AlphaFold2 Pipeline Design">
                                          <div class="photo-caption">Figure 3: Pre-diapin - Predicted structure.</div>
                                      </div>
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                           <td style="border: 1px solid #ccc; padding: 6px;">Altered conserved base pairings of the Diapin region to maintain its structure whilst modifying its sequence.</td>
                                           <td style="border: 1px solid #ccc; padding: 6px;">TBD</td>
                                           <td style="border: 1px solid #ccc; padding: 6px;">
-                                          <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                          <div   style="text-align: center; margin: 20px auto;">
                                      <img src="https://static.igem.wiki/teams/5622/images/engineering/6.webp" alt="AlphaFold2 Pipeline Design">
                                          <div class="photo-caption">Figure 4:  Modified diapin - Predicted structure.</div>
                                      </div>
@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                           <td style="border: 1px solid #ccc; padding: 6px;">Removed Hypopin and post-hypopin regions, maintaining the Pre–diapin and Diapin regions.</td>
                                           <td style="border: 1px solid #ccc; padding: 6px;">TBD</td>
                                           <td style="border: 1px solid #ccc; padding: 6px;">
-                                          <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                          <div   style="text-align: center; margin: 20px auto;">
                                      <img src="https://static.igem.wiki/teams/5622/images/engineering/5.webp" alt="AlphaFold2 Pipeline Design">
                                          <div class="photo-caption">Figure 5:  Pre+diapin - Predicted structure.</div>
                                      </div>
@@ -226,13 +226,13 @@ document.addEventListener('DOMContentLoaded', function() {
                                         </tr>
                                       </tbody>
                                     </table>
-                                    <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                    <div   style="text-align: center; margin: 20px auto;">
                                      <img src="https://static.igem.wiki/teams/5622/images/engineering/8.webp" alt="AlphaFold2 Pipeline Design">
                                          <div class="photo-caption">Figure 6:  Colour Legend - Predicted structures.</div>
                                      </div>
                                   `,
                                   build: `
-                                  <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                  <div   style="text-align: center; margin: 20px auto;">
                                      <img src="https://static.igem.wiki/teams/5622/images/engineering/9.webp" alt="AlphaFold2 Pipeline Design">
                                          <div class="photo-caption">Figure 7:  PLASMID</div>
                                      </div>
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     We then analysed Renilla and Firefly Luciferases’ reporter levels using the Dual-Luciferase® Reporter Assay System from Promega.
                                     <br>
                                     We compared the 3 modified SCR-D to the “Natural” (unchanged) SCR-D sequence by comparing the expression ratios of Renilla and Firefly for each of the samples.
-                                    <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                    <div   style="text-align: center; margin: 20px auto;">
                                      <img src="https://static.igem.wiki/teams/5622/images/engineering/scr-d-readthrough-analysis.webp" alt="AlphaFold2 Pipeline Design">
                                          <div class="photo-caption">Figure 8: The results show highest readthrough levels in the Natural SCR-D (~9%), followed closely by 
                                          the Mutated Diapin sequence (~8%). OnlyPrediapin has the third lowest readthrough ratio (~6%), whilst no-hypopin has the lowest (~5%).
@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                          by comparing the expression of the first luciferase (Renilla) and the second luciferase (Firefly). The SECIS DIO2 e
                                          lement is found in the 3’-UTR region of the Dual-Luciferase translational unit. Two T2A peptides separate Firefly 
                                          and Renilla luciferases to prevent interfering expression signals.
-                                         <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                         <div   style="text-align: center; margin: 20px auto;">
                                      <img src="https://static.igem.wiki/teams/5622/images/engineering/11.webp" alt="AlphaFold2 Pipeline Design">
                                          <div class="photo-caption">Figure 9: SECIS plasmid.
                                         </div>
@@ -391,7 +391,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 build: `We constructed a plasmid containing the Theo-ON-5 aptamer, linked to a -1 Programmed Ribosomal Frameshift Pseudoknot [13]. This Aptamer-Frameshift component is a ligand-responsive ON-ON RNA switch, and it will allow us to test the aptamer’s working conditions. The frameshift occurs when the aptamer binds its ligand (theophylline)
                                         This construct contains a Dual-Luciferase reporter system, where the second luciferase (Firefly) is only synthetised in the right frame when the frameshift occurs. Otherwise translation is terminated or Firefly is translated in the wrong coding frame. Two T2A peptides separate both luciferases from the aptamer+frameshift switch and each other to prevent interfering expression signals.
                                         This measurement device will allow us to test the aptamer’s efficiency and determine its optimal conditions, as well as whether its documented functionality is experimentally replicable. 
-                                        <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                        <div   style="text-align: center; margin: 20px auto;">
                                         <img src="https://static.igem.wiki/teams/5622/images/engineering/10.webp" alt="AlphaFold2 Pipeline Design">
                                          <div class="photo-caption">Figure 10: Plasmid FS+Apt.
                                         </div>`,
@@ -425,7 +425,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     
                                 <p>It is important to note that, during the design of these swiches, we noticed <b>inaccuracies in the structural foldings</b> of the SECIS element:</p>
                                     
-                                <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                <div   style="text-align: center; margin: 20px auto;">
                                   <img src="https://static.igem.wiki/teams/5622/images/engineering/21.webp" alt="SECIS theoretical vs RNAFold prediction">
                                   <div class="photo-caption">Figure 11: SECIS theoretical structure vs that predicted by RNAFold.</div>
                                 </div>
@@ -440,22 +440,22 @@ document.addEventListener('DOMContentLoaded', function() {
                                     
                                 <p>We selected the <b>four most optimal swiches</b> calculated by TADPOLE, each with a variable <b>linker length</b>:</p>
                                     
-                                <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                <div   style="text-align: center; margin: 20px auto;">
                                   <img src="https://static.igem.wiki/teams/5622/images/engineering/22.webp" alt="swich 1">
                                   <div class="photo-caption">Figure 12: Linker 5 state energies.</div>
                                 </div>
                                     
-                                <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                <div   style="text-align: center; margin: 20px auto;">
                                   <img src="https://static.igem.wiki/teams/5622/images/engineering/23.webp" alt="swich 2">
                                   <div class="photo-caption">Figure 13: Linker 7 state energies.</div>
                                 </div>
                                     
-                                <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                <div   style="text-align: center; margin: 20px auto;">
                                   <img src="https://static.igem.wiki/teams/5622/images/engineering/24.webp" alt="swich 3">
                                   <div class="photo-caption">Figure 14: Linker 8 state energies.</div>
                                 </div>
                                     
-                                <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                <div   style="text-align: center; margin: 20px auto;">
                                   <img src="https://static.igem.wiki/teams/5622/images/engineering/25.webp" alt="swich 4">
                                   <div class="photo-caption">Figure 15: Linker 9 state energies.</div>
                                 </div>
@@ -479,7 +479,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                   presence, and absence of the ligand. The swich is found after Firefly and the secondary 
                                   STOP codon, in the 3’-UTR region of the translational unit. Two T2A peptides separate Firefly
                                    and Renilla luciferases to prevent interfering expression signals.
-                                   <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                   <div   style="text-align: center; margin: 20px auto;">
                                   <img src="https://static.igem.wiki/teams/5622/images/engineering/11.webp" alt="swich 4">
                                   <div class="photo-caption">Figure 16: Switch device.</div>
                                 </div>
@@ -491,18 +491,18 @@ document.addEventListener('DOMContentLoaded', function() {
                                     The results showed readthrough modulability by theophylline responsiveness, but by an OFF-ON swich model, where in absence of theophylline the readthrough is active. 
                                   <br>
                                   Left column shows Firefly Luciferase levels, Right column shows Renilla Luciferase levels, and the middle column shows the readthrough rates. The top two rows belong to “Bad SECIS”, a cassette with the Dual-Luciferase translational unit that does not have a SECIS sequence on the 3’-UTR region. It is our negative readthrough control. The bottom two rows belong to “Good SECIS”, a cassette with the same construct as in Branch 2, Cycle 1, Iteration 3. It is our positive readthrough control.
-                                    <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                    <div   style="text-align: center; margin: 20px auto;">
                                   <img src="https://static.igem.wiki/teams/5622/images/engineering/controls-for-linkers-celfree.webp" alt="swich 4">
                                   <div class="photo-caption">Figure 17: Results image 1.</div>
                                 </div>
                                 <br>
                                   Left column shows Renilla Luciferase levels, middle column shows Firefly Luciferase levels, and the right column shows the readthrough rates. The top row belongs to our positive control, “Good SECIS”. The four rows below, in order are: swich with linker 5, swich with linker 7, swich with linker 8, and swich with linker 9.
-                                    <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                    <div   style="text-align: center; margin: 20px auto;">
                                   <img src="https://static.igem.wiki/teams/5622/images/engineering/final-linkers-all-beautified.webp" alt="swich 4">
                                   <div class="photo-caption">Figure 18: Results image 2.</div>
                                 </div>
 
-                                <div class="image-container" style="text-align: center; margin: 20px auto;">
+                                <div   style="text-align: center; margin: 20px auto;">
                                   <img src="https://static.igem.wiki/teams/5622/images/engineering/26.webp" alt="swich 4">
                                   <div class="photo-caption"> Figure 19: SCR switch constructs and controls.</div>
                                 </div
