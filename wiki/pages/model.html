@@ -24,8 +24,8 @@
               </ul>
           </li>
           <li><a href="#value">Value</a></li>
-          <li><a href="#key-aspects">Key Aspects to Consider</a></li>
-          
+            
+        <li><a href="#combining">Combining FREs and CREs</a>
               <li><a href="#core-assumptions">Core Assumptions</a>
               <ul class="sidebar-subnav">
                   <li><a href="#structural-prediction">Structural Prediction</a></li>
@@ -242,35 +242,7 @@
           </div>
         </div>
 
-        <div class="info-card" id="hp-card1">
-  <div class="card">
-    <h3 class="card-title">HP CARD</h3>
-    <p>
-      When consulting literature, trying to understand the <strong>structural considerations of the Aptamers</strong>, 
-      we contacted several researchers who helped us understand better the casuistics of aptamers and ultimately 
-      build our switch (<strong>Dietmar Funck</strong>, <strong>Atsushi Ogawa</strong>).  
-      See more in 
-      <a href="https://2025.igem.wiki/barcelona-ub/human-practices" 
-         class="highlight-word info-word" 
-         style="text-decoration: none;">HP</a>.
-    </p>
-  </div>
-</div>
-<div class="info-card" id="hp-card2">
-  <div class="card">
-    <h3 class="card-title">HP CARD</h3>
-    <p>
-      <strong>Paul Copeland</strong> helped us understand better the 
-      <strong>functionality of SECIS</strong> and the importance of the 
-      <strong>core pocket</strong>, determining that if the core was disrupted, 
-      <strong>SECIS should no longer perform its function</strong>.
-      See more in 
-      <a href="https://2025.igem.wiki/barcelona-ub/human-practices" 
-         class="highlight-word info-word" 
-         style="text-decoration: none;">HP</a>.
-    </p>
-  </div>
-</div>
+
 
 
         <!-- COMBINING SECTION -->
@@ -405,187 +377,119 @@
         </div>
       </section>
       
-          <!-- KEY ASPECTS TO CONSIDER SECTION -->
-               <section id="key-aspects">
-    <h1 class="section-title">Key Aspects to Consider: Validation Criteria</h1>
-    
-    <p class="section-text">Beyond the basic thermodynamic requirements, successful RNA switch design requires careful validation of structural and functional criteria. These checks ensure that your designed switch will behave as intended in both OFF and ON states.</p>
-
-    <h2 id="off-disruption" class="section-subtitle">OFF Disruption: Ensuring Functional Repression</h2>
-    
-    <p class="section-text">In the OFF state, the FRE must be prevented from performing its function. This is achieved by disrupting the specific structural features that the FRE requires to work.</p>
-
-    <div class="recommendation-box">
-        <h4>Validation Check: OFF Disruption</h4>
-        <p><span class="bold-word">What to verify:</span> In the predicted OFF fold, confirm that the FRE's key functional structure is sequestered or paired with other parts of the construct.</p>
-        <p><span class="bold-word">Why it matters:</span> If the FRE can still adopt its functional structure in the OFF state, your switch will leak—it will be partially active even when it should be completely repressed.</p>
-    </div>
-
-    <div class="example-box">
-        <h4>Example: SECIS Element Disruption</h4>
-        <p>For a SECIS element (which requires a specific hairpin structure), verify that in the OFF fold:</p>
-        <ul class="point-list">
-            <li>The stem region of the SECIS hairpin is disrupted by pairing with CRE or linker nucleotides<sup>[18,35]</sup></li>
-            <li>Critical loop nucleotides are sequestered in alternative base pairs<sup>[18,35]</sup></li>
-            <li>The overall SECIS structure cannot form as predicted by the folder<sup>[18,35]</sup></li>
-        </ul>
-    </div>
-
-    <h2 id="on-recovery" class="section-subtitle">ON Recovery: Confirming Functional Restoration</h2>
-    
-    <p class="section-text">When the switch activates, the FRE must be able to recover its functional structure. This doesn't need to be perfect, but it should be within acceptable tolerance of the target structure.</p>
-
-    <div class="recommendation-box">
-        <h4>Validation Check: ON Recovery</h4>
-        <p><span class="bold-word">What to verify:</span> In the predicted ON fold, confirm that the FRE adopts (or closely approximates) its target functional structure.</p>
-        <p><span class="bold-word">Tolerance:</span> Small deviations are acceptable, but core functional elements must be preserved.</p>
-    </div>
-
-    <div class="equation-box">
-        <h4>Structural Similarity Metrics</h4>
-        <ul class="equation-list">
-            <li><span class="bold-word">Base pair recovery:</span> What percentage of the target FRE base pairs are recovered in the ON state?</li>
-            <li><span class="bold-word">Critical motif preservation:</span> Are essential structural motifs (loops, bulges, specific base pairs) maintained?</li>
-            <li><span class="bold-word">Overall fold similarity:</span> Does the predicted ON structure resemble the known functional structure?</li>
-        </ul>
-    </div>
-
-    <h2 id="cre-conformation" class="section-subtitle">CRE Reacted Conformation: Validating Sensor Response</h2>
-    
-    <p class="section-text">The CRE must adopt the correct conformation when it responds to its signal. This ensures that the conformational change can properly propagate to the FRE. For known ligand-binding elements such as theophylline aptamers, structural validation can rely on experimental studies<sup>[27,28,29,30,31]</sup>.</p>
-
-    <div class="accordion">
-        <div class="accordion-header">
-            <div class="accordion-title">Binding-Based CREs (Ligand Sensors)</div>
-            <div class="accordion-icon"></div>
-        </div>
-        <div class="accordion-content">
-            <div class="accordion-content-inner">
-                <p><span class="bold-word">Validation:</span> Check that the CRE prediction under ON constraints matches the known or expected bound conformation<sup>[27,28,29,30,31]</sup>.</p>
-                <p><span class="bold-word">Method:</span> Compare the predicted ON-state CRE structure with experimentally determined or literature-reported bound structures<sup>[27,28,29,30,31]</sup>.</p>
-                <p><span class="bold-word">Example:</span> For a theophylline-binding aptamer, verify that the predicted bound conformation matches the known theophylline-bound structure from crystallography or NMR studies<sup>[27,28,29,30,31]</sup>.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="accordion">
-        <div class="accordion-header">
-            <div class="accordion-title">Environment-Driven CREs (Temperature, pH Sensors)</div>
-            <div class="accordion-icon"></div>
-        </div>
-        <div class="accordion-content">
-            <div class="accordion-content-inner">
-                <p><span class="bold-word">Validation:</span> Check the CRE predicted under activating environmental conditions<sup>[27,28]</sup>.</p>
-                <p><span class="bold-word">Method:</span> Use structure prediction tools with appropriate environmental parameters (e.g., different temperatures for thermosensors)<sup>[27,28]</sup>.</p>
-                <p><span class="bold-word">Example:</span> For a temperature-sensitive CRE, predict structures at both baseline (e.g., 30°C) and activating (e.g., 42°C) temperatures to confirm the expected conformational change occurs<sup>[27,28]</sup>.</p>
-            </div>
-        </div>
-    </div>
-
-    <h2 id="pairing-balance" class="section-subtitle">FRE–CRE Pairing Balance: The Goldilocks Principle</h2>
-    
-    <p class="section-text">The number of base pairs between the FRE and CRE in the OFF state must be "just right"—enough to ensure repression, but not so many that the switch cannot activate<sup>[33,36]</sup>.</p>
-
-    <div class="recommendation-box">
-        <h4>Pairing Balance Guidelines</h4>
-        <p><span class="bold-word">Too few pairings (< 4-6 bp):</span> OFF state may not be stable enough to repress the FRE effectively. The switch may leak<sup>[33,36]</sup>.</p>
-        <p><span class="bold-word">Too many pairings (> 12-15 bp):</span> Creates a large energetic barrier. The CRE signal may not provide enough energy to break all the pairs and activate the switch<sup>[33,36]</sup>.</p>
-        <p><span class="bold-word">Optimal range:</span> Typically 6-12 base pairs, depending on the strength of your CRE signal (E<sub>bind</sub>)<sup>[33,36]</sup>.</p>
-    </div>
-
-    <div class="equation-box">
-        <h4>Counting FRE-CRE Interactions</h4>
-        <p>In the predicted OFF structure, count:</p>
-        <ul class="equation-list">
-            <li><span class="bold-word">Direct base pairs:</span> FRE nucleotides paired with CRE nucleotides<sup>[33,36]</sup></li>
-            <li><span class="bold-word">Linker-mediated pairs:</span> FRE paired with linker, linker paired with CRE<sup>[33,36]</sup></li>
-            <li><span class="bold-word">Stacking interactions:</span> Adjacent unpaired bases that contribute to stability<sup>[33,36]</sup></li>
-        </ul>
-    </div>
-
-    <h2 id="energy-balance" class="section-subtitle">Energy Balance: Thermodynamic Validation</h2>
-    
-    <p class="section-text">The energy balance between OFF and ON states is the fundamental thermodynamic requirement that determines whether your switch will work. This builds on the basic energy assumptions but provides practical validation steps<sup>[32,33,34]</sup>.</p>
-
-    <h3 class="section-subtitle2">Step-by-Step Energy Validation</h3>
-
-    <div class="equation-box">
-        <h4>1. Calculate the Energy Gap</h4>
-        <div class="equation-center">
-            <span class="equation-large">Δ = G<sub>ON</sub> - G<sub>OFF</sub></span>
-        </div>
-        <p>Where:</p>
-        <ul class="equation-list">
-            <li>G<sub>OFF</sub> = MFE of unconstrained fold (no external factor)<sup>[32,33]</sup></li>
-            <li>G<sub>ON</sub> = MFE with CRE constrained to reacted conformation<sup>[32,33]</sup></li>
-        </ul>
-    </div>
-
-    <div class="equation-box">
-        <h4>2. Check Default OFF Preference</h4>
-        <div class="equation-center">
-            <span class="equation-large">Δ > 0</span>
-        </div>
-        <p>This ensures OFF is more stable than ON in the absence of the trigger<sup>[32,33]</sup>.</p>
-    </div>
-
-    <div class="equation-box">
-        <h4>3. Verify Switching Capability (Binding-based CREs)</h4>
-        <div class="equation-center">
-            <span class="equation-large">Δ < E<sub>bind</sub></span>
-        </div>
-        <p>This ensures the binding energy can overcome the energy gap and favor the ON state<sup>[32,33,34]</sup>.</p>
-        <div class="equation-center">
-            <span class="equation-large highlight-equation">Combined: 0 < Δ < E<sub>bind</sub></span>
-        </div>
-    </div>
-
-    <div class="recommendation-box">
-        <h4>Practical Energy Validation Workflow</h4>
-        <p><span class="bold-word">Step 1:</span> Predict MFE for unconstrained sequence → G<sub>OFF</sub><sup>[32,33]</sup></p>
-        <p><span class="bold-word">Step 2:</span> Predict MFE with CRE forced into bound/reacted conformation → G<sub>ON</sub><sup>[32,33]</sup></p>
-        <p><span class="bold-word">Step 3:</span> Calculate Δ = G<sub>ON</sub> - G<sub>OFF</sub><sup>[32,33]</sup></p>
-        <p><span class="bold-word">Step 4:</span> Check that 0 < Δ < E<sub>bind</sub> (for binding-based CREs)<sup>[32,33,34]</sup></p>
-        <p><span class="bold-word">Step 5:</span> Optimize if needed by adjusting linker sequence or length<sup>[32,33]</sup></p>
-    </div>
-
-    <div class="example-box">
-        <h4>Complete Validation Example</h4>
-        <p><span class="bold-word">System:</span> SECIS element + theophylline aptamer<sup>[27,28,29,30,31,18,35]</sup></p>
-        <p><span class="bold-word">Energy Results:</span></p>
-        <ul class="point-list">
-            <li>G<sub>OFF</sub> = -42.3 kcal·mol⁻¹ (unconstrained fold)<sup>[32,33]</sup></li>
-            <li>G<sub>ON</sub> = -37.8 kcal·mol⁻¹ (theophylline-bound constraint)<sup>[32,33,34]</sup></li>
-            <li>Δ = -37.8 - (-42.3) = +4.5 kcal·mol⁻¹<sup>[32,33]</sup></li>
-            <li>E<sub>bind</sub> = 9.5 kcal·mol⁻¹ (theophylline)<sup>[27,28,29,30,31]</sup></li>
-        </ul>
-        <p><span class="bold-word">Validation:</span> ✓ 0 < 4.5 < 9.5 → Energy balance is correct<sup>[32,33,34]</sup></p>
-        <p><span class="bold-word">Structural checks:</span></p>
-        <ul class="point-list">
-            <li>✓ SECIS hairpin disrupted in OFF state<sup>[18,35]</sup></li>
-            <li>✓ SECIS structure recovered in ON state<sup>[18,35]</sup></li>
-            <li>✓ Theophylline aptamer adopts known bound conformation<sup>[27,28,29,30,31]</sup></li>
-            <li>✓ 8 base pairs between SECIS and aptamer regions (optimal range)<sup>[33,36]</sup></li>
-        </ul>
-    </div>
-
-    <div class="cards-container">
-        <div class="card">
-            <h3 class="card-title">🔍 Structural Validation</h3>
-            <p>Verify OFF disruption, ON recovery, and CRE conformation through structure prediction and comparison</p>
-        </div>
+    <h2 id="combining" class="section-subtitle">Combining FREs and CREs: Creating an ON/OFF Switch</h2>
         
-        <div class="card">
-            <h3 class="card-title">⚖️ Energetic Validation</h3>
-            <p>Ensure proper energy balance: OFF preferred by default, but ON becomes favored after signal</p>
+        <p class="section-text">Individually, FREs are functional elements that only work if they maintain a precise shape, while CREs are sensors that change shape in response to a signal but have no function by themselves. When we link a CRE to an FRE, we can create a <span class="highlight-word">programmable molecular switch</span> that controls the FRE's activity.</p>
+
+        <h3 class="section-subtitle2">How It Works</h3>
+        Our model is based on the principle of structural change from stimuli:<br>
+<br><br>
+        <b>Initial structure</b>
+  <span style="color: #007acc; font-weight: bold;">&nbsp;➜&nbsp;</span>
+  <b>Application of external signal</b>
+  <span style="color: #007acc; font-weight: bold;">&nbsp;➜&nbsp;</span>
+  <b>Changed structure</b> <br>
+<br><br>
+  One of these two structures (<b>initial</b> or <b>changed</b>) will maintain the function of the 
+  <b>FRE ON (active)</b>, and the other will <b>disrupt its structure</b>, therefore turning it 
+  <b>OFF (inactive)</b>.
+  This <b>ON structure</b> is the <b>functional structure</b>, the structure that the <b>FRE</b> needs 
+  to have to <b>perform its function</b>:
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/model/fre-struct.webp" 
+    alt="Tadpole steps" 
+    style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  >
+</div>
+Se we could have <br>
+<br><br>
+  <b>FRE disrupted structure (OFF)</b>
+  <span style="color:#007acc; font-weight:bold;">&nbsp;➜&nbsp;</span>
+  <b>External signal</b>
+  <span style="color:#007acc; font-weight:bold;">&nbsp;➜&nbsp;</span>
+  <b>FRE functional structure (ON)</b>
+  <br>
+  <br><br>
+  We call this the ON-ON alternative, as FRE is active when the external signal is present.<br>
+   
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/model/on-on.webp" 
+    alt="Tadpole steps" 
+    style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  >
+</div>
+Or, <br>
+<br><br>
+<b>Structure disrupted (OFF) </b>
+  <span style="color:#007acc; font-weight:bold;">&nbsp;➜&nbsp;</span>
+  <b>External signal</b>
+  <span style="color:#007acc; font-weight:bold;">&nbsp;➜&nbsp;</span>
+  <b>Structure maintained (ON)</b>
+  <br>
+  <br><br>
+  We call this the OFF-ON alternative, as the FRE is inactive when the external signal is present.
+
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/model/on-on.webp" 
+    alt="Tadpole steps" 
+    style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  >
+</div>
+
+Both models follow the same energetic, complementarity, etc. principles. To facilitate the understanding of the design considerations of the model, we will be using an ON-ON/OFF-OFF type riboswitch as an example to explain the model’s intricacies.
+
+All following explanations can be applied to an ON-ON or an ON-OFF switch, the only difference being when the FRE is disrupted according to the external signal. 
+<br><br>
+<h3>Considering the ON-ON case</h3>
+        <div class="cards-container">
+          <div class="card">
+            <h3 class="card-title">OFF State (no signal)</h3>
+            <p>The CRE is in its resting shape, which stabilizes the FRE in an inactive fold. In this state, the FRE cannot perform its function.</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="card-title">ON State (signal present)</h3>
+            <p>When the CRE detects its signal, it changes shape. This conformational change propagates to the FRE through a connecting linker, allowing the FRE to adopt its active fold.</p>
+          </div>
         </div>
-        
-        <div class="card">
-            <h3 class="card-title">🔗 Interaction Validation</h3>
-            <p>Count and optimize FRE-CRE pairings to achieve the right balance between repression and switchability</p>
+
+        <div class="card chocolate-key-card">
+              <h3 class="card-title">Simple Analogy: Chocolate Around a Key
+              <div class="chocolate-key-container">
+                <div class="key-symbol">🗝️</div>
+                <div class="chocolate-wrapper">🍫</div>
+                <div class="melted-chocolate"></div>
+              </div>
+              </h3>
+          <ul class="point-list">
+                  <p><span class="bold-word">FRE = key</span><br>
+                  <span class="bold-word">CRE = chunk of chocolate surrounding the key</span></p>
+                  
+                  <ul class="point-list">
+                      <li><span class="bold-word">No signal (chocolate is solid):</span> The chocolate is hard and holds the key in the wrong shape, so it cannot enter the lock → FRE inactive (OFF)</li>
+                      <li><span class="bold-word">Signal present (chocolate melts):</span> The chocolate softens, releasing the key so it can take its proper shape → key can enter the lock → FRE active (ON)</li>
+                  </ul>
+                  
+                  <p>Here, the CRE itself doesn't do the work; it modulates whether the FRE can fold into its functional shape, creating a signal-dependent ON/OFF switch.</p>
         </div>
-    </div>
-</section>
+          
+
+        <p class="section-text">By combining CREs and FREs, we gain precise, modular control over RNA-based regulation. This allows us to design custom RNA switches that respond to a wide variety of signals while controlling any functional element, expanding beyond traditional riboswitches or sRNA-based methods.</p>
+        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+              <iframe 
+                src="https://video.igem.org/videos/embed/muyboCpS2HhfYNCueDWDvT?autoplay=1&loop=1&muted=1" 
+                title="Barcelona-UB: RNA_Switches (2025) [English]" 
+                allow="autoplay; fullscreen" 
+                sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-presentation"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+                       border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 0;"
+              ></iframe>
+            </div>
+
+          
  
             <!-- CORE ASSUMPTIONS SECTION -->
                 <section id="core-assumptions">
