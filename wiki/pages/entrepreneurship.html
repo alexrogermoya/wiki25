@@ -10,46 +10,53 @@
   <aside class="sidebar">
       <ul class="sidebar-nav">
           <li><a href="#problema" class="active">Problem & Market Need</a></li>
+          <br>
           <li><a href="#pain-points">Market Pain Points and Stakeholders</a></li>
+          <br>
           <li><a href="#competencia">Competitive Landscape</a></li>
+          <br>
           <li><a href="#ip-rd">IP & R&D Foundation</a></li>
+          <br>
           <li><a href="#tadpole">TADPOLE: R&D Engine and Open-Source Contribution</a></li>
+          <br>
           <li><a href="#comercialitzacio">Commercialization Strategy</a></li>
+          <br>
           <li><a href="#escalabilitat">Scalability & Growth Plan</a></li>
+          <br>
           <li><a href="#swot">SWOT Analysis</a></li>
+          <br>
           <li><a href="#igem-industria">From iGEM to Industry</a></li>
+          <br>
           <li><a href="#bibliografia">References</a></li>
+          <br>
       </ul>
   </aside>
   
   <div class="page-content">
     <div class="header">
-      <!-- TÍTOL PRINCIPAL AMB EL NOU COLOR VERMELL SOL·LICITAT -->
+      <!-- TÍTOL PRINCIPAL-->
       <h1 class="page-title" style="color: #CC0000;">Bridging the Gap: SKIPPIT’s Path to Commercial Gene Control</h1>
     </div>
     <div class="content"> 
       
-      <!-- INICI DE LA INTRODUCCIÓ ESTILITZADA -->
+      <!-- INICI DE LA INTRODUCCIÓ -->
       <section class="page-intro">
         
-        <!-- REQUADRE (CALLOUT) DE VALOR CLAU: Fons Rosa, Lletra Vermella i Negreta -->
+        <!-- REQUADRE (CALLOUT) -->
         <div class="card" style="background-color: #FDD8D8; border: 1px solid #F0B0B0; margin-bottom: 20px;">
             <p class="section-text" style="font-weight: 700; color: #A30000;">
                 SKIPPIT delivers tunable translational control for multi-protein systems, bridging synthetic biology innovation with market-ready solutions.
             </p>
         </div>
-        
-        <!-- CARACTERÍSTIQUES CLAU EN NEGRETA I CENTRADA (margin-bottom augmentat a 60px) -->
+
         <p class="section-text" style="text-align: center; margin-top: -10px; margin-bottom: 30px;">
             <b>Adjustable ratios, modular design, high precision.</b>
         </p>
         
-        <!-- PARÀGRAF AMB SKIPPIT EN NEGRETA I VERMELL -->
         <p class="section-text">
             The <b style="color: #cc0000;">SKIPPIT</b> platform moves beyond academic innovation to address a critical market demand, positioning itself as a high-value, patentable enterprise within the rapidly expanding synthetic biology and gene therapy sectors.
         </p>
 
-        <!-- REQUADRE (CALLOUT) SENSE COLOR PER AL PROBLEMA PRINCIPAL -->
         <div class="card" style="margin-bottom: 20px;">
             <p class="section-text" style="color: #000000;">
                 Our focus is on solving a persistent problem in biotechnology: the lack of <span style="font-weight: 700; color: #A30000; text-decoration: underline;">precise and rapid control of protein expression</span> in complex biological systems.
@@ -59,14 +66,14 @@
         
         <!-- INICI DEL NOU DISSENY PER AL DIAGRAMA WHW (FIGURA 1) -->
         
-        <!-- Botó/Enllaç de Tòggle Elegant -->
+        <!-- Botó/Enllaç -->
         <div style="text-align: center; margin: 30px auto;">
             <button id="whw-toggle-button" onclick="toggleWHW()" style="color: #CC0000; font-weight: 700; background: none; border: none; cursor: pointer; font-size: 1.2em; text-decoration: underline; padding: 10px 0;">
                 SKIPPIT's Business Thesis
             </button>
         </div>
 
-        <!-- CONTINGUT AMAGAT PER DEFECTE -->
+        <!-- CONTINGUT AMAGAT -->
         <div id="whw-image-container" style="display: none; max-width: 700px; margin: 20px auto 40px auto; padding: 0; background-color: #ffffff;">
             <h3 style="text-align: center; color: #CC0000; font-weight: 800; margin-top: 0; margin-bottom: 20px; text-transform: uppercase;">
                 Our Business Thesis: Why, How, What
@@ -87,13 +94,12 @@
       </section>
       <!-- FINAL DE LA INTRODUCCIÓ -->
       
-      <!-- INICI DEL BLOC D'ESTILS I SCRIPT (MANTENINT-LOS AL FINAL DEL CONTINGUT PER A MILLOR RENDIMENT) -->
+      <!-- INICI DEL BLOC -->
       <style>
           /* Estils generals que estaven al Header Preview */
-          /* TÍTOL PRINCIPAL amb el color vermell sol·licitat */
+          /* TÍTOL PRINCIPAL */
           .page-title { font-size: 2.5em; text-align: center; margin-bottom: 40px; } 
           
-          /* Estil per al títol de secció: S'ha eliminat el subratllat */
           .section-title { 
               font-size: 2em; 
               color: #000000; 
@@ -103,7 +109,6 @@
               font-weight: 800;
           }
           
-          /* Estil per als subtítols de secció */
           .subsection-title {
               font-size: 1.5em;
               color: #CC0000;
@@ -119,12 +124,10 @@
           .table th, .table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
           .table th { background-color: #f2f2f2; color: #333; font-weight: 700; }
           
-          /* Estils Problem/Solution Grid */
           .problem-solution-grid {
-              /* 3 column layout: Problem (1fr) | Arrow (80px) | Solution (1fr) */
               display: grid;
               grid-template-columns: 1fr 80px 1fr; 
-              align-items: center; /* Per centrar la fletxa verticalment */
+              align-items: center; 
               gap: 0;
               margin: 40px 0;
           }
@@ -134,14 +137,14 @@
               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
               transition: transform 0.3s;
               height: 100%; 
-              background-color: white; /* Fons blanc sol·licitat */
+              background-color: white; 
               border: 1px solid #ddd; 
           }
           .arrow-connector {
               grid-column: 2 / 3;
               text-align: center;
               font-size: 3em;
-              color: #CC0000; /* Color vermell corporatiu per a la fletxa */
+              color: #CC0000; 
               font-weight: 900;
           }
           .problem-box h2, .solution-box h2 {
@@ -162,7 +165,7 @@
               padding-left: 30px;
           }
           .problem-box li::before {
-              content: "❌"; /* Icona de problema */
+              content: "❌"; 
               position: absolute;
               left: 0;
               color: #CC0000;
@@ -170,14 +173,13 @@
               top: 0;
           }
           .solution-box li::before {
-              content: "✅"; /* Icona de solució */
+              content: "✅"; 
               position: absolute;
               left: 0;
               color: #CC0000;
               font-size: 1.2em;
               top: 0;
           }
-          /* Adaptació per a dispositius mòbils: apilar les caixes i amagar la fletxa horitzontal */
           @media (max-width: 768px) {
               .problem-solution-grid {
                   grid-template-columns: 1fr;
@@ -186,18 +188,16 @@
               .arrow-connector {
                   display: none; 
               }
-              /* Afegim una mica d'espai per a la transició visual en mòbils */
               .problem-box {
                   margin-bottom: 20px;
               }
           }
-          /* Estils per a les targetes (card) sense color de fons per defecte */
           .card {
               padding: 20px;
               border-radius: 8px;
               margin-top: 20px;
               margin-bottom: 20px;
-              background-color: #f7f7f7; /* Gris clar per defecte */
+              background-color: #f7f7f7; 
               border-left: 5px solid #CC0000;
           }
           .card-title {
@@ -207,7 +207,6 @@
               margin-top: 0;
               margin-bottom: 10px;
           }
-          /* Assegurar l'estil de la llista per defecte fora de les caixes */
           .page-content ul {
               list-style-type: disc;
               margin-left: 25px;
@@ -216,13 +215,12 @@
           .page-content ul li {
               margin-bottom: 10px;
           }
-          /* Correcció de Mida d'Imatges (per mantenir-les controlades) */
           .page-content img {
               max-width: 100%;
               height: auto;
           }
 
-          /* NOU CSS PER AL DIAGRAMA DE MARKET SIZING */
+          /* DIAGRAMA DE MARKET SIZING */
           .market-diagram {
               display: grid;
               grid-template-columns: 1fr 1fr;
@@ -247,7 +245,6 @@
               cursor: default; 
           }
           
-          /* Estil del nucli central (AMB EL TEXT CENTRAT) */
           .center-node {
               grid-column: 1 / 3;
               background-color: #CC0000;
@@ -278,7 +275,6 @@
               transition: all 0.3s ease;
           }
           
-          /* Hover effect for a touch of interactivity */
           .branch-node:hover {
               transform: translateY(-5px);
               box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -316,7 +312,6 @@
               margin-left: -1em;
           }
 
-          /* Col·locació específica de les branques a la graella */
           #branch-1 { grid-area: 1 / 1 / 2 / 2; } /* Top Left */
           #branch-2 { grid-area: 1 / 2 / 2 / 3; } /* Top Right */
           #branch-3 { grid-area: 3 / 1 / 4 / 2; } /* Bottom Left */
@@ -330,7 +325,6 @@
               }
           }
 
-          /* Mobile responsiveness: stacking and centering */
           @media (max-width: 768px) {
               .market-diagram {
                   grid-template-columns: 1fr;
@@ -350,7 +344,6 @@
                   grid-row: auto;
               }
               
-              /* Ordre visual en mòbil (Centre, 1, 2, 3, 4) */
               .center-node { order: 1; }
               #branch-1 { order: 2; } 
               #branch-2 { order: 3; } 
@@ -358,8 +351,7 @@
               #branch-4 { order: 5; } 
           }
           
-          
-        /* CSS per als Botons Intel·ligents de Market Sizing */
+        
         .market-buttons {
             display: flex;
             justify-content: space-around;
@@ -416,7 +408,6 @@
             font-size: 0.95em;
         }
         
-        /* Aquesta classe aplica el color vermell fosc i la negreta forta als valors de mercat */
         .market-value {
             font-size: 1.3em;
             font-weight: 900;
@@ -424,7 +415,7 @@
             margin-top: 10px;
         }
         
-        /* --- NOU CSS PER A LA SECCIÓ COMPETITIVE LANDSCAPE --- */
+        /* --- COMPETITIVE LANDSCAPE --- */
         .competitive-comparison {
             display: grid;
             grid-template-columns: 1fr 1fr; /* Two main columns */
@@ -437,7 +428,7 @@
             background-color: #fcfcfc;
         }
 
-        /* Central Divider Line (Visual request) */
+        /* Central Divider Line*/
         .competitive-comparison::after {
             content: '';
             position: absolute;
@@ -446,12 +437,12 @@
             left: 50%;
             transform: translateX(-50%);
             width: 2px;
-            background-color: #FDD8D8; /* Light red divider */
+            background-color: #FDD8D8; 
             z-index: 1;
         }
 
         .category-title-bar {
-            grid-column: 1 / 3; /* Spans both columns */
+            grid-column: 1 / 3; 
             text-align: center;
             background-color: #FDD8D8;
             color: #CC0000;
@@ -473,12 +464,12 @@
             position: relative;
             z-index: 2;
             min-height: 120px; 
-            /* Flexbox per centrar el contingut */
+
             display: flex; 
             flex-direction: column;
-            justify-content: center; /* Centrat verticalment */
-            align-items: center; /* Centrat horitzontalment */
-            text-align: center; /* Centrat del text */
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
         }
 
         .competitor-list {
@@ -487,7 +478,7 @@
         }
 
         .skippit-advantage {
-            border: 2px solid #CC0000; /* Strong border for SKIPPIT's advantage */
+            border: 2px solid #CC0000; 
             background-color: #fffafb;
             box-shadow: 0 4px 8px rgba(204, 0, 0, 0.1);
         }
@@ -505,18 +496,16 @@
             line-height: 1.5;
         }
 
-        /* Assegurar que les llistes dins del comparison-block també es centrin */
         .competitive-comparison ul {
             list-style: none;
             padding: 0;
             margin: 0;
-            text-align: center; /* Centrat de la llista */
+            text-align: center;
         }
         .competitive-comparison li {
             margin-bottom: 8px;
             font-size: 0.95em;
         }
-        /* Eliminar el punt de llista que ja no s'utilitza amb ul sense estils */
         .competitive-comparison li::before {
             content: none;
         }
@@ -528,7 +517,7 @@
                 padding: 10px;
             }
             .competitive-comparison::after {
-                display: none; /* Hide vertical line on mobile */
+                display: none; /
             }
             .category-title-bar {
                 grid-column: 1 / 2;
@@ -539,13 +528,11 @@
                 grid-column: 1 / 2;
                 min-height: auto;
             }
-            /* Styling to visually separate blocks on mobile */
             .competitor-list { margin-bottom: 10px; }
         }
         
-        /* --- NOU CSS PER ALS TOGGLES DE CONTINGUT (IP i GANTT) --- */
+        /* --- CONTINGUT (IP i GANTT) --- */
         
-        /* Estil per a la transició suau del contingut IP/Gantt */
         #detailedIPContent, #detailedGanttContent {
             transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out;
             overflow: hidden;
@@ -553,14 +540,13 @@
             opacity: 0;
         }
         #detailedIPContent.open, #detailedGanttContent.open {
-            max-height: 2000px; /* Valor gran per assegurar que tot el contingut es mostri */
+            max-height: 2000px; 
             opacity: 1;
             margin-top: 1.5rem;
         }
-        /* Estil per al botó que s'adapta al tema */
         .ip-toggle-button {
             transition: all 0.3s ease;
-            background-color: #CC0000; /* Red-700 */
+            background-color: #CC0000; 
             color: white;
             font-weight: 700;
             border-radius: 8px;
@@ -568,19 +554,18 @@
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 6px -1px rgba(204, 0, 0, 0.3), 0 2px 4px -2px rgba(204, 0, 0, 0.2);
-            display: block; /* Per ocupar tota l'amplada i centrar si és necessari */
-            margin: 20px auto; /* Centrat horitzontalment */
+            display: block; 
+            margin: 20px auto; 
         }
         .ip-toggle-button:hover {
             transform: translateY(-1px);
-            background-color: #A30000; /* Darker Red */
+            background-color: #A30000; 
         }
         
-        /* --- NOU CSS PER A LA TAULA DELS TRES PILARS --- */
         .pillars-table {
             width: 100%;
-            border-collapse: separate; /* Permet un border-radius a les cel·les */
-            border-spacing: 0 10px; /* Espai vertical entre files */
+            border-collapse: separate; 
+            border-spacing: 0 10px; 
             margin-top: 20px;
         }
         .pillars-table th, .pillars-table td {
@@ -588,7 +573,7 @@
             text-align: left;
             border: 1px solid #ddd;
             background-color: white; 
-            vertical-align: top; /* Alineació superior del text */
+            vertical-align: top; 
         }
         .pillars-table th {
             background-color: #CC0000;
@@ -631,10 +616,10 @@
         
         @media (max-width: 768px) {
             .pillars-table, .pillars-table tbody, .pillars-table tr, .pillars-table td {
-                display: block; /* Apilar elements */
+                display: block; 
                 width: 100%;
             }
-            .pillars-table thead { display: none; } /* Amagar capçalera */
+            .pillars-table thead { display: none; } 
             .pillar-row {
                 margin-bottom: 20px;
                 display: flex;
@@ -666,7 +651,7 @@
       </style>
       
       
-      <!-- INICI DE LES SECCIONS D'EMPRESA: SECCIÓ 1 -->
+      <!-- SECCIONS D'EMPRESA: SECCIÓ 1 -->
       
       <section id="problema">
         <!-- Títol de la Secció 1: SENSE SUBRATLLAT -->
@@ -680,11 +665,11 @@
             <!-- PROBLEMA: Limitacions del Control Transcripcional (Left) -->
             <div class="problem-box">
                 <h2>The Problem: The Limits of Transcriptional Control</h2>
-                <!-- TEXT AMB NEGRETA I VERMELL APLICADA -->
+                <!-- TEXT AMB NEGRETA I VERMELL -->
                 <p class="section-text" style="text-align: left; margin-bottom: 20px;">
                     The biotech industry relies heavily on <b style="color: #CC0000;">transcriptional control methods</b> (e.g., inducible promoters, CRISPRi, RNAi). As highlighted in our research, these methods are often flawed:
                 </p>
-                <!-- IMATGE ACTUALITZADA -->
+                <!-- IMATGE -->
                 <figure style="margin: 15px auto; text-align: center;">
                     <img 
                         src="https://static.igem.wiki/teams/5622/images/ep/2-the-problem.webp" 
@@ -697,7 +682,6 @@
                 </figure>
             </div>
             
-            <!-- FLETXA CENTRAL DE PROBLEMA A SOLUCIÓ -->
             <div class="arrow-connector">
                 &rarr;
             </div>
@@ -706,7 +690,7 @@
             <div class="solution-box">
                 <!-- NOU TÍTOL DE SOLUCIÓ -->
                 <h2>The Solution: Translational Precision</h2>
-                <!-- TEXT DE SOLUCIÓ ACTUALITZAT AMB FORMAT SOL·LICITAT -->
+                <!-- TEXT DE SOLUCIÓ -->
                 <p class="section-text" style="text-align: left; margin-bottom: 25px;">
                     <!-- CANVI: SKIPPIT a Vermell -->
                     <b style="color: #CC0000;">SKIPPIT</b> introduces a disruptive solution through translational control via novel RNA switches based on <b style="color: #CC0000;">Stop Codon Readthrough (SCR)</b>.
@@ -714,7 +698,7 @@
                     Our proprietary innovation lies in the development of <b style="color: #CC0000;">unique SCR sequences and designed constructs</b> that act as molecular rheostats. These elements allow <b style="color: #CC0000;">Dual, Differential Protein Expression</b> from a single mRNA transcript, achieving a level of precision and modularity unmatched in current market solutions.
                 </p>
                 
-                <!-- TAULA DE COMPARACIÓ AFEDIDA -->
+                <!-- TAULA DE COMPARACIÓ -->
                 <p class="section-text" style="font-weight: 700; margin-bottom: 10px; margin-top: 30px; border-bottom: 1px solid #CC0000; padding-bottom: 5px; color: #CC0000;">
                     SKIPPIT's Core Competitive Features
                 </p>
@@ -757,7 +741,6 @@
             Problem & Market Need
         </h1>
         
-        <!-- IMATGE PRINCIPAL DE LA SECCIÓ 2 -->
         <figure style="margin: 15px auto 30px auto; text-align: center;">
             <img 
                 src="https://static.igem.wiki/teams/5622/images/ep/3-market-and-stakeholders.webp" 
@@ -769,7 +752,7 @@
             </figcaption>
         </figure>
 
-        <!-- SUBSECCIÓ 2.1: MARKET SIZING (NOU DISSENY INTERACTIU) -->
+        <!-- SUBSECCIÓ 2.1: MARKET SIZING -->
         <h2 class="subsection-title">Market Sizing</h2>
         
 
@@ -780,7 +763,7 @@
                 Market Opportunity
             </div>
 
-            <!-- BRANCA 1: GLOBAL MARKET (MODIFICADA) -->
+            <!-- BRANCA 1: GLOBAL MARKET -->
             <div id="branch-1" class="market-node branch-node">
                 <h3>Global Market</h3>
                 <ul>
@@ -789,7 +772,7 @@
                 </ul>
             </div>
 
-            <!-- BRANCA 2: TADPOLE Niche (R&D Engine) (MODIFICADA) -->
+            <!-- BRANCA 2: TADPOLE Niche (R&D Engine) -->
             <div id="branch-2" class="market-node branch-node">
                 <h3>TADPOLE Niche</h3>
                 <ul>
@@ -798,9 +781,9 @@
                 </ul>
             </div>
 
-            <!-- BRANCA 3: MARKET SIZE (TAM, SAM, SOM) - NOU BLOC INTERACTIU (MODIFICADA) -->
+            <!-- BRANCA 3: MARKET SIZE (TAM, SAM, SOM) - NOU BLOC INTERACTIU  -->
             <div id="branch-3" class="market-node branch-node">
-                <h3>Market Size (TAM, SAM, SOM)</h3>
+                <h3>Market Size</h3>
                 
                 <div class="market-buttons">
                     <button class="market-button active" id="btn-tam" onclick="displayMarketSize('tam')">TAM</button>
@@ -841,17 +824,15 @@
         </div>
         <!-- FINAL NOU DISSENY MARKET SIZING -->
 
-        <!-- SUBSECCIÓ 2.2: KEY VALUE DIFFERENTIATOR (INTERACTIVE LOOP) -->
+        <!-- SUBSECCIÓ 2.2: KEY VALUE DIFFERENTIATOR  -->
         <h2 class="subsection-title">Key Value Differentiator</h2>
         
-        <!-- NOU TEXT AMB ESTILITZACIÓ SOL·LICITADA -->
         <p class="section-text">
             <span style="color: #CC0000; font-weight: 700;">SKIPPIT</span>’s strength lies in transforming a complex molecular process into a <span style="color: #CC0000; font-weight: 700;">simple, tunable, and scalable solution</span> for precise protein expression.
             <br><br>
             Where existing tools stop at transcription, SKIPPIT redefines control <span style="color: #CC0000; font-weight: 700;">at the translational level</span>: faster, cleaner, and patentable.
         </p>
         
-        <!-- NOU: IMATGE SOL·LICITADA PER AL KEY VALUE DIFFERENTIATOR (Figure 4) -->
         <figure style="margin: 15px auto 30px auto; text-align: center;">
             <img 
                 src="https://static.igem.wiki/teams/5622/images/ep/5-key-value-differentiator.webp" 
@@ -921,7 +902,6 @@
             <!-- AVANTATGE SKIPPIT (RIGHT) -->
             <div class="comparison-block skippit-advantage">
                 <h4>SKIPPIT's Advantage</h4>
-                <!-- P CENTRAT -->
                 <p>
                     <b style="color: #CC0000;">Differential & Defined Ratios:</b> 2A peptides yield near-1:1 ratios, while SKIPPIT enables adjustable, pre-determined expression levels. IRES performance remains unpredictable and context-dependent.
                 </p>
@@ -934,7 +914,7 @@
 
       </section>
       
-      <!-- INICI DE LA SECCIÓ 4: IP & R&D FOUNDATION -->
+      <!-- SECCIÓ 4: IP & R&D FOUNDATION -->
       <section id="ip-rd">
         <h1 class="section-title" style="color: #000000;">
             IP & R&D Foundation
@@ -955,15 +935,13 @@
             </figcaption>
         </figure>
         
-        <!-- Botó de Llegeix-ne Més / Llegeix-ne Menys per a la secció IP -->
         <button id="ip-toggle-button" onclick="toggleIPContent()"
                 class="ip-toggle-button">
             Llegeix-ne més sobre els Actius Patentables...
         </button>
 
-        <!-- Contingut Detallat d'IP (Inicialment Ocult) -->
         <div id="detailedIPContent">
-            <!-- SECCIÓ A: Patentable Assets (Ja estava en format de targeta, la mantenim) -->
+            <!-- SECCIÓ A: Patentable Assets -->
             <h2 class="subsection-title">A. Patentable Assets</h2>
                 
             <div class="card" style="background-color: #fcfcfc;">
@@ -981,7 +959,7 @@
                 <p class="section-text text-sm">Our proprietary automated computational methods, developed during the SCR-D structure prediction cycle, rapidly analyze and design functional RNA elements. This R&D tool represents the engine that generates new, patentable SCRs, forming the foundation of SKIPPIT’s competitive advantage.</p>
             </div>
             
-            <!-- SECCIÓ B: Value Derived from the DBTL Cycle (Aplicant el nou format de targeta per consistència) -->
+            <!-- SECCIÓ B: Value Derived from the DBTL Cycle -->
             <h2 class="subsection-title">B. Value Derived from the DBTL Cycle</h2>
 
             <div class="card" style="background-color: #fcfcfc;">
@@ -1003,22 +981,117 @@
         
       </section>
       
-      <!-- CONTINUACIÓ AMB LA SECCIÓ 5 -->
-      <section id="tadpole">
-        <h1 class="section-title" style="color: #000000;">
-            TADPOLE: R&D Engine and Open-Source Contribution
+    <!-- SECCIÓ 5 -->
+<section id="tadpole" style="padding: 0 20px 20px 20px;">
+
+    <!-- Big Dark Callout Container: Uses deep dark gray background and white text -->
+    <div style="background-color: #1a1a1a; color: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);">
+
+        <!-- Main Title, adjusted for white text. Red is brightened to pop on dark background. -->
+        <h1 class="section-title" style="color: #ffffff; border-bottom: 2px solid #333;">
+            <span style="font-weight: 900; color: #FF4444;">TADPOLE</span>: R&D Engine and Open-Source Contribution
         </h1>
-        <p class="section-text">
-          <!-- El contingut del paràgraf i la figura sobre TADPOLE ha estat eliminat segons la sol·licitud anterior -->
-        </p>
-      </section>
+
+        <div style="margin-top: 15px;">
+            
+            <!-- Column 1: R&D Asset (Commercial Focus) -->
+            <div id="tadpole-rd-asset">
+                
+                <!-- Sub-section Title A -->
+                <h2 class="subsection-title" style="color: #ffffff; border-bottom: 1px solid #444;">
+                    A. R&D Asset: Intellectual Property & Commercial Advantage
+                </h2>
+                
+                <p class="section-text" style="color: #f0f0f0;">
+                    The <span style="font-weight: 700; color: #FF4444;">TADPOLE</span> platform is the proprietary computational backbone driving the rapid design and optimization of SKIPPIT’s SCR sequences. It originated as a solution to the structural prediction challenges identified during DBTL Cycle 1 (SCR-D system) and now serves as both an <span style="font-weight: 700; color: #FF4444;">IP-protected R&D asset</span> and a commercial differentiator.
+                </p>
+
+                <!-- Custom Styled Table (Adapting the provided .table aesthetic) -->
+                <div style="margin-top: 20px;"> 
+                    <h3 style="font-size: 1.3em; font-weight: 800; color: #eee; margin-bottom: 10px; border-bottom: 2px solid #444; padding-bottom: 5px;">
+                        <span style="font-weight: 800; color: #FF4444;">TADPOLE</span> Strategic Value
+                    </h3>
+                    <table class="table" style="border-collapse: separate; border-spacing: 0; border: none; width: 100%;">
+                        <thead>
+                            <tr style="background-color: #CC0000; color: white;">
+                                <!-- Feature column: ~25% -->
+                                <th style="border: none; padding: 10px 15px; width: 25%;">Feature</th>
+                                <!-- Strategic Value column: WIDER (50%) -->
+                                <th style="border: none; padding: 10px 15px; width: 50%;">Strategic Value</th>
+                                <!-- IP Connection column: SHORTER (25%) -->
+                                <th style="border: none; padding: 10px 15px; width: 25%;">IP Connection</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Adjusted cell backgrounds to maintain readability on dark mode -->
+                            <tr class="pillar-row">
+                                <td style="font-weight: 700; background-color: #FDD8D8; color: #CC0000; border: 1px solid #CC0000; padding: 8px 15px;">Co-Evolutionary Analysis</td>
+                                <td style="background-color: #333; color: #f0f0f0; border: 1px solid #444; padding: 8px 15px; font-weight: 400;">Rapidly identifies highly functional and stable RNA switch sequences.</td>
+                                <td style="background-color: #333; color: #f0f0f0; border: 1px solid #444; font-weight: 600; padding: 8px 15px;">Foundation for the Patent of Platform: the core R&D engine.</td>
+                            </tr>
+                            <tr class="pillar-row">
+                                <td style="font-weight: 700; background-color: #FDD8D8; color: #CC0000; border: 1px solid #CC0000; padding: 8px 15px;">Linker Design Pipeline</td>
+                                <td style="background-color: #333; color: #f0f0f0; border: 1px solid #444; padding: 8px 15px; font-weight: 400;">Integrates linker generation, OFF-state prediction, and ranking into a cohesive workflow.</td>
+                                <td style="background-color: #333; color: #f0f0f0; border: 1px solid #444; font-weight: 600; padding: 8px 15px;">Enables faster, more reliable design of new, patentable SKIPPIT parts, reducing R&D risk.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Callout Card adjusted for dark mode, using a lighter dark background for separation -->
+                <div class="card" style="margin-top: 30px; background-color: #333; border: 1px solid #555; border-radius: 8px; padding: 15px;">
+                    <p class="section-text" style="color: #FF4444; margin: 0; font-weight: 400;">
+                        <span style="color: #ffffff; font-weight: 700;">Key Takeaway:</span> <span style="color: #FF4444;">TADPOLE</span> accelerates the design of new, highly efficient SCRs, securing SKIPPIT’s competitive edge in translational control technology. Its exclusive use or licensing constitutes a major commercial advantage.
+                    </p>
+                </div>
+            </div>
+
+            <!-- START NEW SECTION B -->
+            <div id="tadpole-open-science" style="margin-top: 40px; padding-top: 15px; border-top: 1px solid #333;">
+                
+                <!-- Sub-section Title B -->
+                <h2 class="subsection-title" style="color: #ffffff; border-bottom: 1px solid #444;">
+                    B. Open Science & Educational Contribution
+                </h2>
+
+                <p class="section-text" style="color: #f0f0f0;">
+                    In alignment with iGEM’s principles of collaboration and accessibility, <span style="font-weight: 700; color: #FF4444;">TADPOLE</span> also functions as an open-science initiative and educational tool.
+                </p>
+
+                <!-- Bulleted List for Open Science Components -->
+                <ul style="list-style-type: disc; margin-left: 20px; color: #f0f0f0;">
+                    <li style="margin-bottom: 10px;">
+                        <span style="font-weight: 700; color: #fff;">Open-Access Code:</span> 
+                        The <span style="font-weight: 700; color: #FF4444;">TADPOLE</span> platform will be released under an open license (e.g., MIT License) to empower future iGEM teams and the academic community.
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <span style="font-weight: 700; color: #fff;">Educational Focus:</span> 
+                        The platform’s documentation and case studies act as a tutorial on integrating computational and experimental (DBTL) workflows in synthetic biology entrepreneurship.
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Disclaimer Section -->
+            <div id="tadpole-disclaimer" style="margin-top: 30px; padding: 15px; background-color: #2b2b2b; border: 1px solid #555; border-radius: 8px;">
+                <h3 style="font-size: 1.1em; font-weight: 800; color: #FF4444; margin-bottom: 5px;">Disclaimer</h3>
+                <p class="section-text" style="color: #ccc; margin: 0; font-style: italic;">
+                    <span style="font-weight: 700; color: #FF4444;">TADPOLE</span> is presented as a case study demonstrating SKIPPIT’s R&D and market positioning strategy. While the code is openly accessible, the intellectual property and commercial value remain centered on the sequences and methods developed through the platform (SKIPPIT).
+                </p>
+            </div>
+            <!-- END NEW SECTION B -->
+            
+        </div>
+    </div>
+</section>
+
+
 
       <section id="comercialitzacio">
         <h1 class="section-title" style="color: #000000;">
             Commercialization Strategy
         </h1>
         
-        <!-- NOU SUBAPARTAT SOL·LICITAT: BUSINESS MODEL CANVAS -->
+        <!-- BUSINESS MODEL CANVAS -->
         <h2 class="subsection-title">Business Model Canvas</h2>
         <p class="section-text">
             Our Business Model Canvas highlights how we transform our translational control technology into scalable value for both academia and industry.
@@ -1035,12 +1108,12 @@
         </figure>
         <!-- FINAL NOU SUBAPARTAT -->
         
-        <!-- NOU SUBAPARTAT: BUSINESS MODEL SUMMARY -->
+        <!-- BUSINESS MODEL SUMMARY -->
         <h2 class="subsection-title">Business Model Summary</h2>
         <p class="section-text">
             SKIPPIT’s business model is built around technology licensing and co-development:
         </p>
-        <!-- REVERTIT: Torna a la llista (<ul>) amb punts estàndard -->
+
         <ul style="margin-left: 20px; margin-bottom: 20px;">
             <li><b style="color: #CC0000;">Academic Access:</b> Free-to-use open-source tools (TADPOLE) to promote visibility and validation.</li>
             <li><b style="color: #CC0000;">Commercial Access:</b> Licensing of proprietary SCR libraries and the design engine for use in translational control applications.</li>
@@ -1049,7 +1122,7 @@
         <p class="section-text">
             This hybrid model ensures a sustainable balance between open innovation and IP-driven value creation.
         </p>
-        <!-- FINAL NOU SUBAPARTAT: BUSINESS MODEL SUMMARY -->
+        <!-- FINAL SUBAPARTAT: BUSINESS MODEL SUMMARY -->
         
       </section>
       
@@ -1058,7 +1131,7 @@
             Scalability & Growth Plan
         </h1>
         
-        <!-- SUBAPARTAT SOL·LICITAT: SCALABILITY -->
+        <!-- SUBAPARTAT: SCALABILITY -->
         <h2 class="subsection-title">Scalability</h2>
         
         <p class="section-text">
@@ -1067,7 +1140,6 @@
             This dual scalability (scientific and commercial) positions SKIPPIT as both a research enabler and a future therapeutic platform.
         </p>
         
-        <!-- IMATGE SOL·LICITADA -->
         <figure style="margin: 30px auto; text-align: center;">
             <img 
                 src="https://static.igem.wiki/teams/5622/images/ep/9-scalability.webp" 
@@ -1079,7 +1151,7 @@
             </figcaption>
         </figure>
         
-        <!-- NOU SUBAPARTAT: ROADMAP -->
+        <!-- SUBAPARTAT: ROADMAP -->
         <h2 class="subsection-title">Roadmap</h2>
         <p class="section-text">
             The Roadmap details the strategic milestones and phases of the project, providing a high-level overview of the short-term and long-term goals for commercialization.
@@ -1095,7 +1167,7 @@
             </figcaption>
         </figure>
 
-        <!-- NOU SUBAPARTAT: GANTT CHART -->
+        <!-- SUBAPARTAT: GANTT CHART -->
         <h2 class="subsection-title">Gantt Chart</h2>
         <p class="section-text">
             The Gantt Chart provides a detailed timeline of task execution, crucial for resource allocation and management during the development process.
@@ -1111,10 +1183,10 @@
             </figcaption>
         </figure>
 
-        <!-- NOU BOTÓ DE LLEGEIX-NE MÉS PER A L'ANÀLISI DEL GANTT CHART -->
+        <!-- LLEGEIX-NE MÉS PER A L'ANÀLISI DEL GANTT CHART -->
         <button id="gantt-toggle-button" onclick="toggleGanttContent()"
                 class="ip-toggle-button">
-            Llegeix l'anàlisi detallada del Gantt Chart...
+            Read more...
         </button>
 
         <!-- Contingut Detallat de l'Anàlisi del Gantt Chart (Inicialment Ocult) -->
@@ -1163,7 +1235,7 @@
         </div>
       </section>
 
-      <!-- SECCIÓ SWOT RESTAURADA AMB EL TEXT AND UPDATED IMAGE URL -->
+      <!-- SECCIÓ SWOT -->
       <section id="swot">
         <h1 class="section-title" style="color: #000000;">
             SWOT Analysis
@@ -1183,11 +1255,10 @@
             </figcaption>
         </figure>
         
-        <!-- DELETED: Strategic Interpretation section removed as requested. -->
       </section>
       <!-- FI DE LA SECCIÓ SWOT RESTAURADA AMB EL TEXT -->
 
-      <!-- INICI DE LA SECCIÓ: FROM IGEM TO INDUSTRY (AMB EL NOU CONTINGUT) -->
+      <!-- INICI DE LA SECCIÓ: FROM IGEM TO INDUSTRY -->
       <section id="igem-industria">
         <h1 class="section-title" style="color: #000000;">
             From iGEM to Industry
@@ -1212,7 +1283,7 @@
             Our commercial strategy is built on a diversified, phased revenue model that monetizes the results of our R&D, not the platform code:
         </p>
 
-        <!-- TAULA DELS TRES PILARS AMB EL NOU CSS DE PILLARS-TABLE -->
+        <!-- TAULA DELS TRES PILARS -->
         <table class="pillars-table">
             <thead>
                 <tr>
@@ -1257,19 +1328,25 @@
         </h1>
         <p class="section-text">
             Grand View Research. (2024). Synthetic biology market size & share: Industry report 2030. Retrieved from https://www.grandviewresearch.com/industry-analysis/synthetic-biology-market
-
+            <br><br>
             Freemont, P. S. (2019). Synthetic biology industry: Data-driven design is creating new opportunities in biotechnology. Emerging Topics in Life Sciences, 3(5), 651–657. https://doi.org/10.1042/ETLS20190062
-
+            <br><br>
             Mordor Intelligence. (2025). Gene expression analysis market size, outlook, trends & competitive landscape. Retrieved from https://www.mordorintelligence.com/industry-reports/global-gene-expression-analysis-market-industry
-
+            <br><br>
             Nature Communications. (2020). Synthetic biology 2020–2030: Six commercially-available products [Editorial]. Nature Communications, 11, Article 6387. https://doi.org/10.1038/s41467-020-20122-2
-
+            <br><br>
             Fortune Business Insights. (2024). Synthetic biology market size, share, growth & forecast. https://www.fortunebusinessinsights.com/synthetic-biology-market-107168
+            <br><br>
             Karadzhov, V. (2025). How to create the best SWOT analysis. International Journal of Research and Review, 12(1), 66–74. https://doi.org/10.52403/ijrr.20250110
+            <br><br>
             Mordor Intelligence. (2025). Gene therapy market size, growth analysis (2025–2030). https://www.mordorintelligence.com/industry-reports/gene-therapy-market
+            <br><br>
             Nova One Advisor. (2023). Gene expression market size & share report, 2033. https://www.novaoneadvisor.com/report/gene-expression-market
+            <br><br>
             StatPearls. (2023). SWOT analysis. https://www.ncbi.nlm.nih.gov/books/NBK537302/
+            <br><br>
             University Lab Partners. (2020). How to create a business plan. https://www.universitylabpartners.org/blog/how-to-create-a-business-plan
+            <br><br>
         </p>
       </section>
       
@@ -1301,7 +1378,6 @@
     
     /**
      * Toggles the visibility of the TAM/SAM/SOM market sizing content.
-     * @param {string} metric - The metric to display ('tam', 'sam', or 'som').
      */
     function displayMarketSize(metric) {
         const metrics = ['tam', 'sam', 'som'];
@@ -1342,10 +1418,10 @@
         
         if (isOpen) {
             // Text original en català
-            toggleButton.textContent = 'Llegeix-ne menys sobre els Actius Patentables';
+            toggleButton.textContent = 'Hide';
         } else {
             // Text original en català
-            toggleButton.textContent = 'Llegeix-ne més sobre els Actius Patentables...';
+            toggleButton.textContent = 'Read more...';
         }
     }
     
@@ -1359,27 +1435,24 @@
         const isOpen = detailedContent.classList.toggle('open');
         
         if (isOpen) {
-            toggleButton.textContent = 'Amaga l\'anàlisi detallada';
+            toggleButton.textContent = 'Hide';
         } else {
-            toggleButton.textContent = 'Llegeix l\'anàlisi detallada del Gantt Chart...';
+            toggleButton.textContent = 'Read more...';
         }
     }
 
     
     // Assegura que el TAM es mostra per defecte i l'IP/Gantt està tancat quan es carrega la pàgina
     window.onload = function() {
-        // Ensure initial display of TAM content
         if (typeof displayMarketSize === 'function') {
             displayMarketSize('tam');
         }
         
-        // Ensure IP content is initially hidden
         const detailedIPContent = document.getElementById('detailedIPContent');
         if (detailedIPContent) {
             detailedIPContent.classList.remove('open');
         }
         
-        // Ensure Gantt content is initially hidden
         const detailedGanttContent = document.getElementById('detailedGanttContent');
         if (detailedGanttContent) {
             detailedGanttContent.classList.remove('open');
