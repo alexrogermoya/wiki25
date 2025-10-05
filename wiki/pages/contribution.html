@@ -5,30 +5,266 @@
 
 {% block page_content %}
 
-<div class="row mt-4">
-  <div class="col">
-    <div class="bd-callout bd-callout-info">
-      <h4>Bronze Medal Criterion #3</h4>
-      <p>Make a useful contribution for future iGEM teams and document it on this page.</p>
-      <hr />
-      <p>Visit the <a href="https://competition.igem.org/judging/medals">Medals page</a> for more information.</p>
+<div class="page-container">
+  <aside class="sidebar">
+    <ul class="sidebar-nav">
+      <li><a href="#basic" class="active">Contribution</a></li>
+    </ul>
+  </aside>
+  
+  <div class="page-content">
+    <div class="header">
+      <h1 class="page-title">Contribution</h1>
+      <p class="page-desc">Useful contributions for future iGEM teams.</p>
+    </div>
+
+    <div class="content"> 
+      <section>
+
+        <!-- IMAGE GALLERY -->
+        <div class="pdf-gallery">
+
+          <!-- HANDBOOK TOOLKIT -->
+          <div class="pdf-card" onclick="document.getElementById('pdf-tool').showModal()">
+            <div class="pdf-thumbnail">
+              <img 
+                src="https://static.igem.wiki/teams/5622/images/contributions/handbook-toolkit.webp" 
+                alt="HANDBOOK TOOLKIT thumbnail" 
+                class="pdf-image-preview"
+              >
+            </div>
+            <div class="pdf-info">
+              <h3>HANDBOOK TOOLKIT</h3>
+              <p>Click to see the whole document</p>
+            </div>
+          </div>
+
+          <!-- HANDBOOK EP -->
+          <div class="pdf-card" onclick="document.getElementById('pdf-ep').showModal()">
+            <div class="pdf-thumbnail">
+              <img 
+                src="https://static.igem.wiki/teams/5622/images/contributions/handbook-ep.webp" 
+                alt="HANDBOOK EP thumbnail" 
+                class="pdf-image-preview"
+              >
+            </div>
+            <div class="pdf-info">
+              <h3>HANDBOOK EP</h3>
+              <p>Click to see the whole document</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- MODALS -->
+        <dialog id="pdf-tool" class="pdf-modal" aria-label="Handbook Toolkit">
+          <div class="modal-inner">
+            <iframe 
+              src="https://static.igem.wiki/teams/5622/images/contributions/handbook-toolkit.pdf" 
+              title="Handbook Toolkit PDF"
+            ></iframe>
+
+            <!-- close button (works) -->
+            <button class="close-btn" data-dialog="pdf-tool" aria-label="Close dialog">✕</button>
+          </div>
+        </dialog>
+
+        <dialog id="pdf-ep" class="pdf-modal" aria-label="Handbook EP">
+          <div class="modal-inner">
+            <iframe 
+              src="https://static.igem.wiki/teams/5622/images/contributions/handbook-ep.pdf" 
+              title="Handbook EP PDF"
+            ></iframe>
+
+            <!-- close button (works) -->
+            <button class="close-btn" data-dialog="pdf-ep" aria-label="Close dialog">✕</button>
+          </div>
+        </dialog>
+
+      </section>
     </div>
   </div>
 </div>
 
-<div class="row mt-4">
-  <div class="col">
-    <h2>What Should this Page Contain?</h2>
-    <hr />
-    <p>Teams must document their contribution and explain why their effort is a contribution to fellow iGEMers. There is no single definition of what a contribution should be. We invite teams to be creative and generous in the knowledge, data or tools they may provide to the community.</p>
-    <p>A few examples of contributions are:</p>
-    <ul>
-      <li>Creating a new BioBrick part or significantly improving an existing one in the iGEM Registry.</li>
-      <li>Developing software, tools, or resources that can considerably assist future iGEM teams.</li>
-      <li>Sharing optimized protocols, experimental techniques, or methodologies.</li>
-      <li>Any other contributions that provide a clear benefit to future iGEM teams.</li>
-    </ul>
-  </div>
-</div>
+<style>
+.pdf-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.pdf-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  width: 33%;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pdf-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.pdf-thumbnail {
+  background: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20rem;
+  overflow: hidden;
+}
+
+.pdf-image-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* show whole image without cropping */
+  padding: 0.5rem;
+  display: block;
+}
+
+.pdf-info {
+  padding: 1rem;
+  text-align: center;
+}
+
+.pdf-info h3 {
+  color: #9D0800;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.pdf-info p {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* Modal styling */
+.pdf-modal {
+  width: 95%;
+  max-width: 1100px;
+  height: 90%;
+  border: none;
+  border-radius: 1rem;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.25);
+  animation: fadeIn 0.3s ease;
+  position: fixed; /* ensure position for absolute children */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* keep a subtle backdrop */
+.pdf-modal::backdrop {
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(2px);
+}
+
+/* inner container to position close button and iframe */
+.modal-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* iframe inside modal */
+.modal-inner iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: #9D0800;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  z-index: 60;
+}
+
+.close-btn:hover {
+  background: #b0110c;
+}
+
+/* animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -48%) scale(0.98); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@media (max-width: 768px) {
+  .pdf-card {
+    width: 90%;
+  }
+  .pdf-modal {
+    width: 95%;
+    height: 85%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+</style>
+
+<script>
+// Attach close behaviour to buttons reliably (avoids inline onclick mismatch)
+document.addEventListener('DOMContentLoaded', () => {
+  // Close when pressing Esc
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('dialog[open]').forEach(d => d.close());
+    }
+  });
+
+  // Close when clicking the backdrop (dialog native behaviour not consistent across browsers)
+  document.querySelectorAll('dialog.pdf-modal').forEach(dialog => {
+    dialog.addEventListener('click', (ev) => {
+      // only close if click is on the backdrop area (i.e., target is the dialog itself)
+      if (ev.target === dialog) dialog.close();
+    });
+  });
+
+  // Wire up close buttons
+  document.querySelectorAll('.close-btn').forEach(btn => {
+    btn.addEventListener('click', (ev) => {
+      const dialogId = btn.getAttribute('data-dialog');
+      if (dialogId) {
+        const d = document.getElementById(dialogId);
+        if (d && typeof d.close === 'function') d.close();
+      } else {
+        // fallback: find closest dialog parent and close it
+        let parent = btn.closest('dialog');
+        if (parent && typeof parent.close === 'function') parent.close();
+      }
+    });
+  });
+
+  // Optional: prevent page scrolling when a dialog is open (improves UX)
+  const observers = new MutationObserver(() => {
+    const anyOpen = !!document.querySelector('dialog[open]');
+    document.documentElement.style.overflow = anyOpen ? 'hidden' : '';
+  });
+  observers.observe(document.body, { attributes: true, childList: true, subtree: true });
+});
+</script>
 
 {% endblock %}

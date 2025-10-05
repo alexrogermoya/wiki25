@@ -35,7 +35,7 @@
   </div>
   <div class="info-card" id="api-info">
     <div class="card">
-      <h3 class="card-title">API</h3>
+      <h3 class="card-title">API </h3>
       <p>An Application Programming Interface. Tadpole offers a <strong>RESTful API</strong> so other tools, apps, or workflows can connect and use its functions automatically.</p>
     </div>
   </div>
@@ -80,7 +80,7 @@
           <p>RNA sequences that perform specific biological functions when folded, such as frameshift elements, ribozymes, or Stop Codon Readthrough<sup>[3]</sup> sequences.</p>
         </div>
       </div>
-      <<div class="info-card" id="stopcodon-info">
+  <div class="info-card" id="stopcodon-info">
     <div class="card">
       <h3 class="card-title">Stop Codon Readthrough<sup>[3]</sup> element</h3>
       <p>A genetic element that allows the ribosome to continue translation past a stop codon, enabling new protein functions.</p>
@@ -163,6 +163,58 @@
           <p>A crucial 6-10 nucleotide RNA hinge connecting CRE to FRE, whose sequence and length determine folding and switching reliability.</p>
         </div>
       </div>
+
+<div class="info-card" id="hp-card1">
+  <div class="card">
+    <h3 class="card-title">HP CARD</h3>
+    <p>
+      <strong>José Ignacio Pérez-López</strong> insisted on having a 
+      <strong>tutorial or more explanatory illustrations</strong>. 
+      Thanks to that, we improved the current images by creating 
+      <strong>animated videos</strong> better highlighting the structural design, 
+      and we also made a tutorial.
+    </p>
+  </div>
+</div>
+
+  <div class="info-card" id="hp-card2">
+  <div class="card">
+    <h3 class="card-title">HP CARD</h3>
+    <p>
+      <strong>Jacob González Isa</strong> suggested a 
+      <strong>workflow and improvements for the user guide</strong>. 
+      Following his feedback, we created the 
+      <strong>general workflow diagram</strong> and the 
+      <strong>diagrams for the two search algorithms</strong> used in our tool.
+    </p>
+  </div>
+</div>
+
+<div class="info-card" id="hp-card3">
+  <div class="card">
+    <h3 class="card-title">HP CARD</h3>
+    <p>
+      <strong>José Ignacio Pérez-López</strong> suggested implementing a 
+      <strong>report to show the results</strong>. 
+      We therefore developed the report feature and later 
+      <strong>improved it based on subsequent feedback</strong>.
+    </p>
+  </div>
+</div>
+
+<div class="info-card" id="hp-card4">
+  <div class="card">
+    <h3 class="card-title">HP CARD</h3>
+    <p>
+      <strong>Jordi Plà Mauri</strong> suggested 
+      <strong>using an API</strong> and 
+      <strong>helped with its implementation</strong>.
+    </p>
+  </div>
+</div>
+
+
+
   </aside>
 
   
@@ -177,7 +229,7 @@
       <section id="presentation-video">
       
        
-        <h2 class="section-subtitle" style="color: #9D0800; text-align: center; margin-bottom: 15px;">Watch this detailed overview to understand everything necessary for Tadpole:</h2>
+        <h2 class="section-subtitle" style="color: #9D0800; text-align: center; margin-bottom: 15px;">Watch this detailed overview to understand everything necessary for Tadpole <span class = "highlight-word info-word" data-target="hp-card1">&#128161</span>:</h2>
 
           <div style="text-align: center; margin: 0 auto 40px auto; max-width: 800px;">
                      <div style="position: relative; width: 100%; aspect-ratio: 16/9;">
@@ -250,7 +302,7 @@
                    border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 0;"
           ></iframe>
         </div>
-
+        <span class = "highlight-word info-word" data-target="hp-card1">&#128161</span>
       </section>
 
       <!-- RELEVANCE -->
@@ -358,16 +410,16 @@
       For more information, see the software-technicalities page, 
       where you can find diagrams of the different algorithms used, detailed explanations and
       tips for the inputs, and explanation on the results presentation.</p>
-        
+        <span class = "highlight-word info-word" data-target="hp-card2">&#128161</span> 
       <div style="text-align: center; margin: 20px 0;">
               <img 
                 src="https://static.igem.wiki/teams/5622/images/software/tadpole-workflow.webp" 
                 alt="Workflow of the Software Tool" 
                 style="width: 50%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
               >
-            </div> 
-        <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Workflow of the Software Tool. 
             
+        <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Workflow of the Software Tool.
+      </div>       
       <!-- THE NEED FOR TADPOLE -->
       <h1 class="main-section-title", id="need">The Need for TADPOLE</h1>
         <p class="main-section-desc">Moving beyond traditional transcriptional control to unlock RNA-level regulation</p>
@@ -730,7 +782,7 @@
               
               <div class="ecosystem-card" data-target="rest-api" style="background: rgba(255,255,255,0.15); padding: 25px; border-radius: 12px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;">
                 <div style="font-size: 3em; margin-bottom: 15px;">⚡</div>
-                <h4 style="margin-bottom: 12px; font-size: 1.2em;">REST API</h4>
+                <h4 style="margin-bottom: 12px; font-size: 1.2em;">REST API <span class = "highlight-word info-word" data-target="hp-card4">&#128161</span></h4>
                 <p style="font-size: 0.9em; margin-bottom: 15px; opacity: 0.9;">Programmatic access for integration</p>
                 <ul style="text-align: left; font-size: 0.85em; list-style: none; padding: 0; opacity: 0.8;">
                   <li>✓ JSON endpoints</li>
@@ -813,7 +865,7 @@
             One of the interface's most notable features is real-time visualization of results. As the analysis runs, Streamlit displays progress and outputs directly on the web page, including:
           </p>
            <ul class="point-list">
-            <li><strong>Search Results:</strong> Tables with candidate sequences, structures, and energies (See report below)</li>
+            <li><strong>Search Results:</strong> Tables with candidate sequences, structures, and energies (See report below <span class = "highlight-word info-word" data-target="hp-card3">&#128161</span>)</li>
             
             <li><strong>Structure Visualizations:</strong> Images of RNA structures in both ON and OFF states</li>
             
@@ -854,7 +906,7 @@
               </div>
             
             </div>
-              <li><strong>Clustering Metrics:</strong> Organized displays of clustering results, enabling exploration of design families (See report below)</li>
+              <li><strong>Clustering Metrics:</strong> Organized displays of clustering results, enabling exploration of design families (See report below <span class = "highlight-word info-word" data-target="hp-card3">&#128161</span>)</li>
           </ul>
           <p>
           Even thought there are other formats to download the results, the report returns the clustering metrics and the tables:
