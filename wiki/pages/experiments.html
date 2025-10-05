@@ -9,8 +9,15 @@
 <div class="page-container">
   <aside class="sidebar">
       <ul class="sidebar-nav">
-          <li><a href="#basic" class="active">New Basic Parts</a></li>
-          <li><a href="#composite" class="active">Composite Parts</a></li>
+          <li><a href="#organisation" class="active">Organisastion</a></li>
+          <li><a href="#experim-w" class="active">Experimental workflow</a></li>
+          <li><a href="#constructs" class="active">Constructs used in the lab</a></li>
+          <ul class="sidebar-subnav">
+            <li><a href="#scr-d" class="active">SCR-D</a></li>
+            <li><a href="#switch" class="active">Switch Constructs</a></li>
+          </ul>
+            
+            
       </ul>
   
     <!--EXTRA INFO-->
@@ -93,7 +100,7 @@
       <p class="page-desc"></p>
     </div>
      <div class="content">
-    <h2 class="section-title">Organization</h2>
+    <h1 id="organisation" class="section-title">Organization</h1>
     <p>
         The experimental work of our project aims to complete the various cycles described in the Engineering section. In the table below, each wet lab branch is associated with the engineering cycle it seeks to complete and provide experimental validation for.
  </p>
@@ -156,7 +163,7 @@
 </table>
 <p>A detailed explanation of the workflow Engineering → Wet Lab can be found in the <a class="link-text" href="https://2025.igem.wiki/barcelona-ub/model">Model Page</a>.</p>
 <br><br>
-<h1>Experimental workflow</h1>
+<h1 id="experim-w">Experimental workflow</h1>
 
 <div style="text-align: center; margin: 20px 0;">
   <img 
@@ -164,6 +171,7 @@
     alt="General scheme of experimental workflow" 
     style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
   >
+  <p>General scheme of experimental workflow </p>
 </div>
 
 <p>In the laboratory, we mainly carried out two types of assays: <strong>cell-based assays</strong> and <strong>cell-free system assays</strong>. Both assays share a <strong>common preliminary part</strong>.</p>
@@ -302,94 +310,273 @@
 
 <p>More information about lab procedures and protocols can be found at the <a class="link-text" href="https://2025.igem.wiki/barcelona-ub/notebook">Notebook section</a>.</p>
 <br><br>
-<h2><a class="link-text" href="https://2025.igem.wiki/barcelona-ub/parts">Constructs </a> used in the lab</h2>
+
+
+
+
+
+
+<h1 id="constructs"><a class="link-text" href="https://2025.igem.wiki/barcelona-ub/parts">Constructs </a> used in the lab</h1>
 <br>
-<p>Classification of the constructs that we used in the lab</p>
+
 <div style="text-align: center; margin: 20px 0;">
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/constructs.webp" 
     alt="General Constructs" 
     style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
   >
+  <p>Classification of the constructs that we used in the lab </p>
 </div>
 <br>
 <br>
 <br>
 
-<h3>SCR-D</h3>
-<p><strong>A: Normal SCR-D (TGA):</strong> This construct is the complete SCR-D along with the STOP codon on which it must act to produce readthrough, allowing the ribosome to bypass it. This way, Firefly luciferase will be expressed.</p>
+<h2 id="scr-d">SCR-D</h2>
+<h4>A: Normal SCR-D (TGA):</h4>
+This construct is the complete SCR-D along with the STOP 
+codon on which it must act to produce readthrough, allowing the 
+ribosome to bypass it. This way, Firefly luciferase will be expressed.</p>
 <div style="text-align: center; margin: 20px 0;">
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/tganormal.webp" 
     alt="Normal SCR-D (TGA)" 
-    style="width: 70%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
   >
+  <p>Normal SCR-D (TGA) construct and predicted structure </p>
 </div>
 <br>
 <br>
-<h3>B: SCR-D controls</h3>
-<p><strong>1- CGA:</strong> This construct has the first nucleotide of the STOP codon mutated from T to C, so the codon is no longer a STOP codon but instead encodes an arginine. In other words, each reading of the construct’s mRNA gives rise to both luciferase proteins, Renilla and Firefly. This serves to normalize the activity of the two luciferases and to generate cleaner and more reliable graphs.</p>
+<h4>B: SCR-D controls</h4>
+<p><strong>1- CGA:</strong> This construct has the first nucleotide of the STOP codon mutated 
+  from T to C, so the codon is no longer a STOP codon but instead encodes an arginine. 
+  In other words, each reading of the construct’s mRNA gives rise to both luciferase proteins,
+   Renilla and Firefly. This serves to normalize the activity of the two luciferases and to generate 
+   cleaner and more reliable graphs.</p>
 <div style="text-align: center; margin: 20px 0;">
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/cga.webp" 
     alt="CGA construct" 
-    style="width: 70%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
   >
+  <p>CGA construct, a control for normalizing the activity of both luciferases </p>
 </div>
 <br>
 
-<p><strong>2- TAAA:</strong> This construct serves as a negative control for the Dual-Luciferase Assay. In this case, the STOP codon was modified by changing its central nucleotide (G → A) and adding one extra nucleotide immediately after it, introducing a frameshift. As a result, even if the ribosome continues translation beyond this point, the downstream Firefly luciferase gene will be out of frame and cannot be correctly translated. Therefore, no Firefly signal should be detected. This control ensures that any measured Firefly activity in experimental constructs truly results from readthrough events rather than from frameshifting or reinitiation.</p>
+<p><strong>2- TAAA:</strong> This construct serves as a negative control for the
+   Dual-Luciferase Assay. In this case, the STOP codon was modified by changing 
+   its central nucleotide (G → A) and adding one extra nucleotide immediately after
+    it, introducing a frameshift. As a result, even if the ribosome continues
+     translation beyond this point, the downstream Firefly luciferase gene will 
+     be out of frame and cannot be correctly translated. Therefore, no Firefly
+      signal should be detected. This control ensures that any measured Firefly
+       activity in experimental constructs truly results from readthrough events
+        rather than from frameshifting or reinitiation.</p>
 <div style="text-align: center; margin: 20px 0;">
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/taaa.webp" 
     alt="TAAA construct" 
-    style="width: 70%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
   >
+  <p>TAAA construct, useful for ruling out reinitiation and other modes of Firefly 
+    luciferase expression that are independent of SECIS-mediated readthrough.  </p>
 </div>
 <br>
 
-<p><strong>3- TGA postATG mutated:</strong> This construct was designed to control for ribosomal reinitiation. In the natural SCR-D sequence, there is an internal ATG start codon located downstream of the stop codon. This ATG could allow the ribosome to detach and then reinitiate translation, leading to Firefly luciferase expression that is not due to true readthrough. To prevent this, the internal ATG was mutated in a way that preserved the SCR-D RNA structure while eliminating the reinitiation site. As a result, any Firefly luciferase produced from this construct must come exclusively from readthrough events. By comparing this construct to the normal SCR-D (TGA) construct, we can quantify and subtract the contribution of reinitiation.</p>
+<p><strong>3- TGA postATG mutated:</strong> This construct was designed to control for ribosomal
+   reinitiation. In the natural SCR-D sequence, there is an internal ATG start codon located 
+   downstream of the stop codon. This ATG could allow the ribosome to detach and then 
+   reinitiate translation, leading to Firefly luciferase expression that is not due to
+    true readthrough. To prevent this, the internal ATG was mutated in a way that preserved
+     the SCR-D RNA structure while eliminating the reinitiation site. As a result, any Firefly 
+     luciferase produced from this construct must come exclusively from readthrough events.
+      By comparing this construct to the normal SCR-D (TGA) construct, we can quantify and 
+      subtract the contribution of reinitiation.</p>
 <div style="text-align: center; margin: 20px 0;">
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/atgmutated.webp" 
     alt="TGA postATG mutated construct" 
-    style="width: 70%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
   >
+  <p>TGA postATG mutated construct, useful for ruling out reinitiation, 
+    a mode of Firefly luciferase expression that is independent of SECIS-mediated readthrough. </p>
 </div>
 <br>
 <br>
-<h2>C: SCR-D parts</h2>
-<br>
-<br>
-<p><strong>1- Only pre-diapin:</strong> This construct contains only the Pre-diapin region of SCR-D, and it is used to test whether this isolated part is capable of producing readthrough on its own. It allows us to quantify the percentage contribution of Pre-diapin to readthrough, if it is indeed able to induce it.</p>
+<h4>C: SCR-D parts</h4>
+<p><strong>1- Only pre-diapin:</strong> This construct contains only the
+   Pre-diapin region of SCR-D, and it is used to test whether this isolated 
+   part is capable of producing readthrough on its own. It allows us to quantify 
+   the percentage contribution of Pre-diapin to readthrough, if it is indeed able to induce it.</p>
 <div style="text-align: center; margin: 20px 0;">
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/onlyprediapin.webp" 
     alt="SCR-D pre-diapin construct" 
-    style="width: 70%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
   >
+  <p>SCR-D construct containing only the pre-diapin element </p>
 </div>
 <br>
 <br>
-<p><strong>2- No hypopin:</strong> This construct contains all parts of SCR-D except for the Hypopin. It is used to determine whether this region is essential for readthrough to occur, or if SCR-D can bypass the STOP codon without it. It allows us to quantify the percentage contribution of Hypopin to readthrough.</p>
+<p><strong>2- No hypopin:</strong> This construct contains all parts of SCR-D except 
+  for the Hypopin. It is used to determine whether this region is essential for readthrough
+   to occur, or if SCR-D can bypass the STOP codon without it. It allows us to quantify
+    the percentage contribution of Hypopin to readthrough.</p>
 <div style="text-align: center; margin: 20px 0;">
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/nohypopin.webp" 
     alt="SCR-D no hypopin construct" 
-    style="width: 70%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
   >
+  <p>SCR-D construct not containing hypopin element </p>
 </div>
 <br>
 <br>
-<p><strong>3- Mutated Diapin:</strong> This construct is nearly identical to the normal SCR-D (TGA) element, except that the nucleotide sequence of the Diapin region was altered while maintaining its predicted base pairing and secondary structure. It was designed to determine whether the Diapin’s specific sequence is essential for promoting readthrough, or whether its structural configuration alone is sufficient for SCR-D function. This distinction is particularly important for our project, as we are exploring structure-dependent mechanisms to build a riboswitch.</p>
+<p><strong>3- Mutated Diapin:</strong> This construct is nearly identical to the normal 
+  SCR-D (TGA) element, except that the nucleotide sequence of the Diapin region was altered 
+  while maintaining its predicted base pairing and secondary structure. It was designed to 
+  determine whether the Diapin’s specific sequence is essential for promoting readthrough, 
+  or whether its structural configuration alone is sufficient for SCR-D function. 
+  This distinction is particularly important for our project, as we are exploring 
+  structure-dependent mechanisms to build a riboswitch.</p>
 <div style="text-align: center; margin: 20px 0;">
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/mutateddiapin.webp" 
     alt="SCR-D mutated diapin construct" 
-    style="width: 70%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
   >
+  <p>SCR-D construct containing a mutated diapin element  </p>
 </div>
 <br>
+<br><br>
+<h2 id="switch">Switch Constructs</h2>
+<br>
+<h3>A: Controls</h3>
+<p><strong>1- Activity normalization:</strong> The construct used to normalize luciferase 
+  activity in the SECIS experiments was the same as the one used in SCR-D. Since both SCR-D 
+  and SECIS employ the same luciferases to measure gene expression, we were able to use the 
+  SCR-D luciferase normalization construct for normalization in the SECIS experiments.</p>
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/wetlab/cga.webp" 
+    alt="CGA construct" 
+    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  >
+  <p>CGA construct, a control for normalizing the activity of both luciferases </p>
+</div>
+
+<p><strong>2- Negative control / Bad SECIS:</strong> 
+ This construct does not contain any element that enables readthrough, 
+ and is therefore used to determine the amount of Firefly luciferase produced as a
+  result of spontaneous ribosomal readthrough, experimental background, reinitiation, 
+  or other possible experimental artifacts. Thus, in constructs with SECIS, we can determine 
+  what percentage of Firefly luciferase corresponds to this background noise and what percentage
+   actually corresponds to the readthrough driven by SECIS.
+</p>
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/wetlab/negative.webp" 
+    alt="Bad SECIS construct" 
+    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  ><p>Bad SECIS allows us to rule out Firefly luciferase expression that is independent of SECIS-mediated readthrough. </p>
+
+</div>
+
+<p><strong>3- SECIS control:</strong> This is the construct we used to verify that the SCR element of 
+  our riboswitch, namely SECIS, functions on its own. This construct is very important because, before 
+  testing our riboswitch, it allowed us to confirm that the SECIS element works and is in the proper 
+  conditions to carry out readthrough.</p>
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/wetlab/seciscontrol.webp" 
+    alt="SECIS control" 
+    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  ><p>SECIS control confirmed that SECIS system works in the experimental conditions we are exposing it to</p>
+
+  </div>
+
+<p><strong>4- Aptamer control:</strong> 
+This construct allows us to verify the aptamer’s structural responsiveness 
+to the ligand under our experimental conditions before testing it within the riboswitch context.
+ In this design, the presence or absence of theophylline influences the formation of a <b>pseudoknot structure</b>
+  that can induce ribosomal frameshifting. If no theophylline is present, the pseudoknot that induces
+   ribosomal frameshift does not fold correctly. Conversely, when theophylline is added, the pseudoknot 
+   is released, allowing the ribosome to undergo frameshift and avoid a STOP codon, placing Firefly
+    luciferase in the correct ORF and resulting in its expression. This sequence and design is extracted
+     from Anzalone et al., <i>Reprogramming eukaryotic translation with ligand-responsive synthetic RNAb
+      switches, Nature Methods (2016)</i>. https://doi.org/10.1038/nmeth.3807
+</p>
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/wetlab/fsapt.webp" 
+    alt="Aptamer control" 
+    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  ><p>Anzalone’s construct is crucial to make sure the aptamer is working in the experimental
+     conditions we are exposing it to. </p>
+  </div>
+<br>
+<h3>B: Switches</h3>
+The following constructs represent different designs of the SECIS-based riboswitch, 
+coupled with the theophylline aptamer. In their names, the letter L stands for “Linker,” 
+and the accompanying number indicates the number of nucleotides inserted between the SECIS
+ element and the aptamer. The L5 construct has a slightly modified version of the SECIS sequence.
+ <br> 
+In the absence of theophylline, the aptamer base-pairs with part of the SECIS sequence, keeping 
+the two regions bound together and preventing SECIS from folding into its <b>natural structure</b>. 
+The aptamer also base-pairs with the linker when there is no theophylline. When theophylline binds to
+ the aptamer, this interaction is disrupted, changing the conformation of the SECIS region and 
+ therefore altering Firefly luciferase expression and acting as a riboswitch for readthrough rate.
+
+<p><strong>1- L5:</strong> Structure of Linker 5 construct.</p>
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/wetlab/l5.webp" 
+    alt="Linker 5 construct" 
+    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  ><p> Structure of Linker 5 construct </p>
+</div>
+
+<p><strong>2- L7:</strong> Structure of Linker 7 construct.</p>
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/wetlab/l7.webp" 
+    alt="Linker 7 construct" 
+    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  ><p>Structure of Linker 7 construct </p>
+</div>
+
+<p><strong>3- L8:</strong> Structure of Linker 8 construct.</p>
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/wetlab/l8.webp" 
+    alt="Linker 8 construct" 
+    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  ><p>Structure of Linker 8 construct </p>
+</div>
+
+<p><strong>4- L9:</strong> Structure of Linker 9 construct.</p>
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/wetlab/l9.webp" 
+    alt="Linker 9 construct" 
+    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  ><p>Structure of Linker 9 construct </p>
+</div>
+It is important to consider that these four riboswitches were designed using our model and the TADPOLE software. These two tools operate based on structural predictions provided by RNAfold and focus specifically on the energetic requirements that allow the aptamer to fluctuate between two states: bound to theophylline or unbound. The linkers were designed based on an ON-ON switch structural prediction with RNAfold. This means that a functional (non-disrupted) SECIS element is expected in the presence of theophylline, as illustrated in the riboswitch structures.
+<br>
+However, RNAfold has known limitations that prevent its structural predictions from being fully accurate, and these limitations appear to affect the non-canonical interactions within the functional core of SECIS. Therefore, although the in silico prediction suggested an ON-ON switch, an OFF-ON switch may be observed experimentally.
+<br>
+<br>
+<br>
+<h3>C: Dr. Copeland’s plasmid</h3>
+<p>This plasmid was used in the cell-free assays as a supplement for SECIS. The SBP2 protein is essential for SECIS to induce readthrough, so its presence is required to achieve higher readthrough efficiency.</p>
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://static.igem.wiki/teams/5622/images/wetlab/pc.webp" 
+    alt="Dr. Copeland's SBP2 plasmid" 
+    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+  ><p>Simplified version of Dr. Paul Copeland’s SBP2 gene context.</p>
+</div>
+
 
 </div>
 </div>
