@@ -183,7 +183,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                           <th style="border: 1px solid #ccc; padding: 6px;">Name</th>
                                           <th style="border: 1px solid #ccc; padding: 6px;">Pertaining Hypothesis</th>
                                           <th style="border: 1px solid #ccc; padding: 6px;">Modifications</th>
-                                          <th style="border: 1px solid #ccc; padding: 6px;">Registry name</th>
                                           <th style="border: 1px solid #ccc; padding: 6px;">Predicted structure</th>
                                         </tr>
                                       </thead>
@@ -192,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                           <td style="border: 1px solid #ccc; padding: 6px;">Pre - diapin</td>
                                           <td style="border: 1px solid #ccc; padding: 6px;">Hypothesis 1</td>
                                           <td style="border: 1px solid #ccc; padding: 6px;">Removed Diapin, Hypopin and Post-hypopin, maintaining only the Pre-diapin region.</td>
-                                          <td style="border: 1px solid #ccc; padding: 6px;">TBD</td>
+                                            
                                           <td style="border: 1px solid #ccc; padding: 6px;">
                                           <div   style="text-align: center; margin: 20px auto;">
                                      <img src="https://static.igem.wiki/teams/5622/images/engineering/4.webp" alt="AlphaFold2 Pipeline Design">
@@ -204,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                           <td style="border: 1px solid #ccc; padding: 6px;">Modified diapin</td>
                                           <td style="border: 1px solid #ccc; padding: 6px;">Hypothesis 2</td>
                                           <td style="border: 1px solid #ccc; padding: 6px;">Altered conserved base pairings of the Diapin region to maintain its structure whilst modifying its sequence.</td>
-                                          <td style="border: 1px solid #ccc; padding: 6px;">TBD</td>
+                                            
                                           <td style="border: 1px solid #ccc; padding: 6px;">
                                           <div   style="text-align: center; margin: 20px auto;">
                                      <img src="https://static.igem.wiki/teams/5622/images/engineering/6.webp" alt="AlphaFold2 Pipeline Design">
@@ -216,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                           <td style="border: 1px solid #ccc; padding: 6px;">No Hypopin</td>
                                           <td style="border: 1px solid #ccc; padding: 6px;">Hypothesis 3</td>
                                           <td style="border: 1px solid #ccc; padding: 6px;">Removed Hypopin and post-hypopin regions, maintaining the Pre–diapin and Diapin regions.</td>
-                                          <td style="border: 1px solid #ccc; padding: 6px;">TBD</td>
+                                            
                                           <td style="border: 1px solid #ccc; padding: 6px;">
                                           <div   style="text-align: center; margin: 20px auto;">
                                      <img src="https://static.igem.wiki/teams/5622/images/engineering/5.webp" alt="AlphaFold2 Pipeline Design">
