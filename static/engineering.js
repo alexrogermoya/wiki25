@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                                 scores onto the predicted 2D structures and compares base pairings across species to highlight conserved complementarity.`,
                                 test: `Confirmed earlier prediction: conserved motif is structurally feasible in all species.
                                         <div class="image-container" style="text-align: center; margin: 20px auto;">
-                                          <img src="https://static.igem.wiki/teams/5622/images/engineering/engineerin-1.webp" alt="AlphaFold2 Pipeline Design">
+                                          <img src="https://static.igem.wiki/teams/5622/images/engineering/pairings-conserved-scr-d.webp" alt="AlphaFold2 Pipeline Design">
                                           <div class="photo-caption">Figure 1.1: Image depicting the conserved pairings from the co-evolutionary structures of SCR-D family sequences.
                                         Blue: unpaired or non-conserved pairings.
                                         Red: pairings conserved in nearly all the sequences
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         
 
                                         <div class="image-container" style="text-align: center; margin: 20px auto;">
-                                          <img src="https://static.igem.wiki/teams/5622/images/engineering/engineerin-1.webp" alt="AlphaFold2 Pipeline Design">
+                                          <img src="https://static.igem.wiki/teams/5622/images/engineering/bp-conserved-scr-d.webp" alt="AlphaFold2 Pipeline Design">
                                           <div class="photo-caption">Figure 1.2: Image depicting the conserved nucleotides from the co-evolutionary study of SCR-D family sequences.
                                             Blue: low conserved nucleotides.
                                             Dark red: highly conserved nucleotides
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     </table>
                                     <div class="image-container" style="text-align: center; margin: 20px auto;">
                                      <img src="https://static.igem.wiki/teams/5622/images/engineering/8.webp" alt="AlphaFold2 Pipeline Design">
-                                         <div class="photo-caption">Figure 6:  Llegenda - Predicted structures.</div>
+                                         <div class="photo-caption">Figure 6:  Colour Legend - Predicted structures.</div>
                                      </div>
                                   `,
                                   build: `
