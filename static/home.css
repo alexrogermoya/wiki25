@@ -140,15 +140,42 @@
 }
 
 .content-section {
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff;
-    font-size: 1.5rem;
     text-align: center;
-    padding: 40px;
+    padding: 0em 5em 0em 10em;
 }
+
+.text-img{
+    display: flex;
+    align-items: center; 
+    grid-template-columns: 1fr 1fr;
+    column-gap:15rem;
+    padding-bottom:2em;
+    padding-left:5em;
+}
+
+.text-img img{
+    width:23em;
+    height:auto;
+}
+
+.text-img h2{
+    font-weight: var(--fw-subsemibold);
+}
+
+.home-video{
+    margin-top:5rem;
+    margin-bottom:5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* margin-left: auto;
+    margin-right: auto; */
+} 
+
 
 .gradient{
     height:20rem;   
