@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const triggers = document.querySelectorAll('.info-word');
-  const cards    = document.querySelectorAll('.info-card'); // add a class to your cards
+  const cards    = document.querySelectorAll('.info-card'); 
 
-  // helper: hide all other cards (optional—remove if you want multiple open)
+
   const hideOthers = (except) => {
     cards.forEach(c => { if (c !== except) c.style.display = 'none'; });
   };
@@ -12,10 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = document.getElementById(trigger.dataset.target);
       const isVisible = getComputedStyle(card).display !== 'none';
 
-      hideOthers(card);                      // keep only one open
+      hideOthers(card);                      
       card.style.display = isVisible ? 'none' : 'block'; // toggle
 
-      e.stopPropagation();                   // don't let it reach the outside-click handler
+      e.stopPropagation();                   
     });
   });
 
