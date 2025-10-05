@@ -19,6 +19,7 @@ body {
 .tree-container {
     background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
     border-radius: 20px;
+    padding: 2rem;
     box-shadow: var(--shadow);
     position: relative;
     overflow: hidden;
@@ -133,7 +134,6 @@ body {
 }
 
 .leaf-text {
-    font-size: 10px;
     font-weight: 600;
     text-anchor: middle;
     dominant-baseline: middle;
@@ -142,7 +142,7 @@ body {
 }
 
 .leaf-text.small {
-    font-size: 8px;
+    font-size: 10px;
 }
 
 .content-area {
@@ -283,8 +283,8 @@ body {
   <path class="tree-sub-branch sub-2a" d="M250 350 L150 300"/>
   <path class="tree-sub-branch sub-2b" d="M250 350 L200 250"/>
 
-  <!-- Branch 3 - Bottom Right -->
-  <path class="tree-branch branch-3" d="M510 500 L720 420"/>
+  <!-- Branch 3 - Riboswitch -->
+  <path class="tree-branch branch-3" d="M510 300 L720 250"/>
 
   <!-- Branch 4 - Right (with sub-branches) -->
   <path class="tree-branch branch-4" d="M510 440 L750 350"/>
@@ -301,41 +301,41 @@ body {
 
   <!-- Branch 1: SCR-D -->
   <circle class="tree-leaf leaf-1" cx="280" cy="420" r="35" fill="#FF5249" onclick="showContent('branch1-main')" data-branch="1"/>
-  <text class="leaf-text" x="280" y="420">SCR-D</text>
+  <text class="leaf-text" x="280" y="420" font-size="12" text-anchor="middle" dominant-baseline="middle">SCR-D</text>
 
   <!-- Branch 2: SECIS -->
   <circle class="tree-leaf leaf-2-main" cx="250" cy="350" r="30" fill="#FF1D11" onclick="showContent('branch2-main')" data-branch="2-main"/>
-  <text class="leaf-text" x="250" y="350">SECIS</text>
+  <text class="leaf-text" x="250" y="350" font-size="12" text-anchor="middle" dominant-baseline="middle">SECIS</text>
 
   <!-- Branch 2 Sub-leaves -->
   <circle class="tree-leaf leaf-2a" cx="150" cy="300" r="25" fill="#E70C00" onclick="showContent('branch2-secis')" data-branch="2a"/>
-  <text class="leaf-text small" x="150" y="300">Element</text>
+  <text class="leaf-text small" x="150" y="300" " text-anchor="middle" dominant-baseline="middle">Element</text>
 
   <circle class="tree-leaf leaf-2b" cx="200" cy="250" r="25" fill="#CC0600" onclick="showContent('branch2-controls')" data-branch="2b"/>
-  <text class="leaf-text small" x="200" y="250">Controls</text>
+  <text class="leaf-text small" x="200" y="250" font-size="12" text-anchor="middle" dominant-baseline="middle">Controls</text>
 
   <!-- Branch 3: Sensing -->
-  <circle class="tree-leaf leaf-3" cx="720" cy="420" r="35" fill="#9D0800" onclick="showContent('branch3-main')" data-branch="3"/>
-  <text class="leaf-text" x="720" y="420">Sensing</text>
+<circle class="tree-leaf leaf-5" cx="280" cy="250" r="35" fill="#ff918b" onclick="showContent('branch5-constructs')" data-branch="5"/>
+  <text class="leaf-text" x="280" y="250" font-size="12" text-anchor="middle" dominant-baseline="middle">Sensing</text>
 
   <!-- Branch 4: Cell-Free -->
   <circle class="tree-leaf leaf-4-main" cx="750" cy="350" r="30" fill="#9b2421" onclick="showContent('branch4-main')" data-branch="4-main"/>
-  <text class="leaf-text" x="750" y="350">Cell-Free</text>
+  <text class="leaf-text" x="750" y="350" font-size="12" text-anchor="middle" dominant-baseline="middle">Cell-Free</text>
 
   <!-- Branch 4 Sub-leaves -->
   <circle class="tree-leaf leaf-4a" cx="850" cy="300" r="25" fill="#7A1D1A" onclick="showContent('branch4-aptamer')" data-branch="4a"/>
-  <text class="leaf-text small" x="850" y="300">Aptamer</text>
+  <text class="leaf-text small" x="850" y="300" font-size="12" text-anchor="middle" dominant-baseline="middle">Aptamer</text>
 
   <circle class="tree-leaf leaf-4b" cx="800" cy="250" r="25" fill="#560400" onclick="showContent('branch4-secis')" data-branch="4b"/>
-  <text class="leaf-text small" x="800" y="250">SECIS CF</text>
+  <text class="leaf-text small" x="800" y="250" font-size="12" text-anchor="middle" dominant-baseline="middle">SECIS CF</text>
 
   <!-- Branch 5: Riboswitch -->
-  <circle class="tree-leaf leaf-5" cx="280" cy="250" r="35" fill="#ff918b" onclick="showContent('branch5-constructs')" data-branch="5"/>
-  <text class="leaf-text" x="280" y="250">Riboswitch</text>
+  <circle class="tree-leaf leaf-3" cx="720" cy="250" r="35" fill="#9D0800" onclick="showContent('branch3-main')" data-branch="3"/>
+  <text class="leaf-text" x="720" y="250" font-size="12" text-anchor="middle" dominant-baseline="middle">Riboswitch</text>
 
   <!-- Branch 6: Future Steps -->
-  <circle class="tree-leaf leaf-6" cx="500" cy="140" r="35" fill="#ffdcda" onclick="showContent('branch6-future')" data-branch="6"/>
-  <text class="leaf-text" x="500" y="140" fill="#9D0800">Future</text>
+  <circle class="tree-leaf leaf-6" cx="500" cy="140" r="35" fill="#B30000" onclick="showContent('branch6-future')" data-branch="6"/>
+  <text class="leaf-text" x="500" y="140" fill="#9D0800" font-size="12" text-anchor="middle" dominant-baseline="middle">Future</text>
 </svg>
 
         
@@ -361,7 +361,7 @@ body {
                 <span>Branch 5: Riboswitch</span>
             </div>
             <div class="legend-item">
-                <div class="legend-color" style="background: #ffdcda;"></div>
+                <div class="legend-color" style="background: #B30000;"></div>
                 <span>Future Steps</span>
             </div>
         </div>
