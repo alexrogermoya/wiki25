@@ -7,6 +7,11 @@
 
 <style>
 
+.photo-caption {
+  text-align: center;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
 
 .results-container {
     max-width: 80%;
@@ -267,9 +272,56 @@
       <h1 class = "page-title">Results</h1>
       <p class = "page-desc">Explore the results obtained on the Wet Lab.</p>
     </div>
-    <!-- Tree Visualization -->
-    <div class="tree-container">
+ 
         
+<p>
+Quick explanation of the branches: 
+</p>
+<br>
+
+<p>
+The results obtained follow a progressive design logic, illustrated by a <strong>branching structure</strong>. 
+</p>
+<br>
+
+<p>
+We have been working with <strong>stop-codon readthrough elements</strong>, with the aim to create a library of different readthrough levels. 
+</p>
+<br>
+
+<p>
+Starting with SCR-D, we characterized a novel readthrough element in <strong>HEK293T cells</strong> to understand its parts, function, and determinants of readthrough efficiency. 
+</p>
+<br>
+
+<p>
+As a pivotal step, we explored and optimized a well-characterized readthrough element: a Selenocysteine Insertion Sequence (<strong>SECIS</strong>). 
+</p>
+<br>
+
+<p>
+To go even further, we explored the possibility of creating an inducible SCR element by creating a riboswitch. Thus, we characterized a sensing element as well: a <strong>theophylline aptamer</strong>, in <strong>HEK293T cells</strong> too.
+</p>
+<br>
+
+<p>
+Another pivotal step was needed, and we transitioned to <strong>cell-free systems</strong>, to validate the <strong>SECIS and Aptamer Elements</strong>: our top candidates for <strong>building the riboswitch</strong>.
+</p>
+<br>
+
+<p>
+With the help of our <strong>Software</strong> and <strong>Model</strong> tools, we designed the <strong>riboswitch constructs</strong> fusing these two elements. And our final step was testing them in the lab.
+</p>
+<br>
+
+<p>
+Let’s take a look at what our results revealed!
+</p>
+
+   <!-- Tree Visualization -->
+    <div class="tree-container">
+
+
         <svg class="tree-svg" viewBox="0 0 1000 700">
             <!-- Raíces -->
 <!-- Raíces curvas -->
@@ -384,55 +436,247 @@
     <!-- Content Area -->
     <div class="content-area">
         
-        <!-- Welcome Content -->
-        <div class="content-section active" id="welcome">
-            <h1 class="content-title">🧬 Results Overview</h1>
-            <p class="content-text">
-                Welcome to our interactive results section! Click on the leaves of our results tree to explore different aspects of our experimental work.
-            </p>
-            <p class="content-text">
-                Each branch represents a different experimental approach, from characterizing individual elements to testing complete systems. The tree grows as you explore, revealing the interconnected nature of our research.
-            </p>
-            
-            <div class="placeholder-content">
-                <div class="placeholder-icon">🌟</div>
-                <h3 style="color: var(--main-color); margin-bottom: 1rem;">Click on any leaf to explore our results</h3>
-                <p style="color: var(--grey);">Each colored leaf represents a different aspect of our experimental findings.</p>
-            </div>
-        </div>
-
+        
         <!-- Branch 1 Content -->
         <div class="content-section" id="branch1-main">
-            <h1 class="content-title">🔬 Branch 1: SCR-D Element in HEK Cells</h1>
-            <h2 class="content-subtitle">Characterizing the SCR-D Element</h2>
-            <p class="content-text">
-                This section contains our detailed analysis of the SCR-D element behavior in HEK293T cells, including expression levels, functionality, and optimization parameters.
-            </p>
-            
-            <div class="placeholder-content">
-                <div class="placeholder-icon">📊</div>
-                <h3 style="color: var(--main-color);">SCR-D Results</h3>
-                <p style="color: var(--grey);">Add your SCR-D experimental data, graphs, and analysis here.</p>
-            </div>
+            <section id="branch1">
+  <h1 class="section-title">BRANCH 1: Characterizing the SCR-D Element in HEK Cells</h1>
+
+  <h2 class="section-subtitle">Background</h2>
+  <p class="section-text">
+    SCR-D is a stop codon readthrough (SCR) element that can stimulate substantial levels of translational readthrough, but its functional architecture remained uncharacterized until now. 
+    To address this, we performed an evolutionary and structural analysis of the element, detailed in <span class="bold-word">Engineering</span>.
+  </p>
+  <button class="btn btn-outline" onclick="window.location.href='/engineering'">
+    Explore the predicted structure of the SCR-D element
+  </button>
+
+  <br><br>
+  <p class="section-text">
+    From this analysis, we identified three structural regions that could contribute to readthrough and potentially allow modular control over translational efficiency:
+  </p>
+
+  <!-- Cards for structural regions -->
+  <div class="cards-container">
+    <div class="card">
+      <h3 class="card-title">PreDiapin</h3>
+      <p>
+        A short stretch of highly conserved nucleotides upstream of the main hairpin. 
+        We hypothesized that these nucleotides are critical for stimulating readthrough.
+      </p>
+      <button class="btn btn-outline" onclick="window.location.href='/engineering'">
+        See sequences
+      </button>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">Diapin</h3>
+      <p>
+        A stem-loop structure where base pairing is conserved, but individual nucleotides vary. 
+        We hypothesized that its structure, rather than its sequence, is important.
+      </p>
+      <button class="btn btn-outline" onclick="window.location.href='/engineering'">
+        See sequences
+      </button>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">Hypopin</h3>
+      <p>
+        A downstream region with low sequence conservation and variable predicted structures. 
+        We hypothesized that it contributes little to readthrough.
+      </p>
+      <button class="btn btn-outline" onclick="window.location.href='/engineering'">
+        See sequences
+      </button>
+    </div>
+  </div>
+
+  <br><br>
+  <h2 class="section-subtitle">Construct Design and Experimental Setup</h2>
+  <p class="section-text">
+    To test these hypotheses, we designed the following constructs for comparison with the natural SCR-D element:<br>
+   <ul class="point-list">
+  <li>Only PreDiapin</li>
+  <li>Mutated Diapin (sequence altered but structure preserved)</li>
+  <li>No Hypopin</li>
+  <li>Natural SCR-D Element</li>
+</ul>
+
+  </p>
+
+  <p class="section-text">
+    Reporter constructs were built using a <span class="bold-word">Dual-Luciferase Assay</span> design, 
+    with Renilla luciferase preceding the stop codon and Firefly luciferase following it. 
+    Constructs were transfected into <span class="bold-word">HEK293 cells</span>, and readthrough was quantified as the Firefly/Renilla activity ratio.
+  </p>
+
+  <p class="section-text">
+    Normalization was performed using the following controls:<br>
+    <span class="bold-word">CGA (positive control):</span> stop codon removed for maximal dual expression.<br>
+    <span class="bold-word">TAAA (frameshift negative control):</span> no Firefly expected.<br>
+    <span class="bold-word">TGA postATG mutated:</span> control for reinitiation events.
+  </p>
+
+  <button class="btn btn-outline" onclick="window.location.href='/experiments'">
+    See chosen constructs
+  </button>
+
+  <br><br>
+  <h2 class="section-subtitle">Results</h2>
+  <p class="section-text">
+    The normalized readthrough rates are summarized in Figure 1.
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/1r-scr-d.webp" alt="SCR-D readthrough results">
+    <p class="photo-caption">
+      Fig. 1. Normalized readthrough levels for the different constructs tested in the lab.
+    </p>
+  </div>
+
+  <p class="section-text">
+    We can observe that the <span class="bold-word">natural SCR-D element</span> achieved almost 
+    <span class="bold-word">9% readthrough in HEK cells</span>, confirming its strong influence. 
+    The construct containing only PreDiapin reached around 6% readthrough, supporting our hypothesis that these few nucleotides play a major role despite their small size. 
+    Similarly, the construct lacking the Hypopin produced ~5% readthrough, suggesting that this region contributes to the overall effect, despite its low sequence conservation. 
+    Finally, the mutated Diapin construct, in which the sequence was altered but the structure preserved, maintained high readthrough at ~8%. 
+    This indicates that the specific nucleotide sequence of the Diapin is not essential for activity; it just contributes to it.
+  </p>
+
+  <br>
+  <h2 class="section-subtitle">Discussion</h2>
+  <p class="section-text">
+    These results provide clear insights into the contributions of different SCR-D regions:<br><br>
+    <span class="bold-word">PreDiapin drives most of the readthrough activity.</span> 
+    Even in isolation, the short PreDiapin sequence stimulates ~6% readthrough, confirming its major role despite consisting of only a few nucleotides.<br><br>
+    <span class="bold-word">The Diapin and Hypopin appear to modulate this effect together rather than independently.</span> 
+    When the Diapin sequence is mutated but its structure is preserved, readthrough remains similar (~8%) to the natural sequence (~9%). 
+    Compared to No Hypopin (~5%) and Only PreDiapin (~6%), this suggests the Diapin alone does not substantially enhance readthrough. 
+    Instead, its function seems to depend on the presence of the Hypopin. 
+    The Hypopin, although weakly conserved, may help stabilize structural interactions with the Diapin that facilitate readthrough.
+  </p>
+
+  <p class="section-text">
+    Taken together, these results indicate that <span class="bold-word">SCR-D’s high readthrough is driven mainly by PreDiapin</span>, 
+    while the rest of the structure together provides a lesser contribution.
+  </p>
+
+  <br>
+  <h2 class="section-subtitle">Implications</h2>
+  <p class="section-text">
+    Although SCR-D achieves exceptionally high readthrough levels in mammalian cells (up to 9%), its activity depends mainly on a short conserved sequence (PreDiapin) rather than on the disruption of a structured element. 
+    Because riboswitch design requires elements whose function depends on structure, we can conclude that targeting SCR-D for a riboswitch is not the most suitable strategy.<br><br>
+    Nevertheless, our work provides the first functional dissection of SCR-D. 
+    The distinct contributions of PreDiapin, Diapin, and Hypopin show that it can be modularly tuned to achieve different readthrough rates. 
+    While not used as the basis for our riboswitch, <span class="bold-word">SCR-D is now a very valuable new part for iGEM</span> 
+    (and the scientific community!), expanding the library of genetic tools for dual-protein expression and controlled co-expression in mammalian systems.
+  </p>
+</section>
+
         </div>
 
         <!-- Branch 2 Main Content -->
         <div class="content-section" id="branch2-main">
-            <h1 class="content-title">🧬 Branch 2: SECIS Element in HEK Cells</h1>
-            <h2 class="content-subtitle">Characterizing the SECIS Element</h2>
-            <p class="content-text">
-                This branch explores the SECIS element functionality in HEK293T cells. Click on the sub-branches to explore specific aspects:
-            </p>
-            <ul style="font-size: 1.1rem; line-height: 1.7; color: var(--grey); margin-bottom: 1.5rem;">
-                <li><strong>SECIS Element Things:</strong> Core functionality and characterization</li>
-                <li><strong>Controls:</strong> Experimental design validation and controls</li>
-            </ul>
-            
-            <div class="placeholder-content">
-                <div class="placeholder-icon">🧬</div>
-                <h3 style="color: var(--main-color);">SECIS Branch Overview</h3>
-                <p style="color: var(--grey);">Click on the sub-branches to explore detailed results.</p>
-            </div>
+  <h1 class="section-title">Branch 2: Characterizing the SECIS Element in HEK293T Cells</h1>
+
+  <h2 class="section-subtitle">Background</h2>
+  <p class="section-text">
+    The <span class="bold-word">SECIS (Selenocysteine Insertion Sequence)</span> element was chosen as a potential riboswitch platform because it is a well-characterized structural motif with strong and reproducible readthrough activity. 
+    Unlike the SCR-D element, SECIS has been extensively studied and its function depends primarily on 
+    <span class="highlight-word">RNA structure</span>, making it a fitting choice for structure-based regulation.
+    <br><br>
+    Before using SECIS in our riboswitch designs, we aimed to characterize its performance to:
+    <br><br>
+    Identify the <span class="bold-word">optimal experimental conditions</span> for its use in HEK 293T cells.<br>
+    Confirm its suitability as a reliable riboswitch backbone.
+    <br><br>
+    The constructs used contained the SECIS element placed after the <span class="bold-word">Renilla</span> and <span class="bold-word">Firefly luciferase</span> genes. 
+    Readthrough efficiency was measured as the ratio of Firefly to Renilla luminescence, normalized to a 
+    <span class="bold-word">CGA construct</span> as a positive control which represents 100% readthrough.
+  </p>
+
+  <button class="btn btn-outline" onclick="window.location.href='{{ url_for('pages', page='experiments') }}'">
+    View constructs
+  </button>
+
+  <p class="section-text">
+    Literature reports indicate that selenium supplementation can enhance SECIS activity in mammalian cells. 
+    To clarify this, we tested <span class="bold-word">SECIS activity under varying concentrations of both theophylline and selenium</span>, in three independent experimental rounds. 
+    Across three rounds of experiments, we progressively refined our cell density, treatment conditions, and timing to ensure reproducibility. 
+    Below is a summary of the experimental parameters:
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/2r-conditions.webp" alt="SECIS experimental parameters table">
+    <p class="photo-caption">Table 1. Experimental parameters used in each round of experiments.</p>
+  </div>
+
+  <h2 class="section-subtitle">Results</h2>
+  <p class="section-text">
+    In the <span class="bold-word">first round</span>, SECIS showed strong readthrough levels of up to <span class="bold-word">9%</span> under basal conditions (0 mM theophylline) and at <span class="bold-word">0.5 mM</span> theophylline. 
+    However, at <span class="bold-word">1 mM</span> and especially <span class="bold-word">5 mM</span>, readthrough decreased to below <span class="bold-word">6%</span>, likely due to 
+    <span class="bold-word">theophylline-induced cytotoxicity</span> (as confirmed by our separate toxicity assay, see below). 
+    These results demonstrate that the SECIS element is <span class="bold-word">functional in HEK cells</span>, achieving readthrough levels consistent with those reported in literature.
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/3r-secishek-1.webp" alt="SECIS first round readthrough results">
+    <p class="photo-caption">Fig. 2. Raw Renilla (before stop) and Firefly (after stop) Luciferase Values and Normalized Readthrough Rate of the SECIS element in different theophylline concentrations.</p>
+  </div>
+
+  <p class="section-text">
+    In the second round, we tested the combined effects of <span class="bold-word">selenium</span> and <span class="bold-word">theophylline</span>. 
+    While 1 mM theophylline slightly reduced readthrough, <span class="bold-word">selenium supplementation</span> increased it in a dose-dependent manner up to  
+    <span class="bold-word">100 nM</span>, where the highest readthrough rate (<span class="bold-word">10.00%</span>) was observed. 
+    Although replicability across replicates varied slightly, the overall trend was consistent: selenium enhances SECIS efficiency, while high theophylline concentrations are inhibitory.
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/4r-secishek-2.webp" alt="SECIS second round results">
+    <p class="photo-caption">Fig. 3. Raw Renilla (before stop) and Firefly (after stop) Luciferase Values and Normalized Readthrough Rate of the SECIS element in different theophylline and selenium concentrations.</p>
+  </div>
+
+  <p class="section-text">
+    In the third round, we confirmed these observations under optimized conditions (higher cell density and shorter treatment time). 
+    Some of these round’s results have limited replicability, but <span class="bold-word">readthrough levels</span> without selenium remain 
+    <span class="bold-word">consistent</span> with previous rounds (<span class="bold-word">~8–9%</span>).
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/5r-secishek-3.webp" alt="SECIS third round results">
+    <p class="photo-caption">Fig. 4. Raw Renilla (before stop) and Firefly (after stop) Luciferase Values and Normalized Readthrough Rate of the SECIS element in different theophylline concentrations.</p>
+  </div>
+
+  <p class="section-text">
+    As we can see, the <span class="bold-word">highest readthrough rates</span> across the three rounds are achieved with 
+    <span class="bold-word">100 nM of Selenium (10%)</span>, even though Selenium does not seem to be required for SECIS activity; it only optimizes it further. 
+    On the other hand, <span class="bold-word">theophylline addition slightly affects readthrough</span> up until 1 mM, and more substantially at 5 mM.
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/6r-secishek-combined.webp" alt="SECIS combined analysis results">
+    <p class="photo-caption">Fig. 5. Normalized Readthrough Rate of the SECIS element across the three rounds of experiments, in different theophylline and Selenium concentrations.</p>
+  </div>
+
+  <h2 class="section-subtitle">Discussion and Implications</h2>
+  <ul class="point-list">
+    <li>
+      The <span class="bold-word">SECIS element is functional and reliable</span> in HEK 293T cells, consistently performing 
+      <span class="bold-word">8–10% readthrough</span> across different experimental conditions.
+    </li>
+    <li>
+      <span class="bold-word">Readthrough efficiency remained consistent</span> despite variations in cell number (30,000–100,000 cells/well) and timing (24–48 h incubation), 
+      which highlights the <span class="bold-word">reproducibility</span> of the system.
+    </li>
+    <li>
+      <span class="bold-word">Selenium supplementation improved performance slightly</span>, suggesting a role in optimizing the SECIS conformation, but it is not essential for activity.
+    </li>
+    <li>
+      The <span class="bold-word">working range of theophylline</span> was defined as <span class="bold-word">0–1 mM</span>, ensuring minimal cytotoxicity while maintaining SECIS functionality.
+    </li>
+  </ul>
+
         </div>
 
         <!-- Branch 2 Sub-content -->
