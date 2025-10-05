@@ -13,17 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const phase = strandClass === 'strand1' ? 0 : Math.PI;
                 const y = centerY + Math.sin(x * frequency + phase) * amplitude;
                 
-                // Solo mostrar puntos en la mitad correspondiente
-                if ((isLeft && x < window.innerWidth / 2) || (!isLeft && x >= window.innerWidth / 2)) {
-                    const point = document.createElement('div');
-                    point.className = `helix-point ${strandClass}`;
-                    point.style.left = `${x}px`;
-                    point.style.top = `${y}px`;
-                    
+                // Crear todos los puntos - el clip-path se encarga de mostrar solo la mitad correcta
+                const point = document.createElement('div');
+                point.className = `helix-point ${strandClass}`;
+                point.style.left = `${x}px`;
+                point.style.top = `${y}px`;
+                
 
-                    
-                    container.appendChild(point);
-                }
+                
+                container.appendChild(point);
             }
         }
 
