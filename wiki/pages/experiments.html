@@ -1,28 +1,380 @@
 {% extends "layout.html" %}
-  
-{% block title %}Experiments{% endblock %}
-{% block lead %}Describe the research, experiments, and protocols you used in your project. It is designed to provide sufficient information for other teams to replicate our work.{% endblock %}
+
+{% block title %}Experimental Overview{% endblock %}
+{% block lead %}Cell-based assays in HEK293T: A complete weekly workflow{% endblock %}
 
 {% block page_content %}
 
-<div class="row mt-4">
-  <div class="col-lg-8">
-    <h2>What Should this Page Contain?</h2>
-    <hr />
-    <p>Provide comprehensive, step-by-step protocols for all experiments conducted. Include a list of materials, reagents, and equipment used. Specify concentrations, volumes, incubation times, temperatures, and other critical parameters. Document any modifications or optimizations made to standard protocols.</p>
-    <p>Explain the purpose of each experiment and its relevance to your project goals. Describe the experimental design, including controls and replicates. Provide a clear rationale for the chosen methods and approaches.</p>
-    <p>Document any troubleshooting steps taken and optimizations made during the experimental process. Share any lessons learned that could benefit future teams.</p>
-  </div>
-  <div class="col-lg-4">
-    <h2>Inspirations</h2>
-    <hr />
-    <ul>
-      <li><a href="https://2024.igem.wiki/heidelberg/experiments">2024 Heidelberg</a></li>
-      <li><a href="https://2024.igem.wiki/marburg/experiments">2024 Marburg</a></li>
-      <li><a href="https://2024.igem.wiki/epfl/experiments">2024 EPFL</a></li>
-      <li><a href="https://2023.igem.wiki/estonia-tuit/experiments">2023 Estonia-TUIT</a></li>
-    </ul>
+
+<div class="page-container">
+  <aside class="sidebar">
+      <ul class="sidebar-nav">
+          <li><a href="#basic" class="active">New Basic Parts</a></li>
+          <li><a href="#composite" class="active">Composite Parts</a></li>
+      </ul>
+  
+    <!--EXTRA INFO-->
+    <!-- Functional RNA Element (FRE) -->
+<div class="info-card" id="fre-info">
+  <div class="card">
+    <h3 class="card-title">Functional RNA Element (FRE)</h3>
+    <p>RNA sequences that perform specific biological functions when folded, such as frameshift elements, ribozymes, or Stop Codon Readthrough<sup>[3]</sup> sequences.</p>
   </div>
 </div>
+
+<!-- Semi-rational design -->
+<div class="info-card" id="semi-rational">
+  <div class="card">
+    <h3 class="card-title">Semi-rational design</h3>
+    <p>Semi-rational design uses rational guidance to narrow down the possibilities, 
+       even if the exact behaviour cannot be exactly predicted, while still relying on experimental 
+       testing of a manageable set of candidates.</p>
+  </div>
+</div>
+
+<!-- Conformational RNA Element (CRE) -->
+<div class="info-card" id="cre-info">
+  <div class="card">
+    <h3 class="card-title">Conformational RNA Element (CRE)</h3>
+    <p>RNA structures that can change conformation in response to stimuli, including Aptamer<sup>[4]</sup>s, miniRNAs, and temperature-sensitive motifs.</p>
+  </div>
+</div>
+
+<!-- SECIS Element -->
+<div class="info-card" id="secis-info">
+  <div class="card">
+    <h3 class="card-title">SECIS Element</h3>
+    <p>A highly conserved RNA hairpin structure that directs the ribosome to bypass UGA stop codons and incorporate selenocysteine into proteins.</p>
+  </div>
+</div>
+
+<!-- Aptamer -->
+<div class="info-card" id="aptamer-info">
+  <div class="card">
+    <h3 class="card-title">Aptamer</h3>
+    <p>A short RNA or DNA molecule that binds specifically to a target molecule (similar to an antibody in function).</p>
+  </div>
+</div>
+
+<!-- Riboswitches -->
+<div class="info-card" id="riboswitches">
+  <div class="card">
+    <h3 class="card-title">Riboswitches</h3>
+    <p>Structured RNA segments that directly bind small molecules and regulate gene expression without requiring proteins. They change conformation upon ligand binding.</p>
+  </div>
+</div>
+
+<!-- Model Section -->
+<div class="info-card" id="model-info">
+  <div class="card">
+    <h3 class="card-title">Model Section</h3>
+    <p>Explanation of the workflow from Engineering design to Wet Lab experiments.</p>
+  </div>
+</div>
+
+        
+    </aside>
+   <div class="page-content">
+    <div class="header">
+      <h1 class="page-title">Experimental Overview</h1>
+      <p class="page-desc"></p>
+    </div>
+     <div class="content">
+    <h2 class="section-title">Organization</h2>
+    <p>
+        The experimental section of our project is organized around the two <span class="highlight-word info-word" data-target="fre-info">SCRs</span> we have worked with: <strong>SCR-D</strong> and <strong>SECIS</strong>.
+    </p>
+    <p>
+        The experimental part of <strong>SCR-D</strong> is intended to complete <span class="highlight-word info-word" data-target="semi-rational">Engineering Cycle 2</span> of Branch 1: <span class="highlight-word info-word" data-target="cre-info">SCR-D structure prediction</span>, identification of key structural elements.
+    </p>
+    <p>
+        The experimental part of <strong>SECIS</strong> is intended to complete all <span class="highlight-word info-word" data-target="secis-info">Engineering Cycles</span> of Branch 2: Creation of an <span class="highlight-word info-word" data-target="aptamer-info">aptamer-controlled SCR</span>.
+    </p>
+    <p>
+        A detailed explanation of the workflow <span class="highlight-word info-word" data-target="riboswitches">Engineering → Wet Lab</span> can be found in the <a class="link-text" href="https://2025.igem.wiki/barcelona-ub/model">Model Page</a>.
+    </p>   
+
+        
+    <div class="content">
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <h2 class="calendar-title">Weekly Experimental Timeline</h2>
+            <p class="calendar-subtitle">From cell seeding to data analysis - a complete 7-day protocol</p>
+        </div>
+
+        <div class="week-grid">
+            <!-- Day 1 - Monday -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">1</div>
+                    <div class="day-name">Monday</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity-title">Cell Seeding</div>
+                    <div class="activity-description">
+                        We seeded the cells at the   <span class="highlight-word">desired density</span> in 48-well plates. The cells were then incubated for 24 hours.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 2 - Tuesday -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">2</div>
+                    <div class="day-name">Tuesday</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity-title">Transfection</div>
+                    <div class="activity-description">
+                        We transfected the   <span class="highlight-word">plasmids of interest</span> (SCR-D and SECIS) into the cells using a lipofectamine-based system, followed by a 24-hour incubation.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 3 - Wednesday -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">3</div>
+                    <div class="day-name">Wednesday</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity-title">Treatment</div>
+                    <div class="activity-description">
+                        After preparing   <span class="highlight-word">selenium and theophylline solutions</span>, we treated the cells with selenium and/or theophylline and incubated them for 48 hours.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 4 - Thursday -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">4</div>
+                    <div class="day-name">Thursday</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity-title">Observation</div>
+                    <div class="activity-description">
+                        We observed the cells under an   <span class="highlight-word">optical microscope</span>, solely to check that the process was proceeding correctly and that cell growth was taking place as expected.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 5 - Friday -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">5</div>
+                    <div class="day-name">Friday</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity-title">Luciferase Assay</div>
+                    <div class="activity-description">
+                        We performed   <span class="highlight-word">cell lysis and dual-luciferase assay</span> <span class="emoji">💡</span>(Dual-Luciferase® Reporter Assay System from Promega®, catalog #E1910), obtaining raw data on gene expression.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weekend -->
+            <div class="day-card weekend-card">
+                <div class="day-header">
+                    <div class="day-number">📊</div>
+                    <div class="day-name">Weekend</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity-title">Data Analysis & Presentation</div>
+                    <div class="activity-description">
+                        We dedicated this time to   <span class="highlight-word">plotting and analyzing the results in RStudio</span>, and prepared a presentation of the findings and conclusions to share with our PI and instructors.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="process-flow">
+        <h3 class="flow-title">Complete Experimental Workflow</h3>
+        <p class="flow-description">
+            Starting from purified plasmids, our HEK293T cell-based assays follow a structured 7-day protocol. Each experiment begins on Monday with cell seeding and concludes over the weekend with comprehensive data analysis and presentation preparation. This systematic approach ensures reproducible results and allows for thorough evaluation of our SCR-D and SECIS constructs under various treatment conditions.
+        </p>
+    </div>
+  </div>
+</div>
+</div>
+<style>
+
+.calendar-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.calendar-header {
+    background: linear-gradient(135deg, var(--color-intense-1), var(--main-color));
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.calendar-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.calendar-subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.week-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0;
+}
+
+.day-card {
+    padding: 2rem 1.5rem;
+    border-right: 1px solid var(--color-soft-1);
+    border-bottom: 1px solid var(--color-soft-1);
+    min-height: 300px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.day-card:hover {
+    background: var(--bg-main);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.day-card:last-child {
+    border-right: none;
+}
+
+.day-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.day-number {
+    width: 40px;
+    height: 40px;         
+    min-width: 40px;      
+    min-height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-right: 1rem;
+    flex-shrink: 0;        
+    background: linear-gradient(135deg, var(--color-soft-3), var(--color-intense-1));
+    color: white;
+}
+
+
+.day-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.day-content {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--grey);
+}
+
+.activity-title {
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.activity-description {
+    margin-bottom: 1rem;
+}
+
+
+
+.weekend-card {
+    grid-column: span 2;
+    background: linear-gradient(135deg, var(--color-soft-1), var(--color-soft-2));
+    color: var(--text);
+}
+
+.weekend-card .day-number {
+    background: linear-gradient(135deg, var(--color-intense-2), var(--main-color));
+}
+
+.icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.process-flow {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-top: 2rem;
+}
+
+.flow-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: var(--text);
+}
+
+.flow-description {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--grey);
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+@media (max-width: 1024px) {
+    .week-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas para tablets */
+    }
+    
+    .weekend-card {
+        grid-column: 1 / -1; /* sigue ocupando todo el ancho */
+    }
+}
+
+@media (max-width: 768px) {
+    .week-grid {
+        grid-template-columns: 1fr; /* móvil: 1 columna por fila */
+    }
+    
+    .weekend-card {
+        grid-column: 1 / -1;
+    }
+}
+
+.emoji {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+.week-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* lunes a viernes */
+    gap: 1px;
+}
+
+.weekend-card {
+    grid-column: 1 / -1; /* ocupa todas las columnas debajo de la semana */
+}
+
+</style>
 
 {% endblock %}

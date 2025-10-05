@@ -1,44 +1,587 @@
 {% extends "layout.html" %}
-  
+
 {% block title %}Results{% endblock %}
-{% block lead %}Present the results of your project, along with a detailed analysis and discussion of their significance. Also outline future plans and reflections on the impact of your project.{% endblock %}
+{% block lead %}Interactive exploration of our experimental findings through our results tree{% endblock %}
 
 {% block page_content %}
 
-<div class="row mt-4">
-  <div class="col-lg-8">
-    <h2>What Should this Page Contain?</h2>
-    <hr />
-    <ul>
-      <li>Clearly and objectively describe the results of your experiments and research.</li>
-      <li>Use tables, graphs, and images to visualize your data.</li>
-      <li>Discuss the implications of your findings in the context of your project goals.</li>
-      <li>Highlight any trends, patterns, or significant observations.</li>
-      <li>Include an analysis summary section to synthesize your findings and discuss their overall significance.</li>
-      <li>Outline your future plans for the project, including potential applications, further research, and development.</li>
-      <li>Explain what went wrong and what you learned from these experiences.</li>
-      <li>Discuss potential improvements or alternative approaches.</li>
-      <li>Emphasize the importance of scientific honesty and transparency.</li>
-    </ul>
-  </div>
+<style>
+body {
+  box-sizing: border-box;
+}
 
-  <div class="col-lg-4">
-    <h2>Inspirations</h2>
-    <hr />
-    <ul>
-      <li><a href="https://2024.igem.wiki/heidelberg/results">2024 Heidelberg</a></li>
-      <li><a href="https://2024.igem.wiki/marburg/results">2024 Marburg</a></li>
-      <li><a href="https://2024.igem.wiki/epfl/results">2024 EPFL</a></li>
-      <li><a href="https://2024.igem.wiki/utoronto/results">2024 UToronto</a></li>
-      <li><a href="https://2024.igem.wiki/marburg/results">2024 Marburg</a></li>
-      <li><a href="https://2024.igem.wiki/sydney-australia/results">2024 Sydney-Australia</a></li>
-      <li><a href="https://2024.igem.wiki/toulouse-insa-ups/results">2024 Toulouse-INSA-UPS</a></li>
-      <li><a href="https://2024.igem.wiki/bnds-china/results">2024 BNDS-China</a></li>
-      <li><a href="https://2024.igem.wiki/vilnius-lithuania/results">2024 Vilnius-Lithuania</a></li>
-      <li><a href="https://2024.igem.wiki/xmu-china/results">2024 XMU-China</a></li>
-      <li><a href="https://2023.igem.wiki/estonia-tuit/results">2023 Estonia-TUIT</a></li>
-    </ul>
-  </div>
+.results-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.tree-container {
+    background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.tree-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2rem;
+}
+
+.tree-svg {
+    width: 100%;
+    height: 600px;
+    display: block;
+}
+
+.tree-trunk {
+    fill: #8B4513;
+    stroke: #654321;
+    stroke-width: 2;
+}
+
+.tree-branch {
+    fill: none;
+    stroke: #228B22;
+    stroke-width: 5;
+    stroke-linecap: round;
+    opacity: 0;
+    animation: growBranch 1.5s ease-out forwards;
+}
+
+.tree-sub-branch {
+    fill: none;
+    stroke: #32CD32;
+    stroke-width: 3;
+    stroke-linecap: round;
+    opacity: 0;
+    animation: growBranch 1s ease-out forwards;
+}
+
+/* Main branches timing */
+.tree-branch.branch-1 { animation-delay: 0.2s; }
+.tree-branch.branch-2 { animation-delay: 0.4s; }
+.tree-branch.branch-3 { animation-delay: 0.6s; }
+.tree-branch.branch-4 { animation-delay: 0.8s; }
+.tree-branch.branch-5 { animation-delay: 1.0s; }
+.tree-branch.branch-6 { animation-delay: 1.2s; }
+
+/* Sub-branches timing */
+.tree-sub-branch.sub-2a { animation-delay: 1.5s; }
+.tree-sub-branch.sub-2b { animation-delay: 1.6s; }
+.tree-sub-branch.sub-4a { animation-delay: 1.7s; }
+.tree-sub-branch.sub-4b { animation-delay: 1.8s; }
+
+@keyframes growBranch {
+    from {
+        opacity: 0;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+    }
+    to {
+        opacity: 1;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 0;
+    }
+}
+
+.tree-leaf {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: leafAppear 0.5s ease-out forwards;
+}
+
+/* Main leaves timing */
+.tree-leaf.leaf-1 { animation-delay: 1.4s; }
+.tree-leaf.leaf-2-main { animation-delay: 1.6s; }
+.tree-leaf.leaf-3 { animation-delay: 1.8s; }
+.tree-leaf.leaf-4-main { animation-delay: 2.0s; }
+.tree-leaf.leaf-5 { animation-delay: 2.2s; }
+.tree-leaf.leaf-6 { animation-delay: 2.4s; }
+
+/* Sub-leaves timing */
+.tree-leaf.leaf-2a { animation-delay: 2.6s; }
+.tree-leaf.leaf-2b { animation-delay: 2.7s; }
+.tree-leaf.leaf-4a { animation-delay: 2.8s; }
+.tree-leaf.leaf-4b { animation-delay: 2.9s; }
+
+@keyframes leafAppear {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.tree-leaf:hover {
+    transform: scale(1.15);
+    filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+}
+
+.tree-leaf.active {
+    transform: scale(1.25);
+    filter: brightness(1.3) drop-shadow(0 0 15px rgba(157, 8, 0, 0.6));
+}
+
+.leaf-text {
+    font-size: 10px;
+    font-weight: 600;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    fill: white;
+    pointer-events: none;
+}
+
+.leaf-text.small {
+    font-size: 8px;
+}
+
+.content-area {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+    animation: fadeInContent 0.6s ease;
+}
+
+@keyframes fadeInContent {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
+}
+
+.content-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+    border-bottom: 3px solid var(--color-soft-2);
+    padding-bottom: 0.5rem;
+}
+
+.content-subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-intense-1);
+    margin: 2rem 0 1rem 0;
+}
+
+.content-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--grey);
+    margin-bottom: 1.5rem;
+}
+
+.placeholder-content {
+    background: linear-gradient(135deg, var(--color-soft-1), var(--bg-main));
+    border-radius: 15px;
+    padding: 3rem 2rem;
+    text-align: center;
+    border: 2px dashed var(--color-soft-2);
+    margin: 2rem 0;
+}
+
+.placeholder-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.branch-legend {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 0.85rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.3rem;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+    .tree-svg {
+        height: 500px;
+    }
+    
+    .branch-legend {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .results-container {
+        padding: 1rem;
+    }
+    
+    .tree-container, .content-area {
+        padding: 1rem;
+    }
+    
+    .tree-svg {
+        height: 400px;
+    }
+    
+    .content-title {
+        font-size: 1.8rem;
+    }
+}
+</style>
+
+<div class="results-container">
+    <!-- Tree Visualization -->
+    <div class="tree-container">
+        <h2 class="tree-title">🌳 Results Tree</h2>
+        
+        <svg class="tree-svg" viewBox="0 0 1000 600">
+            <!-- Tree Trunk -->
+            <rect class="tree-trunk" x="490" y="300" width="20" height="300" rx="10"/>
+            
+            <!-- Main Branches - from bottom to top, alternating sides -->
+            
+            <!-- Branch 1 - Bottom Left -->
+            <path class="tree-branch branch-1" d="M490 550 L280 450"/>
+            
+            <!-- Branch 2 - Left (with sub-branches) -->
+            <path class="tree-branch branch-2" d="M490 500 L250 380"/>
+            <path class="tree-sub-branch sub-2a" d="M250 380 L150 320"/>
+            <path class="tree-sub-branch sub-2b" d="M250 380 L200 280"/>
+            
+            <!-- Branch 3 - Bottom Right -->
+            <path class="tree-branch branch-3" d="M510 550 L720 450"/>
+            
+            <!-- Branch 4 - Right (with sub-branches) -->
+            <path class="tree-branch branch-4" d="M510 500 L750 380"/>
+            <path class="tree-sub-branch sub-4a" d="M750 380 L850 320"/>
+            <path class="tree-sub-branch sub-4b" d="M750 380 L800 280"/>
+            
+            <!-- Branch 5 - Upper Left -->
+            <path class="tree-branch branch-5" d="M490 420 L280 300"/>
+            
+            <!-- Branch 6 - Top Center (Future Steps) -->
+            <path class="tree-branch branch-6" d="M500 380 L500 220"/>
+            
+            <!-- Main Branch Leaves -->
+            <!-- Branch 1: SCR-D Element -->
+            <circle class="tree-leaf leaf-1" cx="280" cy="450" r="35" fill="#FF5249" onclick="showContent('branch1-main')" data-branch="1"/>
+            <text class="leaf-text" x="280" y="450">SCR-D</text>
+            
+            <!-- Branch 2: SECIS Element (main) -->
+            <circle class="tree-leaf leaf-2-main" cx="250" cy="380" r="30" fill="#FF1D11" onclick="showContent('branch2-main')" data-branch="2-main"/>
+            <text class="leaf-text" x="250" y="380">SECIS</text>
+            
+            <!-- Branch 2 Sub-leaves -->
+            <circle class="tree-leaf leaf-2a" cx="150" cy="320" r="25" fill="#E70C00" onclick="showContent('branch2-secis')" data-branch="2a"/>
+            <text class="leaf-text small" x="150" y="320">Element</text>
+            
+            <circle class="tree-leaf leaf-2b" cx="200" cy="280" r="25" fill="#CC0600" onclick="showContent('branch2-controls')" data-branch="2b"/>
+            <text class="leaf-text small" x="200" y="280">Controls</text>
+            
+            <!-- Branch 3: Sensing Element -->
+            <circle class="tree-leaf leaf-3" cx="720" cy="450" r="35" fill="#9D0800" onclick="showContent('branch3-main')" data-branch="3"/>
+            <text class="leaf-text" x="720" y="450">Sensing</text>
+            
+            <!-- Branch 4: Cell-Free (main) -->
+            <circle class="tree-leaf leaf-4-main" cx="750" cy="380" r="30" fill="#9b2421" onclick="showContent('branch4-main')" data-branch="4-main"/>
+            <text class="leaf-text" x="750" y="380">Cell-Free</text>
+            
+            <!-- Branch 4 Sub-leaves -->
+            <circle class="tree-leaf leaf-4a" cx="850" cy="320" r="25" fill="#7A1D1A" onclick="showContent('branch4-aptamer')" data-branch="4a"/>
+            <text class="leaf-text small" x="850" y="320">Aptamer</text>
+            
+            <circle class="tree-leaf leaf-4b" cx="800" cy="280" r="25" fill="#560400" onclick="showContent('branch4-secis')" data-branch="4b"/>
+            <text class="leaf-text small" x="800" y="280">SECIS CF</text>
+            
+            <!-- Branch 5: Riboswitch -->
+            <circle class="tree-leaf leaf-5" cx="280" cy="300" r="35" fill="#ff918b" onclick="showContent('branch5-constructs')" data-branch="5"/>
+            <text class="leaf-text" x="280" y="300">Riboswitch</text>
+            
+            <!-- Branch 6: Future Steps -->
+            <circle class="tree-leaf leaf-6" cx="500" cy="220" r="35" fill="#ffdcda" onclick="showContent('branch6-future')" data-branch="6"/>
+            <text class="leaf-text" x="500" y="220" fill="#9D0800">Future</text>
+        </svg>
+        
+        <div class="branch-legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #FF5249;"></div>
+                <span>Branch 1: SCR-D Element</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #FF1D11;"></div>
+                <span>Branch 2: SECIS Element</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #9D0800;"></div>
+                <span>Branch 3: Sensing Element</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #9b2421;"></div>
+                <span>Branch 4: Cell-Free Validation</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ff918b;"></div>
+                <span>Branch 5: Riboswitch</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ffdcda;"></div>
+                <span>Future Steps</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content-area">
+        
+        <!-- Welcome Content -->
+        <div class="content-section active" id="welcome">
+            <h1 class="content-title">🧬 Results Overview</h1>
+            <p class="content-text">
+                Welcome to our interactive results section! Click on the leaves of our results tree to explore different aspects of our experimental work.
+            </p>
+            <p class="content-text">
+                Each branch represents a different experimental approach, from characterizing individual elements to testing complete systems. The tree grows as you explore, revealing the interconnected nature of our research.
+            </p>
+            
+            <div class="placeholder-content">
+                <div class="placeholder-icon">🌟</div>
+                <h3 style="color: var(--main-color); margin-bottom: 1rem;">Click on any leaf to explore our results</h3>
+                <p style="color: var(--grey);">Each colored leaf represents a different aspect of our experimental findings.</p>
+            </div>
+        </div>
+
+        <!-- Branch 1 Content -->
+        <div class="content-section" id="branch1-main">
+            <h1 class="content-title">🔬 Branch 1: SCR-D Element in HEK Cells</h1>
+            <h2 class="content-subtitle">Characterizing the SCR-D Element</h2>
+            <p class="content-text">
+                This section contains our detailed analysis of the SCR-D element behavior in HEK293T cells, including expression levels, functionality, and optimization parameters.
+            </p>
+            
+            <div class="placeholder-content">
+                <div class="placeholder-icon">📊</div>
+                <h3 style="color: var(--main-color);">SCR-D Results</h3>
+                <p style="color: var(--grey);">Add your SCR-D experimental data, graphs, and analysis here.</p>
+            </div>
+        </div>
+
+        <!-- Branch 2 Main Content -->
+        <div class="content-section" id="branch2-main">
+            <h1 class="content-title">🧬 Branch 2: SECIS Element in HEK Cells</h1>
+            <h2 class="content-subtitle">Characterizing the SECIS Element</h2>
+            <p class="content-text">
+                This branch explores the SECIS element functionality in HEK293T cells. Click on the sub-branches to explore specific aspects:
+            </p>
+            <ul style="font-size: 1.1rem; line-height: 1.7; color: var(--grey); margin-bottom: 1.5rem;">
+                <li><strong>SECIS Element Things:</strong> Core functionality and characterization</li>
+                <li><strong>Controls:</strong> Experimental design validation and controls</li>
+            </ul>
+            
+            <div class="placeholder-content">
+                <div class="placeholder-icon">🧬</div>
+                <h3 style="color: var(--main-color);">SECIS Branch Overview</h3>
+                <p style="color: var(--grey);">Click on the sub-branches to explore detailed results.</p>
+            </div>
+        </div>
+
+        <!-- Branch 2 Sub-content -->
+        <div class="content-section" id="branch2-secis">
+            <h1 class="content-title">🧬 Branch 2a: SECIS Element Analysis</h1>
+            <h2 class="content-subtitle">SECIS Element Things</h2>
+            <p class="content-text">
+                Comprehensive analysis of SECIS element functionality in HEK293T cells, including selenocysteine incorporation efficiency and optimization studies.
+            </p>
+            
+            <div class="placeholder-content">
+                <div class="placeholder-icon">🧬</div>
+                <h3 style="color: var(--main-color);">SECIS Element Results</h3>
+                <p style="color: var(--grey);">Add your SECIS element experimental data here.</p>
+            </div>
+        </div>
+
+        <div class="content-section" id="branch2-controls">
+            <h1 class="content-title">🔬 Branch 2b: Experimental Controls</h1>
+            <h2 class="content-subtitle">Controls for Experimental Design in HEK</h2>
+            <p class="content-text">
+                Detailed analysis of our control experiments, validation studies, and experimental design considerations for HEK293T cell-based assays.
+            </p>
+            
+            <div class="placeholder-content">
+                <div class="placeholder-icon">🔬</div>
+                <h3 style="color: var(--main-color);">Control Results</h3>
+                <p style="color: var(--grey);">Add your control experiment data and analysis here.</p>
+            </div>
+        </div>
+
+        <!-- Branch 3 Content -->
+        <div class="content-section" id="branch3-main">
+            <h1 class="content-title">📈 Branch 3: Sensing Element in HEK Cells</h1>
+            <h2 class="content-subtitle">Testing the Sensing Element</h2>
+            <p class="content-text">
+                Results from testing our theophylline sensing element functionality in HEK293T cells, including dose-response curves and specificity studies.
+            </p>
+            
+            <div class="placeholder-content">
+                <div class="placeholder-icon">📈</div>
+                <h3 style="color: var(--main-color);">Sensing Results</h3>
+                <p style="color: var(--grey);">Add your sensing element experimental data here.</p>
+            </div>
+        </div>
+
+        <!-- Branch 4 Main Content -->
+        <div class="content-section" id="branch4-main">
+            <h1 class="content-title">🧪 Branch 4: Cell-Free Validation</h1>
+            <h2 class="content-subtitle">SECIS and Aptamer's Validity Cell-Free</h2>
+            <p class="content-text">
+                This branch explores validation of our constructs in cell-free systems. Click on the sub-branches to explore specific aspects:
+            </p>
+            <ul style="font-size: 1.1rem; line-height: 1.7; color: var(--grey); margin-bottom: 1.5rem;">
+                <li><strong>Aptamer Validity:</strong> Theophylline aptamer functionality in cell-free systems</li>
+                <li><strong>SECIS Cell-Free:</strong> SECIS element behavior outside cellular environments</li>
+            </ul>
+            
+            <div class="placeholder-content">
+                <div class="placeholder-icon">🧪</div>
+                <h3 style="color: var(--main-color);">Cell-Free Branch Overview</h3>
+                <p style="color: var(--grey);">Click on the sub-branches to explore detailed results.</p>
+            </div>
+        </div>
+
+        <!-- Branch 4 Sub-content -->
+        <div class="content-section" id="branch4-aptamer">
+            <h1 class="content-title">🎯 Branch 4a: Aptamer Validity</h1>
+            <h2 class="content-subtitle">Aptamer's Validity in Cell-Free System</h2>
+            <p class="content-text">
+                Validation of theophylline aptamer functionality using cell-free expression systems, demonstrating construct viability outside cellular environments.
+            </p>
+            
+            <div class="placeholder-content">
+                <div class="placeholder-icon">🎯</div>
+                <h3 style="color: var(--main-color);">Aptamer Validation</h3>
+                <p style="color: var(--grey);">Add your aptamer validation data here.</p>
+            </div>
+        </div>
+
+        <div class="content-section" id="branch4-secis">
+            <h1 class="content-title">🧪 Branch 4b: SECIS in Cell-Free</h1>
+            <h2 class="content-subtitle">SECIS Element in Cell-Free System</h2>
+            <p class="content-text">
+                Analysis of SECIS element behavior in cell-free expression systems, comparing performance with cellular environments.
+            </p>
+            
+            <div class="placeholder-content">
+                <div class="placeholder-icon">🧪</div>
+                <h3 style="color: var(--main-color);">Cell-Free SECIS</h3>
+                <p style="color: var(--grey);">Add your cell-free SECIS data here.</p>
+            </div>
+        </div>
+
+        <!-- Branch 5 Content -->
+        <div class="content-section" id="branch5-constructs">
+            <h1 class="content-title">🔗 Branch 5: Riboswitch with Linkers</h1>
+            <h2 class="content-subtitle">Testing the Built Riboswitch with Designed Linkers</h2>
+            <p class="content-text">
+                Testing of our complete riboswitch constructs with designed linkers in cell-free systems, demonstrating full system functionality with theophylline aptamer, linkers, and SECIS element.
+            </p>
+            
+            <div class="placeholder-content">
+                <div class="placeholder-icon">🔗</div>
+                <h3 style="color: var(--main-color);">Complete Riboswitch System</h3>
+                <p style="color: var(--grey);">Add your complete construct testing data here.</p>
+            </div>
+        </div>
+
+        <div class="content-section" id="branch6-future">
+            <h1 class="content-title">🚀 Future Steps After Wiki Freeze</h1>
+            <h2 class="content-subtitle">Future Steps in the Lab</h2>
+            <p class="content-text">
+                Our planned next steps and future directions for the project after the wiki freeze, including optimization strategies, potential applications, and continued development.
+            </p>
+            
+            <div class="placeholder-content">
+                <div class="placeholder-icon">🚀</div>
+                <h3 style="color: var(--main-color);">Future Directions</h3>
+                <p style="color: var(--grey);">Add your future experimental plans and project roadmap here.</p>
+            </div>
+        </div>
+
+    </div>
 </div>
+
+<script>
+function showContent(contentId) {
+    // Hide all content sections
+    document.querySelectorAll('.content-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    
+    // Remove active state from all leaves
+    document.querySelectorAll('.tree-leaf').forEach(leaf => {
+        leaf.classList.remove('active');
+    });
+    
+    // Show selected content
+    document.getElementById(contentId).classList.add('active');
+    
+    // Add active state to clicked leaf
+    event.target.classList.add('active');
+}
+
+// Add some interactive effects
+document.addEventListener('DOMContentLoaded', function() {
+    const leaves = document.querySelectorAll('.tree-leaf');
+    
+    leaves.forEach(leaf => {
+        leaf.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.15)';
+        });
+        
+        leaf.addEventListener('mouseleave', function() {
+            if (!this.classList.contains('active')) {
+                this.style.transform = 'scale(1)';
+            }
+        });
+    });
+});
+</script>
 
 {% endblock %}
