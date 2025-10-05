@@ -1,75 +1,67 @@
 {% extends "layout.html" %}
 
 {% block title %}Attributions{% endblock %}
-{% block lead %}Accurate attribution is essential in the iGEM Competition. It ensures that the judges can properly assess your team's contributions and recognize the support provided by external collaborators. This page is dedicated to fulfilling the Attributions requirement for judging.{% endblock %}
+{% block lead %}Attributions and Acknowledgements for the project.{% endblock %}
 
 {% block page_content %}
 
-<div class="row mt-4">
-  <div class="col">
-    <div class="bd-callout bd-callout-info">
-      <h4>Bronze Medal Criterion #2</h4>
-      <p>Describe what work your team members did and what other people did for your project using the standardized Project Attributions Form.</p>
-      <hr />
-      <p>Visit the <a href="https://competition.igem.org/judging/medals">Medals page</a> for more information.</p>
-    </div>
-  </div>
-</div>
+<div style="max-width: 1200px; margin: 0 auto; padding: 5rem 2.5rem 4rem 2.5rem;"> 
 
-<div class="row mt-4">
-  <div class="col">
-    <h2>What Should this Page Contain?</h2>
-    <hr />
-    <ul>
-      <li>The standard navigation menu of your wiki</li>
-      <li>The standard footer of your wiki</li>
-      <li>The embedded iframe containing your standardized team's Project Attribution form.</li>
-      <li>Nothing else</li>
-    </ul>
+  <div class="header">
+    <!-- TÍTOL -->
+    <h1 class="page-title" style="color: #CC0000;">Project Attributions</h1>
   </div>
-</div>
 
-<div class="row mt-4">
-  <div class="col">
-    <h2>Tips for Success</h2>
-    <hr />
-    <p>Teams must use the official Attributions form. This form clearly delineates the work conducted by your team members and the support received from others. Carefully review the instructions and requirements of this deliverable on the <a href="https://competition.igem.org/deliverables/project-attribution">Project Attribution page</a>. Please note:</p>
-    <ul>
-      <li>Teams must use the standard form. Do not create your own form.</li>
-      <li>The standard Attributions Form must be filled out completely, accurately and honestly.</li>
-      <li>For the best results, we recommend teams start filling out the Attributions Form early in the season and updating it often.</li>
-    </ul>
-  </div>
-</div>
+  <div class="content"> 
+    
+    <!-- INICI -->
+    <section class="page-intro">
+      
+      <div class="card p-3" style="background-color: #FDD8D8; border: 1px solid #F0B0B0; margin-bottom: 20px;">
+          <!-- P 1:  -->
+          <p class="section-text mb-2" style="font-weight: 700; color: #A30000;">
+              The Attributions page highlights the work completed by our team members and acknowledges the contributions of advisors, sponsors, and external collaborators. Transparency in attributions is an essential value in iGEM, as it allows judges and the community to clearly distinguish the tasks performed by students from those carried out with external support. 
+          </p>
+          <!-- P 2:  -->
+          <p class="section-text mb-0" style="font-weight: 700; color: #A30000;">
+              We are grateful to everyone who has contributed to our project. Below you will find a summary of each team member’s role, as well as the support provided by external institutions, sponsors, and advisors.
+          </p>
+      </div>
+    </section>
+    <!-- FI -->
 
-<!--
-  ======================================================================
-  == VERY IMPORTANT                                                   ==
-  ======================================================================
-  LEAVE THE IFRAME CODE BELOW AS IT IS, THE ATTRIBUTION FORM OF YOUR TEAM
-  WILL BE DISPLAYED ON THIS PAGE. DO NOT REMOVE IT, OTHERWISE YOU RISK OF
-  NOT MEETING BRONZE MEDAL CRITERION #2
- -->
-<div class="row mt-4">
-  <script type="text/javascript">
-    // Listen to size change and update form height
-    window.addEventListener("message", function (e) {
-      if (e.origin === "https://teams.igem.org") {
-        const {type, data} = JSON.parse(e.data);
-        if (type === "igem-attribution-form") {
-          const element = document.getElementById("igem-attribution-form");
-          element.style.height = `${data + 100}px`;
+
+  <!--
+    ======================================================================
+    == VERY IMPORTANT                                                   ==
+    ======================================================================
+    LEAVE THE IFRAME CODE BELOW AS IT IS, THE ATTRIBUTION FORM OF YOUR TEAM
+    WILL BE DISPLAYED ON THIS PAGE. DO NOT REMOVE IT, OTHERWISE YOU RISK OF
+    NOT MEETING BRONZE MEDAL CRITERION #2
+  -->
+  <div class="row mt-4">
+    <script type="text/javascript">
+      // Listen to size change and update form height
+      window.addEventListener("message", function (e) {
+        if (e.origin === "https://teams.igem.org") {
+          const {type, data} = JSON.parse(e.data);
+          if (type === "igem-attribution-form") {
+            const element = document.getElementById("igem-attribution-form");
+            element.style.height = `${data + 100}px`;
+          }
         }
-      }
-    });
-  </script>
-  <iframe
-    style='width: 100%'
-    id="igem-attribution-form"
-    src="https://teams.igem.org/wiki/5622/attributions">
-  >
-  </iframe>
+      });
+    </script>
+    <iframe
+      style='width: 100%'
+      id="igem-attribution-form"
+      src="https://teams.igem.org/wiki/5622/attributions">
+    >
+    </iframe>
+  </div>
+  <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+
 </div>
-<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<!-- Cierre del DIV principal con los estilos de margen/ancho -->
 
 {% endblock %}
