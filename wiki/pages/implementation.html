@@ -1,0 +1,248 @@
+{% extends "layout.html" %}
+
+{% block title %}Implementations{% endblock %}
+{% block lead %}The revolution of translational control and its potential applications{% endblock %}
+
+{% block page_content %}
+
+<div class = "page-container">
+ <aside class="sidebar">
+  <ul class="sidebar-nav">
+    <li><a href="#using-scr">Using SCR</a></li>
+    <li><a href="#riboswitch">Our riboswitch</a></li>
+    <li><a href="#beyond-scr">Beyond SCR: TADPOLE</a></li>
+    <li><a href="#betting-innovation">Betting on innovation</a></li>
+  </ul>
+</aside>
+
+  
+  <div class = "page-content">
+    <div class = "header">
+      <h1 class = "page-title">Implementations</h1>
+      <p class = "page-desc">The revolution of translational control and its potential applications</p>
+    </div>
+
+    <div class = "content"> 
+
+
+<div class="red-box">
+  <p>The proposed implementations found in this section are just some ideas we have developed ourselves or that have been developed by the experts of various fields we have consulted. This page is a glimpse into the world SKIPPIT offers, where the boundaries of synthetic biology are being constantly pushed. The only limitation to our technology’s applications is the user’s own creativity, as this translational-level control can be applied to any protein and it can be used in any field: from genomics, agriculture, biomanufacturing, therapeutics, biosensing and many more. The revolution of translational control is now.</p>
+</div>
+<section id="using-scr">
+<h2>Using SCR</h2>
+
+<h3>Understanding the readthrough</h3>
+<p>STOP codon readthrough elements (SCR) are sequences in mRNA transcripts that interact with the ribosome as it reads the STOP codon. This interaction allows the STOP to be recoded, meaning that instead of termination occurring by the release factor complex, the STOP is decoded by a near-cognate tRNA. This near cognate tRNA recognizes the STOP codon and adds a modified aminoacid, such as selenocysteine, to the peptide chain, which allows translation to continue beyond the STOP. [1]</p>
+
+<p>FALTA VIDEO</p>
+
+<p>Essentially, when using a SCR element, we are favoring that when the release factor complex and the near-cognate tRNA interact, the near-cognate tRNA wins. 
+It’s important to note that readthrough is always expressed residually, but in 99.9% of instances, the release factor complex successfully induces termination.</p>
+
+<h3>SCR to modulate protein expression</h3>
+<p>The most interesting application for SCR elements is that of dual-protein regulation for two proteins encoded on the same transcript. Essentially, we separate two proteins, two exons or two translational units with a STOP codon. The first proteins, encoded before the STOP codon, have the expression level of the promoter that drives the transcription of the mRNA. The second proteins, encoded after the STOP codon, are only expressed according to the readthrough rate induced by the SCR element.
+Therefore, for one singular transcript, we have two different protein expression rates.</p>
+
+<p>For example, during our project we have worked with two different SCR elements: SCR-D and SECIS. SCR-D, in its WT state, induces a 9% readthrough rate in HEK cells. However, SECIS induces a 10% readthrough rate in HEK cells, and up to 14% in cell-free systems. We also designed and tested new SCR elements, derived from SCR-D, that induce variable readthrough rates (5~8%). Using our SCR library, we can design multiple constructs with different SCR elements, inducing variable readthrough rates. This means we can test many combinations of two proteins at different expression levels. This is especially interesting for fields such as therapeutics and biomanufacturing, were low expression levels of certain proteins, and dual-drug delivery have become a necessity.</p>
+
+<div class="accordion">
+  <div class="accordion-header">
+      <div class="accordion-title">Why the interest in SCR?</div>
+      <div class="accordion-icon"></div>
+  </div>
+  <div class="accordion-content">
+      <div class="accordion-content-inner">
+          <p>Why use a SCR system, with translation-level control, instead of current genetic tools?
+          As full professor and cellular biologist Manuel Reina pointed out, when we want to characterise the function of a protein, we usually knock it out. However, if we make a knock-out (KO) or a knock-down (KD) of the gene, we are also messing with the DNA to RNA pathway, and we cannot say with certainty that the effect we are seeing is because the protein is affected, or the RNA is affected (as we have seen throughout this project, RNA is way more than just a mere messenger –it can sometimes have a functionality of its own). Therefore, transcription-level control ensures that RNA remains undisturbed, and any effect we see is completely because of the absence of the protein.</p>
+
+          <p>It is also advantageous when we want the control of the protein synthesis to be applied after all the processing levels of mRNA, such as splicing, have finished. We ensure that the regulation is only applied on the final transcript and not on previous stages. Additionally, the small size of SCR elements (usually less than or about 100 bp) allows for minimal modification of genes to acquire this feature, it could be even engineered with PCR systems.</p>
+
+          <p>This is specially favoured when compared to actual systems for protein expression that rely on trans regulation and the expression of an exogenous protein that, upon interaction with a drug, functions as a trans inducer or as a repressor of a promoter. However, exogenous proteins are antigenic and require the transfer of large expression cassettes.</p>
+      </div>
+  </div>
+</div>
+
+
+
+<h2>Proposed implementations</h2>
+<p>SCR elements are especially interesting to study protein effect and to increase protein control when performing cellular biology experiments and when characterising new parts. There is a very wide range of possible applications, but we have focused on its potential use to treat diseases and develop new therapeutics.</p>
+
+<h3>Diseases that stem from a premature STOP codon.</h3>
+<p>Many genetic disorders are the result of nonsense mutations that introduce premature STOP codons. Partial expression (e.g., 16-40% readthrough) could restore enough function to alleviate symptoms without toxicity risks.</p>
+
+<p><strong>Duchenne Muscular Dystrophy:</strong> It’s caused by premature stop codons mutations tat lead to a nonfunctional dystrophin protein. SCR could rescue protein function by enabling readthrough of the premature stop codon, restoring full-length dystrophin. 20-30% dystrophin levels can significantly improve muscle function without the risk of overexpression.</p>
+
+<p><strong>Cystic Fibrosis:</strong> Experimental trials show that low CFTR expression can partially restore ion channel function in cells.</p>
+
+<p><strong>Rett syndrome:</strong> Partial expression of MECP2 protein can improve symptoms of patients, and use of SCR elements can prevent risk of overexpression.</p>
+
+<p><strong>Renitis pigmentosa:</strong> Premature STOP codon mutations to the rhodopsin gene lead to a truncated, non-functional protein. [2]</p>
+</section>
+<section id="riboswitch">
+<p><strong>Our riboswitch</strong></p>
+<p>Our STOP Codon Readthrough (SCR) and aptamer riboswitch represents an innovative approach to gene expression regulation by enabling ligand-dependent modulation of readthrough rates. 
+This method is a precise, reversible and dynamic method to exercise control over RNA transcripts on the translational level, and it increases the possible uses for SCR elements, especially those that require modulable protein expression.</p>
+
+<p>We have thus far been able to develop an OFF-ON type riboswitch, but in future iterations of our design we want to be able to generate an ON-ON type riboswitch.</p>
+<p><em>FALTA VIDEO</em></p>
+<h3>The benefit of using riboswitches</h3>
+<p>Riboswitches are slowly positioning themselves as the key tool to revolutionise synthetic biology. They are small components that can be reactive to many different types of external inputs, that allow fine-tuning of gene expression without trans acting factors. They offer a very reliable platform from a biosafety standard, especially when it comes to controlling toxicity. RNA switches with aptamers are of special interest due to their reduced size, which allows performing very small genetic modifications to the genes we want to control💡.</p>
+
+<h2>Proposed implementations</h2>
+<p>Any disease, technique, and sensor that can be designed using a SCR element can be further improved by the additional layer of control added with a modulable SCR riboswitch. These riboswitches push the applications of SCR even further.
+Compared to promoter-based regulation, the SCR switch significantly reduces unintended basal expression of the downstream protein. Even when promoters are in an "off" state, transcription can still occur due to factors such as chromatin accessibility and incomplete repressor binding. In contrast, SCR inherently defaults to termination in the absence of a ligand, effectively blocking translation elongation and preventing unnecessary protein production.</p>
+
+<h3>Therapeutic Applications</h3>
+<p>Medicine is transforming, and so is the way we approach healthcare. The use of therapeutic proteins and drugs is on the rise, and regulating their quantity and delivery time is crucial. 
+Traditional approaches often lack the ability to fine-tune protein expression, leading to challenges like toxicity from overexpression or inconsistent therapeutic outcomes. Our SCR riboswitch addresses this by enabling ligand-inducible, tunable expression of two proteins from one transcript, offering precise and reversible control.
+This is particularly valuable in gene therapy, where constitutive transgene expression can cause issues: prolonged expression beyond therapeutic benefit risks toxicity, patient-specific therapeutic windows vary widely, and high expression levels may trigger side effects or gene silencing. Also, some diseases require transgene expression only until therapeutic benefit is achieved, and the transgene should be silenced thereafter, this is why ON-ON riboswitches would be of great interest. By allowing dynamic, drug-responsive regulation, we pave the way for safer, more effective gene therapies tailored to individual needs.</p>
+
+<p><strong>Neurodegenerative diseases:</strong> In neurodegenerative diseases, a dual-protein system could consist of a first protein to monitor cell health and a second protein, expressed due to readthrough levels, could deliver neuroprotection when needed by the patient. For example, to treat Parkinson’s disease by controlling GDNF expression, a neuroprotector. The inducible nature of the riboswitch would allow regulable GDNF levels, avoiding overstimulating the neurons.</p>
+
+<p><strong>Cancer:</strong> There are many different approaches to treat cancer, but a possible method would be to generate a system with inducible pro-apoptotic factors to target cancer cells selectively, which is one of the current major challenges in oncology. The protein upstream of the STOP codon could constitutively mark cancer cells, whilst the protein downstream of the STOP codon could be an expression factor that triggers apoptosis like Bax. The second protein would solely be expressed when a tumor-specific synthetised ligand binds to the riboswitch, allowing targeted therapeutics.</p>
+
+<p><strong>Metabolic disorders:</strong> Disorders such as diabetes or phenylketonuria require tight regulation of enzyme levels. In diseases where enzyme deficiencies are a problem, partial enzyme expression could restore metabolic balance without overcompensation. For example, inducible expression of PAH could restore phenylalanine metabolism.</p>
+
+<h3>Cellular Biology studies</h3>
+<p>Many studies of protein function rely on being able to detect the protein’s location. A system where the protein of interest is fused to a fluorescent protein is often used to achieve this. Using our inducible readthrough riboswitch, we could design a construct with the protein of interest 5’ to the STOP codon, and the fluorescent protein 3’ to the STOP codon. This would allow selective control for when the fluorescent protein is expressed, fused to the protein of interest, whilst also generating non-fused proteins that would maintain protein function unaffected by the fusion to the fluorescent reporter.</p>
+<div style="text-align: center;">
+    <img src="https://static.igem.wiki/teams/5622/images/implementation/location-reporter.webp" alt="Location reporter diagram">
+</div> 
+
+<p>Directing proteins: Most proteins contain a “tag” peptide that directs their destination within the cell: the nucleus, the cytosol, the membrane, extracellular… To selectively study the function of a protein in different sub-cellular locations, a construct including our riboswitch could be designed to control a protein’s destination. The protein of interest would be expressed 5’ of the STOP codon, whilst the protein tag could be expressed 3’ of the STOP codon. This way a cellular line could be established where the user can control when proteins are directed to a certain location, and when they remain in their natural cellular compartment.</p>
+<div style="text-align: center;">
+    <img src="https://static.igem.wiki/teams/5622/images/implementation/compartment-direction.webp" alt="Compartment direction diagram">
+</div> 
+
+<p>Studying protein aggregation: In many circumstances, such as neurodegenerative diseases, the aggregation of proteins leads to the occurrence of prion-like diseases. A method to study these diseases could be to have our protein of interest 5’ of the STOP codon, and have a protein aggregation sequence 3’ of the STOP codon. This construct would allow us to study the behaviour of prion-like proteins and their effect on cells, increasing our understanding of these untreatable conditions. 💡</p>
+<div style="text-align: center;">
+   <img src="https://static.igem.wiki/teams/5622/images/implementation/aggregating-proteins.webp" alt="Protein aggregation diagram">
+</div> 
+
+<h3>Environmental Applications</h3>
+<p>Our riboswitch offers transformative potential for environmental sustainability by enabling precise, inducible protein expression in response to environmental cues.</p>
+
+<p><strong>Agriculture:</strong> Could be especially interesting to target the current problem of pesticide overuse, a major driver of environmental harm and pest resistance. By expressing defense proteins like Bt toxin only in the presence of pest-specific stimuli, such as insect pheromones, we could minimize the effect on non-target pests. This could be a great conservational tool, that minimises the amount of pesticide generated by the transgenic plant whilst reducing resistance development and the eradication of endangered species.</p>
+
+<p><strong>Bioremediation:</strong> Our platform could be used to equip microbes to express pollutant-degrading enzymes, such as laccases for plastics, only in the presence of specific contaminants like benzene. Low basal expression maintains microbial viability, while inducible readthrough optimizes cleanup efficiency, offering a scalable solution for pollution challenges like oil spills or microplastics.</p>
+
+<p><strong>Climate resilience:</strong> The system could regulate stress-response proteins in crops, such as DREB1A for drought tolerance, triggered by environmental signals like abscisic acid. This targeted expression enhances crop survival under extreme conditions without wasting resources, addressing food security amid the climate crisis.</p>
+
+<h3>Industrial applications</h3>
+<p>Industrial biotechnology heavily relies on metabolic control of microorganisms as well as protein manufacturing. This is especially true for the food and pharmaceutical industries.</p>
+
+<p><strong>Metabolic engineering:</strong> Our inducible SCR could be used to fine-tune metabolic pathways by constitutively expressing an essential enzyme (5’ of the STOP) while inducibly expressing a rate-limiting enzyme (3’ of the STOP), such as pyruvate decarboxylase for ethanol production, triggered by a metabolite like glucose. The partial readthrough ensures optimal pathway flux without metabolic deviation, enhancing yields and sustainability in production.</p>
+
+<p><strong>Cell factories:</strong> To improve protein synthesis, a construct could be designed where 5’ of the STOP codon there is a primary product like insulin, while 3’ of the STOP codon we could find a chaperone like GroEL, inducibly expressed at low levels (16-40%) to enhance folding efficiency of the synthetised proteins.</p>
+
+<p><strong>Biosensors:</strong> The system’s tunable response to ligands like pollutants enables sensitive detection in industrial settings, such as monitoring bioreactor conditions or industrial waste compounds. Its modularity and precision make it a versatile platform for next-generation biomanufacturing and diagnostics, driving efficiency and innovation in industrial biotechnology.</p>
+
+<p><strong>Bioreactor dynamics:</strong> A great problem in bioreactors is cell suicide, as cells cannot tolerate the stressful conditions of large high-density bioreactors, impeding further upscaling in industrial settings. Our system could be helpful to block caspases in a specific moment of the process, favouring their survival in more stressful conditions. This system would also allow base-level expression of caspases, ensuring other key functions of these proteins are not fully disrupted. 💡</p>
+
+<p><strong>Protein purification:</strong> Protein synthesis in industrial settings is often complex due to the need to purify these proteins, separating them from the cells that synthetised them and other proteins found in the media. Our system could be used to induce the precipitation of our target proteins when desired, obtaining batches of the product that could then be treated with proteases to remove the aggregating domain.</p>
+</section>
+<section id="beyond-scr">
+<h3>Beyond SCR: TADPOLE</h3>
+<p>What if we were not limited to the use of a readthrough element, what if we could use any functional RNA? 
+With TADPOLE we can dare to create any riboswitch with any functional RNA with conserved structure. That means anything is possible. From controlling translational termination, to controlling ribosome adhesion, to controlling frameshifting and splicing and gene silencing.
+With new ribozymes being identified every year, the range that can be accomplished with TADPOLE and tailored RNA switches is infinite, the only limitation is that of knowledge and imagination.</p>
+<div class="grid-container">
+  <div class="grid-item text-item">
+    <p>What if we were not limited to the use of a readthrough element, what if we could use any functional RNA? 
+    With TADPOLE we can dare to create any riboswitch with any functional RNA with conserved structure. That means anything is possible. From controlling translational termination, to controlling ribosome adhesion, to controlling frameshifting and splicing and gene silencing.
+    With new ribozymes being identified every year, the range that can be accomplished with TADPOLE and tailored RNA switches is infinite, the only limitation is that of knowledge and imagination.</p>
+  </div>
+  <div class="grid-item image-item">
+    <img src="https://static.igem.wiki/teams/5622/images/implementation/tl.webp" alt="TADPOLE diagram">
+  </div>
+</div>
+
+</section>
+<section id="betting-innovation">
+<h3>Betting on innovation</h3>
+<p>The SKIPPIT SCR and RNA switch tools are the first of their kind, and are a testament to the new approaches to synthetic biology and genetic regulation. We want to highlight their most important features:</p>
+
+<ul class="point-list">
+  <li><strong>Precise:</strong> The inducible, fine-tuned control sets it apart from binary systems, addressing a key need in synthetic biology.</li>
+  <li><strong>Modularity:</strong> The system can be tailored thanks to TADPOLE; with different proteins, ligands, and expression levels.</li>
+  <li><strong>Countless Applications:</strong> From biosensors to therapies, from curing diseases to green industries.</li>
+  <li><strong>Versatile:</strong> They can be adapted to different organisms (humans, plants, microbes) and proteins, with customizable expression levels and ligands.</li>
+</ul>
+</section>
+</section>
+</div>
+</div>
+</div>
+<style>
+/* ---------- BASE ---------- */
+.implementations-section {
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+  line-height: 1.7;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+.implementations-section p {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+.implementations-section h2, 
+.implementations-section h3 {
+  color: #b80000;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+.bold-word {
+  font-weight: 700;
+}
+/* ---------- RED BOX ---------- */
+.red-box {
+  background-color: rgba(184, 0, 0, 0.08);
+  border-left: 5px solid #b80000;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+/* ---------- IMAGES ---------- */
+.implementations-section img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .implementations-section {
+    padding: 1rem;
+  }
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.grid-item img {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+</style>
+
+{% endblock %}
