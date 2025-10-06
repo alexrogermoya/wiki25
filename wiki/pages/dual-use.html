@@ -5,37 +5,348 @@
 
 {% block page_content %}
 
-
 <div class = "page-container">
   <aside class="sidebar">
       <ul class="sidebar-nav">
-          <li><a href="#intro" class="active">First section</a></li>
-      </ul>
+          <li><a href="#DUA" class="active">Dual-Use Assessment</a>
+          <ul class = "sidebar-subnav">
+            <li><a href="#subtitle1">Introduction</a></li>
+            <li><a href="#subtitle2">Methodology</a></li>
+            <li><a href="#subtitle3">Risk identification</a></li>
+              <ul class = "subnav">
+                <li><a href="#subtitle4">RNA system</a></li>
+                <li><a href="#subtitle5">Software</a></li>
+              </ul>
+            <li><a href="#subtitle6">Mitigation</a></li>
+              <ul class = "subnav">
+                <li><a href="#subtitle7">Intrinsic</a></li>
+                <li><a href="#subtitle8">Procedural</a></li>
+              </ul>
+            <li><a href="#subtitle9">Contingency measures</a></li>
+              <ul class = "subnav">
+                <li><a href="#subtitle10">Red-teaming</a></li>
+                <li><a href="#subtitle11">Group A</a></li>
+                <li><a href="#subtitle12">Group B</a></li>
+              </ul>
+            <li><a href="#subtitle13">Conclusions</a></li>
+            </li>
+          </ul>
+          </li>
   </aside>
-  
-  <div class = "page-content">
-    <div class = "header">
-      <h1 class = "page-title">Dual-Use Assessment</h1>
-      <p class = "page-desc">Page description</p>
-    </div>
-    <div class = "content"> 
-      <section id = "intro">
-        <h1 class ="section-title">First section</h1>
-        <p class="section-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et augue in sem semper accumsan. Sed risus dolor, malesuada convallis lorem id, dignissim pharetra tellus. Ut convallis enim a odio porta efficitur. Nam dapibus, nunc a consequat pulvinar, massa sapien tincidunt dolor, a malesuada turpis mauris placerat tellus. In non nisi erat. Proin ullamcorper sagittis ex, sed accumsan justo ullamcorper pulvinar. Aenean vulputate sapien velit, at ullamcorper metus imperdiet ut.
-        <br><br>
-        Aliquam quis est et velit pretium facilisis ut quis ex. Donec venenatis neque ac odio semper, sit amet gravida orci consequat. Integer sollicitudin a ex ultricies finibus. Vivamus tempor dignissim sapien, in dictum nibh aliquet quis. Donec elementum luctus velit eu efficitur. Quisque mattis dolor rhoncus felis feugiat, id tristique felis varius. Aliquam justo ligula, sollicitudin non mauris ut, sollicitudin commodo tortor. Nulla id leo augue. Pellentesque libero arcu, aliquam consectetur lacus et, mattis condimentum lectus. Nulla turpis elit, posuere nec odio a, euismod mattis quam. Quisque nec quam ante. In ultricies nunc velit, nec tempus nisi varius eu. 
-        </p>
-      </section>
-      <section class ="references">
-        <h1 class="section-title">References</h1>
-        <ol>
-          <li>WHO EMRO | Stroke, Cerebrovascular accident | Health topics.</li>
-          <li>Feigin, V. L., Nguyen, G., Cercy, K., Johnson, C. O., Alam, T., Parmar, P. G., Abajobir, A. A., Abate, K. H., Abd-Allah, F., Abejie, A. N., Abyu, G. Y., Ademi, Z., Agarwal, G., Ahmed, M. B., Akinyemi, R. O., Al-Raddadi, R., Aminde, L. N., Amlie-Lefond, C., Ansari, H., … Roth, G. A. (2018). GLOBAL, REGIONAL, AND COUNTRY-SPECIFIC LIFETIME RISK OF STROKE, 1990–2016. The New England Journal of Medicine, 379(25), 2429–2437. <a class="link-text" src="https://doi.org/10.1056/NEJMoa1804492">Paper</a></li>
-          <li>Ischaemic stroke | Stroke Association. <a class="link-text" src="https://www.stroke.org.uk/stroke/types/ischaemic">Website</a></li>
-        </ol>
-      </section>
-    </div>
-  </div>
-</div>  
+
+
+<div class = "page-content">
+<div class = "header">
+<h1 class = "page-title">Biosecurity</h1>
+<p class = "page-desc">"You are overthinking this, and that is <span class="italic-word">precisely</span> what you have to do"</p>
+</div>
+
+<p class = "section-text">Science is all around us –usually for better, but, sometimes, for worse. We are constantly reminded of the positive applications of scientific advancements and how they will revolutionise the way we do science. However, some of the applications of a new technology can be used with malicious intent or cause harm unintentionally. For example, CRISPR has accelerated the world of synbio to an unprecedented scale, but it can also be used to provide an innocuous organism with pathogenic capabilities. This dichotomy between using a new tool for good or for bad is also known as "dual use", and its study is a vital aspect that should always be considered when a new biotechnology arises. 
+<br><br>
+In our case, Skippit allows the user to overrule a stop codon with an ON/OFF switch. As with any new technology, we scientists have to stop, take a step back, and think about the implications our tool might have. We have already covered the useful, groundbreaking applications of Skippit and Tadpole in other <a class="link-text" href="{{ url_for('pages', page='applications') }}">pages</a>, but here we have given ourselves a different goal: let’s think bad, let’s be ill-intentioned, but just for a moment. Let’s twist the ways we could use Skippit so it could cause harm. And after this –sometimes quite fun– exercise, let’s think about a way to avoid these situations –build inherent safeguards into Skippit to minimise potential harm.
+<br><br>
+As Lucas Bouldrini said in our <a class="link-text" href="Link-dual-use-1">meeting</a>, we have overthought our analysis, but that is exactly what a biosecurity assessment should do.
+<br><br>
+Therefore, in this page we present all the overthinking we have done in the form of a Dual-Use Assessment. Besides demonstrating we have taken active measures to minimise potential risks, our ultimate goal is for it to serve as an example for other iGEM teams on how to overthink their biosecurity assessments.
+</p>
+
+<section id = "DUA">
+<h1 class = "section-title">Dual-Use Assessment</h1>
+<h2 id = "subtitle1" class = "section-subtitle">Introduction</h2>
+<p class = "section-text">The concept of dual-use research in the life sciences refers to research with a legitimate and beneficial purpose that could be intentionally or unintentionally misused to cause harm [1]. This dilemma is not a new concern, with its roots tracing back to the late 1970s and the development of recombinant DNA technology [2]. However, the rise of synthetic biology, with its emphasis on engineering principles, modular components, and computational design, has intensified these concerns by making biological manipulation more predictable, accessible, and faster [3].
+<br><br>
+The definition of dual-use has evolved to encompass not just physical biological agents but also the knowledge, information, products, or technologies that can be misused [1]. The European Union, for example, has established a regulatory framework to control the export of "dual-use items," which explicitly includes goods, software, and technology that can have both civilian and military applications [4,5]. The United States has also established a policy framework for institutional oversight of life sciences research of concern (DURC) aimed at preserving the benefits of research while minimising the risk of misuse. This is not a matter of prohibiting research, but of scrutinising it carefully and conducting it with a pronounced awareness of potential threats [2].
+<br><br>
+A central issue with modern biosecurity is that traditional, list-based approaches that focus on a limited number of specific pathogens or toxins are becoming inadequate [6]. Synthetic biology and computational design tools are enabling the creation of novel genetic sequences and capabilities that may not appear on any pre-existing lists, presenting a significant gap in current defense mechanisms [2,6]. Skippit, with its focus on a new method of genetic control and the Tadpole software, falls squarely into this modern dual-use paradigm. Its dual-use potential stems not from the use of a known dangerous organism but from the introduction of a novel and potent capability for genetic control, which is the key area of concern in contemporary biosecurity assessments [2,7]. Therefore, a thorough assessment must go beyond a simple checklist and adopt a capability-based perspective to identify and mitigate all plausible misuse vectors, both physical and digital.
+</p>
+
+<h2 id = "subtitle2" class = "section-subtitle">Methodology</h2>
+<p class = "section-text">Skippit's dual-use assessment was conducted using a structured, multi-phase framework. This approach is informed by established methodologies from international bodies, such as the Netherlands Biosecurity Office and the US National Academies of Sciences, Engineering, and Medicine (NASEM), which advocate for a holistic and anticipatory approach to governing emerging technologies [8,9].  The framework extends beyond a simple, one-time assessment and is intended to be a continuous process that is revisited throughout the project's lifecycle, from initial conceptualisation to the wiki deadline, and beyond. The methodology is designed to be systematic and repeatable, ensuring a rigorous and comprehensive evaluation of all potential risks.
+<br><br>
+The assessment comprises four distinct but interconnected phases:
+</p>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title"><span class="bold-word">Phase 1: Risk identification</span><br><br>Proactively identifying all potential misuse pathways for the project's components.</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<p>This initial phase is dedicated to proactively identifying all potential misuse pathways. The process intentionally adopts an adversarial perspective, a practice often referred to as "red-teaming" [7,10]. The goal is to think like a malicious actor and explore how a technology intended for a benign purpose could be repurposed for harm [10]. This phase involves brainstorming sessions and the creation of hypothetical scenarios, or "vignettes," which describe how Skippit's technologies –the RNA circuit and the Tadpole software– could be used for malevolent purposes [11]. By considering both the most obvious and the most creative forms of misuse, this approach aims to identify vulnerabilities and "unknown unknowns" that a standard risk assessment might overlook [10].
+</p>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title"><span class="bold-word">Phase 2: Risk analysis (usability and requirements)</span><br><br>Evaluating the identified risks based on a set of standardised factors to understand their plausibility and potential impact.</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<p>Once potential misuse vectors have been identified, the second phase involves a systematic analysis of these risks. This analysis is guided by a set of four factors, adapted from the NASEM framework for assessing synthetic biology capabilities [7,12]: </p>
+<ol>
+<li><span class="bold-word">Usability of the technology:</span>
+<br><br>
+This factor assesses the technical barriers to misuse. It considers the ease of use, the rate of development of the technology, and its synergy with other available tools [7]. For Skippit, this involves evaluating the complexity of cloning the RNA circuit into a new organism and the technical expertise required to use the linker software effectively [13,14]. A key consideration is the role of "tacit knowledge," which is the non-codified, hands-on expertise required to make a biological system function, a factor that often presents a higher barrier to entry than access to materials alone [14].
+</li>
+<li><span class="bold-word">Usability as a weapon:</span>
+<br><br>
+This factor evaluates the potential for a misused technology to cause harm to public health, agriculture, or the environment [7,15]. This includes whether the technology could enhance a pathogen's transmissibility, virulence, or stability; increase the production of a toxin; or facilitate its evasion of detection methodologies [2,15].
+</li>
+<li><span class="bold-word">Requirements of actors:</span>
+<br><br>
+This factor considers the resources, expertise, and institutional access a malicious actor would need to successfully execute a misuse scenario [7,14]. While the "de-skilling" of biology and the decreasing cost of materials are often cited as lowering these barriers, the reality is that significant resources and know-how are still required to engineer a viable biological weapon [14].
+</li>
+<li><span class="bold-word">Potential for mitigation:</span>
+<br><br>
+This final factor analyses whether the identified risks can be effectively countered by existing or proposed deterrents and countermeasures [7]. The availability of vaccines or other medical interventions, the existence of regulatory safeguards like the Select Agent Program, and the potential for new design-based mitigations are all considered in this evaluation [7,16].
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title"><span class="bold-word">Phase 3: Mitigation strategy</span><br><br>Proposing proactive measures to reduce the likelihood of misuse.</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<p>This phase focuses on the development of proactive measures to minimise the chances of a misuse event. Mitigation strategies are broadly categorised into two types: intrinsic and procedural [16,17]. Intrinsic measures involve "designing safety in" by incorporating features directly into the biological or digital technology that limit its potential for misuse. Procedural measures are the administrative and policy-based controls that govern how research is conducted, who has access to it, and how information is disseminated [16].
+</p>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title"><span class="bold-word">Phase 4: Contingency planning</span><br><br>Developing reactive response strategies for a range of hypothetical misuse scenarios.</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<p>The final phase of the assessment is dedicated to contingency planning, which involves developing a reactive response framework in the event a misuse event occurs [18]. This phase is critical because, despite the best mitigation efforts, no system is foolproof. The process, therefore, returns to the red-teaming approach of Phase 1, using the hypothetical misuse scenarios to test the readiness of the team and the broader community. The goal of this phase is to create a clear, actionable plan for detecting, responding to, and managing the consequences of a dual-use incident, thereby improving overall preparedness and resilience [11,19].
+</p>
+</div>
+</div>
+</div>
+
+<h2 id = "subtitle3" class = "section-subtitle">Risk identification and analysis</h2>
+<h3 id = "subtitle4" class = "section-subtitle2">The RNA aptamer/SCR system</h3>
+<p class = "section-text">The Skippit RNA aptamer/SCR system provides a new capability for gene expression control that is both precise and externally tunable. Its benign applications are wide-ranging and include creating genetically encoded biosensors for environmental monitoring or engineering therapeutic cells that produce a protein only when a disease marker is present. However, the dual-use potential of this system lies in its modularity and the ability to combine it with other genetic parts.
+</p>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Read more</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<p>The system's most significant misuse vector is its potential for enhancing the pathogenicity of a biological agent or for producing a harmful biochemical. For example, a malicious actor could clone the aptamer/SCR system into a non-pathogenic bacterium and fuse it with a gene for a toxin, effectively weaponising an otherwise harmless organism. The use of an external ligand like theophylline to activate the system introduces an element of stealth, as the organism's dangerous function would remain dormant until a specific trigger is introduced, making it difficult to detect or trace its origin. Furthermore, the system could be used to precisely tune the expression of a virulence factor in a low-risk pathogen, thereby increasing its transmissibility or severity, a process that is a known concern in biosecurity.
+<br><br>
+Another major concern is that the system could be used to evade existing biosecurity controls. Most current regulations, such as the Federal Select Agent Program, are based on static lists of known agents and toxins [20]. By placing a gene for a toxin under the control of the Skippit switch and cloning it into a common, non-regulated organism like E. coli DH5α, a malicious actor could create a dangerous agent that is not on any list. This capability highlights a significant vulnerability in current biosecurity infrastructure, which has not yet fully adapted to the pace of innovation in synthetic biology and the creation of novel agents.
+</p>
+</div>
+</div>
+</div>
+
+<h3 id = "subtitle5" class = "section-subtitle2">The Tadpole software</h3>
+<p class = "section-text">Skippit's software tool, also known as Tadpole, is a valuable innovation for designing complex and reliable RNA circuits, a task that is often technically challenging. This tool automates a complex design process, thereby lowering the barrier to entry for researchers and accelerating the pace of discovery. However, the dual-use potential of the software exists primarily in the digital and informational realms.
+</p>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Read more</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<p>One of the most immediate concerns is intangible technology transfer. The European Union and other international bodies have recognised that the transfer of know-how, software, and technical data –not just physical items– can contribute to the proliferation of dangerous technologies. If the Tadpole software's code or its underlying design principles are made public without adequate controls, a malicious actor could use this knowledge to design a dangerous RNA circuit. The design and code themselves could be subject to export control regulations if they enable the creation of a weapon. This presents a unique challenge for open-science communities like iGEM, which must balance the values of transparency and collaboration with the need for security.
+<br><br> 
+A more advanced misuse scenario involves using the software to enhance the properties of a weaponised agent. The software's ability to design optimised, highly stable linkers could be leveraged to create RNA circuits that are more resilient to environmental degradation, making a biological agent more durable and effective. This capability would directly enhance the usability of a bioweapon, a key factor in the NASEM risk assessment framework.
+<br><br>
+Finally, the software presents a significant risk for the evasion of existing biosecurity controls. Nucleic acid synthesis providers often voluntarily screen orders against lists of known "sequences of concern". However, these lists are static and are not prepared to handle the rapid creation of novel sequences enabled by computational design tools. A malicious actor could use Tadpole to design a functionally dangerous RNA sequence that is structurally unique and therefore not on any of these lists, allowing the order to pass through synthesis screening undetected. This scenario underscores the inadequacy of static, list-based approaches in an age of AI-enabled genetic design.
+</p>
+</div>
+</div>
+</div>
+
+<h2 id = "subtitle6" class = "section-subtitle">Mitigation and control measures</h2>
+<h3 id = "subtitle7" class = "section-subtitle2">Intrinsic biosecurity (design-based solutions)</h3>
+<p class = "section-text">Intrinsic biosecurity measures are those that are designed directly into the project's technology to limit its potential for misuse. The most effective approach is to "design safety in" from the ground up.
+<br><br>
+<span class="highlight-word">Synthetic ligand</span>: The aptamer's reliance on theophylline, a molecule not naturally found in most biological systems, intrinsically limits the potential for the circuit to be activated in an uncontrolled manner in a natural environment. Besides, theophylline is a non-volatile solid that is not readily aerosolised during normal laboratory handling, and its use in solution form eliminates inhalation hazards and unintended environmental dispersal. Additionally, there is a controlled access to theophylline, as it is generally obtained via research supply channels or prescription drugs, which allows tracking and regulating ligand availability within the lab.
+<br><br>
+<span class="highlight-word">Non-pathogenic chassis</span>: Our choice of <a class="link-text" href="Link-dual-use-8">using non-pathogenic</a>, Risk Group 1 organisms like E. coli DH5α and human HEK293T cells as the chassis is another foundational intrinsic biosecurity measure. This choice significantly reduces the biosafety and biosecurity risks compared to working with a Risk Group 2, 3, or 4 organisms.
+<br><br>
+<span class="highlight-word">Environmental dependency</span>: The human HEK293T cell line is highly dependent on controlled conditions such as nutritional media, constant temperature or determined levels of carbon dioxide. Additionally, the E. coli DH5α strain does not have virulence factors or adaptation to the human or animal gut, it does not compete well with wild-type bacteria, it does not survive easily under fluctuations in temperature, pH, UV radiation, etc., and its mutations (e.g., recA1, endA1, etc.) make it vulnerable in uncontrolled environments (the mechanisms for DNA repair are weakened). Therefore, the organisms that contain our switch cannot survive or spread in case of an accidental release. Lastly, during the project we have deliberately shifted towards the use of <a class="link-text" href="Link-dual-use-3">cell-free systems</a> to test our constructs and completely minimise the possibility of accidental release.
+<br><br>
+<span class="highlight-word">Kill switches</span>: To take into account future uses beyond our project that involve different organisms, we have applied biocontainment strategies within our switches –kill switches– to prevent autonomous spread. We chose kill switches for the relevance of combining them with the switches we are making. Specifically, we explored an apoptosis-based kill switch system where pro-apoptotic genes (caspase-8 and caspase-3) would be constitutively expressed, while anti-apoptotic genes (XIAP –X-linked inhibitor of apoptosis– and ILPIP –hILP-Interacting Protein–) would only be expressed in the presence of theophylline through our SCR+Aptamer system [21]. In the intended controlled environment with theophylline, XIAP and ILPIP expression would inhibit caspase-mediated apoptosis, allowing cell survival. However, if cells were to escape the controlled environment (absence of theophylline), the loss of XIAP expression would result in caspase activity and subsequent apoptosis, effectively eliminating escaped cells. Literature evidence suggests that even relatively low XIAP expression levels (around 40% compared to caspase levels) can effectively inhibit apoptosis, especially when coexpressed with ILPIP, making this system feasible with our riboswitch architecture [22,23].
+</p>
+
+<h3 id = "subtitle8" class = "section-subtitle2">Procedural and administrative biosecurity</h3>
+<p class = "section-text">Procedural biosecurity focuses on the policies, protocols, and practices that govern the research process. These measures are crucial for protecting both physical and digital assets.
+<br><br>
+<span class="highlight-word">Access control</span>: Robust access control is essential for preventing unauthorised access to both the physical laboratory and the project's digital data. This includes limiting physical access to the lab to authorised team members and collaborators and implementing strong cybersecurity measures for digital data based on the University of Barcelona's own guidelines. The team has ensured that sensitive genetic sequences and experimental data, including those under patent consideration, are stored securely with restricted access and are protected by strong password protocols.
+<br><br>
+<span class="highlight-word">Responsible data and information handling</span>: In the context of open-science platforms like iGEM, there is a tension between the goals of transparency and the need to prevent "information hazards". The iGEM UB team has been deliberate in how we have shared our research. We have developed clear guidelines for sharing our genetic sequences and software code, including disclaimers about <a class="link-text" href="https://toolkit-m4g6.onrender.com/">responsible use</a>, an <a class="link-text" href="https://static.igem.wiki/teams/5622/images/humanpractices/biosecurityaup.pdf">Acceptable Use Policy</a>, and the implementation of <a class="link-text" href="https://static.igem.wiki/teams/5622/images/humanpractices/biosecuritycsp.pdf">client screening methods</a> for future editions of the software.
+<br><br>
+<span class="highlight-word">Education and awareness</span>: A critical component of biosecurity is fostering a culture of responsibility among researchers. The team has participated in training and workshops on dual-use research and biosecurity to ensure all members are aware of the risks and their ethical obligations, and we have developed <a class="link-text" href="https://ire57.github.io/toolkit/">educational tools</a> to reinforce these views in the general population. This continuous education ensures that scientists understand that dual-use assessment is not a one-time formality but an ongoing responsibility.
+</p>
+
+<h2 id = "subtitle9" class = "section-subtitle">Contingency measures and conceptual misuse scenarios</h2>
+<h3 id = "subtitle10" class = "section-subtitle2">Introduction to red-teaming and contingency planning</h3>
+<p class = "section-text">This section outlines a series of contingency measures developed through a "red-teaming" exercise. A tabletop exercise (TTX) approach, as commonly used in cybersecurity and biodefense planning, was adopted to simulate and plan for potential misuse events. These scenarios are not predictions but are designed to stress-test the project's mitigation strategies and prepare a reactive response plan. The goal is to identify and close gaps in preparedness and to define clear roles and responsibilities in the event of a biosecurity incident.
+</p>
+
+<h3 id = "subtitle11" class = "section-subtitle2">Scenario Group A: Misuse of the RNA aptamer/SCR system</h3>
+<p class = "section-text">This scenario group explores potential misuse cases involving the Skippit RNA switch (aptamer/SCR system). These vignettes examine how otherwise benign technologies could be repurposed to control harmful gene expression, enabling the activation of toxins or enhancing pathogen virulence. Each scenario identifies plausible misuse pathways, outlines detection and response strategies, and highlights the importance of early engagement between developers and public health authorities.
+</p>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Misuse Scenario 1: Unsanctioned toxin production</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Vignette:</span> A non-state actor obtains the Skippit RNA switch and, using standard molecular cloning techniques, integrates it into a common, non-pathogenic soil-dwelling bacterium. The circuit is then fused to a gene that encodes a potent, non-listed neurotoxin. The switch's function is modified to activate upon exposure to a common agricultural pesticide, a trigger that is not naturally found in the host organism's usual environment. The engineered bacteria are then deliberately released in an agricultural field.
+</li>
+<li><span class="bold-word">Consequences:</span> Localised contamination of a food source and water table occurs. Farmworkers and nearby residents who come into contact with the contaminated produce or water begin to show signs of neurotoxin poisoning. Due to the novel nature of the neurotoxin and the non-obvious trigger, public health officials are unable to immediately identify the cause. The engineered bacterium, being non-pathogenic in its native state, does not cause an infection and thus is overlooked in early investigations.
+</li>
+<li><span class="bold-word">Contingency plan:</span> 
+<br><br>
+<span class="bold-word">Detection:</span> An unusual pattern of localised neurotoxin poisoning is reported with no clear source. Public health agencies, recognising a potential novel biological event, initiate a traceback analysis of environmental samples. Advanced genomic sequencing reveals the presence of the engineered bacterium and the novel RNA circuit. The sequence is flagged by advanced biosurveillance tools for its synthetic features.
+<br><br>
+<span class="bold-word">Response:</span> The Skippit team and their institutional biosecurity officer are contacted. The team provides critical technical expertise on the RNA circuit's design, including its function, potential ligands, and the source of its components. This information is crucial for understanding the new biological agent's behavior and potential triggers.
+<br><br>
+<span class="bold-word">Consequence management:</span> The team's knowledge aids in the rapid development of a diagnostic test to specifically detect the engineered RNA circuit. This helps public health officials accurately diagnose victims and trace the contamination source. The team's documented mitigation efforts, such as the design of a potential kill switch, could be explored as a potential countermeasure for decontaminating the affected area.
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Misuse Scenario 2: Pathogen enhancement</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Vignette:</span> A rogue research group uses the Skippit RNA switch to enhance the virulence of a known but not highly contagious animal pathogen, such as a specific avian virus. The group modifies the switch to activate in response to a specific cytokine produced by the mammalian respiratory tract, thereby programming the virus to only become highly virulent after it has successfully transmitted to a mammalian host. This a-virulent nature in its initial form allows it to be more easily transported and disseminated.
+</li>
+<li><span class="bold-word">Consequences:</span> A novel pathogen emerges with enhanced transmissibility and a broader host range than its natural counterpart. The initial outbreak presents with mild, flu-like symptoms, delaying the recognition of a major public health event. By the time human-to-human transmission is detected and the virus's enhanced virulence is recognized, it has already spread widely, leading to a much larger pandemic than would have occurred naturally.
+</li>
+<li><span class="bold-word">Contingency plan:</span> 
+<br><br>
+<span class="bold-word">Detection:</span> Public health agencies detect an unusual outbreak of a known animal pathogen in humans. Genomic sequencing of patient samples reveals a novel RNA circuit within the viral genome. The circuit's structure and function are identified as the source of the enhanced virulence.
+<br><br>
+<span class="bold-word">Response:</span> The Skippit team and their institutional biosecurity personnel are immediately engaged by authorities. The team's pre-existing knowledge of the circuit's design and potential triggers becomes critical for understanding the new pathogen's behavior, including its mechanism of host-specific activation.
+<br><br>
+<span class="bold-word">Consequence management:</span> The team assists in the design of diagnostic tools to specifically detect the engineered circuit, which is crucial for early detection and containment. This information is also shared with virologists and epidemiologists to help them model the pathogen's spread and develop targeted therapeutic interventions or vaccines. The team's well-documented research and publication of the aptamer's properties could accelerate the countermeasure development process.
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<h3 id = "subtitle12" class = "section-subtitle2">Scenario Group B: Misuse of the RNA linker software</h3>
+<p class = "section-text">This scenario group focuses on the Tadpole software and its potential misuse in the digital and informational domain. It considers how computational design tools might be exploited to evade biosecurity controls or enable intangible technology transfer. These scenarios emphasize the need for dynamic sequence screening, access controls, and responsible software governance to mitigate digital biosecurity risks.
+</p>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Misuse Scenario 3: Novel pathogen design and evasion</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Vignette:</span> A malicious actor uses the Skippit software to design a new, highly stable RNA circuit for a novel pathogen. The software's generative capabilities allow the actor to create a sequence that is functionally similar to a known toxin but is structurally unique. The actor then orders the synthesis of this sequence from a commercial DNA synthesis provider that screens orders only against a static, list-based database of known sequences of concern. The novel sequence is not on the list and is therefore synthesized and shipped without being flagged. The actor then uses standard laboratory techniques to assemble the synthetic DNA into a viable biological agent.
+</li>
+<li><span class="bold-word">Consequences:</span> The malicious actor successfully bypasses a critical choke point in the biosecurity pipeline, demonstrating a major failure of current biosecurity measures. A novel bioweapon is created and deployed, but because its sequence is unknown, it is not easily detectable by current screening measures.
+</li>
+<li><span class="bold-word">Contingency plan:</span> 
+<br><br>
+<span class="bold-word">Detection:</span> The engineered pathogen is released, leading to an outbreak. Public health surveillance systems initially fail to identify the agent as a known threat. A forensic analysis of the pathogen's sequence is conducted by an international incident response team. They identify the optimal linker and other design features that are indicative of a computational design tool, but the sequence itself is novel.
+<br><br>
+<span class="bold-word">Response:</span> The Skippit team's publicly documented and well-described software is identified as a potential tool used in the pathogen's creation. The team is contacted by authorities and is legally and ethically obligated to cooperate. They must provide access to the software's underlying design principles and data to aid in the forensic analysis of the engineered sequence.
+<br><br>
+<span class="bold-word">Consequence management:</span> The team's contribution becomes a key piece of forensic evidence. This scenario highlights the importance of contributing to the development of dynamic, AI-enabled screening systems that go beyond static lists. The team advocates for such systems and collaborates with policy makers and other researchers to develop better controls for nucleic acid synthesis screening.
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Misuse Scenario 4: Intangible technology transfer</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Vignette:</span> The team's software code is made open-source on a public repository without any user-vetting or access controls. A foreign actor in a country with lax export control regulations downloads the code. This actor then uses the software's principles to develop a parallel tool for designing stable RNA circuits for a state-sponsored bioweapons program. They do not use the software directly but leverage its core algorithms and design strategies to create their own tools, thereby transferring the core technical knowledge without the physical export of any goods.
+</li>
+<li><span class="bold-word">Consequences:</span> The Skippit team's innovation contributes to the proliferation of dangerous technologies, with their work serving as a vector for knowledge transfer. The team is not directly involved in the misuse but has facilitated it through the uncontrolled dissemination of a dual-use technology. This leads to an international legal and political incident.
+</li>
+<li><span class="bold-word">Contingency plan:</span> 
+<br><br>
+<span class="bold-word">Detection:</span> An intelligence agency or biosecurity research group identifies the parallel tool and its striking similarities to the Skippit software. This is identified as a case of intangible technology transfer, a known biosecurity concern.
+<br><br>
+<span class="bold-word">Response:</span> The team is notified of the misuse and must review their public-facing materials. They must be prepared to work with legal experts and their institution's compliance office to understand their obligations under international law.
+<br><br>
+<span class="bold-word">Consequence management:</span> The team becomes a cautionary example of the risks of knowledge proliferation in open-science contexts. They may choose to change their distribution model for the software, implementing "know your user" protocols for advanced versions or restricting access to vetted researchers. They could also become advocates for better governance of open-source biological software, turning a negative event into a platform for promoting a new standard of responsible innovation.
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<h2 id = "subtitle13" class = "section-subtitle">Conclusions and final remarks</h2>
+<p class = "section-text">This dual-use assessment confirms that Skippit, though developed for a legitimate and beneficial purpose, possesses inherent dual-use characteristics. The project's innovations –a modular RNA gene expression switch and an RNA linker design software– are not inherently dangerous but represent powerful new capabilities that could be repurposed for harm. The assessment identified several key risks, including the use of the RNA switch to enhance the virulence of a pathogen or produce a toxin, and the risk that the software could facilitate the design of novel biothreats that evade current biosecurity protocols based on static lists. The analysis underscores a fundamental shift in biosecurity, where the focus is moving from controlling a limited list of agents to managing the proliferation of enabling technologies and knowledge.
+<br><br>
+Skippit and Tadpole, like all innovations in synthetic biology, exist within a complex ethical and security landscape. The successful completion of this dual-use assessment demonstrates iGEM’s capacity for responsible innovation, a principle that requires a continuous, proactive engagement with potential risks and societal implications. By moving beyond a minimal compliance mindset and embracing a culture of security, we have not only fulfilled a competition requirement but also established a framework for developing powerful technologies with foresight, integrity, and a deep sense of ethical responsibility. We want the work on this project to serve as a powerful example of how to advance science while simultaneously ensuring its benefits are maximised and its harms are minimised, a critical task for the next generation of biological engineers.
+</p>
+
+<h2 id = "subtitle14" class = "section-subtitle">Bibliography</h2>
+<ol>
+<li>National Research Council (US) Committee on a New Government-University Partnership for Science & Security. Biosecurity and Dual-Use Research in the Life Sciences. in <span class="italic-word">Science and Security in a Post 9/11 World: A Report Based on Regional Discussions Between the Science and Security Communities</span> (National Academies Press (US), 2007).</li>
+<li>Dual-Use Research. https://oir.nih.gov/sourcebook/ethical-conduct/special-research-considerations/dual-use-research.</li>
+<li>Danchin, A. Use and dual use of synthetic biology. <span class="italic-word">Comptes Rendus. Biologies</span> <span class="bold-word">348</span>, 71–88 (2025).</li>
+<li>Weapons and dual-use goods. https://du-arms.brussels/wp-content/uploads/Guidelines-February-2020.pdf.</li>
+<li>Exporting dual-use items. <span class="italic-word">Trade and Economic Security</span> https://policy.trade.ec.europa.eu/help-exporters-and-importers/exporting-dual-use-items_en.</li>
+<li>Adamson, G. & Allen, G. C. <span class="italic-word">Opportunities to Strengthen U.S. Biosecurity from AI-Enabled Bioterrorism: What Policymakers Should Know</span>. https://www.csis.org/analysis/opportunities-strengthen-us-biosecurity-ai-enabled-bioterrorism-what-policymakers-should (2025).</li>
+<li>National Academies of Sciences, Engineering, and Medicine, Division on Earth and Life Studies, Board on Life Sciences, Board on Chemical Sciences and Technology & Committee on Strategies for Identifying and Addressing Potential Biodefense Vulnerabilities Posed by Synthetic Biology. Framework for Assessing Concern About Synthetic Biology Capabilities. in <span class="italic-word">Biodefense in the Age of Synthetic Biology</span> (National Academies Press (US), 2018).</li>
+<li>Synthetic biology Website. https://www.oecd.org/en/topics/sub-issues/synthetic-biology.html.</li>
+<li>Vennis, I. M. et al. Dual-Use Quickscan: A Web-Based Tool to Assess the Dual-Use Potential of Life Science Research. <span class="italic-word">Front. Bioeng. Biotechnol.</span> <span class="bold-word">9</span>, 797076 (2021).</li>
+<li>Weedon, J. What OpenAI's Latest Red-Teaming Challenge Reveals About the Evolution of AI 'Safety' Practices. <span class="italic-word">Tech Policy Press</span> https://techpolicy.press/what-openais-latest-redteaming-challenge-reveals-about-the-evolution-of-ai-safety-practices (2025).</li>
+<li>Cyber resilience: tabletop exercises & red teaming. https://www.swisscom.ch/en/business/enterprise/themen/security/cyberresilienz-ttx-red-team.html.</li>
+<li>Syafitri, R. & Mantoro, T. Risk of Dual Use Artificial Intelligence in Genetic Engineering. https://easychair.org/publications/preprint/1mLr.</li>
+<li>De Haro, L. P. Biosecurity Risk Assessment for the Use of Artificial Intelligence in Synthetic Biology. <span class="italic-word">Applied Biosafety: Journal of the American Biological Safety Association</span> <span class="bold-word">29</span>, 96 (2024).</li>
+<li>Jefferson, C., Lentzos, F. & Marris, C. Synthetic Biology and Biosecurity: Challenging the 'Myths'. <span class="italic-word">Frontiers in Public Health</span> <span class="bold-word">2</span>, 115 (2014).</li>
+<li>Hazards of synthetic biology. https://en.wikipedia.org/wiki/Hazards_of_synthetic_biology (2018).</li>
+<li>National Academies of Sciences, Engineering, and Medicine, Division on Earth and Life Studies, Board on Life Sciences, Board on Chemical Sciences and Technology & Committee on Strategies for Identifying and Addressing Potential Biodefense Vulnerabilities Posed by Synthetic Biology. Options for Mitigating Concerns. in <span class="italic-word">Biodefense in the Age of Synthetic Biology</span> (National Academies Press (US), 2018).</li>
+<li>Millett, P. et al. Developing a Comprehensive, Adaptive, and International Biosafety and Biosecurity Program for Advanced Biotechnology: The iGEM Experience. <span class="italic-word">Applied Biosafety: Journal of the American Biological Safety Association</span> <span class="bold-word">24</span>, 64 (2019).</li>
+<li>Contingency Planning Guide for Federal Information Systems. https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-34r1.pdf.</li>
+<li>Biosecurity Exercises. https://www.aphl.org/aboutAPHL/publications/Documents/PHPR-Biosafety-Exercises.pdf.</li>
+<li>Chapter 10: Federal Select Agent Program. https://www.bu.edu/research/ethics-compliance/safety/biological-safety/ibc/resources/biosafety-manual/chapter-10-federal-select-agent-program/.</li>
+<li>Belousova, V., Svitich, O., Timokhina, E., Ignatko, I., Bogomazova, I., Pesegova, S., Silaeva, T., Kuzmina, T., & Skorobogatova, O. (2023). Caspase-3, Caspase-8 and XIAP Gene Expression in the Placenta: Exploring the Causes of Spontaneous Preterm Labour. <span class="italic-word">International Journal Of Molecular Sciences</span>, <span class="bold-word">24</span>(2), 1692. https://doi.org/10.3390/ijms24021692</li>
+<li>Mudde, A. C. A., Booth, C., & Marsh, R. A. (2021). Evolution of Our Understanding of XIAP Deficiency. <span class="italic-word">Frontiers In Pediatrics</span>, 9. https://doi.org/10.3389/fped.2021.660520</li>
+<li>Sanna, M. G., Da Silva Correia, J., Luo, Y., Chuang, B., Paulson, L. M., Nguyen, B., Deveraux, Q. L., & Ulevitch, R. J. (2002). ILPIP, a Novel Anti-apoptotic Protein That Enhances XIAP-mediated Activation of JNK1 and Protection against Apoptosis. <span class="italic-word">Journal Of Biological Chemistry</span>, 277(34), 30454-30462. https://doi.org/10.1074/jbc.m203312200</li>
+</ol>
+
+</section>
+</div>
+</div>
 
 {% endblock %}
