@@ -11,12 +11,12 @@
     <li><a href="#using-scr">Using SCR</a>
     <ul class="sidebar-subnav">
       <li><a href="#understanding-rt">Understanding the readthrough</a></li>
-      <li><a href = "#scr to modulate">SCR to modulate protein expression</a></li>
-      <li><a href = "#proposed implementations">Proposed implementations</a></li>
+      <li><a href = "#scr-to-modulate">SCR to modulate protein expression</a></li>
+      <li><a href = "#proposed-implementations">Proposed implementations</a></li>
     </ul></li>
     <li><a href="#riboswitch">Our riboswitch</a></li>
     <ul class="sidebar-subnav">
-      <li><a href="#benefit of using">The benefit of using riboswitches</a></li>
+      <li><a href="#benefit-of-using">The benefit of using riboswitches</a></li>
       <li><a href="#proposed">Proposed implementations</a></li>
     </ul>
     <li><a href="#beyond-scr">Beyond SCR: TADPOLE</a></li>
@@ -90,7 +90,7 @@
 <p>Essentially, when using a SCR element, we are favoring that when the release factor complex and the near-cognate tRNA interact, the near-cognate tRNA wins. 
 It’s important to note that readthrough is always expressed residually, but in 99.9% of instances, the release factor complex successfully induces termination.</p>
 
-<h2 id="scr to modulate" class="section-subtitle">SCR to modulate protein expression</h2>
+<h2 id="scr-to-modulate" class="section-subtitle">SCR to modulate protein expression</h2>
 <p>The most interesting application for SCR elements is that of dual-protein regulation for two proteins encoded on the same transcript. Essentially, we separate two proteins, two exons or two translational units with a STOP codon. The first proteins, encoded before the STOP codon, have the expression level of the promoter that drives the transcription of the mRNA. The second proteins, encoded after the STOP codon, are only expressed according to the readthrough rate induced by the SCR element.
 Therefore, for one singular transcript, we have two different protein expression rates.</p>
 <br>
@@ -123,7 +123,7 @@ Therefore, for one singular transcript, we have two different protein expression
 
 
 
-<h2 id="proposed implementations" class="section-subtitle">Proposed implementations</h2>
+<h2 id="proposed-implementations" class="section-subtitle">Proposed implementations</h2>
 <p>SCR elements are especially interesting to study protein effect and to increase protein control when performing cellular biology experiments and when characterising new parts. There is a very wide range of possible applications, but we have focused on its potential use to treat diseases and develop new therapeutics.</p>
 
 <h3>Diseases that stem from a premature STOP codon.</h3>
@@ -156,7 +156,7 @@ This method is a precise, reversible and dynamic method to exercise control over
                                     ></iframe>
                                 </div>
 <br><br>
-<h2 id="benefit of using" class="section-subtitle">The benefit of using riboswitches</h2>
+<h2 id="benefit-of-using" class="section-subtitle">The benefit of using riboswitches</h2>
 <p>Riboswitches are slowly positioning themselves as the key tool to revolutionise synthetic biology. They are small components that can be reactive to many different types of external inputs, that allow fine-tuning of gene expression without trans acting factors. They offer a very reliable platform from a biosafety standard, especially when it comes to controlling toxicity. RNA switches with aptamers are of special interest due to their reduced size, which allows performing very small genetic modifications to the genes we want to control <span class = "highlight-word info-word" data-target="hp-card1">&#128161</span>.</p>
 <h2 id="proposed"class="section-subtitle">Proposed implementations</h2>
 <p>Any disease, technique, and sensor that can be designed using a SCR element can be further improved by the additional layer of control added with a modulable SCR riboswitch. These riboswitches push the applications of SCR even further.
