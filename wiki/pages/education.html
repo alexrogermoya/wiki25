@@ -37,7 +37,8 @@
       <section id = "toolkit">
         <h1 class="section-title">The toolkit: Reineta</h1>
         <p class="section-text">The toolkit is designed as a <span class="bold-word">free</span>, <span class="bold-word">adaptable</span>, and <span class="bold-word">constantly evolving</span> resource for teachers, offering students essential skills not usually addressed in class. Built as a modular project, its activities are interconnected yet flexible, allowing teachers to use them separately or in sequence according to their time and needs. Feedback from users is encouraged to ensure continuous improvement and alignment with classroom realities. Ultimately, the toolkit aims to provide a high-quality, accessible bank of activities to help shape the scientists of the future.
-        <br><br></p>
+        <br><br>
+        <a class="link-text" href="{{ url_for('pages', page='education-toolkit') }}">Go to page</a></p>
         
         <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
           <div class="controls">
@@ -73,7 +74,7 @@
               <div class="description-text" id="descriptionText">
               <h2 id="descTitle">Ethics</h2>
               <p id="descContent">
-                 How far should science go? How can we regulate new techniques when they are appearing at such a rapid rate? We must keep in mind the social and ethical impact of our research, and a competent scientist should possess the capacity to assess, reason critically, and reflect upon these dimensions. Read more</p>
+                 How far should science go? How can we regulate new techniques when they are appearing at such a rapid rate? We must keep in mind the social and ethical impact of our research, and a competent scientist should possess the capacity to assess, reason critically, and reflect upon these dimensions.</p>
           </div>
           </div>
 
@@ -85,7 +86,7 @@
         <h1 class="section-title">Outside the toolkit</h1>
         <p class="section-text">Outside of the toolkit, we carried out additional initiatives such as activities for children, scientific outreach talks, and collaborations with other iGEM teams. These actions allowed us to reach different audiences, explore new perspectives, and give a deeper or alternative focus to topics, expanding the overall impact of our project.
             <br><br>
-            <a class="link-text" href="{{ url_for('pages', page='outside-toolkit') }}">Read more</a>
+            <a class="link-text" href="{{ url_for('pages', page='outside-toolkit') }}">Go to page</a>
         </p>
         <div class ="image-container">
             <img src="https://static.igem.wiki/teams/5622/images/education/outsidethetoolkitpaginaprincipal.webp">
@@ -465,27 +466,27 @@
         const faces = {
             technology: {
                 title: 'Technology',
-                description: 'Technology has always advanced alongside science, and we must adapt to it. A modern scientist should have basic knowledge on how to take advantage of these emerging tools: AI, bioinformatics, programming, data management.... Read more',
+                description: 'Technology has always advanced alongside science, and we must adapt to it. A modern scientist should have basic knowledge on how to take advantage of these emerging tools: AI, bioinformatics, programming, data management...',
                 rotation: { x: -10, y: -165 },
             },
             communication: {
                 title: 'Communication',
-                description: 'In today’s “information age”, it is crucial to know how to navigate the vast ocean of the internet and distinguish what is true and reliable from what has been designed only to manipulate our perception. Read more',
+                description: 'In today’s “information age”, it is crucial to know how to navigate the vast ocean of the internet and distinguish what is true and reliable from what has been designed only to manipulate our perception.',
                 rotation: { x: -10, y: -75 },
             },
             ethics: {
                 title: 'Ethics',
-                description: 'How far should science go? How can we regulate new techniques when they are appearing at such a rapid rate? We must keep in mind the social and ethical impact of our research, and a competent scientist should possess the capacity to assess, reason critically, and reflect upon these dimensions. Read more',
+                description: 'How far should science go? How can we regulate new techniques when they are appearing at such a rapid rate? We must keep in mind the social and ethical impact of our research, and a competent scientist should possess the capacity to assess, reason critically, and reflect upon these dimensions.',
                 rotation: { x: -10, y: 15 }
             },
             experimental: {
                 title: 'Experimental',
-                description: ' Laboratory skills are the first notion that comes to mind when thinking about science and synthetic biology: cells, researchers in lab coats and safety glasses peering through a microscope… And it is indeed true that this stage constitutes an exciting period in the life of a scientist. Read more',
+                description: ' Laboratory skills are the first notion that comes to mind when thinking about science and synthetic biology: cells, researchers in lab coats and safety glasses peering through a microscope… And it is indeed true that this stage constitutes an exciting period in the life of a scientist.',
                  rotation: { x: -10, y: 105 }  
             },
             art: {
                 title: 'Art',
-                description: 'Art and science have always been thought to be opposites, however there is both art in science (creativity, beauty, innovation…) and science in art (music theory, pigments, sculpture materials…). Even when we talk about papers and articles, we are talking about literature! Read more',
+                description: 'Art and science have always been thought to be opposites, however there is both art in science (creativity, beauty, innovation…) and science in art (music theory, pigments, sculpture materials…). Even when we talk about papers and articles, we are talking about literature!',
                 rotation: { x: -75, y: 15 }
             },
             reset: {
