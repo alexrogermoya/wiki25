@@ -6,9 +6,9 @@
 {% block page_content %}
 
 <link rel="stylesheet" href="{{ url_for('static', filename='timeline.css') }}">
-<!-- <script src="{{ url_for('static', filename='timeline.js') }}"></script> -->
+
 <div class = "page-container">
-  <div class = "page-content">
+  <div class = "page-content" style="margin:0em 5em;">
     <div class = "header">
       <h1 class = "page-title">Outside the Toolkit</h1>
       <!-- <p class = "page-desc">Page description</p> -->
@@ -27,33 +27,14 @@
               <div class="timeline-item">
                   <div class="timeline-dot"></div>
                   <div class="timeline-card">
-                      <div class="timeline-card-date">15 Enero 2024</div>
-                      <svg class="timeline-card-image" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
-                          <defs>
-                              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                  <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
-                                  <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
-                              </linearGradient>
-                          </defs>
-                          <rect width="400" height="180" fill="url(#grad1)" rx="12"/>
-                          <circle cx="100" cy="60" r="25" fill="white" opacity="0.8"/>
-                          <rect x="150" y="40" width="200" height="8" fill="white" opacity="0.9" rx="4"/>
-                          <rect x="150" y="60" width="150" height="6" fill="white" opacity="0.7" rx="3"/>
-                          <rect x="50" y="120" width="300" height="40" fill="white" opacity="0.1" rx="8"/>
-                      </svg>
-                      <div class="timeline-card-title">Lanzamiento del Proyecto</div>
-                      <div class="timeline-card-description">Inicio oficial del proyecto con la presentación del equipo y los objetivos principales para el año.</div>
-                      <button class="btn btn-outline" onclick="toggleExpanded(this)">Botó Contorn</button>
+                      <div class="timeline-card-date">April 2025</div>
+                      <div class="timeline-card-title">Sant Jordi’s legend</div>
+                      <div class="timeline-card-description">We wrote a story explaining our project and referencing Sant Jordi, a Catalan festivity with a famous legend. You can find the story in English here.</div>
+                      <button class="btn btn-outline" onclick="toggleExpanded(this)">Read More</button>
                       <div class="expanded-content">
-                          <div class="expanded-text">
-                              El evento de lanzamiento contó con la participación de más de 200 asistentes, incluyendo inversores, socios estratégicos y miembros del equipo. Se presentaron las metas ambiciosas para los próximos 12 meses.
-                          </div>
-                          <div class="expanded-details">
-                              <strong>Detalles adicionales:</strong><br>
-                              • Presupuesto inicial: €2.5M<br>
-                              • Equipo: 25 profesionales<br>
-                              • Duración estimada: 18 meses
-                          </div>
+                        <div class="expanded-text">
+                            Sant Jordi is a traditional Catalan festivity where literature is commemorated, there is a well-known legend with knights, princesses and dragons. We created a story about Ribbit, a ribofrog (ribosome) that accomplishes the unbelievable: building a protein that no other ribofrog has ever built before with the help of SECIS and Oscar (SCR). It teaches the basics of our project in a fun, engaging and easily understandable way, while being an analogy to the legend of this local celebration.
+                        </div>
                       </div>
                   </div>
               </div>
@@ -61,20 +42,16 @@
               <div class="timeline-item">
                   <div class="timeline-dot"></div>
                   <div class="timeline-card">
-                      <div class="timeline-card-date">28 Febrero 2024</div>
-                      <div class="timeline-card-title">Primera Milestone Completada</div>
-                      <div class="timeline-card-description">Alcanzamos el primer hito importante del proyecto con resultados que superaron las expectativas iniciales.</div>
-                      <button class="btn btn-outline" onclick="toggleExpanded(this)">Botó Contorn</button>
+                      <div class="timeline-card-date">10 May 2024</div>
+                      <img class="timeline-card-image" src = "https://static.igem.wiki/teams/5622/images/education/catalunyasummit1.webp">
+                      <div class="timeline-card-title">Catalunya Summit</div>
+                      <div class="timeline-card-description">The Catalunya Summit is a free event for young entrepreneurs and innovators. Our iGEM UB team attended the 2025 edition, sharing our project, meeting like-minded peers, and finding inspiration in a collaborative environment</div>
+                      <button class="btn btn-outline" onclick="toggleExpanded(this)">Read More</button>
                       <div class="expanded-content">
                           <div class="expanded-text">
-                              La primera fase se completó 2 semanas antes de lo previsto, gracias al excelente trabajo en equipo y la implementación de metodologías ágiles. Los resultados mostraron un 15% de mejora sobre los objetivos iniciales.
+                              The Catalunya Summit is a free event designed for young entrepreneurs and innovators aged 17 to 25. Its goal is to inspire, empower, and connect emerging ideas in a collaborative environment. The 4th edition took place on Saturday, May 10, 2025, at the Espai Jove La Nau in Vilafranca del Penedès. The iGEM UB team had the opportunity to take part in the Catalunya Summit 2025 in Vilafranca del Penedès. Having the opportunity to be surrounded by so many young entrepreneurs and innovators was both exciting and inspiring. This gave us the perfect space to share our ideas, goals and meet new contacts that were interested in our project.
                           </div>
-                          <div class="expanded-details">
-                              <strong>Métricas alcanzadas:</strong><br>
-                              • Eficiencia: +15% sobre objetivo<br>
-                              • Tiempo: -2 semanas<br>
-                              • Satisfacción del cliente: 9.2/10
-                          </div>
+                          <img class="timeline-card-image" src="https://static.igem.wiki/teams/5622/images/education/catalunyasummitcollage.webp">
                       </div>
                   </div>
               </div>
@@ -82,34 +59,17 @@
               <div class="timeline-item">
                   <div class="timeline-dot"></div>
                   <div class="timeline-card">
-                      <div class="timeline-card-date">12 Abril 2024</div>
-                      <svg class="timeline-card-image" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
-                          <defs>
-                              <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                                  <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-                                  <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
-                              </linearGradient>
-                          </defs>
-                          <rect width="400" height="180" fill="url(#grad2)" rx="12"/>
-                          <polygon points="200,40 220,80 180,80" fill="white" opacity="0.9"/>
-                          <rect x="100" y="100" width="200" height="60" fill="white" opacity="0.2" rx="8"/>
-                          <circle cx="320" cy="50" r="15" fill="white" opacity="0.6"/>
-                          <circle cx="340" cy="70" r="10" fill="white" opacity="0.4"/>
-                      </svg>
-                      <div class="timeline-card-title">Expansión Internacional</div>
-                      <div class="timeline-card-description">Apertura de nuevas oficinas en tres países europeos, marcando el inicio de nuestra expansión global.</div>
-                      <button class="btn btn-outline" onclick="toggleExpanded(this)">Botó Contorn</button>
+                      <div class="timeline-card-date">30-31 May 2025</div>
+                      <img class="timeline-card-image" src="https://static.igem.wiki/teams/5622/images/education/festaciencia1.webp">
+                      <div class="timeline-card-title">Festa de la ciència</div>
+                      <div class="timeline-card-description">The Festa de la Ciència at the University of Barcelona is a yearly event that brings science closer to the public through interactive workshops. It takes place during two days: one for school groups and another open to everyone. This year, our team ran a hands-on activity where children learned about transcription and translation by making bracelets, while we explained the fundamental concepts and guided them through the process. It was an amazing experience that allowed us to share the basics of synthetic biology in a fun and engaging way.</div>
+                      <button class="btn btn-outline" onclick="toggleExpanded(this)">Read More</button>
                       <div class="expanded-content">
                           <div class="expanded-text">
-                              La expansión internacional representa un paso crucial en nuestro crecimiento. Las nuevas oficinas en Madrid, París y Berlín nos permitirán atender mejor a nuestros clientes europeos y acceder a nuevos mercados.
+                            The Festa de la Ciència at the University of Barcelona (UB) is an event designed to bring science closer to society in an interactive and dynamic way. This event takes place every year in the Historic Building of the UB and includes a variety of workshops carried out by UB researchers from different fields, covering biomedicine, biology, chemistry... This activity is divided into two days, depending on the type of public coming to each one: one day dedicated to school groups, which requires prior registration, and another day open to the general public, where anyone can participate freely. The goal of this initiative is to help students and kids discover science in a more practical, engaging, and accessible format.
+                            Our team took part in this year’s edition, introducing children to transcription and translation through a bracelet-making activity that served as a hands-on way for them to grasp the concepts. As a team, we were present for two days, helping to set up the stand, explaining the theoretical foundations to the children, and assisting all participants as they carried out the activity. Overall, it was an outstanding experience beyond the toolkit, which enabled us to teach all attendees about the fundamentals of synthetic biology and the key processes within the central dogma of molecular biology.
                           </div>
-                          <div class="expanded-details">
-                              <strong>Nuevas ubicaciones:</strong><br>
-                              • Madrid: 15 empleados<br>
-                              • París: 12 empleados<br>
-                              • Berlín: 18 empleados<br>
-                              • Inversión total: €1.8M
-                          </div>
+                          <img class ="timeline-card-image" src="https://static.igem.wiki/teams/5622/images/education/festacienciacollage.webp">
                       </div>
                   </div>
               </div>
@@ -117,57 +77,81 @@
               <div class="timeline-item">
                   <div class="timeline-dot"></div>
                   <div class="timeline-card">
-                      <div class="timeline-card-date">25 Junio 2024</div>
-                      <div class="timeline-card-title">Reconocimiento Industrial</div>
-                      <div class="timeline-card-description">Recibimos el premio "Innovación del Año" por nuestro enfoque revolucionario en el sector tecnológico.</div>
-                      <button class="btn btn-outline" onclick="toggleExpanded(this)">Botó Contorn</button>
+                      <div class="timeline-card-date">30 May 2025</div>
+                      <img class="timeline-card-image" src="https://static.igem.wiki/teams/5622/images/education/cosmoxarxa1.webp">
+                      <div class="timeline-card-title">Cosmoxarxa</div>
+                      <div class="timeline-card-description">CosmoCaixa is one of the most prestigious science museums of Europe, the iGEM team had the chance to present our project as a part of CosmoXarxa, a network of former CosmoCaixa Explainers who stay connected and keep sharing science.</div>
+                      <button class="btn btn-outline" onclick="toggleExpanded(this)">Read More</button>
                       <div class="expanded-content">
-                          <div class="expanded-text">
-                              Este reconocimiento valida nuestro compromiso con la innovación y la excelencia. El premio fue otorgado por un panel de expertos de la industria y reconoce nuestro impacto en la transformación digital del sector.
-                          </div>
-                          <div class="expanded-details">
-                              <strong>Detalles del premio:</strong><br>
-                              • Categoría: Innovación Tecnológica<br>
-                              • Jurado: 15 expertos internacionales<br>
-                              • Competidores: 150+ empresas<br>
-                              • Ceremonia: Tech Summit 2024
-                          </div>
+                        <div class="expanded-text">
+                            CosmoXarxa is an initiative that emerged from the CosmoCaixa Explainers Community in Barcelona. Explainers are young science communicators at CosmoCaixa, typically university students or recent graduates in scientific disciplines. This community was established from a shared dream among former Explainers to remain connected with one another and to continue disseminating scientific knowledge beyond their tenure at the museum. In one of their meetings we had the opportunity to share our iGEM project: we explained what it meant to participate in the world’s largest SynBio competition, as well as a brief introduction to Skippit.
+                        <img class ="timeline-card-image" src="https://static.igem.wiki/teams/5622/images/education/cosmoxarxacollage.webp">
                       </div>
                   </div>
+                </div>
               </div>
 
               <div class="timeline-item">
                   <div class="timeline-dot"></div>
                   <div class="timeline-card">
-                      <div class="timeline-card-date">8 Septiembre 2024</div>
-                      <svg class="timeline-card-image" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
-                          <defs>
-                              <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
-                                  <stop offset="0%" style="stop-color:#ffecd2;stop-opacity:1" />
-                                  <stop offset="100%" style="stop-color:#fcb69f;stop-opacity:1" />
-                              </linearGradient>
-                          </defs>
-                          <rect width="400" height="180" fill="url(#grad3)" rx="12"/>
-                          <rect x="50" y="50" width="300" height="80" fill="white" opacity="0.3" rx="12"/>
-                          <circle cx="120" cy="90" r="20" fill="#ff6b6b" opacity="0.8"/>
-                          <circle cx="200" cy="90" r="20" fill="#4ecdc4" opacity="0.8"/>
-                          <circle cx="280" cy="90" r="20" fill="#45b7d1" opacity="0.8"/>
-                      </svg>
-                      <div class="timeline-card-title">Nuevo Producto Lanzado</div>
-                      <div class="timeline-card-description">Presentación oficial de nuestra plataforma de próxima generación con características innovadoras.</div>
-                      <button class="btn btn-outline" onclick="toggleExpanded(this)">Botó Contorn</button>
+                      <div class="timeline-card-date">May - June 2025</div>
+                      <img class="timeline-card-image" src="https://static.igem.wiki/teams/5622/images/education/festaciencia1.webp">
+                      <div class="timeline-card-title">Biology University Entrance Exams tik tok accoun</div>
+                      <div class="timeline-card-description">The Festa de la Ciència at the University of Barcelona is a yearly event that brings science closer to the public through interactive workshops. It takes place during two days: one for school groups and another open to everyone. This year, our team ran a hands-on activity where children learned about transcription and translation by making bracelets, while we explained the fundamental concepts and guided them through the process. It was an amazing experience that allowed us to share the basics of synthetic biology in a fun and engaging way.</div>
+                      <button class="btn btn-outline" onclick="toggleExpanded(this)">Read More</button>
                       <div class="expanded-content">
                           <div class="expanded-text">
-                              El lanzamiento del nuevo producto representa 18 meses de investigación y desarrollo. La plataforma incorpora inteligencia artificial avanzada y ofrece una experiencia de usuario completamente renovada.
+                            The Festa de la Ciència at the University of Barcelona (UB) is an event designed to bring science closer to society in an interactive and dynamic way. This event takes place every year in the Historic Building of the UB and includes a variety of workshops carried out by UB researchers from different fields, covering biomedicine, biology, chemistry... This activity is divided into two days, depending on the type of public coming to each one: one day dedicated to school groups, which requires prior registration, and another day open to the general public, where anyone can participate freely. The goal of this initiative is to help students and kids discover science in a more practical, engaging, and accessible format.
+                            Our team took part in this year’s edition, introducing children to transcription and translation through a bracelet-making activity that served as a hands-on way for them to grasp the concepts. As a team, we were present for two days, helping to set up the stand, explaining the theoretical foundations to the children, and assisting all participants as they carried out the activity. Overall, it was an outstanding experience beyond the toolkit, which enabled us to teach all attendees about the fundamentals of synthetic biology and the key processes within the central dogma of molecular biology.
                           </div>
-                          <div class="expanded-details">
-                              <strong>Características principales:</strong><br>
-                              • IA integrada para automatización<br>
-                              • Interfaz rediseñada completamente<br>
-                              • 50% más rápido que la versión anterior<br>
-                              • Compatible con 15+ integraciones
+                          <img class ="timeline-card-image" src="https://static.igem.wiki/teams/5622/images/education/festacienciacollage.webp">
+                      </div>
+                  </div>
+              </div>
+              <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-card">
+                      <div class="timeline-card-date">8 July 2025</div>
+                      <img src="https://static.igem.wiki/teams/5622/images/education/biysc1.webp" class="timeline-card-image">
+                      <div class="timeline-card-title">BIYSC talks</div>
+                      <div class="timeline-card-description">The Barcelona International Youth Science Challenge (BIYSC) is a two-week program held annually in Barcelona that brings together young people from around the world to dive into real scientific research while also building connections through social and team activities. Since some of our team members helped coordinate the program at the Catalunya La Pedrera Foundation, we had the great opportunity to promote iGEM, present our project, and highlight the importance of synthetic biology to an audience that may one day dedicate their careers to this field.</div>
+                      <!-- <button class="btn btn-outline" onclick="toggleExpanded(this)">Read More</button>
+                      <div class="expanded-content">
+                          <div class="expanded-text">
+                              Before the University Entrance exams in Catalonia (Selectivitat), we decided to start a <a class="link-text" href="https://www.tiktok.com/@selebiorot?_t=ZN-90BhAx40gZK&_r=1">TikTok account</a> where we explained biology concepts for the exam in an engaging way, using a humorous and exaggerated 'brainrot' style. We thought it would be interesting to explore social media as an educational tool, and approaching it as an experiment turned out to be a very enriching experience both for us and for the students.
+                              We informed ourselves about the most common mistakes in the exams with the help of high school teachers, and over time we accumulated videos with more than 45K views. This allowed us to explain complex concepts and, ultimately, help students review in a comfortable and almost unconscious way.
+                          </div>
+                          <img src="https://static.igem.wiki/teams/5622/images/education/biysccollage.webp" class="timeline-card-image">
+                      </div> -->
+                  </div>
+              </div>
+              <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-card">
+                      <div class="timeline-card-date">26 September 2025</div>
+                      <img src="https://static.igem.wiki/teams/5622/images/education/nitrecerca1.webp" class="timeline-card-image">
+                      <div class="timeline-card-title">European Researcher’s Night </div>
+                      <div class="timeline-card-description">The European Researcher’s Night is a Europe-wide festival making science accessible to all. This year, our iGEM UB team joined with a virtual talk and an art workshop.</div>
+                      <button class="btn btn-outline" onclick="toggleExpanded(this)">Read More</button>
+                      <div class="expanded-content">
+                          <div class="expanded-text">
+                              European Researcher’s Night is a big science festival that takes place every year across Europe in September. In Catalonia, researchers, schools, and universities team up to run workshops, experiments, and fun activities that bring science closer to everyone. It’s all about making research exciting and accessible, especially for students and families. In this year’s edition, our iGEM UB team has been selected to deliver a virtual short talk that will be spread around the territory, and to do the art workshop which is part of the <a href="{{ url_for('pages', page='education-toolkit') }}#Art class="link-text"></a>toolkit.
                           </div>
                       </div>
+                  </div>
+              </div>
+              <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-card">
+                      <!-- <div class="timeline-card-date">26 September 2025</div> -->
+                      <div class="timeline-card-title">Arizona State iGEM children’s book translation</div>
+                      <div class="timeline-card-description">As a team committed to promoting accessible sources for science education, we found the Arizona State iGEM children’s book project really interesting. Since their team was looking for collaborators to expand its reach as much as possible, we decided to contribute by translating it to our native language, Catalan, making it available to more children and communities.</div>
+                      <!-- <button class="btn btn-outline" onclick="toggleExpanded(this)">Read More</button>
+                      <div class="expanded-content">
+                          <div class="expanded-text">
+                              European Researcher’s Night is a big science festival that takes place every year across Europe in September. In Catalonia, researchers, schools, and universities team up to run workshops, experiments, and fun activities that bring science closer to everyone. It’s all about making research exciting and accessible, especially for students and families. In this year’s edition, our iGEM UB team has been selected to deliver a virtual short talk that will be spread around the territory, and to do the art workshop which is part of the <a href="{{ url_for('pages', page='education-toolkit') }}#Art class="link-text"></a>toolkit.
+                          </div>
+                      </div> -->
                   </div>
               </div>
           </div>
@@ -186,5 +170,18 @@
     </div>
   </div>
 </div>  
-
+<script>
+    function toggleExpanded(button) {
+        const expandedContent = button.nextElementSibling;
+        const isVisible = expandedContent.classList.contains('show');
+        
+        if (isVisible) {
+            expandedContent.classList.remove('show');
+            button.textContent = 'Read More';
+        } else {
+            expandedContent.classList.add('show');
+            button.textContent = 'Hide Details';
+        }
+    }
+</script>
 {% endblock %}
