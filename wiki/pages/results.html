@@ -4,8 +4,59 @@
 {% block lead %}Interactive exploration of our experimental findings through our results tree{% endblock %}
 
 {% block page_content %}
+<script> //HP cards
+  document.querySelectorAll('.hp-trigger').forEach(span => {
+    span.addEventListener('click', () => {
+      const targetId = span.getAttribute('data-target');
+      document.getElementById(targetId).style.display = 'block';
+    });
+  });
+
+  document.querySelectorAll('.hp-close').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.closest('.hp-modal').style.display = 'none';
+    });
+  });
+
+  // Tancar quan l'usuari fa clic fora del contingut
+  window.addEventListener('click', (e) => {
+    if (e.target.classList.contains('hp-modal')) {
+      e.target.style.display = 'none';
+    }
+  });
+</script>
 
 <style>
+  .hp-modal {
+  display: none; /* ocult per defecte */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.hp-modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.hp-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 .cards-container-big {
   display: grid;
   grid-template-columns: 1fr;
@@ -283,45 +334,45 @@
 <p>
 Quick explanation of the branches: 
 </p>
-<br>
+
 
 <p>
 The results obtained follow a progressive design logic, illustrated by a <strong>branching structure</strong>. 
 </p>
-<br>
+
 
 <p>
 We have been working with <strong>stop-codon readthrough elements</strong>, with the aim to create a library of different readthrough levels. 
 </p>
-<br>
+
 
 <p>
 Starting with SCR-D, we characterized a novel readthrough element in <strong>HEK293T cells</strong> to understand its parts, function, and determinants of readthrough efficiency. 
 </p>
-<br>
+
 
 <p>
 As a pivotal step, we explored and optimized a well-characterized readthrough element: a Selenocysteine Insertion Sequence (<strong>SECIS</strong>). 
 </p>
-<br>
+
 
 <p>
 To go even further, we explored the possibility of creating an inducible SCR element by creating a riboswitch. Thus, we characterized a sensing element as well: a <strong>theophylline aptamer</strong>, in <strong>HEK293T cells</strong> too.
 </p>
-<br>
+
 
 <p>
 Another pivotal step was needed, and we transitioned to <strong>cell-free systems</strong>, to validate the <strong>SECIS and Aptamer Elements</strong>: our top candidates for <strong>building the riboswitch</strong>.
 </p>
-<br>
+
 
 <p>
 With the help of our <strong>Software</strong> and <strong>Model</strong> tools, we designed the <strong>riboswitch constructs</strong> fusing these two elements. And our final step was testing them in the lab.
 </p>
-<br>
+
 
 <p>
-Let’s take a look at what our results revealed!
+Let’s take a look at what our results revealed! <span class="highlight-word">Click to the leaves to see each section</span>.
 </p>
 
    <!-- Tree Visualization -->
@@ -450,7 +501,7 @@ Let’s take a look at what our results revealed!
 
   <h2 class="section-subtitle">Background</h2>
   <p class="section-text">
-    SCR-D is a stop codon readthrough (SCR) element that can stimulate substantial levels of translational readthrough, but its functional architecture remained uncharacterized until now. 
+    SCR-D is newly identified a stop codon readthrough (SCR) element that can stimulate substantial levels of translational readthrough, but its functional architecture remained uncharacterized until now. 
     To address this, we performed an evolutionary and structural analysis of the element, detailed in <span class="bold-word">Engineering</span>.
   </p>
   <button class="btn btn-outline" onclick="window.location.href='/engineering'">
@@ -499,7 +550,7 @@ Let’s take a look at what our results revealed!
   </div>
 
   <br><br>
-  <h2 class="section-subtitle">Construct Design and Experimental Setup</h2>
+
   <p class="section-text">
     To test these hypotheses, we designed the following constructs for comparison with the natural SCR-D element:<br>
    <ul class="point-list">
@@ -518,7 +569,7 @@ Let’s take a look at what our results revealed!
   </p>
 
   <p class="section-text">
-    Normalization was performed using the following controls:<br>
+    Normalisation was performed using the following controls:<br>
     <ul class="point-list">
       <li><span class="bold-word">CGA (positive control):</span> stop codon removed for maximal dual expression.</li>
       <li><span class="bold-word">TAAA (frameshift negative control):</span> no Firefly expected.</li>
@@ -534,7 +585,7 @@ Let’s take a look at what our results revealed!
   <br><br>
   <h2 class="section-subtitle">Results</h2>
   <p class="section-text">
-    The normalized readthrough rates are summarized in Figure 1.
+    The normalized readthrough rates are summarized in <span class="bold-word">Figure 1.</span>
   </p>
 
   <div class="image-container">
@@ -581,11 +632,30 @@ Let’s take a look at what our results revealed!
   <p class="section-text">
     Although SCR-D achieves exceptionally high readthrough levels in mammalian cells (up to 9%), its activity depends mainly on a short conserved sequence (PreDiapin) rather than on the disruption of a structured element. 
     Because riboswitch design requires elements whose function depends on structure, we can conclude that targeting SCR-D for a riboswitch is not the most suitable strategy.<br><br>
-    Nevertheless, our work provides the first functional dissection of SCR-D. 
-    The distinct contributions of PreDiapin, Diapin, and Hypopin show that it can be modularly tuned to achieve different readthrough rates. 
-    While not used as the basis for our riboswitch, <span class="bold-word">SCR-D is now a very valuable new part for iGEM</span> 
-    (and the scientific community!), expanding the library of genetic tools for dual-protein expression and controlled co-expression in mammalian systems.
-  </p>
+    </p>
+    <section id="final-implication">
+  <h1 class="section-title">Final Implication</h1>
+  <div class="accordion">
+    <div class="accordion-header">
+      <div class="accordion-title">Final Implication</div>
+      <div class="accordion-icon"></div>
+    </div>
+    <div class="accordion-content">
+      <div class="accordion-content-inner">
+        <p>
+          Our work provides the first functional dissection of SCR-D.
+          The distinct contributions of PreDiapin, Diapin, and Hypopin show that it can be modularly tuned 
+          to achieve different readthrough rates.
+          While not used as the basis for our riboswitch, 
+          <span class="highlight-word">SCR-D is now a very valuable new part for iGEM</span> 
+          (and the scientific community!), expanding the library of genetic tools for dual-protein expression 
+          and controlled co-expression in mammalian systems.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 </section>
 
         </div>
@@ -599,8 +669,15 @@ Let’s take a look at what our results revealed!
     The <span class="bold-word">SECIS (Selenocysteine Insertion Sequence)</span> element was chosen as a potential riboswitch platform because it is a well-characterized structural motif with strong and reproducible readthrough activity. 
     Unlike the SCR-D element, SECIS has been extensively studied and its function depends primarily on 
     <span class="highlight-word">RNA structure</span>, making it a fitting choice for structure-based regulation.
-    <br><br>
-    Before using SECIS in our riboswitch designs, we aimed to characterize its performance to:
+    <span class="highlight-word">SECIS DIO2</span> is a particularly well-performing element, with documented efficiency
+     and compatibility in human cells, and it is the element we are using.[4]
+     <br><br>
+    <button class="btn btn-outline" onclick="window.location.href='/engineering'">
+  See how we chose this particular SCR Element
+</button>
+<br><br>
+    
+    We first need to characterize SECIS’ performance to:
     <br><br>
 <ul class="point-list">
   <li>Identify the <span class="bold-word">optimal experimental conditions</span> for its use in HEK 293T cells.</li>
@@ -612,9 +689,29 @@ Let’s take a look at what our results revealed!
     Readthrough efficiency was measured as the ratio of Firefly to Renilla luminescence, normalized to a 
     <span class="bold-word">CGA construct</span> as a positive control which represents 100% readthrough.
   </p>
-<button class="btn btn-outline" onclick="window.location.href='/experiments'">
-    View constructs
-  </button>
+<section id="construct-cards">
+  <h1 class="section-title">Constructs</h1>
+  <div class="cards-container">
+
+    <div class="card">
+      <h3 class="card-title">CGA Activity Normalization Control</h3>
+      <p>Stop codon removed for maximal dual expression.</p>
+      <button class="btn btn-outline" onclick="window.location.href='/experiments'">
+        See constructs
+      </button>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">SECIS Control</h3>
+      <p>Contains the SECIS element after the luciferases.</p>
+      <button class="btn btn-outline" onclick="window.location.href='/experiments'">
+        See constructs
+      </button>
+    </div>
+
+  </div>
+</section>
+
 
   <p class="section-text">
     Literature reports indicate that selenium supplementation can enhance SECIS activity in mammalian cells. 
@@ -633,12 +730,13 @@ Let’s take a look at what our results revealed!
     In the <span class="bold-word">first round</span>, SECIS showed strong readthrough levels of up to <span class="bold-word">9%</span> under basal conditions (0 mM theophylline) and at <span class="bold-word">0.5 mM</span> theophylline. 
     However, at <span class="bold-word">1 mM</span> and especially <span class="bold-word">5 mM</span>, readthrough decreased to below <span class="bold-word">6%</span>, likely due to 
     <span class="bold-word">theophylline-induced cytotoxicity</span> (as confirmed by our separate toxicity assay, see below). 
-    These results demonstrate that the SECIS element is <span class="bold-word">functional in HEK cells</span>, achieving readthrough levels consistent with those reported in literature.
+    These results demonstrate that the SECIS element is <span class="bold-word">functional in HEK cells</span>, achieving 
+    readthrough levels consistent with (and mostly higher than) those reported in literature[4,6].
   </p>
 
   <div class="image-container">
     <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/3r-secishek-1.webp" alt="SECIS first round readthrough results">
-    <p class="photo-caption">Fig. 2. Raw Renilla (before stop) and Firefly (after stop) Luciferase Values and Normalized Readthrough Rate of the SECIS element in different theophylline concentrations.</p>
+    <p class="photo-caption"><span class="bold-word">Figure 2</span>. Raw Renilla (before stop) and Firefly (after stop) Luciferase Values and Normalized Readthrough Rate of the SECIS element in different theophylline concentrations.</p>
   </div>
 
   <p class="section-text">
@@ -650,7 +748,7 @@ Let’s take a look at what our results revealed!
 
   <div class="image-container">
     <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/4r-secishek-2.webp" alt="SECIS second round results">
-    <p class="photo-caption">Fig. 3. Raw Renilla (before stop) and Firefly (after stop) Luciferase Values and Normalized Readthrough Rate of the SECIS element in different theophylline and selenium concentrations.</p>
+    <p class="photo-caption"><span class="bold-word">Figure 3</span>. Raw Renilla (before stop) and Firefly (after stop) Luciferase Values and Normalized Readthrough Rate of the SECIS element in different theophylline and selenium concentrations.</p>
   </div>
 
   <p class="section-text">
@@ -661,7 +759,7 @@ Let’s take a look at what our results revealed!
 
   <div class="image-container">
     <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/5r-secishek-3.webp" alt="SECIS third round results">
-    <p class="photo-caption">Fig. 4. Raw Renilla (before stop) and Firefly (after stop) Luciferase Values and Normalized Readthrough Rate of the SECIS element in different theophylline concentrations.</p>
+    <p class="photo-caption"><span class="bold-word">Figure 4</span>. Raw Renilla (before stop) and Firefly (after stop) Luciferase Values and Normalized Readthrough Rate of the SECIS element in different theophylline concentrations.</p>
   </div>
 
   <p class="section-text">
@@ -672,7 +770,7 @@ Let’s take a look at what our results revealed!
 
   <div class="image-container">
     <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/6r-secishek-combined.webp" alt="SECIS combined analysis results">
-    <p class="photo-caption">Fig. 5. Normalized Readthrough Rate of the SECIS element across the three rounds of experiments, in different theophylline and Selenium concentrations.</p>
+    <p class="photo-caption"><span class="bold-word">Figure 5</span>. Normalized Readthrough Rate of the SECIS element across the three rounds of experiments, in different theophylline and Selenium concentrations.</p>
   </div>
 
 <h2 class="section-subtitle">Discussion and Implications</h2>
@@ -692,6 +790,24 @@ Let’s take a look at what our results revealed!
     The <span class="bold-word">working range of theophylline</span> was defined as <span class="bold-word">0–1 mM</span>, ensuring minimal cytotoxicity while maintaining SECIS functionality.
   </li>
 </ul>
+<div class="info-card" id="extra-final-implication">
+  <div class="accordion">
+    <div class="accordion-header">
+      <div class="accordion-title">Final Implication</div>
+      <div class="accordion-icon"></div>
+    </div>
+    <div class="accordion-content">
+      <div class="accordion-content-inner">
+        <p>
+          Our work provides a characterization of the SECIS DIO2 element in HEK293T Cells that reaches consistent
+          readthrough levels of 8–10% across different experimental conditions: a very high percentage in readthrough
+          research, especially in mammalian cells.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
         </div>
@@ -721,7 +837,7 @@ Let’s take a look at what our results revealed!
           This approach ensured that any observed differences in luciferase activity were attributable
            to the experimental element (SECIS or aptamer) rather than to theophylline or selenium effects.</p>
         <h4>Results</h4>
-      <p>As shown in <span class="highlight-word">Figure 11</span>, both theophylline and selenium influenced the CGA control construct, highlighting the need for condition-specific normalization.</p>
+      <p>As shown in <span class="highlight-word"><span class="bold-word">Figure 11</span></span>, both theophylline and selenium influenced the CGA control construct, highlighting the need for condition-specific normalization.</p>
 
       <p>
       At <span class="highlight-word">0 nM selenium</span>
@@ -742,14 +858,13 @@ Let’s take a look at what our results revealed!
       theophylline, and rose to ~<span class="highlight-word">18%</span> with 1 mM theophylline. 
       These fluctuations with selenium, also observed in the Sensing Element experiments, indicate 
       that <span class="highlight-word">selenium challenges consistency</span> but can also modulate
-       translational efficiency in HEK cells, potentially through its known roles in protein synthesis 
-       and redox balance.
+       translational efficiency in HEK cells.
     </p>
     
 
       <div class="image-container">
         <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/14r-controls-hek.webp" alt="CGA control under different conditions">
-        <p class="photo-caption">Figure 11. Firefly/Renilla luciferase ratios for the CGA positive control across different theophylline and selenium concentrations. Used as reference for normalization in both SECIS and aptamer experiments.</p>
+        <p class="photo-caption"><span class="bold-word">Figure 11</span>. Firefly/Renilla luciferase ratios for the CGA positive control across different theophylline and selenium concentrations. Used as reference for normalization in both SECIS and aptamer experiments.</p>
       </div>
         <h4>Discussion and Implications</h4>
       <p>These results demonstrate that both theophylline and selenium alter the baseline 
@@ -783,7 +898,7 @@ Let’s take a look at what our results revealed!
          of theophylline and the <span class="highlight-word">optimal seeding density</span> for subsequent 
          experiments.</p>
         <h4>Results</h4>
-        <p>As shown in Figure 12, cell counts showed some variability, likely due to incomplete homogenization during sampling, but the general trend is clear</p>
+        <p>As shown in <span class="bold-word">Figure 11</span>, cell counts showed some variability, likely due to incomplete homogenization during sampling, but the general trend is clear</p>
       <ul class="point-list">
         <li>Up to 1 mM theophylline, cell numbers and morphology seem mainly unaffected.</li>
         <li>At 5 mM, a significant reduction in viable cells is observed, alongside visible changes in morphology.</li>
@@ -795,7 +910,7 @@ Let’s take a look at what our results revealed!
         than a true biological response.</p>
       <div class="image-container">
         <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/15r-toxicity-hek.webp" alt="Quantification of viable cells">
-        <p class="photo-caption">Figure 12. Quantification of viable HEK293T cells after 48 hours of treatment with increasing theophylline concentrations (0–40 mM), for both 30K and 70K cells seeded.</p>
+        <p class="photo-caption"><span class="bold-word">Figure 11</span>. Quantification of viable HEK293T cells after 48 hours of treatment with increasing theophylline concentrations (0–40 mM), for both 30K and 70K cells seeded.</p>
       </div>
       <p>
           These results are clearly supported by microscopic observations at 24h (Figures 13 and 14).
@@ -816,12 +931,12 @@ Let’s take a look at what our results revealed!
 
       <div class="image-container">
         <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/16r-toxicity-30k-hek.webp" alt="Microscope images 30k cells">
-        <p class="photo-caption">Figure 13A. Microscope images for 30K seeded cells, 0–40 mM theophylline.</p>
+        <p class="photo-caption"><span class="bold-word">Figure 13A</span>. Microscope images for 30K seeded cells, 0–40 mM theophylline.</p>
       </div>
 
       <div class="image-container">
         <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/17r-toxicity-70k-hek.webp" alt="Microscope images 70k cells">
-        <p class="photo-caption">Figure 13B. Microscope images for 70K seeded cells, 0–40 mM theophylline.</p>
+        <p class="photo-caption"><span class="bold-word">Figure 13B</span>. Microscope images for 70K seeded cells, 0–40 mM theophylline.</p>
       </div>
         <h4>Discussion and Implications</h4>
       <p>These results established a <span class="highlight-word">safe working concentration window</span>
@@ -848,12 +963,24 @@ Let’s take a look at what our results revealed!
 
   <h2 class="section-subtitle">Background</h2>
   <p class="section-text">
-    The <span class="bold-word">theophylline aptamer</span> was selected as our ligand-responsive element because of its exceptional 
-    <span class="bold-word">specificity</span> for theophylline [7eng], its absence in mammalian cells [8eng], and its proven biocompatibility in HEK cells [9eng]. 
-    Moreover, this aptamer has shown <span class="bold-word">cross-system functionality</span> [10,11eng] and possesses a 
-    <span class="bold-word">well-characterized secondary structure</span>, making it an excellent candidate for riboswitch engineering.
+    The <span class="bold-word">theophylline aptamer</span> was selected as our ligand-responsive element
+     because of its exceptional 
+    <span class="bold-word">specificity</span> for theophylline [7], 
+    its absence in mammalian cells [8], and its proven biocompatibility 
+    in HEK cells [9]. 
+    Moreover, this aptamer has shown <span class="bold-word">cross-system functionality</span> 
+    [10,11] and possesses a 
+    <span class="bold-word">well-characterized secondary structure</span>, making it an excellent 
+    candidate for riboswitch engineering[11].
     <br><br>
-    Among the various versions available, we chose the <span class="bold-word">Theo-ON-5 variant</span> [13eng], as it displayed the largest ON/OFF ratio in frameshift efficiency. 
+    Among the various versions available, we chose the <span class="bold-word">Theo-ON-5 variant</span> [11, 12], as it displayed the largest ON/OFF ratio in frameshift efficiency. 
+    <br><br>
+<button class="btn btn-outline" onclick="window.location.href='/experiments'">
+  see how we chose the aptamer
+</button>
+<br><br>
+
+
     Before incorporating it into our riboswitch, we aimed to:
   </p>
 
@@ -861,15 +988,34 @@ Let’s take a look at what our results revealed!
     <li><span class="bold-word">Validate its responsiveness to theophylline.</span></li>
     <li>Identify the <span class="bold-word">optimal experimental conditions</span> for reliable use in HEK 293T cells.</li>
   </ul>
+<section id="constructs-cards">
+  <h1 class="section-title">Constructs</h1>
+  <div class="cards-container">
 
-  <p class="section-text">
-    The aptamer construct used for this validation was adapted from Anzalone et al. (2016). 
-    This design places the theophylline aptamer with a <span class="bold-word">frameshift-inducing pseudoknot</span> 
-    between the Renilla and Firefly luciferase genes.
-    <br><br>
-    In this system, the aptamer’s folding state determines whether a ribosomal frameshift occurs:
-  </p>
+    <div class="card">
+      <h3 class="card-title">CGA Activity Normalization Control bb</h3>
+      <p>Stop codon removed for maximal dual expression.</p>
+      <button class="btn btn-outline" onclick="window.location.href='/experiments'">
+        see the constructs
+      </button>
+    </div>
 
+    <div class="card">
+      <h3 class="card-title">Aptamer Control</h3>
+      <p>
+        This construct contains the theophylline aptamer with a bb frameshift-inducing pseudoknot bb, 
+        between the Renilla and Firefly luciferase genes. In this system, the aptamer’s folding state determines 
+        whether a ribosomal frameshift occurs, which in turn determines if Firefly Luciferase is expressed or not.
+      </p>
+      <button class="btn btn-outline" onclick="window.location.href='/experiments'">
+        see the constructs
+      </button>
+    </div>
+
+  </div>
+</section>
+
+  Depending on the presence of the ligand:
   <ul class="point-list">
     <li>Without theophylline, the pseudoknot structure does not fold correctly, preventing frameshifting and blocking Firefly luciferase expression.</li>
     <li>With theophylline, the aptamer binds the ligand and releases the pseudoknot, allowing ribosomal frameshifting and placing the Firefly luciferase gene in-frame, enabling its expression.</li>
@@ -911,7 +1057,7 @@ Let’s take a look at what our results revealed!
 
   <div class="image-container">
     <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/8r-fsapt-hek1.webp" alt="Frameshift Aptamer HEK 1 results">
-    <p class="photo-caption">Fig. 6. Raw Renilla (before frameshift pseudoknot) and Firefly (after frameshift pseudoknot) Luciferase Values and Normalized FLuc/RLuc rate in different theophylline concentrations.</p>
+    <p class="photo-caption"><span class="bold-word">Figure 6</span>. Raw Renilla (before frameshift pseudoknot) and Firefly (after frameshift pseudoknot) Luciferase Values and Normalized FLuc/RLuc rate in different theophylline concentrations.</p>
   </div>
 
   <p class="section-text">
@@ -927,7 +1073,7 @@ Let’s take a look at what our results revealed!
 
   <div class="image-container">
     <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/9r-fsapt-hek2.webp" alt="Frameshift Aptamer HEK 2 results">
-    <p class="photo-caption">Fig. 7. Raw Renilla (before frameshift pseudoknot) and Firefly (after frameshift pseudoknot) Luciferase Values and Normalized FLuc/RLuc rate in different theophylline and selenium concentrations. Second round of experiments.</p>
+    <p class="photo-caption"><span class="bold-word">Figure 7</span>. Raw Renilla (before frameshift pseudoknot) and Firefly (after frameshift pseudoknot) Luciferase Values and Normalized FLuc/RLuc rate in different theophylline and selenium concentrations. Second round of experiments.</p>
   </div>
 
   <p class="section-text">
@@ -938,12 +1084,12 @@ Let’s take a look at what our results revealed!
 
   <div class="image-container">
     <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/10r-fsapt-hek3.webp" alt="Frameshift Aptamer HEK 3 results a">
-    <p class="photo-caption">Fig. 8a. Raw Renilla and Firefly Luciferase Values and Normalized FLuc/RLuc rate in different theophylline concentrations.</p>
+    <p class="photo-caption"><span class="bold-word">Figure 8a</span>. Raw Renilla and Firefly Luciferase Values and Normalized FLuc/RLuc rate in different theophylline concentrations.</p>
   </div>
 
   <div class="image-container">
     <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/11r-fsapt-hek3.webp" alt="Frameshift Aptamer HEK 3 results b">
-    <p class="photo-caption">Fig. 8b. Normalized rate for better visualization.</p>
+    <p class="photo-caption"><span class="bold-word">Figure 8b</span>. Normalized rate for better visualization.</p>
   </div>
 
   <p class="section-text">
@@ -954,7 +1100,7 @@ Let’s take a look at what our results revealed!
 
   <div class="image-container">
     <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/12r-fsapt-hek4.webp" alt="Frameshift Aptamer HEK 4 results">
-    <p class="photo-caption">Fig. 9. Raw Renilla and Firefly Luciferase Values and Normalized FLuc/RLuc rate in different theophylline concentrations. Fourth round of experiments.</p>
+    <p class="photo-caption"><span class="bold-word">Figure 9</span>. Raw Renilla and Firefly Luciferase Values and Normalized FLuc/RLuc rate in different theophylline concentrations. Fourth round of experiments.</p>
   </div>
 
   <p class="section-text">
@@ -965,83 +1111,386 @@ Let’s take a look at what our results revealed!
 
   <div class="image-container">
     <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/13r-fsapt-hek4.webp" alt="Frameshift Aptamer Positive Control">
-    <p class="photo-caption">Fig. 10. Renilla and Firefly Luciferase Values and Normalized FLuc/RLuc rate in different theophylline concentrations, for both the positive control (CGA construct) and the Frameshift Element + Aptamer Construct.</p>
+    <p class="photo-caption"><span class="bold-word">Figure 10</span>. Renilla and Firefly Luciferase Values and Normalized FLuc/RLuc rate in different theophylline concentrations, for both the positive control (CGA construct) and the Frameshift Element + Aptamer Construct.</p>
   </div>
 
   <h2 class="section-subtitle">Discussion and Implications</h2>
   <p class="section-text">
-    Across all experimental rounds, the theophylline aptamer construct <span class="bold-word">failed to show consistent or reproducible responsiveness</span> in HEK 293T cells. 
-    Although some data hints at the expected trend, the differences are minor and not as large as those reported in literature.
+    Across all experimental rounds, the theophylline aptamer construct 
+    <span class="bold-word">failed to show consistent or reproducible responsiveness</span> in HEK 293T cells. 
+    Although some data hints at the expected trend, the differences are minor and not as large as those 
+    reported in literature (even though they are tested in other systems).[11, 12, 13].
     <br><br>
     Our team hypothesized that this could be due to temperature-related instability, as the aptamer was originally characterized at 30 °C. 
     Using it under HEK293T culture conditions (37 °C) might cause partial denaturation of its structure, impairing proper folding and ligand binding.
     <br><br>
-    To further investigate this, we contacted Dr. Anzalone, who developed and characterized the <span class="bold-word">Theo-ON-5 aptamer</span> used in our study. 
-    He confirmed that his team had observed similar inconsistencies when testing their frameshifting riboswitches in HEK293T cells. 
+<div class="hp-modal" id="hp-card1">
+  <div class="hp-modal-content">
+    <h3 class="card-title">HP CARD: Anzalone</h3>
+    <p>
+      Anzalone, who developed and characterized the Theo-ON-5 aptamer we have used, confirmed that he had observed 
+      the same inconsistent results that we did in HEK293T, which is why he never published them. 
+      He recommended that we tried it in a cell-free system.
+    </p>
+  </div>
+</div>
+
+    To further investigate this, we contacted Dr. Anzalone<span class="highlight-word info-word" data-target="hp-card1">&#128161;</span>,
+     who developed and characterized the <span class="bold-word">Theo-ON-5 aptamer</span> used in our study. 
+    He confirmed that his team had observed similar inconsistencies when testing their frameshifting riboswitches in HEK293T cells, which is why there were no papers published on the aptamer in this system.
     He also noted that both the <span class="bold-word">temperature difference</span> and the 
-    <span class="bold-word">intrinsic inefficiency of ribosomal frameshifting</span> in HEK cells likely contributed to these results.
+    <span class="bold-word">intrinsic inefficiency of ribosomal frameshifting</span> he had observed in HEK cells [14] likely contributed to these results.
     <br><br>
     Based on his advice, and with additional input from <span class="bold-word">Dr. Paul Copeland</span> and our team discussions, 
     we decided to test the construct in a <span class="bold-word">cell-free system (rabbit reticulocyte lysate)</span>, which operates at 30 °C: 
-    a more suitable temperature for this aptamer. This platform provides tighter control of experimental conditions and has already been shown by Anzalone’s group to improve reproducibility.
-    <br><br>
-    In conclusion, while the <span class="bold-word">theophylline aptamer</span> remains a promising and well-characterized sensing element in other systems, our results indicate that it 
-    <span class="bold-word">performs inconsistently in HEK293T cells.</span> Future experiments in <span class="bold-word">cell-free systems</span> will allow us to evaluate its switching behavior more accurately and validate its use in combination with the SECIS element for riboswitch building.
-  </p>
+    a more suitable temperature for this aptamer. This platform provides tighter control of experimental conditions and has already been shown by Anzalone’s group to improve reproducibility[6, 17, 18]. 
+    We already had it in mind as our second option, so it was time to use it.
+    </p>
+    <div class="cards-container">
+  <div class="card">
+    <h3 class="card-title">Final Conclusion</h3>
+    <p>
+      In conclusion, while the <strong>theophylline aptamer</strong> remains a promising and well-characterized sensing element 
+      in many systems, our results indicate that it <strong>performs inconsistently in HEK293T cells</strong>. 
+      Future experiments in <strong>cell-free systems</strong> will allow us to evaluate its switching behavior more accurately 
+      and validate its use in combination with the SECIS element for riboswitch building.
+    </p>
+  </div>
+</div>
+
+
 
         </div>
  
 
         <!-- Branch 4 Main Content -->
-        <div class="content-section" id="branch4-main">
-            <h1 class="content-title">🧪 Branch 4: Cell-Free Validation</h1>
-            <h2 class="content-subtitle">SECIS and Aptamer's Validity Cell-Free</h2>
-            <p class="content-text">
-                This branch explores validation of our constructs in cell-free systems. Click on the sub-branches to explore specific aspects:
-            </p>
-            <ul style="font-size: 1.1rem; line-height: 1.7; color: var(--grey); margin-bottom: 1.5rem;">
-                <li><strong>Aptamer Validity:</strong> Theophylline aptamer functionality in cell-free systems</li>
-                <li><strong>SECIS Cell-Free:</strong> SECIS element behavior outside cellular environments</li>
-            </ul>
-            
-            <div class="placeholder-content">
-                <div class="placeholder-icon">🧪</div>
-                <h3 style="color: var(--main-color);">Cell-Free Branch Overview</h3>
-                <p style="color: var(--grey);">Click on the sub-branches to explore detailed results.</p>
-            </div>
+  <!-- Branch 4 Main Content -->
+<div class="content-section" id="branch4-main">
+  <h1 class="section-title">Branch 4: Aptamer’s Validity in the Cell-Free System</h1>
+
+  <h2 class="section-subtitle">Background</h2>
+  <p class="section-text">
+    After observing inconsistent responsiveness of the theophylline aptamer in HEK293T cells, we transitioned to a <strong>cell-free expression system</strong> to test its functionality under more controlled conditions (TnT® Coupled Reticulocyte Lysate Systems from Promega®). Literature reports have shown that the used theophylline aptamer performs reliably in this system, where RNA folding is less affected by cellular complexity.[11, 12]<br><br>
+    In this setup, we could test the aptamer’s responsiveness directly, without cellular variability. Due to solubility limitations of <strong>theophylline</strong> in the cell-free mixture, the <strong>maximum concentration</strong> we could reach was <strong>2.4 mM</strong>, added in small volumes before the incubation step.
+  </p>
+
+  <button class="btn btn-outline" onclick="window.location.href='/pivotal-changes'">
+    See Limitations in Theophylline Solubility
+  </button>
+
+  <br><br>
+  <p class="section-text">
+    The cell-free reaction can be initiated from either purified plasmids or PCR-amplified DNA templates. Here, we used <strong>PCR products</strong> derived from the plasmid containing the aptamer construct: a <strong>theophylline-binding aptamer coupled to a frameshifting pseudoknot</strong>, as well as a <strong>CGA positive control</strong> for normalization.
+  </p>
+
+  <!-- Constructs Cards -->
+  <section id="branch4-constructs">
+    <h1 class="section-title">Constructs</h1>
+    <div class="cards-container">
+
+      <div class="card">
+        <h3 class="card-title"><strong>CGA Activity Normalization Control</strong></h3>
+        <p>Stop codon removed for maximal dual expression.</p>
+        <button class="btn btn-outline" onclick="window.location.href='/experiments'">
+          See the constructs
+        </button>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Aptamer Control</h3>
+        <p>
+          This construct contains the theophylline aptamer with a <strong>frameshift-inducing pseudoknot</strong> between the Renilla and Firefly luciferase genes. In this system, the aptamer’s folding state determines whether a ribosomal frameshift occurs, which in turn determines if Firefly Luciferase is expressed or not.
+        </p>
+        <button class="btn btn-outline" onclick="window.location.href='/experiments'">
+          See the constructs
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <p class="section-text">
+    Depending on the presence of the ligand:
+  </p>
+  <ul class="point-list">
+    <li><strong>Without theophylline</strong>, the pseudoknot structure does not fold correctly, preventing frameshifting and blocking Firefly luciferase expression.</li>
+    <li><strong>With theophylline</strong>, the aptamer binds the ligand and releases the pseudoknot, allowing ribosomal frameshifting and placing the Firefly luciferase gene in-frame, enabling its expression.</li>
+  </ul>
+
+  <p class="section-text">
+    During the assay, transcription and translation occur simultaneously.[15] Theophylline was added prior to incubation at concentrations of <strong>0 mM, 0.5 mM, 1 mM, and 2.4 mM</strong>, and gene expression was quantified through a <strong>dual-luciferase assay</strong>, measuring both Renilla (upstream) and Firefly (downstream) activities.
+  </p>
+
+  <h2 class="section-subtitle">Results</h2>
+  <p class="section-text">
+    As shown in <strong>Figure 14</strong>, the cell-free assay demonstrated a clear <strong>ligand-dependent increase</strong> in frameshifting efficiency. Normalized to the CGA control, the <strong>FLuc/RLuc ratio increased from 7 % (0 mM)</strong> to approximately <strong>15 % (2.4 mM)</strong>, showing a near-linear response to increasing theophylline concentrations.<br><br>
+    Importantly, <strong>the positive control remained unaffected by theophylline</strong>, confirming that the ligand itself does not interfere with the translation process in this system, unlike in HEK cells, where minor cytotoxic effects were observed.
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/18r-fs-cellfree.webp" alt="FLuc/RLuc Ratio in different theophylline concentrations">
+    <p class="photo-caption"><strong>Figure 14.</strong> FLuc/RLuc Ratio in different theophylline concentrations to evaluate the Aptamer’s responsiveness to the ligand.</p>
+  </div>
+
+  <h2 class="section-subtitle">Discussion and Implications</h2>
+  <p class="section-text">
+    These results confirm that <strong>the theophylline aptamer is fully functional in the cell-free expression system</strong>, exhibiting a reproducible and quantitative response to ligand concentration. This validates the aptamer’s folding and switching capacity at 30 °C, supporting the hypothesis that its performance issues in HEK293T cells were related to the higher incubation temperature and intracellular conditions.
+  </p>
+
+  <!-- Extra Info Card -->
+  <div class="accordion">
+      <div class="accordion-header">
+        <div class="accordion-title">Final Implication</div>
+        <div class="accordion-icon"></div>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-content-inner">
+          <p>
+            With this validation, the aptamer becomes a <strong>strong candidate for integration into the final riboswitch design</strong>, in combination with the SECIS element.
+          </p>
         </div>
+      </div>
+    </div>
+
+</div>
+
+
+
+       
 
 
 
         <!-- Branch 5 Content -->
-        <div class="content-section" id="branch5-main">
-            <h1 class="content-title">🔗 Branch 5: Riboswitch with Linkers</h1>
-            <h2 class="content-subtitle">Testing the Built Riboswitch with Designed Linkers</h2>
-            <p class="content-text">
-                Testing of our complete riboswitch constructs with designed linkers in cell-free systems, demonstrating full system functionality with theophylline aptamer, linkers, and SECIS element.
-            </p>
-            
-            <div class="placeholder-content">
-                <div class="placeholder-icon">🔗</div>
-                <h3 style="color: var(--main-color);">Complete Riboswitch System</h3>
-                <p style="color: var(--grey);">Add your complete construct testing data here.</p>
-            </div>
+<div class="content-section" id="branch5-main">
+  <h1 class="section-title">Branch 5: SECIS Characterization in the Cell-Free System</h1>
+
+  <h2 class="section-subtitle">Background</h2>
+  <p class="section-text">
+    To further validate the functionality of the <strong>SECIS DIO2</strong> element under controlled conditions, we tested it in a <strong>cell-free expression system</strong> (TnT® Coupled Reticulocyte Lysate System, Promega® #L1170). This was an essential step before integrating SECIS into the final riboswitch construct, as we needed to confirm that it retained its readthrough-promoting activity.
+  </p>
+
+  <p class="section-text">
+    In this system, <strong>selenium supplementation is not required</strong>, as the commercial lysate already contains the necessary cofactors. However, <strong>SBP2 (SECIS-Binding Protein 2)</strong> is essential for SECIS activity, as it specifically recognizes the SECIS hairpin and recruits the selenocysteine insertion machinery.[20] To supply this factor, we incorporated <strong>Dr. Copeland’s SBP2 plasmid</strong> 
+    <span class="highlight-word info-word" data-target="hp-card2">&#128161;</span>
+ (under a T7 promoter) directly into the reactions.
+  </p>
+
+ <!-- HP Card 2 -->
+<div class="hp-modal" id="hp-card2">
+  <div class="hp-modal-content">
+    <h3 class="card-title">HP CARD</h3>
+    <p>
+      Paul Copeland has been a leading contributor in uncovering the mechanisms of <strong>selenocysteine incorporation</strong> at UGA stop codons. He played a key role in the identification of the eukaryotic <strong>SECIS-binding protein 2 (SBP2)</strong> and in establishing the mechanistic model in which <strong>SECIS</strong> works. 
+      He is an expert on SECIS elements and advised us that it would not be possible to have good results without the presence of <strong>SBP2</strong> in the <strong>cell-free system</strong>. This is why he sent us his plasmids so that we could purify them and use <strong>SBP2</strong>. From his experience, he also confirmed that <strong>Selenium supplementation</strong> would not be necessary in the cell-free system.
+    </p>
+  </div>
+</div>
+
+
+  <p class="section-text">
+    We performed the assay starting from <strong>PCR products</strong> of the SECIS constructs (which were more stable and efficient in this format), while the SBP2 plasmid was used in <strong>purified form</strong>. Reactions were carried out with three SBP2 concentrations: <strong>0, 100, and 300 ng/μL</strong>. The SBP2 plasmid was added before incubation, allowing simultaneous <strong>transcription and translation</strong>. Gene expression was quantified using a <strong>dual-luciferase assay</strong>, and results were normalized to a <strong>CGA positive control</strong> for maximal activity and to a <strong>negative control</strong> (containing no readthrough element) to account for background signal.
+  </p>
+
+  <!-- Constructs Cards -->
+  <section id="branch5-constructs">
+    <h1 class="section-title">Constructs</h1>
+    <div class="cards-container">
+
+      <div class="card">
+        <h3 class="card-title"><strong>CGA Activity Normalization Control</strong></h3>
+        <p>Stop codon removed for maximal dual luciferase expression (used for ratio normalization).</p>
+        <button class="btn btn-outline" onclick="window.location.href='/experiments'">See the constructs</button>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title"><strong>Negative control</strong></h3>
+        <p>Renilla luciferase followed by a STOP codon and Firefly luciferase; measures background readthrough or reinitiation.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title"><strong>SECIS control</strong></h3>
+        <p>Contains the SECIS element downstream of the STOP codon.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title"><strong>SBP2 Plasmid</strong></h3>
+        <p>Provides the SECIS-binding protein necessary for efficient readthrough activation.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <h2 class="section-subtitle">Results</h2>
+  <p class="section-text">
+    As shown in <strong>Figure 15</strong>, the <strong>negative control</strong> exhibits a small but consistent increase in Firefly luminescence with higher SBP2 concentrations: from <strong>~5% at 0 ng/μL</strong> to <strong>~12% at 300 ng/μL</strong>. This effect was unexpected, but it shows that SBP2 slightly influences general translation efficiency, reinforcing the importance of including controls for each condition in experiments.
+  </p>
+
+  <p class="section-text">
+    In contrast, the <strong>SECIS construct</strong> showed a much stronger and linear increase in readthrough efficiency. When normalized against both the CGA control and the negative control (<strong>Figure 16</strong>), readthrough rose from nearly <strong>0% at 0 ng/μL SBP2</strong> (as expected, since SBP2 is required for function) up to <strong>~12–14% at 300 ng/μL SBP2</strong>.
+  </p>
+
+  <p class="section-text">
+    This demonstrates that the SECIS element is <strong>active and responsive to SBP2 concentration</strong>, achieving high readthrough efficiency in the cell-free context.
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/19r-secis-cellfree.webp" alt="Normalized readthrough SECIS vs negative control">
+    <p class="photo-caption"><strong>Figure 15.</strong> Normalized readthrough between the SECIS control construct and the negative control, normalized only to the positive control to see how SBP2 affects it. Tested at three different SBP2 concentrations: 0, 100, and 300 ng/μL.</p>
+  </div>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/20r-secis-cellfree.webp" alt="Normalized readthrough SECIS all controls">
+    <p class="photo-caption"><strong>Figure 16.</strong> Normalized readthrough to all controls for the SECIS construct in three concentrations of SBP2: 0, 100, and 300 ng/μL.</p>
+  </div>
+
+  <h2 class="section-subtitle">Discussion and Implications</h2>
+  <p class="section-text">
+    These results confirm that <strong>SECIS DIO2 is fully functional in the cell-free system</strong>, producing <strong>up to 14% readthrough efficiency</strong> when supplemented with sufficient SBP2. The consistent, SBP2-dependent trend demonstrates that this element behaves predictably in a controlled in vitro environment.
+  </p>
+
+  <p class="section-text">
+    A concentration of <strong>300 ng/μL SBP2</strong> was established as optimal for achieving strong and reliable readthrough, although exploring higher concentrations (e.g., 500 ng/μL) could be further explored for optimization.
+  </p>
+
+  <!-- Extra Info Card -->
+    <div class="accordion">
+      <div class="accordion-header">
+        <div class="accordion-title">Final Implication</div>
+        <div class="accordion-icon"></div>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-content-inner">
+          <p>
+            Together with the successful validation of the theophylline aptamer, these results show <strong>an efficient readthrough element</strong> that is ready to be assembled and tested as part of the final riboswitch constructs!
+          </p>
         </div>
+      </div>
+    </div>
+  </div>
 <!-- Branch 6 Content -->
-        <div class="content-section" id="branch6-main">
-            <h1 class="content-title">🔗 Branch 6: Riboswitch with Linkers</h1>
-            <h2 class="content-subtitle">Testing the Built Riboswitch with Designed Linkers</h2>
-            <p class="content-text">
-                Testing of our complete riboswitch constructs with designed linkers in cell-free systems, demonstrating full system functionality with theophylline aptamer, linkers, and SECIS element.
-            </p>
-            
-            <div class="placeholder-content">
-                <div class="placeholder-icon">🔗</div>
-                <h3 style="color: var(--main-color);">Complete Riboswitch System</h3>
-                <p style="color: var(--grey);">Add your complete construct testing data here.</p>
-            </div>
-        </div>
-        <!-- future-->
+       <!-- Branch 6 Content -->
+<div class="content-section" id="branch6-main">
+  <h1 class="section-title">Branch 6: Riboswitch Building in the Cell-Free System</h1>
+
+  <h2 class="section-subtitle">Background</h2>
+  <p class="section-text">
+    After validating both the <strong>SECIS DIO2</strong> and the <strong>Theo-ON-5 aptamer</strong> in the cell-free system, optimizing <strong>SBP2 concentration to 300 ng/μL</strong> and <strong>theophylline concentrations between 0 and 2.4 mM</strong>, we proceeded to combine them into complete <strong>riboswitch constructs</strong>. [21, 22]
+  </p>
+
+  <p class="section-text">
+    The objective was to test whether coupling the sensing element (aptamer) to the readthrough element (SECIS) could produce a ligand-responsive regulatory switch.
+  </p>
+
+  <!-- Constructs Cards -->
+  <section id="branch6-constructs">
+    <h1 class="section-title">Constructs</h1>
+    <div class="cards-container">
+
+      <div class="card">
+        <h3 class="card-title"><strong>CGA Activity Normalization Control</strong></h3>
+        <p>Stop codon removed for maximal dual luciferase expression (used for ratio normalization).</p>
+        <button class="btn btn-outline" onclick="window.location.href='/experiments'">See the constructs</button>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title"><strong>Negative control</strong></h3>
+        <p>Renilla luciferase followed by a STOP codon and Firefly luciferase; measures background readthrough or reinitiation.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title"><strong>SECIS control</strong></h3>
+        <p>Contains the SECIS element downstream of the STOP codon.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title"><strong>SBP2 Plasmid</strong></h3>
+        <p>Provides the SECIS-binding protein necessary for efficient readthrough activation.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title"><strong>L5 Construct</strong></h3>
+        <p>First test riboswitch, with five nucleotides inserted between the SECIS element and the Aptamer.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title"><strong>L7 Construct</strong></h3>
+        <p>Second test riboswitch, with seven nucleotides inserted between the SECIS element and the Aptamer.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title"><strong>L8 Construct</strong></h3>
+        <p>Third test riboswitch, with eight nucleotides inserted between the SECIS element and the Aptamer.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title"><strong>L9 Construct</strong></h3>
+        <p>Fourth test riboswitch, with nine nucleotides inserted between the SECIS element and the Aptamer.</p>
+      </div>
+
+    </div>
+  </section>
+We also tried further controls with <strong> SBP2 concentrations up to 500 ng/uL </strong>, just to explore further potential optimization.
+  <h2 class="section-subtitle">Results</h2>
+<p class="section-text">
+  In <strong>Figure 17</strong>, normalized to all controls, the <strong>SECIS-only construct</strong> displayed consistent readthrough around <strong>6%</strong>, below previous results (~12–14%). This variation may reflect batch-to-batch differences in lysate activity or fluctuations in reaction efficiency that should be further explored.
+</p>
+
+<p class="section-text">
+  When the <strong>aptamer and linker</strong> are added, a clear switching behavior is observed. Even without theophylline, the addition of the linker and aptamer <strong>partially disrupts SECIS function</strong>, reducing readthrough from 6% to below 4% for L5, 3% for L7 and L8, and 2% for L9. When theophylline is added, the SECIS element is further disrupted, with its readthrough decreasing to <strong>~1% across all variants</strong>, demonstrating a <strong>consistent OFF-switch effect</strong>. 
+</p>
+
+<p class="section-text">
+  Interestingly, the magnitude of switching depends on linker length: <strong>shorter linkers (L5)</strong> initially preserve SECIS structure better, resulting in smaller absolute decreases but proportionally stronger relative switching. This pattern highlights how <strong>linker architecture directly influences functional coupling</strong> between the aptamer and readthrough domains, and is an interesting aspect to note for future discussion on improving linker prediction in our software and model tools.
+</p>
+
+<div class="image-container">
+  <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/21r-linkers-cellfree.webp" alt="Linkers results - Figure 17">
+  <p class="photo-caption"><strong>Figure 17.</strong> RLuc (before stop), FLuc (after stop), and normalized SCR rate across the four different riboswitch constructs, compared to only SECIS. All conditions are tested at 300 ng/uL SBP2 and in the absence (0 mM) and presence (2.4 mM) of theophylline, which corresponds to the off and on-state of the aptamer, respectively.</p>
+</div>
+
+<p class="section-text">
+  In <strong>Figure 18</strong>, we further examined control interactions. Increasing SBP2 concentration up to <strong>300 ng/μL</strong> enhanced SECIS readthrough, but <strong>500 ng/μL decreased it</strong>, likely due to competition of SBP2 with the translation machinery. Interestingly, the negative control shows even higher ratios with 500 ng/μL, emphasizing once more the importance of condition-matched normalization, but raising concerns on how to normalize samples to controls affected differently by the same reagent.
+</p>
+
+<div class="image-container">
+  <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/22r-controlsforlinkers-cellfree.webp" alt="Controls for linkers - Figure 18">
+  <p class="photo-caption"><strong>Figure 18.</strong> Negative control (right) and only-SECIS (left, not normalized to negative control) at two different theophylline and SBP2 conditions.</p>
+</div>
+
+<h2 class="section-subtitle">Discussion and Implications</h2>
+<p class="section-text">
+  These experiments mark the successful construction and testing of our <strong>first functional riboswitch prototypes</strong>. All four designs, differing only in linker length, exhibited a <strong>consistent ligand-dependent switching effect</strong>, confirming that coupling an aptamer to a readthrough element can dynamically modulate translation.
+</p>
+
+<p class="section-text">
+  As these riboswitches were designed and predicted using our <strong>model and TADPOLE software</strong>, these results give us important conclusions to evaluate them as well. These tools operate based on structural predictions provided by RNAfold and focus on the energetic requirements that allow the aptamer to fluctuate between two states: bound to theophylline or unbound. The linkers were designed based on an ON-ON switch structural prediction with RNAfold. This means that a functional (non-disrupted) SECIS element is expected in the presence of theophylline, as illustrated in the riboswitch structures.
+</p>
+
+<p class="section-text">
+  However, RNAfold has known limitations that prevent its structural predictions from being fully accurate, and these limitations appear to affect the non-canonical interactions within the functional core of SECIS. Therefore, although the in silico prediction suggested an ON-ON switch, <strong>an OFF-ON switch has been observed experimentally</strong>. The activation of the aptamer has resulted in further disruption of the SECIS element, consistent across all linkers.
+</p>
+
+<p class="section-text">
+  Hence, the model-guided approach <strong>successfully generated constructs that switch between two structural and functional states</strong>, validating the design pipeline. The data also provide valuable feedback for <strong>refining linker prediction algorithms</strong> and improving energetic modeling of complex RNA architectures.
+</p>
+
+<!-- Extra Info Card -->
+<div class="accordion">
+  <div class="accordion-header">
+    <div class="accordion-title">Final Implication</div>
+    <div class="accordion-icon"></div>
+  </div>
+  <div class="accordion-content">
+    <div class="accordion-content-inner">
+      <p>
+        Experiments have demonstrated that both <strong>SECIS DIO2</strong> and <strong>Theo-ON-5 aptamer</strong> are functional in a cell-free system, that their combination forms a <strong>ligand-responsive regulatory unit</strong>, and that linker length modulates baseline activity and switching amplitude.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<!-- future-->
         <div class="content-section" id="branch7-future">
             <h1 class="content-title">🚀 Future Steps After Wiki Freeze</h1>
             <h2 class="content-subtitle">Future Steps in the Lab</h2>
