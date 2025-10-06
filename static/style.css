@@ -351,6 +351,7 @@ section{
 .section-text {
   font-weight: var(--fw-regular);
   color: var(--text);
+  margin:1.5em 0em;
 }
 
 .page-desc{
