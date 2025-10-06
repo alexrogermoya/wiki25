@@ -54,6 +54,22 @@
             </div>
           </div>
 
+          <!-- HANDBOOK MSA -->
+          <div class="pdf-card" onclick="document.getElementById('pdf-msa').showModal()">
+            <div class="pdf-thumbnail">
+              <img 
+                src="https://static.igem.wiki/teams/5622/images/software/tadpole.webp" 
+                alt="HANDBOOK EP thumbnail" 
+                class="pdf-image-preview"
+              >
+            </div>
+            <div class="pdf-info">
+              <h3>HANDBOOK MSA Tool</h3>
+              <p>Click to see the whole document</p>
+            </div>
+          </div>
+
+
         </div>
 
         <!-- MODALS -->
@@ -81,6 +97,19 @@
           </div>
         </dialog>
 
+
+        <dialog id="pdf-msa" class="pdf-modal" aria-label="Handbook MSA Tool">
+          <div class="modal-inner">
+            <iframe 
+              src="https://static.igem.wiki/teams/5622/documents/msa.pdf" 
+              title="Handbook MSA Tool PDF"
+            ></iframe>
+
+            <!-- close button (works) -->
+            <button class="close-btn" data-dialog="pdf-msa" aria-label="Close dialog">✕</button>
+          </div>
+        </dialog>
+
       </section>
     </div>
   </div>
@@ -100,7 +129,7 @@
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   overflow: hidden;
-  width: 33%;
+  width: 30%;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

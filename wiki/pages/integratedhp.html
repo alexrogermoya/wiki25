@@ -8,27 +8,505 @@
 <div class = "page-container">
   <aside class="sidebar">
       <ul class="sidebar-nav">
-          <li><a href="#MatMod" class="active">Maturity Models</a></li>
-          <li><a href="#Explore" class="active">Explore</a></li>
-      </ul>
-      <div class ="info-card hp-card" id="hp-card">
-        <div class="card">
-          <h3 class="card-title">HP Card</h3>
-          <p>Throughout the wiki you will find lightbulbs like this one, in which we acknowledge the contributions of researchers and stakeholders, and highlight the impact of Skippit inside and outside the lab.</p>
-          <button class="btn btn-outline" onclick = "window.location.href='Link-overview-7'">Learn more</button>
-         </div>
-       </div>
+          <li><a href="#Strategy" class="active">Our Strategy</a></li>
+          <li><a href="#HPCards" class="active">HP Cards</a></li>
+          <li><a href="#Engineering" class="active">Engineering</a>
+          <ul class = "sidebar-subnav">
+            <li><a href="#subtitle1">Wet lab</a></li>
+            <li><a href="#subtitle2">Molecular design</a></li>
+            <li><a href="#subtitle3">Software</a></li>
+            <li><a href="#subtitle4">Applications</a></li>
+          </ul>
+          <li><a href="#Education" class="active">Education</a>
+          <ul class = "sidebar-subnav">
+            <li><a href="#subtitle5">Usability</a></li>
+            <li><a href="#subtitle6">Pedagogics</a></li>
+            <li><a href="#subtitle7">Outreach</a></li>
+          </ul>
+          <li><a href="#Biosecurity" class="active">Biosecurity</a></li>
+          </ul>
   </aside>
 
 
 <div class = "page-content">
 <div class = "header">
-<h1 class = "page-title">Human Practices</h1>
-<p class = "page-desc">Way, <span class="italic-word">way</span> beyond the lab</p>
+<h1 class = "page-title">Integrated Human Practices</h1>
+<p class = "page-desc">At the intersection between science and society</div>
+
+<p class = "section-text">Our Integrated Human Practices approach guided every stage of our project, ensuring that our technology was not only scientifically sound but also <span class="bold-word">safe, relevant, and responsive to real-world needs</span>. By engaging with diverse stakeholders throughout the design and development process, we continuously refined our goals and implementation strategies to align with societal values, ethical standards, and technical feasibility.
+</p>
+
+
+<section id = "Strategy">
+<h1 class = "section-title">Our strategy</h1>
+<p class = "section-text">During the initial stages of our project, it was evident that we needed to set a focus and gather information about the current state of the art to make a coherent product. From the beginning, we sought guidance from a <span class="bold-word">wide range of stakeholders</span>: academic researchers, industry experts, educators, schools, former iGEM participants and mentors,  and biosecurity authorities. Our <span class="bold-word">iGEM mentor</span> was essential in teaching us how to transform external input into actionable changes and to <span class="bold-word">establish feedback loops</span> throughout the project lifecycle. These loops are the backbone of our <span class="bold-word">Integrated Human Practices (IHP)</span> strategy, in which our initial idea is evaluated by external stakeholders and refined so that it can be implemented into our project.
+</p>
+
+<div class = "image-container">
+<img src = "https://static.igem.wiki/teams/5622/images/humanpractices/diagram-1.webp" alt = "IHP strategy scheme">
 </div>
 
-<p class = "section-text">When we first outlined our idea of creating an RNA-based tool for modulable translation, we knew that the <span class="bold-word">project’s success would depend on more than just technical design</span>. To strengthen it, we reached out to stakeholders from very different backgrounds, <span class="bold-word">opening a continuous dialogue</span> that shaped the project at every stage. 
+<p class = "section-text">In order to facilitate comprehension, you will find stakeholders organized in different <span class="bold-word">sections</span> (Engineering, Education or Biosafety compliance), in turns grouped in <span class="bold-word">smaller clusters</span> relating to the specific role they played. To better assess and prioritise stakeholders, we used a tool commonly used by previous iGEM teams: the  <span class="bold-word">Mendelow’s Matrix</span>. It helped us determine which stakeholders required more attention, communication and engagement.
 </p>
+
+<div class = "image-container">
+<img src = "https://static.igem.wiki/teams/5622/images/humanpractices/matrix.webp" alt = "Stakeholder's matrix">
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Key partners</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<p>Our key partners were those stakeholders with both high interest and power to shape our project. These included research centers, industry advisors and regulatory and security agencies. Research centers, such as the Faculty of Biology, of the University of Barcelona, gave us access to valuable perspectives and validated the applicability of our tool in disease-relevant applications. <br><br>By consulting these institutions, we aligned our work with academic standards and benefitted from collective expertise beyond individual researchers. Industry advisors like Promega provided practical support, such as the technical know-how, reagents and assay systems and helped us bridge the gap between academic theory and practical implementation. <br><br> Industry partners contribute a real-world perspective on the usability of our product. With the early involvement of  these key actors early, we secured a reliable source of technical  knowledge grounded in extensive global lab experience - an essential foundation for credibility and reproducibility. <br><br> Moreover, and given the novelty of our project, it was crucial to contact regulatory and safety agencies to ensure our project met biosecurity standards, reassuring both the general public and institutions. By consulting IBBIS and the iGEM Safety & Security Committee, we were confident that our product posed a low intrinsic dual-use risk, while we simultaneously explored new frameworks for risk assessment and mitigation. Instead of safety as an afterthought, we  proactively integrated it into the design process, which can be demonstrated in our Dual-use assessment.
+</p>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Keep informed</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<p>We also worked with stakeholders with high interest in our project but lower formal power. Nevertheless, their insights were paramount in shaping the educational impact and the usability of our product. We worked closely with teachers and schools, where we tested our educational toolkit in real classroom environments. This was fundamental to ensure our project could have an impact beyond the lab. <br><br> Their feedback revealed the importance of age-specific framing and modulability, while also ensuring our project could function as a coherent pedagogical resource to inspire the scientists of tomorrow. In order to guarantee scientific rigor and credibility, we reached out to researchers from different fields who, in the best of cases, would become potential users of our technology. <br><br> Contacting them was particularly important as innovation often benefits from cross-disciplinary perspectives, thus expanding our understanding of potential challenges and applications we had not considered. Most importantly, these discussions ensured that our tool was not developed in isolation, but rather as part of an ongoing dialogue within the synbio community.
+</p>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Keep satisfied</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<p>A third group, constituted by powerful but not particularly interested stakeholders,  played a key role in the feasibility and prospects for our project. While not directly involved, government agencies and bioethics committees ensure scientific innovations remain within ethical and legal boundaries. These agencies act as gatekeepers who safeguard the public interest and ensure that emerging biotechnologies, such as ours, comply legally and institutionally. By keeping them satisfied, we built trust and credibility, reflecting our compromise of integrating proper ethics and governance into every stage of development. For that reason, we contacted Dr. Gemma Marfany, a recognised bioethics expert, to guide us in the process.
+</p>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Low interest</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<p>The last quadrant includes stakeholders with low power and direct interest, such as the general, non-specialized public and the media. Although they did not directly influence our project, they remain an essential part of building trust, transparency and social acceptance around synthetic biology. Public perception plays a decisive role in how biotechnologies are understood, regulated and adopted, which remarks the importance of engaging with them. <br><br>Through different outreach activities, we made our work accessible to non-specialists, demystifying synthetic biology and showing that it can be developed responsibly and ethically. Complex technologies like RNA-based regulation can easily be misunderstood, which is why we accepted the challenge to take our project beyond academia and foster mutual trust between scientists and citizens.
+</p>
+</div>
+</div>
+</div>
+
+</section>
+
+
+<section id = "HPCards">
+<h1 class = "section-title">HP Cards: Making Human Practices visible</h1>
+<p class = "section-text">To further reinforce our commitment to integrate our HP work, we have created <span class="highlight-word">HP Cards</span>, a new system that links our project’s key decisions to their real-world context. These cards can be found as interactive links distributed <span class="bold-word">across our wiki</span>, connecting specific concepts, design decisions or experimental conditions to the stakeholders who influenced them. <br><br>
+This structure makes Human Practices a <span class="bold-word">constant presence</span> in every section in our wiki, rather than a stand-alone element. They allow readers to follow how each interaction with researchers/educators/regulatory experts directly shaped our experimental design, toolkit and safety framework. <br><br>
+We like to think of HP Cards as a living record of collaboration, not detached from the scientific narrative but woven instead into our project. This interconnected system allows viewers to see not only what we did, but also why and whose input shaped it. Just as our design has <span class="bold-word">improved organically</span> during these months, the wiki now <span class="bold-word">mirrors</span> this process where real conversations turned into educated decisions.  <br><br>
+Our approach not only contributes to the wiki’s internal coherence, but also offers to the broader iGEM community a <span class="bold-word">new model to reflect truthfully how Human Practices shape our projects</span>. We believe this strategy provides a holistic and transparent framework for understanding our work, and our commitment to prove that responsible innovation is not a final step but a <span class="bold-word">continuous process</span> guiding every decision we make.  <br><br>
+Our take-home message is that <span class="bold-word">Human Practices should not be an appendix to science, but its foundation</span>. By making stakeholder input traceable and linking our results back to a human dialogue, we have built a system where responsibility and collaboration are embedded at the core of innovation.
+</p>
+</section>
+
+
+<section id = "Engineering">
+<h1 class = "section-title">Engineering</h1>
+<p class = "section-text">The aim of our project is introducing a novel translational control tool that is precise, tunable and reversible. This system enables precise and tunable protein expression, with potential applications in medicine, research, sustainable agriculture and biosensing. To ensure our project is both useful and responsible, we continuously discussed with <span class="bold-word">researchers and industry stakeholders</span>, incorporating their feedback in experimental design and application roadmap. This collaborative process has allowed us to refine our approach and align it with <span class="bold-word">real-world needs</span>.
+</p>
+
+<h2 id = "subtitle1" class = "section-subtitle">Wet lab design & Experimental optimization</h2>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Paul Copeland</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> Paul Copeland has been a leading figure contributor in uncovering the mechanisms of selenocysteine incorporation at UGA stop codons. He played a key role in the identification of the eukaryotic SECIS-binding protein 2 (SBP2) and in establishing the mechanistic model in which SECIS works. His expertise was crucial in laying the foundations of our project.</li>
+<li><span class="bold-word">Contribution:</span> He considered the project exciting and feasible, suggesting tools like XFold and Benchling, testing magnesium concentration ranges, and adding selenium supplementation. He also proposed alternatives such as monoluciferase assays, GFP normalization and in vitro transcription with TNT kits. He highlighted the limitations in quantifying SECIS readthrough and advised proof-of-concept experiments in vitro before moving to cell lines. He kindly provided SBP2 for our use.</li>
+<li><span class="bold-word">Implementation:</span> We tested magnesium and selenium conditions, explored monoluciferase and GFP normalization approaches, and considered in vitro transcription for validation. However, we will assess feasibility with HEK cells as a starting point.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Promega</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> Promega is a leading biotechnology company that offers a wide range of life science products. Several of their tools have been essential during the development of our project, including the TnT Coupled Reticulocyte Lysate System, the Dual-Luciferase assay and the plasmid purification kits.</li>
+<li><span class="bold-word">Contribution:</span> At the Discover-Glo conference by Promega, we connected with stakeholders such as Irena Montiel and Eric Rovira. Irena, a key account manager at Promega and expert in bioluminescence, advised against NanoLuc or the GloMax Galaxy system for RNA-ligand interactions studies, instead recommending the Dual-Luciferase Assay (Renilla/Firefly), as the most suitable approach for our project.</li>
+<li><span class="bold-word">Implementation:</span> Based on her advice, we implemented the Dual-Luciferase Assay to monitor frameshift efficiency and evaluate the functionality of the SCR element in our design.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Andrew Anzalone</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> Andrew Anzalone is a leading figure in modern genome editing, developing a prime editing technology. His prior experience working with theophylline riboswitches, like those used in our project, made him an invaluable candidate source of feedback.</li>
+<li><span class="bold-word">Contribution:</span> When our experiments with HEK293T cells failed to produce the expected response to theophylline, we hypothesized that the aptamer might not be folding correctly inside mammalian cells. Upon consulting Dr. Anzalone, he confirmed that he had encountered the same issue: in his work, HEK293T cells did not yield positive results, whereas yeast cells did. Together, we concluded that the discrepancy arises from temperature differences. The aptamer folds correctly at around 30 °C (in vitro and in yeast), but at 37 °C (mammalian conditions) the mRNA misfolds, disrupting functionality.</li>
+<li><span class="bold-word">Implementation:</span> Dr. Anzalone’s feedback was pivotal, prompting us to prioritize in vitro validation of our construct before moving to mammalian cell culture. Once a solid proof of concept is established, we can then explore strategies to overcome the temperature-dependent folding limitation and adapt our riboswitch system for mammalian applications.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Dietmar Funck</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> Dietmar Funck is a researcher in plant biochemistry and physiology at the University of Konstanz, with knowledge in riboswitch-based regulation in plants.</li>
+<li><span class="bold-word">Contribution:</span> He noted that the most effective strategy is combining two riboswitches responsive to the same ligand within a single transcript. He emphasized the challenges of predicting riboswitch efficiency for specific genes, as affinities highly depend on sequence context, and remarked on the limitations of in silico models due to the complexity of in vivo RNA folding prediction. Overall, he underscored the importance of empirical testing over sole reliance in computational models.</li>
+<li><span class="bold-word">Implementation:</span> Dietmar’s insights were crucial in helping us recognize the practical limitations of our project and the potential discrepancies between computational predictions and actual lab outcomes. His guidance reinforced the necessity of combining predictive tools with hands-on validation, ensuring a more robust approach to riboswitch-based regulation.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<h2 id = "subtitle2" class = "section-subtitle">Molecular design & bioinformatic tools</h2>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Eric Rovira</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> Dr. Eric Rovira is a geneticist and RNA engineer, featured as a speaker at the Discover-Glo conference. His research focuses on RNA structure tools to investigate both fundamental and applied aspects of gene regulation, with particular emphasis on human gene expression. His extensive background and riboswitch  expertise provided us with valuable insight.</li>
+<li><span class="bold-word">Contribution:</span> In an interview, Dr. Rovira discussed riboswitches in personalised medicine and gene therapy, stressing design considerations such as linker placement and SECIS modifications. He noted guanidine as a potential ligand, suggested post-SELEX software for candidate identification, and highlighted SHAPE-MaP as a tool for functional screening. He expressed strong interest in the team’s riboswitch work and its future applications.</li>
+<li><span class="bold-word">Implementation:</span> While not all suggestions fit the project’s scope, his advice was highly valuable. Our PI confirmed that our luciferases were suitable, and we validated that our SECIS element required no modifications. We chose not to pursue guanidine as a ligand, favoring the well-characterized theophylline aptamer, and we set aside SHAPE-MaP due to time constraints. Nevertheless, Dr. Rovira’s input broadened our understanding of riboswitch applications and highlighted promising directions for future toolkit expansion.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Roger Castells</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> Dr. Roger Castells-Graells leads the Biomolecular Design and Structural Nanomedicine group at the Spanish National Cancer Research Center. As an expert in protein design and structural biology, he was well-positioned to give valuable feedback on our toolkit and its potential applications.</li>
+<li><span class="bold-word">Contribution:</span> Thanks to his expertise in bioinformatics, Dr. Castells recommended using Boltz for small-molecule predictions and highlighted the limitations of AlphaFold3 in modeling theophylline interactions. He guided the team in visualizing theophylline–aptamer interactions with ChimeraX, validated the Tadpole software, and emphasized evaluating potential toxicity of theophylline and SECIS elements. He also noted that the toolkit could benefit his own research on protein cages by enabling precise control of protein size to avoid steric clashes and aggregation.</li>
+<li><span class="bold-word">Implementation:</span> His feedback allowed us to improve and adapt the Tadpole software, and set realistic expectations for its predictive capabilities. Although advanced ligand modeling was limited, his guidance on visualization clarified our development roadmap. Addressing his concerns about theophylline toxicity, we performed a HEK293T assay to determine a safe concentration range for our experiments.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Atsushi Ogawa</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> Atsushi Ogawa is a recognised expert in the field of ligand-responsive RNA switches. His research enabled ligand-induced translation by modulating the internal ribosome entry site (IRES) structure, producing both OFF- and ON-type riboswitches. His papers laid the foundations for the early stages of our project.</li>
+<li><span class="bold-word">Contribution:</span> During the initial stages of our project, we were concerned that unpaired nucleotides in the aptamer might accidentally base-pair with parts of the IRES in the OFF state, thus interfering with the correct folding. Upon consulting Ogawa, he clarified that even if it was a possibility, ligand binding makes the ON conformation more thermodynamically favorable, overcoming the mispairing.</li>
+<li><span class="bold-word">Implementation:</span> The IRES-based mechanism Ogawa suggested was not compatible with our project, given that the proximity of the aptamer and the switch would probably lead to misfolding. In order to minimize unwanted hybridization, we decided to use a SCR-based model.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<h2 id = "subtitle3" class = "section-subtitle">Toolkit & software development</h2>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">José Ignacio Pérez-López</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> As an outstanding researcher in Cambridge University with a background in biochemistry and molecular genetics, he represented the kind of profile we expect to use our technology.</li>
+<li><span class="bold-word">Contribution:</span> He recommended including illustrations and explanations to clarify what our software does, with special emphasis in the SCR section and the Skippit part. He considers that making visible the calculations done with ViennaRNA is key to ensure trustworthiness and give credit where it is due.</li>
+<li><span class="bold-word">Implementation:</span> We redesigned the website with illustrations and diagrams to facilitate understanding.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Jacob González Isa</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> Jacob González is a PhD postgraduate student in the Genetic and Epigenetic Inheritance in Plants Group in the University of Cambridge. Specialized in bioinformatics, he could detect our weaknesses and propose strategies to improve our toolkit.</li>
+<li><span class="bold-word">Contribution:</span> Jacob highlighted the need for a clear user guide and a graphical abstract to illustrate the workflow. He also recommended a user-friendly interface where the inputs are inserted and the web returns the linker. He advised improving default parameters for quick demonstrations, adding result analysis features, and providing a single grouped output file instead of multiple documents.</li>
+<li><span class="bold-word">Implementation:</span> We added new figures and graphs to visualize the code, also including a user guide and tutorials for easier navigation, and ensured transparency by providing documentation on the web and the source code in the GitLab repository.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<h2 id = "subtitle4" class = "section-subtitle">Application-oriented perspectives</h2>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Manuel Reina</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> Manuel Reina is a professor of Cell Biology at the University of Barcelona and director of Celltec-UB, a research group specialized in developing and transferring cell technology to partner enterprises, facilitating the translation of academic research into practical applications. His perspective helped us anticipate how our ideas may be applied in real-world contexts.</li>
+<li><span class="bold-word">Contribution:</span> He suggested mechanisms through which the riboswitch may be applied, for example, inside a bioreactor to regulate cell concentration and trigger apoptosis when it  becomes excessive. He also underscored a critical aspect for future application: the half life of our product, given that this parameter is fundamental in defining long-term strategies.</li>
+<li><span class="bold-word">Implementation:</span> Guided by his advice, we plan to integrate stability assays into our design pipeline, so that future iterations can meet the requirements of large-scale production and scalable implementation.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Faculty of Biology, UB</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> We presented our project in a poster presentation with fellow colleagues and students. More importantly, we had a valuable exchange with another research group working on readthrough.</li>
+<li><span class="bold-word">Contribution:</span> Their research focuses on retinitis pigmentosa, a blindness-causing disease resulting from nonsense mutations, and explores readthrough as a therapy to restore function of truncated proteins. Even low levels of drug-induced readthrough (～2%), may partially restore vision. Our system achieves readthrough efficiencies above these thresholds, confirming its potential therapeutic applications. </li>
+<li><span class="bold-word">Implementation:</span> By understanding the applicability of our project in disease contexts, we can optimize our system for future translational studies. It also remarked on the necessity of a functional SCR tool to advance research. On another note, we also received feedback on presentation clarity and poster design.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">José Antonio del Río Fernández</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> PhD Antonio del Río is an expert in Developmental Neurobiology, Neural Regeneration and Neurodegeneration at the Institute for Bioengineering of Catalonia, with keen interest in prionic diseases. Given that fine-tuning protein expression is a central aspect of our project, we believe he could provide valuable feedback.</li>
+<li><span class="bold-word">Contribution:</span> He outlined prospective strategies in which our riboswitch could bypass the stop codon and create prion-like proteins, facilitating the study of these challenging molecules. Based on existing prionic biosensors, he suggested a novel strategy to quantify readthrough by placing GFP downstream of the stop codon, such that fluorescence intensity is proportional to translational readthrough.</li>
+<li><span class="bold-word">Implementation:</span> Building on his suggestions,  we could optimize a riboswitch capable of generating prion-like protein variants, expanding the applicability of our tool to neurodegenerative research but also providing a powerful model for studying protein misfolding and aggregation in a controlled environment.</li>
+</ul>
+</div>
+</div>
+</div>
+
+</section>
+
+
+<section id = "Education">
+<h1 class = "section-title">Education</h1>
+<p class = "section-text">We believe science should not be confined to the laboratory, but serve as a tool to build a <span class="bold-word">more educated and just society</span>. In turn, society influences how science is practiced and perceived. Our educational strategy integrates art, ethics, technology, and communication to <span class="bold-word">counter misinformation</span> and foster a deeper public understanding of science. By promoting critical thinking, creativity, hands-on experience and collaboration, we aim to <span class="bold-word">empower the next generation of scientific leaders</span>.
+</p>
+
+<h2 id = "subtitle5" class = "section-subtitle">Toolkit structure & Classroom usability</h2>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Miquel Rosell (teacher)</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> We aimed to understand how our toolkit could best support teachers, identifying their needs and exploring how to address them effectively.</li>
+<li><span class="bold-word">Contribution:</span> He suggested designing a modular project with related activities that could also stand alone, and advised us to highlight the curricular skills developed in each activity to make the toolkit more appealing to teachers. He also contributed to shaping the ethics activity.</li>
+<li><span class="bold-word">Implementation:</span> We applied his suggestions by making the toolkit modular and specifying the skills developed in each activity.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Sant Nicolau’s school</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> We conducted a pilot test of the toolkit’s art activity to gain direct, first-hand insight into how our idea could be improved.</li>
+<li><span class="bold-word">Contribution:</span> Although both the teacher and students enjoyed the activity, they felt the time was too limited, and the students expressed a desire to share their animals with the rest of the class. We suggested using ChatGPT to help with the drawings since not everyone draws equally well, but we ran into issues: some groups didn’t use it at all, while others relied on it too heavily and didn’t engage in the creative thinking process.</li>
+<li><span class="bold-word">Implementation:</span> To address this, we divided the activity into two sessions and added a dedicated space for students to present and share their creations. We also decided to remove ChatGPT from the activity. Although some drawings might not turn out perfect, it’s better that participants do the thinking themselves.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Montagut school</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> We carried out an adapted pilot test of the toolkit’s bioethics activity to gather direct, first-hand insights on how to improve our approach. At the end of September, they tried out the second activity of technology and gave us valuable input.</li>
+<li><span class="bold-word">Contribution:</span> From the bioethics pilot test we saw that while students were initially in favor of applying the new treatment in the fictional case, their opinions shifted as more complex and nuanced questions were introduced. Regarding the feedback from the technology activity, The teacher recommended adding the history of AlphaFold for context, improving the introduction’s visual appeal, and addressing speed issues. He also questioned whether AI tools like AlphaFold truly solve the structure prediction problem, or if utility should be distinguished from genuine understanding and justification.</li>
+<li><span class="bold-word">Implementation:</span> To better support the debate in the bioethics activity, we provided key arguments for the positions students had to defend, particularly for the teams opposing the treatment. As for the technology activity, we will work on their suggestions, trying to implement this new philosophical point of view.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Daina Isard school</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> In order to test the toolkit’s technology and communication activity, we carried out a pilot test to obtain preliminary feedback and identify areas for improvement before broader implementation.</li>
+<li><span class="bold-word">Contribution:</span> Daina Isard school really liked our toolkit when it was presented to them. They said they wanted to test all the activities and use the toolkit as it was intended, for the moment they have tried the technology and the communication activity, but they will also do the experimental one. The technology activity was deemed a success, greatly enjoyed by the students and allowing them to understand how to use BLAST through hands-on learning. The communication activity, although positively received, was considered somewhat repetitive.</li>
+<li><span class="bold-word">Implementation:</span> The feedback not only allowed us to refine the activities by reducing redundancies, but also steered us to imagine how the toolkit can be better tailored to different learning contexts. These adjustments ensured greater effectiveness and potential of the toolkit in classroom settings.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<h2 id = "subtitle6" class = "section-subtitle">Pedagogical & Ethical guidance</h2>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">La Llar de la Recerca</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> La Llar de la Recerca is a youth association dedicated to spreading science and technology amongst young people in a catalan region called Penedès, we attended an oratory workshop organised by them and led by Eulàlia Soler, professor of oratory at Universitat Pompeu Fabra.</li>
+<li><span class="bold-word">Contribution:</span> We drew inspiration from this association to shape our vision of the 360º scientist: someone with a strong cultural background and an awareness of the world around them. In the workshop, Eulàlia explained how debates are structured in official competitions, emphasized the importance of thorough preparation, and shared practical tools to improve debating skills.</li>
+<li><span class="bold-word">Implementation:</span> We thought of the education plan around this idea, and we adopted a structured debate format for the bioethics activity (introduction, discussion, and conclusion, with questions limited to the discussion phase) and equipped students with some of the tools and strategies introduced in the workshop.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Gemma Marfany</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> Dr. Gemma Marfany is a molecular geneticist and Professor of Genetics at the University of Barcelona. She is also a member of the University of Barcelona’s Bioethics Committee and is widely recognised for her contributions to the field of bioethics.</li>
+<li><span class="bold-word">Contribution:</span> As a professor and science communicator, Dr. Marfany shared her extensive experience in student engagement and pedagogy. She suggested strategies to improve engagement, underscoring retroactivity between teachers and the team to continuously refine the toolkit. She highlighted the strengths of our activities while also identifying areas for improvement, such as the lack of contextualization between our specific project and the activities.</li>
+<li><span class="bold-word">Implementation:</span> A key aspect was to define the demographic target of our toolkit. Given that a relative maturity is required to debate the activities, especially the debate, we ponder that ages ranging 15-17 might provide best results. With her guidance, we designed a biotechics activity that allowed even non-biology students to reflect critically on present and future challenges. Related to the DNA extraction experiment, Gemma suggested changing the media we use to spark scientific curiosity. This adjustment, along with her pedagogical insights, will allow us to strengthen the overall educational impact of the toolkit.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<h2 id = "subtitle7" class = "section-subtitle">Science communication & Outreach</h2>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">CosmoXarxa</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> The Cosmoxarxa is a volunteer network at CosmoCaixa, Barcelona’s science museum, that meets regularly for conferences and discussions. It offers a space where ideas can be discussed with people from diverse backgrounds.</li>
+<li><span class="bold-word">Contribution:</span> We presented our project and explained our aptamer-riboswitch model. Participants raised questions raising topics such as safety and potential therapeutic applications, while medical students in the audience expressed interest in its prospects for gene therapy.</li>
+<li><span class="bold-word">Implementation:</span> The presentation highlighted which aspects of our project sparked more interest and which ones were harder to explain, helping us refine our  communication of synthetic biology. This insight improved the accessibility and clarity of our explanations for the general public.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">Ina Kruger and Kathryn Dungey</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> Ina Kruger and Kathryn Dungey are postgraduate students in the Genetic and Epigenetic Inheritance in Plants group at Cambridge University. They have conducted activities to spread science, from which we could take inspiration from. </li>
+<li><span class="bold-word">Contribution:</span> Our education toolkit includes a hands-on activity of DNA extraction from fruit and visualization, aiming to familiarize the general public with the basics of genetics and biochemistry. </li>
+<li><span class="bold-word">Implementation:</span> In response to our inquiry for advice, they recommended adapting the protocol by preparing intermediate products and pacing the activity for smoother execution during discussions. They also suggested improving accessibility by linking concepts to participant’s own experiences and explaining the scientific role of each reagent, so that the activity may be replicated at home.</li>
+</ul>
+</div>
+</div>
+</div>
+
+</section>
+
+
+<section id = "Biosecurity">
+<h1 class = "section-title">Biosecurity compliance</h1>
+<p class = "section-text">The development of new technologies necessitates the implementation of robust contingency measures to mitigate the risk of both inadvertent and intentional misuse. To ensure the responsible deployment of our tools, we not only consulted specialized institutions but also developed <span class="bold-word">our own Dual-Use Assessment</span>. This comprehensive evaluation examines the potential avenues of misuse, assesses their possible consequences and outlines appropriate response strategies for mitigation, helping to <span class="bold-word">safeguard against malpractice</span> and underlining our compromise with the <span class="bold-word">ethical application</span> of our technology.
+</p>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">IBBIS</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> The International Biosecurity and Biosafety Initiative for Science is an organization devoted to act as a consultor and assessor in synbio projects. We contacted Technical Consultant Luca Boldrini, given that his prior experience with iGEM familiarized him with the specific requirements of such projects.</li>
+<li><span class="bold-word">Contribution:</span> They reassured that we may be overthinking, which is ultimately positive for ensuring proper use. They considered the current dual-use risk is low, emphasizing that the sequence we provide is innocuous and danger lies in the payload expressed with it, but that’s beyond our scope. As safeguards, they recommended focusing on educating users, restricting applications to non-pathogenic chassis, and considering consumer screening as a preventive measure.</li>
+<li><span class="bold-word">Implementation:</span> Following the IBBIS philosophy and its open-source Common Mechanism screening tool, we adopted a similar open-access approach, valuing its benefits over potential risks, and we developed a client <a class="link-text" href="https://static.igem.wiki/teams/5622/images/humanpractices/biosecuritycsp.pdf">screening method</a>. On their advice, we also sought further evaluation from the iGEM Safety & Security Committee for further analysis.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class = "accordion">
+<div class = "accordion-header">
+<div class = "accordion-title">iGEM Safety & Security Committee</div>
+<div class = "accordion-icon"></div>
+</div>
+<div class = "accordion-content">
+<div class = "accordion-content-inner">
+<ul class = "point-list">
+<li><span class="bold-word">Aim:</span> We consulted the iGEM Safety & Security Committee about potential dual-use concerns related to publishing Tadpole software as open source.  To ensure responsible action, we submitted our Dual-Use Assessment based on frameworks from the Netherlands Biosecurity Office and the US National Academies of Sciences, Engineering, and Medicine (NASEM).</li>
+<li><span class="bold-word">Contribution:</span> The Committee congratulated us on our careful assessment and concluded that our technology does not pose an intrinsic dual-use risk. The primary concern lies not in the regulatory logic itself, but in the downstream payload that could be expressed if safeguards were bypassed. However, the Committee reassured us that current biosecurity practices are sufficiently robust to detect such risks, and that effective medical countermeasures are available.</li>
+<li><span class="bold-word">Implementation:</span> Now that we were confident that our software and sequences could be safely shared and published, we decided to apply for Best Composite Part. Their  feedback also empowered us to engage in discussions on risk assessment and to better anticipate how future technologies might be misused.</li>
+</ul>
+</div>
+</div>
+</div>
+
+</section>
 </div>
 </div>
 {% endblock %}

@@ -4,54 +4,414 @@
 {% block lead %}Detail the safety and security considerations of your project, adressing potential risks and outlining the measures taken to mitigate them.{% endblock %}
 
 {% block page_content %}
+<div class = "page-container">
+  <aside class="sidebar">
+      <ul class="sidebar-nav">
+          <li><a href="#intro" class="active">Introduction</a></li>
+          <li><a href="#step1">Step 1: establish the lab work</a></li>
+          <li><a href="#step2">Step 2: identify possible risks in the lab</a></li>
+          <li><a href="#step3">Step 3: identify possible future risks</a></li>
+          <li><a href="#step3">Step 4: find a proper lab work space</a></li>
+          <li><a href="#step4">Step 5: check legal regulations and obtain the necessary permits</a></li>
+          <li><a href="#step5">Step 6: train the lab team for security and safety</a></li>
+          <li><a href="#step6">Step 7: manage the risks</a></li>
+          <li><a href="#references">References</a></li>
+      </ul>
+      </aside>
 
-<div class="row mt-4">
-  <div class="col">
-    <div class="bd-callout bd-callout-info">
-      <h4>Safety and Security Award</h4>
-      <p>Synthetic biology will need to be used safely and securely if local people are to solve local problems all around the world. The Safety and Security Committee is challenging teams to apply biological engineering approaches to manage risks associated with synthetic biology. Can you take the next step in progress towards knowledge, understanding, and tools that will make the use of synthetic biology safer and more secure?</p>
-      <hr />
-      <p>Visit the <a href="https://competition.igem.org/judging/special-prizes">Special Prizes page</a> for more information.</p>
+
+      <div class = "page-content">
+    <div class = "header">
+      <h1 class = "page-title">Safety and Security</h1>
+      <p class = "page-desc">Detailed the safety and security considerations of our project.</p>
     </div>
-  </div>
+    <div class = "content"> 
+      <!-- Branch: Safety -->
+<div class="content-section" id="safety-main">
+  <h1 class="section-title">Safety</h1>
+
+  <h2 id="intro" class="section-subtitle">Introduction</h2>
+  <p class="section-text">
+    Biosafety and biosecurity are fundamental aspects of conducting any experiment. Working in a laboratory involves many factors that must be carefully considered. Therefore, it is crucial to understand the potential risks, apply proper preventive measures, and obtain the necessary authorizations to ensure that the project is safe—not only for the team but also for people, animals, plants, and the environment worldwide.
+  </p>
+  <p class="section-text">
+    Our team recognizes that even the smallest laboratory actions can have significant global impacts, both positive and negative. For this reason, we have thoroughly researched and implemented the appropriate procedures to ensure the safety and security of our project. This was our process:
+  </p>
+
+  <ul>
+    <li>Step 1: establish the lab work</li>
+    <li>Step 2: identify possible risks in the lab</li>
+    <li>Step 3: identify possible future risks</li>
+    <li>Step 4: find a proper lab work space</li>
+    <li>Step 5: check legal regulations and obtain necessary permits</li>
+    <li>Step 6: train the lab team for security and safety</li>
+    <li>Step 7: manage the risks</li>
+  </ul>
+
+  <h2 id="step1"  class="section-subtitle">Step 1: Establish the lab work</h2>
+  <p class="section-text">
+    First and foremost, it is essential to carefully plan the experiments to be conducted in the laboratory and identify any elements or components that could pose risks, be difficult to handle, or require special authorization. This applies to all materials involved, including organisms, chemicals, and engineered parts.
+  </p>
+
+  <h3 class="section-subtitle">A: Organisms and parts</h3>
+  <ul>
+    <li><strong><em>Escherichia coli DH5alpha</em></strong>: transformed cells for plasmid cloning.</li>
+    <li><strong><em>Homo sapiens HEK293T cell line</em></strong>: a transfected human cell culture used to observe plasmid expression. Transfection is performed using Lipofectamine. The constructs include two luciferase reporters: Renilla luciferase, which is constitutively expressed, and Firefly luciferase, which is inducible and expected to be regulated by our system. Expression levels are measured through luciferase luminescence, which is quantified using a luminometer.</li>
+    <li><strong>TNT® Quick Coupled Transcription/Translation System (#L1170) from Promega</strong>: a rabbit reticulocyte lysate used as the foundation for the coupled transcription–translation reaction. The lysate is derived from New Zealand White rabbits (Oryctolagus cuniculus).</li>
+  </ul>
+
+  <p class="section-text">
+    Overall, our project is limited to experiments with E. coli DH5α, HEK293T cells, and cell-free extracts, and involves only synthetic parts inspired by natural sequences. No environmental release or use of pathogenic organisms is involved. Moreover, the new parts we added to the Registry are not hazardous on their own or in the context of our project.
+  </p>
+
+  <h3 class="section-subtitle">B: Chemicals</h3>
+  <p class="section-text">
+    Each chemical used in the laboratory possesses unique properties. Some of these substances can pose hazards if not handled properly, making it essential to understand their potential risks and the appropriate safety measures for managing them. Identified hazardous chemicals:
+  </p>
+
+  <ul>
+    <li><strong>Heavy metals:</strong> </li>
+    <ul><li>Selenium (sodium selenite)</li></ul>
+    <li><strong>Mutagens (suspected):</strong></li>
+    <ul><li> Trypan blue</li></ul>
+    <li><strong>Highly flammable chemicals:</strong></li>
+    <ul><li> Ethanol</li></ul>
+    <li><strong>Other hazardous chemicals:</strong> Theophylline, Lipofectamine, P3000</li>
+
+    <ul><li> Theophylline</li></ul>
+    <ul><li> Lipofectamine and P3000.</li></ul>
+    <ul><li> Antibiotics: ampicillin, penicillin and streptomycin.</li></ul>
+    <ul><li> ual-Luciferase® Reporter reagents, PLB and TnT® lysates</li></ul>
+    <ul><li> DNA handling and staining reagents: Sybr Safe and loading buffer.</li></ul>
+    
+  </ul>
+</div>
+<!-- Branch: Safety - Step 2 -->
+<div class="content-section" id="safety-step2">
+  <h2 id="step2" class="section-subtitle">Step 2: Identify possible risks in the lab</h2>
+  <p class="section-text">
+    After the project concept has been developed, it is important to identify potential risks and understand how they might occur. This step is valuable not only for ensuring our own safety and preparedness but also for obtaining any necessary permits or authorizations. The possible project risks that we identified are the following:
+  </p>
+
+  <!-- A: Human health or safety hazards -->
+  <h3 class="section-subtitle">A: Human health or safety hazards</h3>
+  <p class="section-text">
+    The dangerous chemicals described above may present human safety hazards, which is why appropriate handling procedures and PPE are used at all times:
+  </p>
+
+  <table class="risk-table">
+  <thead>
+    <tr>
+      <th>Hazard</th>
+      <th>Use</th>
+      <th>Risk and handling</th>
+      <th>How can occur?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Selenium (sodium selenite)</strong></td>
+      <td>Used in solution form to supplement cells and cell-free systems, as selenium is essential for producing selenocysteine.</td>
+      <td>Toxic at high concentrations, must be handled with care under BSL-1 conditions.</td>
+      <td>Prolonged contact with skin.</td>
+    </tr>
+    <tr>
+      <td><strong>Trypan blue</strong></td>
+      <td>Used for cell viability staining when testing potentially toxic treatments (selenium and theophylline).</td>
+      <td>Suspected mutagen/carcinogen; treated as hazardous waste after use.</td>
+      <td>Accidental skin contact due to glove breakage.</td>
+    </tr>
+    <tr>
+      <td><strong>Theophylline</strong></td>
+      <td>Inducer molecule that binds our aptamer, used in powder and solution.</td>
+      <td>Toxic at high concentrations; handled with gloves and disposed as hazardous waste.</td>
+      <td>Inhalation of powder while preparing solution.</td>
+    </tr>
+    <tr>
+      <td><strong>Lipofectamine and P3000</strong></td>
+      <td>Used for plasmid transfection into HEK293T cells.</td>
+      <td>Toxic to cells and irritant to humans; must be handled in the hood.</td>
+      <td>If the hood malfunctions, accidental inhalation of aerosols.</td>
+    </tr>
+    <tr>
+      <td><strong>Antibiotics: ampicillin, penicillin, streptomycin</strong></td>
+      <td>Used in LB media, agar plates, and cell culture media.</td>
+      <td>Can cause allergic reactions and contribute to resistance if mishandled.</td>
+      <td>Accidental exposure may produce allergic reaction.</td>
+    </tr>
+    <tr>
+      <td><strong>Dual-Luciferase® Reporter reagents: Stop & Glo, LARII, PLB</strong></td>
+      <td>Used in assays to measure luciferase activity; PLB for cell lysis.</td>
+      <td>Contains detergents that can irritate skin/eyes.</td>
+      <td>Spill without lab coat protection may cause minor injuries.</td>
+    </tr>
+    <tr>
+      <td><strong>TnT® Reticulocyte Lysate System</strong></td>
+      <td>Used as a cell-free transcription–translation system.</td>
+      <td>Contains mammalian cell extracts; treated as biological material.</td>
+      <td>Improper handling may cause skin irritation.</td>
+    </tr>
+    <tr>
+      <td><strong>DNA handling and staining reagents: Sybr Safe, loading buffer, agarose gels, TAE</strong></td>
+      <td>Used for gel electrophoresis.</td>
+      <td>Sybr Safe is safer than EtBr but still hazardous; gloves required.</td>
+      <td>Touching skin with contaminated gloves or inhalation of agarose vapors.</td>
+    </tr>
+    <tr>
+      <td><strong>Ethanol</strong></td>
+      <td>Used for sterilization and cleaning.</td>
+      <td>Highly flammable; stored and used away from ignition sources.</td>
+      <td>Placement near heat source may cause fire or burns.</td>
+    </tr>
+  </tbody>
+</table>
+
+  <!-- B: Dual-use hazards -->
+  <h3 class="section-subtitle">B: Dual-use hazards</h3>
+  <p class="section-text">
+    Because Tadpole is open-domain software, it lowers the technical barrier for designing RNA circuits. This is valuable for research and education but introduces dual-use risks, as malicious actors could theoretically apply it to control harmful genes or create sequences that bypass current biosecurity screening. 
+  </p>
+  <p>
+    Although actual misuse would still require significant expertise and resources, we prepared a dual-use assessment, which can be found in the Biosecurity section, that considers both current and future risks, ensuring responsible use and anticipating possible misuse scenarios.
+  </p>
+  <p>Some examples of hazards extracted from our dual-use assessment are the following:</p>
+  <ul class="point-list">
+    <li>The open-source software is published without access controls. A foreign actor downloads it and applies its principles to build a parallel tool for designing RNA circuits within a state-sponsored bioweapons program, effectively transferring technical knowledge without exporting physical goods.</li>
+    <li>A malicious actor uses our riboswitch to design a stable RNA circuit encoding a toxin-like sequence that is structurally unique. Because DNA synthesis providers screen only against static lists, the sequence passes undetected, is synthesized and shipped, and later assembled into a viable biological agent using standard lab techniques.</li>
+  </ul>
+
+  <!-- C: Other hazards to team members -->
+  <h3 class="section-subtitle">C: Other hazards to team members or colleagues in the laboratory</h3>
+  <table class="risk-table">
+  <thead>
+    <tr>
+      <th>Hazard</th>
+      <th>Use</th>
+      <th>Risk and handling</th>
+      <th>How can occur?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>UV light exposure</strong></td>
+      <td>Used for sterilizing biosafety cabinets or lab rooms.</td>
+      <td>It can cause eye or skin damage if the hood is open or safety protocols are not followed.</td>
+      <td>If a team member enters a room while UV is on without noticing, which may cause long-term tissue damage.</td>
+    </tr>
+    <tr>
+      <td><strong>Broken glass/sharps</strong></td>
+      <td>From pipettes, Erlenmeyers, and tubes used for bacterial culture.</td>
+      <td>There is a risk of cuts or punctures if not handled carefully.</td>
+      <td>If a team member accidentally cuts themselves while opening a tube.</td>
+    </tr>
+    <tr>
+      <td><strong>High-voltage electrophoresis</strong></td>
+      <td>We use it for running agarose gels.</td>
+      <td>Risk of electric shock while running agarose gels. That is why proper safety procedures and insulated equipment are required.</td>
+      <td>If a team member touches exposed wires or the gel apparatus, which may cause electric shock, burns, or muscle contractions.</td>
+    </tr>
+    <tr>
+      <td><strong>Cold burns</strong></td>
+      <td>We use −80 °C freezers to store samples and reagents.</td>
+      <td>When handling materials stored in -80°C freezers, gloves and proper protective equipment are essential.</td>
+      <td>If a team member handles materials from the freezer without gloves, which may cause tissue damage.</td>
+    </tr>
+  </tbody>
+</table>
+
+  <!-- D: Spreading -->
+<h3 class="section-subtitle">D: Spreading</h3>
+<p class="section-text">
+  Our engineered organisms or parts <strong>could not spread autonomously</strong> in the environment:
+</p>
+
+<ol class="numbered-list">
+  <li>
+    <strong>Organisms used in our lab:</strong><br>
+    <ul class="point-list">
+    <li>E. coli DH5α and HEK293T cells are used exclusively under controlled laboratory conditions. These strains cannot survive, reproduce, or spread in the natural environment, so there is no risk of autonomous environmental spread from our experimental work.<br></li>
+    <li>The human HEK293T cell line is highly dependent on controlled conditions such as nutritional media, constant temperature or determined levels of carbon dioxide. That’s why they cannot survive or spread in case of an accidental release.<br></li>
+    <li>E. coli DH5α is classified as BSL-1. The autonomous spread of this strain is practically impossible. It does not have virulence factors or adaptation to the human or animal gut, it does not compete well with wild-type bacteria, it does not survive easily under fluctuations in temperature, pH, UV radiation, etc., and its mutations (e.g., recA1, endA1, etc.) make it vulnerable in uncontrolled environments (the mechanisms for DNA repair are weakened).</li>
+    </ul>
+  </li>
+
+  <li>
+    <strong>SCR + Aptamer construct:</strong><br>
+    Our designed construct functions as a regulatory tool at the genetic level. By itself, it is just a DNA/RNA sequence and cannot spread without being carried by an organism. While we acknowledge that, in the future, someone could choose to insert such a construct into an organism that is able to spread in the environment, this potential application goes beyond the direct scope of our work. Within our project, the construct remains confined to safe laboratory strains.
+  </li>
+
+  <li>
+    <strong>Tadpole software:</strong><br>
+    A software, by nature, does not spread in the environment. However, we recognize that in the future, constructs designed with Tadpole could be introduced into organisms by other users. Depending on the choice of organism, these could have the potential to spread if released. This is a consideration for how our tool may be applied by others, rather than a feature of our project as we developed it.
+  </li>
+</ol>
+<!-- Step 3: identify possible future risks -->
+<h2 id="step3" class="section-subtitle">Step 3: identify possible future risks</h2>
+<p class="section-text">
+To identify potential future risks of the project, it is important to consider how it would be used once fully developed, if there is risk of release beyond containment and the bad outcomes that the project can lead to. 
+</p>
+
+<h3 class="section-subtitle">A: Future uses</h3>
+<p class="section-text">
+Our project is foundational, so we do not have a specific real-world application in mind. In the real world, its primary impact would be foundational, digital and in the lab:
+</p>
+
+<ul class="point-list">
+<li>Digital use: Researchers could use the Tadpole software to design RNA circuits more efficiently, accelerating the development of synthetic biology applications without requiring the distribution of living organisms.</li>
+<li>Foundational knowledge: The experimental results and design principles could inform future research in gene regulation, synthetic biology, and biotechnology, serving as a basis for subsequent innovations.</li>
+<li>Lab use: our riboswitches could be used in the lab for genetic regulation. For example, it makes it possible to have different translational products coming from the same mRNA.</li>
+</ul>
+
+<p class="section-text">
+While the SCR+aptamer system that we are studying could, in theory, be applied in therapeutics, biosensors, or agriculture, these applications are beyond the scope of our current work and would require extensive safety and regulatory oversight. We are building a foundational tool that has potential applications in multiple fields, even though a lot of research should be done before this. Therefore, the primary envisioned uses of our project are digital tools and foundational research rather than deployment in living organisms outside the lab.
+</p>
+
+<h3 class="section-subtitle">B: Release beyond containment</h3>
+<p class="section-text">
+The future development of our project would not require release beyond containment. 
+</p>
+
+<h3 class="section-subtitle">C: Bad outcomes</h3>
+<p class="section-text">
+We believe that our project may lead to several bad outcomes:
+</p>
+
+<ul class="point-list">
+<li>Harm to human health and safety: by accidental exposure to a hazardous organism or chemical.</li>
+<li>Harm to agricultural animals, crops, or domesticated animals: by accidental release of an engineered organism or part into the environment. This would be in the case of an application of our project, but not the project itself. </li>
+<li>Harm to the environment, including wild plants and animals: by accidental release of an engineered organism or part into the environment. This would be in the case of an application of our project, but not the project itself. </li>
+<li>Reducing global, national or health security: this could occur if either of the two previously mentioned situations were to take place.</li>
+<li>Creating or reinforcing social inequities: the software would be inaccessible for people without a computer or Internet. </li>
+<li>Breaking norms about engineering biology: deliberate misuse by someone intending to cause harm or combining the results of the project with other technologies</li>
+</ul>
+
+<h3 id="step4" class="section-subtitle">Step 4: find a proper lab work space</h3>
+<p class="section-text">
+Once the experiment has been fully planned, it is essential to find or adapt a suitable laboratory space that meets the required safety standards to ensure a secure working environment. When selecting the lab where the experiment will be carried out, it is important not only to choose one that aligns with the project’s field of study but also to ensure it is properly equipped with the necessary materials and instruments to conduct the work safely.
+</p>
+
+<p class="section-text">
+<strong>Laboratory:</strong> the lab is classified as BSL-2. In this laboratory, cell cultures of HEK293, HEK293T, and C2C12 are used, employing recombinant DNA derived from Drosophila melanogaster and Homo sapiens.
+</p>
+
+<p class="section-text">
+This laboratory has the necessary resources and preventive measures to support our experiment. In addition, our host laboratory strictly follows institutional biosafety guidelines, ensuring compliance with national and international regulations. The facility operates at biosafety level 2 (BSL-2) and is equipped with Class II biological safety cabinets and personal protective equipment (PPE) such as lab coats, gloves, and safety goggles.
+</p>
+
+<h3 class="section-subtitle">What makes this lab a safe and good workplace?</h3>
+<ul class="point-list">
+<li>Our host laboratory is designed to provide a safe and efficient working environment. The work area is separated from all other activities conducted in the same building, and the workplace can be sealed to allow for proper disinfection. Although the laboratory doors are not airtight, they can be securely closed when needed.</li>
+<li>The surfaces in the laboratory are waterproof, easy to clean, and resistant to acids, alkalis, solvents, and disinfectants. Access is strictly limited to designated personnel. A technician is responsible for access control, and entry through the door is further restricted with a key.</li>
+<li>Effective vector control is maintained, as the faculty conducts pest control on a regular basis. Specific disinfection procedures are in place to ensure cleanliness and safety. Biological samples, including plasmids, cell lysates, and extracted DNA/RNA, are safely stored in the laboratory freezer at -20 °C (Lab 2, 2nd floor, Prevosti) or, in some cases, at -80 °C (room adjacent to Lab 2). Transport of samples is carried out on ice inside a closed polystyrene box.</li>
+<li>The laboratory provides a designated area for work clothing, including coat racks and lockers. Materials for handling potential spills are available in the work area; the laboratory itself is equipped with sepiolite for spill collection, and a complete chemical and biological spill kit is available at the faculty information point to address emergency situations.</li>
+<li>An observation window or an alternative device is installed to allow monitoring of the occupants. Personal protective equipment (PPE) such as lab coats, goggles, and gloves is provided, with lab coats stored in a room at the entrance of the Cell Culture Room.</li>
+<li>Class II biological safety cabinets, where laboratory activities are conducted, are regularly inspected by an authorized company. The Sterilization Service, located in the same building, is available to support the Cell Culture Service. The entrance door to this service displays a biohazard sign, indicating that the biological containment level exceeds BSL-1.</li>
+<li>The laboratory is equipped with all necessary waste containers for type I, II, and III waste, and the University of Barcelona has an implemented laboratory waste management procedure. Additionally, the windows to the outside of the Cell Culture Service are non-opening to maintain containment inside.</li>
+</ul>
+<h2 id="step5" class="section-subtitle">Step 5: check legal regulations and obtain the necessary permits</h2>
+<p class="section-text">
+The work conducted in the laboratory is regulated by the laws of each country, as well as by various organizations that oversee the safe and ethical use of current scientific and technological advancements. Since regulations differ between countries, it is crucial to consult the legal framework of the country where the experiments will take place. 
+</p>
+<p class="section-text">
+To ensure proper biosafety in the laboratory, the iGEM UB 2025 team will follow the risk assessment and guidance outlined in <strong>Appendix 2 of the (Spanish) Royal Decree 664/1997 [1]</strong> concerning the protection of workers from risks associated with exposure to biological agents in the workplace, applicable to containment level 2.
+</p>
+
+<h2 id="step6" class="section-subtitle">Step 6: train the lab team for security and safety</h2>
+<p class="section-text">
+Members of Wet Lab must be familiar with the necessary safety and precautionary measures for conducting experiments and are required to follow them at all times. For this reason, prior training on laboratory safety and security is essential before beginning any lab work.
+</p>
+<p class="section-text">
+The laboratory team members have completed a basic occupational risk prevention course, provided by OSSMA. The Office of Health, Safety, and Environment (OSSMA) at the University of Barcelona has provided our team with training on how to safely perform experiments within the university’s laboratories. 
+The training covered the following key areas:
+</p>
+
+<ul class="point-list">
+<li>Laboratory access and rules</li>
+<li>Responsible personnel</li>
+<li>Differences between biosafety levels</li>
+<li>Biosafety equipment</li>
+<li>Good microbiological practices</li>
+<li>Disinfection and sterilization procedures</li>
+<li>Emergency protocols</li>
+<li>Guidelines for transporting samples between laboratories or shipping them between institutions</li>
+<li>Physical biosecurity</li>
+<li>Personnel biosecurity</li>
+<li>Data biosecurity/cyberbiosecurity</li>
+<li>Dual-use research and/or experiments of concern</li>
+<li>Chemical, fire, and electrical safety</li>
+</ul>
+
+<h2 id="step7" class="section-subtitle">Step 7: manage the risks</h2>
+<p class="section-text">
+It is very important to be careful in the laboratory in order to keep risks to a minimum at all times. Additionally, having the support of relevant organizations is essential for risk management. Even with preventive measures in place, risks cannot be completely eliminated, and accidents may occur, making it important to know who must be notified. 
+</p>
+<p class="section-text">
+Our team receives support from the Bioethics Committee and the Office of Health, Safety, and Environment (OSSMA) at the University of Barcelona, as well as several professors and technicians from the Faculties of Biology and Medicine. In the event of an accident, we would contact all of these resources to ensure proper handling and reporting.
+</p>
+<p class="section-text">
+Once inside the laboratory, all safety protocols must be strictly followed. To address the risks associated with our gene-modified cell therapy research project, we have implemented a comprehensive set of measures, combined expert guidance, adhered to strict rules and training protocols, and followed rigorous laboratory procedures:
+</p>
+
+<ul class="point-list">
+<li><strong>  Accident Reporting :</strong> the University of Barcelona’s OSSMA manages the accident reporting system. Incidents are documented using an online notification form, which records essential details such as the type of accident, location, and any injuries. Once submitted, OSSMA reviews the report and initiates an investigation to determine the cause and assess any potential risks.</li>
+<li><strong>  Accident Response :</strong> In the event of an accident, eyewash stations, sinks, and safety showers are readily available and are regularly maintained. Absorbent materials, plastic bags, and step-by-step procedures are available, and spills are managed according to OSSMA guidelines.</li>
+<li><strong>  Personal Protective Equipment (PPE)  :</strong> All team members wear lab coats and single-use disposable gloves. Lab coats are stored in the culture room and are regularly laundered.</li>
+<li><strong>  Inventory, Data, and Access Controls  :</strong> Access to the laboratory, as well as to inventory and databases, is restricted and controlled with a key system.</li>
+<li><strong>  Waste Management  :</strong> We received instructions from the lab technicians and PhD students on how to properly dispose of the different materials and reagents we use in the lab. If we are unsure where to discard something, it is better to ask first before throwing it away.</li>
+<li><strong>  Project-specific safety or security training  :</strong> We received training from the lab technicians, PhD students, and our PI, specific to the organisms and procedures related to our project. In addition, our team completed a basic Occupational Risk Prevention course provided by OSSMA.</li>
+<li><strong>  Other consulting with iGEM about managing risks  :</strong> We contacted the iGEM Safety Committee to confirm whether the SECIS element we are using is included in the whitelist. We also asked whether the use of transient plasmids in E. coli and HEK cells is considered “engineering organisms” under iGEM guidelines. Finally, we consulted about whether the mammalian-derived cell-free system we are using required a Check-In Form.</li>
+<li><strong>  Consulting with other experts about managing risks  :</strong> Our institution and host lab operate under permits issued by the institutional biosafety officer. We consulted with them to ensure our planned activities complied with existing safety protocols and did not require additional measures. We also received support and guidance from OSSMA.</li>
+<li><strong>  Consulting with stakeholders about managing risks  :</strong> We held a meeting with I IS, where we discussed the dual-use assessment prepared for our project. The feedback was very positive and reinforced the value of proactively addressing dual-use risks.</li>
+<li><strong>  Evaluating countermeasures against our organism, parts, or other products  :</strong> We carefully considered the safety of our engineered organisms and parts, and discussed kill switches as a potential biosafety measure.</li>
+<li><strong>  Crafting a responsible communication plan  :</strong> In our laboratory notebook, protocols are always written including all biosafety steps required before, during, and after procedures. This ensures that team members consistently follow safety measures and that knowledge transfer in the lab is complete and secure.</li>
+<li><strong>  Modifying our experimental design or methodology  :</strong> Throughout the development of our stop codon readthrough switch, ligand, and aptamer components, we have iteratively modified the design to improve safety. For example, we selected a synthetic ligand rather than a natural one. Furthermore, we avoided more complex experiments and limited our experimental scope to ensure safety.</li>
+<li><strong>  Deciding not to do an activity  :</strong> At first, we considered using a non-characterized SCR element for the functional RNA of our switch. However, for safety reasons, we replaced it with a characterized version. While, we continue to characterize the original SCR, but it will not be included in our switch.</li>
+<li><strong>  Other risk management action  :</strong> We prepared a dual-use assessment where we evaluated both the risks of our software Tadpole and of the SCR + Aptamer construct, considering present and future applications.</li>
+</ul>
+
+<p class="section-text">
+By combining expert advice, extensive biosafety training, strict adherence to protocols, thoughtful experimental design, and proactive risk assessments, we have established a comprehensive framework to manage hazards effectively. This ensures that our project can be conducted safely, securely, and responsibly, while upholding the principles of responsible synthetic biology and promoting positive scientific impact.
+</p>
+
+<p class="section-text">
+After all, biosafety is the most important aspect to ensure science changes the world for the better –for everyone.
+</p>
+
+<!-- REFERENCES -->
+<section id="references" class="references" id="references">
+  <h1 class="section-title">References</h1>
+  <ol>
+    <li>Royal Decree 664/1997 concerning the protection of workers from risks associated with exposure to biological agents in the workplace. <a class="link-text" href="https://www.boe.es/eli/es/rd/1997/05/12/664/con">Website</a></li>
+  </ol>
+</section>
+
+
 </div>
 
-<div class="row mt-4">
-  <div class="col-lg-8">
-    <h2>What Should this Page Contain?</h2>
-    <hr />
-    <p>Describe all potential safety and security risks associated with your project, including:</p>
-    <ul>
-      <li>Biological risks (e.g., pathogenicity, toxicity, environmental impact).</li>
-      <li>Chemical risks (e.g., handling hazardous materials).</li>
-      <li>Physical risks (e.g., equipment safety).</li>
-      <li>Security risks (e.g., potential misuse of technology).</li>
-    </ul>
-    <p>Explain how you are addressing these risks and implementing safety measures.</p>
-    <p>Detail any safety features incorporated into your project design, such as:</p>
-    <ul>
-      <li>Choice of a non-pathogenic chassis.</li>
-      <li>Selection of parts that minimize harm to humans, animals, or plants;</li>
-      <li>Substitution of safer materials in experiments;</li>
-      <li>Implementation of "kill-switch" mechanisms or other safety controls.</li>
-    </ul>
-    <p>Explain the rationale behind these design choices.</p>
-    <div class="bd-callout bd-callout-info">
-      <p>Ensure that your project adheres to all safety requirements outlined in the <a href="https://responsibility.igem.org/safety-policies">Safety Policies page</a>.</p>
-    </div>
-  </div>
 
-  <div class="col-lg-4">
-    <h2>Inspirations</h2>
-    <hr />
-    <ul>
-      <li><a href="https://2024.igem.wiki/ucalgary/safety">2024 UCalgary</a></li>
-      <li><a href="https://2023.igem.wiki/basis-china/safety">2023 BASIS-China</a></li>
-      <li><a href="https://2023.igem.wiki/edinburgh/safety">2023 Edinburgh</a></li>
-      <li><a href="https://2023.igem.wiki/epfl/safety">2023 EPFL</a></li>
-      <li><a href="https://2023.igem.wiki/nmu-china/safety">2023 NMU-China</a></li>
-    </ul>
-  </div>
+    </div>
+    </div>
 </div>
+<style>
+  .risk-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .risk-table th, .risk-table td {
+    border: 1px solid #ccc; /* líneas divisorias */
+    padding: 10px; /* espacio dentro de las celdas */
+    vertical-align: top; /* para alinear el contenido arriba */
+  }
+  .risk-table th {
+    background-color: #E70C00;
+    color: white;
+    text-align: left;
+  }
+  .risk-table td strong {
+    font-weight: bold; /* primera columna en negrita */
+  }
+</style>
+
+
 
 {% endblock %}

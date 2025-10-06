@@ -15,7 +15,7 @@
         <div class="card">
           <h3 class="card-title">HP Card</h3>
           <p>Throughout the wiki you will find lightbulbs like this one, in which we acknowledge the contributions of researchers and stakeholders, and highlight the impact of Skippit inside and outside the lab.</p>
-          <button class="btn btn-outline" onclick = "window.location.href='Link-overview-7'">Learn more</button>
+          <button class="btn btn-outline" onclick = "window.location.href='{{ url_for('pages', page='integratedhp') }}#HPCards'">Learn more</button>
          </div>
        </div>
   </aside>
@@ -30,14 +30,14 @@
 <p class = "section-text">When we first outlined our idea of creating an RNA-based tool for modulable translation, we knew that the <span class="bold-word">project’s success would depend on more than just technical design</span>. To strengthen it, we reached out to stakeholders from very different backgrounds, <span class="bold-word">opening a continuous dialogue</span> that shaped the project at every stage. 
 </p>
 <div class = "image-container">
-<img src = "https://static.igem.wiki/teams/5622/images/humanpractices/timeline.webp" alt = "HP overview scheme">
+<img src = "https://static.igem.wiki/teams/5622/images/humanpractices/timeline-1.webp" alt = "HP overview scheme">
 </div>
 
 <p class = "section-text">To reflect that, across the wiki you can find <span class="highlight-word">HP cards</span> <span class = "info-word hp-icon" data-target= "hp-card">&#128161;</span> (click on the lightbulb) that connect the specific concept with the stakeholder who influenced it. The cards serve as both a map of our interactions and a record of how <span class="bold-word">external perspectives were continuously translated into tangible aspects of our project</span>, ensuring that it remains transparent, traceable and grounded in real-world dialogue. Our final goal was to make our HP work visible, so we came up with this new and creative way to achieve just that.
 <br><br>
-To ensure a robust experimental design, we contacted researchers and engineers to redefine wet lab design, select adequate assays, and understand the practical limits of riboswitches. Professors and experts from all over shared their advice to ground our project in <span class="bold-word">feasible experimental strategies</span> and guided us towards improvements in our <a class="link-text" href="Link-overview-2">software toolkit</a>.
+To ensure a robust experimental design, we contacted researchers and engineers to redefine wet lab design, select adequate assays, and understand the practical limits of riboswitches. Professors and experts from all over shared their advice to ground our project in <span class="bold-word">feasible experimental strategies</span> and guided us towards improvements in our <a class="link-text" href="https://toolkit-m4g6.onrender.com/">software toolkit</a>.
 <br><br>
-Beyond the lab, we tested our <a class="link-text" href="Link-overview-3">education toolkit</a> with teachers and schools directly with students, offering <span class="bold-word">practical feedback</span> on clarity, engagement and proper time management. Their insights helped us define a <span class="bold-word">modular and accessible resource</span> that not just introduces the general public to the emerging ambit of synthetic biology, but also <span class="bold-word">encourages debate</span> about the ethical questions it raises.
+Beyond the lab, we tested our <a class="link-text" href="{{ url_for('pages', page='education-toolkit') }}">education toolkit</a> with teachers and schools directly with students, offering <span class="bold-word">practical feedback</span> on clarity, engagement and proper time management. Their insights helped us define a <span class="bold-word">modular and accessible resource</span> that not just introduces the general public to the emerging ambit of synthetic biology, but also <span class="bold-word">encourages debate</span> about the ethical questions it raises.
 <br><br>
 In order to guarantee compliance to <span class="bold-word">biosafety standards</span>, institutions specializing in biosafety and regulation <span class="bold-word">reviewed our open-source plans</span>, validating that our tool posed low-dual use risks. In this sense, we committed to an exhaustive research of what-if scenarios that are compiled in our very own <span class="bold-word">Dual-Use Assessment</span>.
 <br><br>
@@ -53,11 +53,11 @@ The models are based on three core concepts:
 </p>
 
 <ul class = "point-list">
-<li><span class="highlight-word">Reflection:</span> teams should demonstrate how project and <span class="highlight-word">design decisions have been influenced by their rationale and HP work (MM1)</span>. Additionally, work should extend beyond the laboratory –beyond the [technical] finish line– and take into account how the <span class="highlight-word">context (MM2)</span> –regulations, extant policy, and market capabilities– can influence the project.
+<li><span class="highlight-word">Reflection:</span> teams should demonstrate how project and <span class="bold-word">design decisions have been influenced by their rationale and HP work (MM1)</span>. Additionally, work should extend beyond the laboratory –beyond the [technical] finish line– and take into account how the <span class="bold-word">context (MM2)</span> –regulations, extant policy, and market capabilities– can influence the project.
 </li>
-<li><span class="highlight-word">Responsibility:</span> projects should identify, map and engage a diverse spectrum of stakeholders –industry, communities and individuals– to both incorporate <span class="highlight-word">varied perspectives (MM3)</span> into design decisions and to <span class="highlight-word">proactively anticipate (MM4)</span> positive and negative impacts, documenting the rationale behind every choice and mitigation strategy.
+<li><span class="highlight-word">Responsibility:</span> projects should identify, map and engage a diverse spectrum of stakeholders –industry, communities and individuals– to both incorporate <span class="bold-word">varied perspectives (MM3)</span> into design decisions and to <span class="bold-word">proactively anticipate (MM4)</span> positive and negative impacts, documenting the rationale behind every choice and mitigation strategy.
 </li>
-<li><span class="highlight-word">Responsiveness:</span>teams must <span class="highlight-word">integrate Human Practices work continuously (MM5)</span> from project inception through execution, using stakeholder feedback and contextual insights to iteratively adapt and improve their design, while <span class="highlight-word">transparently assessing limitations (MM6)</span> and charting a documented roadmap for addressing risks and seizing new opportunities.
+<li><span class="highlight-word">Responsiveness:</span>teams must <span class="bold-word">integrate Human Practices work continuously (MM5)</span> from project inception through execution, using stakeholder feedback and contextual insights to iteratively adapt and improve their design, while <span class="bold-word">transparently assessing limitations (MM6)</span> and charting a documented roadmap for addressing risks and seizing new opportunities.
 </li>
 </ul>
 
@@ -148,17 +148,17 @@ Overall, we consider the Maturity Models an excellent and insightful addition to
 <div class="card">
 <h3 class="card-title">Integrated HP</h3>
 <p>Get to know all the researchers, stakeholders and students that have helped us along the way, and know more about HP cards.</p>
-<button class="btn btn-primary" onclick = "window.location.href='Link-overview-4'">Go to page</button>
+<button class="btn btn-primary" onclick = "window.location.href='{{ url_for('pages', page='integratedhp') }}'">Go to page</button>
 </div>
 <div class="card">
 <h3 class="card-title">Biosecurity</h3>
 <p>Understand how we have assessed and mitigated Dual-Use risks associated with new, foundational technologies.</p>
-<button class="btn btn-primary" onclick = "window.location.href='Link-overview-5'">Go to page</button>
+<button class="btn btn-primary" onclick = "window.location.href='{{ url_for('pages', page='dual-use') }}'">Go to page</button>
 </div>
 <div class="card">
-<h3 class="card-title">Implications</h3>
+<h3 class="card-title">Implementation</h3>
 <p>Learn about how Skippit can revolutionise the way we do science through hands-on examples and world-class researchers.</p>
-<button class="btn btn-outline" onclick = "window.location.href='Link-overview-6'">Go to page</button>
+<button class="btn btn-outline" onclick = "window.location.href='{{ url_for('pages', page='applications') }}'">Go to page</button>
 </div>
 </section>
 </div>
