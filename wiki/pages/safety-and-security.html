@@ -8,14 +8,28 @@
   <aside class="sidebar">
       <ul class="sidebar-nav">
           <li><a href="#intro" class="active">Introduction</a></li>
-          <li><a href="#step1">Step 1: establish the lab work</a></li>
-          <li><a href="#step2">Step 2: identify possible risks in the lab</a></li>
-          <li><a href="#step3">Step 3: identify possible future risks</a></li>
-          <li><a href="#step3">Step 4: find a proper lab work space</a></li>
-          <li><a href="#step4">Step 5: check legal regulations and obtain the necessary permits</a></li>
-          <li><a href="#step5">Step 6: train the lab team for security and safety</a></li>
-          <li><a href="#step6">Step 7: manage the risks</a></li>
-          <li><a href="#references">References</a></li>
+          <li><a href="#step1">Lab work</a></li>
+          <ul class="sidebar-subnav">
+            <li><a href="#organisms-parts">Organisms and parts</a></li>
+            <li><a href = "#chemicals">Chemicals</a></li>
+          </ul></li>
+          <li><a href="#step2">Possible risks in the lab</a></li>
+          <ul class="sidebar-subnav">
+            <li><a href="#human-health">Human health or healthy hazards</a></li>
+            <li><a href = "#dual-use">Dual-use hazards</a></li>
+            <li><a href="#other-hazards">Other hazards to team members or colleagues in the laboratory</a></li>
+            <li><a href = "#spreading">Spreading</a></li>
+          </ul></li>
+          <li><a href="#step3">Possible future risks</a></li>
+          <ul class="sidebar-subnav">
+            <li><a href="#future-uses">Future uses</a></li>
+            <li><a href = "#release">Release beyond containment</a></li>
+            <li><a href = "#bad-outcomes">Bad outcomes</a></li>
+          </ul></li>
+          <li><a href="#step4">Lab work space</a></li>
+          <li><a href="#step5">Legal regulations and necessary permits</a></li>
+          <li><a href="#step6">Train the lab team for security and safety</a></li>
+          <li><a href="#step7">Manage the risks</a></li>
       </ul>
       </aside>
 
@@ -28,9 +42,7 @@
     <div class = "content"> 
       <!-- Branch: Safety -->
 <div class="content-section" id="safety-main">
-  <h1 class="section-title">Safety</h1>
-
-  <h2 id="intro" class="section-subtitle">Introduction</h2>
+  <h2 id="intro" class="section-title">Introduction</h2>
   <p class="section-text">
     Biosafety and biosecurity are fundamental aspects of conducting any experiment. Working in a laboratory involves many factors that must be carefully considered. Therefore, it is crucial to understand the potential risks, apply proper preventive measures, and obtain the necessary authorizations to ensure that the project is safe—not only for the team but also for people, animals, plants, and the environment worldwide.
   </p>
@@ -48,12 +60,12 @@
     <li>Step 7: manage the risks</li>
   </ul>
 
-  <h2 id="step1"  class="section-subtitle">Step 1: Establish the lab work</h2>
+  <h2 id="step1"  class="section-title">Step 1: Establish the lab work</h2>
   <p class="section-text">
     First and foremost, it is essential to carefully plan the experiments to be conducted in the laboratory and identify any elements or components that could pose risks, be difficult to handle, or require special authorization. This applies to all materials involved, including organisms, chemicals, and engineered parts.
   </p>
 
-  <h3 class="section-subtitle">A: Organisms and parts</h3>
+  <h3 id="organisms-parts" class="section-subtitle">Organisms and parts</h3>
   <ul>
     <li><strong><em>Escherichia coli DH5alpha</em></strong>: transformed cells for plasmid cloning.</li>
     <li><strong><em>Homo sapiens HEK293T cell line</em></strong>: a transfected human cell culture used to observe plasmid expression. Transfection is performed using Lipofectamine. The constructs include two luciferase reporters: Renilla luciferase, which is constitutively expressed, and Firefly luciferase, which is inducible and expected to be regulated by our system. Expression levels are measured through luciferase luminescence, which is quantified using a luminometer.</li>
@@ -64,7 +76,7 @@
     Overall, our project is limited to experiments with E. coli DH5α, HEK293T cells, and cell-free extracts, and involves only synthetic parts inspired by natural sequences. No environmental release or use of pathogenic organisms is involved. Moreover, the new parts we added to the Registry are not hazardous on their own or in the context of our project.
   </p>
 
-  <h3 class="section-subtitle">B: Chemicals</h3>
+  <h3 id="chemicals" class="section-subtitle">Chemicals</h3>
   <p class="section-text">
     Each chemical used in the laboratory possesses unique properties. Some of these substances can pose hazards if not handled properly, making it essential to understand their potential risks and the appropriate safety measures for managing them. Identified hazardous chemicals:
   </p>
@@ -88,13 +100,13 @@
 </div>
 <!-- Branch: Safety - Step 2 -->
 <div class="content-section" id="safety-step2">
-  <h2 id="step2" class="section-subtitle">Step 2: Identify possible risks in the lab</h2>
+  <h2 id="step2" class="section-title">Step 2: Identify possible risks in the lab</h2>
   <p class="section-text">
     After the project concept has been developed, it is important to identify potential risks and understand how they might occur. This step is valuable not only for ensuring our own safety and preparedness but also for obtaining any necessary permits or authorizations. The possible project risks that we identified are the following:
   </p>
 
   <!-- A: Human health or safety hazards -->
-  <h3 class="section-subtitle">A: Human health or safety hazards</h3>
+  <h3 id="human-health" class="section-subtitle">Human health or safety hazards</h3>
   <p class="section-text">
     The dangerous chemicals described above may present human safety hazards, which is why appropriate handling procedures and PPE are used at all times:
   </p>
@@ -167,7 +179,7 @@
 </table>
 
   <!-- B: Dual-use hazards -->
-  <h3 class="section-subtitle">B: Dual-use hazards</h3>
+  <h3 id="dual-use" class="section-subtitle">Dual-use hazards</h3>
   <p class="section-text">
     Because Tadpole is open-domain software, it lowers the technical barrier for designing RNA circuits. This is valuable for research and education but introduces dual-use risks, as malicious actors could theoretically apply it to control harmful genes or create sequences that bypass current biosecurity screening. 
   </p>
@@ -181,7 +193,7 @@
   </ul>
 
   <!-- C: Other hazards to team members -->
-  <h3 class="section-subtitle">C: Other hazards to team members or colleagues in the laboratory</h3>
+  <h3 id="other-hazards" class="section-subtitle">Other hazards to team members or colleagues in the laboratory</h3>
   <table class="risk-table">
   <thead>
     <tr>
@@ -220,7 +232,7 @@
 </table>
 
   <!-- D: Spreading -->
-<h3 class="section-subtitle">D: Spreading</h3>
+<h3 id="spreading" class="section-subtitle">Spreading</h3>
 <p class="section-text">
   Our engineered organisms or parts <strong>could not spread autonomously</strong> in the environment:
 </p>
@@ -246,12 +258,12 @@
   </li>
 </ol>
 <!-- Step 3: identify possible future risks -->
-<h2 id="step3" class="section-subtitle">Step 3: identify possible future risks</h2>
+<h2 id="step3" class="section-title">Step 3: identify possible future risks</h2>
 <p class="section-text">
 To identify potential future risks of the project, it is important to consider how it would be used once fully developed, if there is risk of release beyond containment and the bad outcomes that the project can lead to. 
 </p>
 
-<h3 class="section-subtitle">A: Future uses</h3>
+<h3 id="future-uses" class="section-subtitle">Future uses</h3>
 <p class="section-text">
 Our project is foundational, so we do not have a specific real-world application in mind. In the real world, its primary impact would be foundational, digital and in the lab:
 </p>
@@ -266,12 +278,12 @@ Our project is foundational, so we do not have a specific real-world application
 While the SCR+aptamer system that we are studying could, in theory, be applied in therapeutics, biosensors, or agriculture, these applications are beyond the scope of our current work and would require extensive safety and regulatory oversight. We are building a foundational tool that has potential applications in multiple fields, even though a lot of research should be done before this. Therefore, the primary envisioned uses of our project are digital tools and foundational research rather than deployment in living organisms outside the lab.
 </p>
 
-<h3 class="section-subtitle">B: Release beyond containment</h3>
+<h3 id="release" class="section-subtitle">Release beyond containment</h3>
 <p class="section-text">
 The future development of our project would not require release beyond containment. 
 </p>
 
-<h3 class="section-subtitle">C: Bad outcomes</h3>
+<h3 id="bad-outcomes" class="section-subtitle">Bad outcomes</h3>
 <p class="section-text">
 We believe that our project may lead to several bad outcomes:
 </p>
@@ -285,7 +297,7 @@ We believe that our project may lead to several bad outcomes:
 <li>Breaking norms about engineering biology: deliberate misuse by someone intending to cause harm or combining the results of the project with other technologies</li>
 </ul>
 
-<h3 id="step4" class="section-subtitle">Step 4: find a proper lab work space</h3>
+<h3 id="step4" class="section-title">Step 4: find a proper lab work space</h3>
 <p class="section-text">
 Once the experiment has been fully planned, it is essential to find or adapt a suitable laboratory space that meets the required safety standards to ensure a secure working environment. When selecting the lab where the experiment will be carried out, it is important not only to choose one that aligns with the project’s field of study but also to ensure it is properly equipped with the necessary materials and instruments to conduct the work safely.
 </p>
@@ -308,7 +320,7 @@ This laboratory has the necessary resources and preventive measures to support o
 <li>Class II biological safety cabinets, where laboratory activities are conducted, are regularly inspected by an authorized company. The Sterilization Service, located in the same building, is available to support the Cell Culture Service. The entrance door to this service displays a biohazard sign, indicating that the biological containment level exceeds BSL-1.</li>
 <li>The laboratory is equipped with all necessary waste containers for type I, II, and III waste, and the University of Barcelona has an implemented laboratory waste management procedure. Additionally, the windows to the outside of the Cell Culture Service are non-opening to maintain containment inside.</li>
 </ul>
-<h2 id="step5" class="section-subtitle">Step 5: check legal regulations and obtain the necessary permits</h2>
+<h2 id="step5" class="section-title">Step 5: check legal regulations and obtain the necessary permits</h2>
 <p class="section-text">
 The work conducted in the laboratory is regulated by the laws of each country, as well as by various organizations that oversee the safe and ethical use of current scientific and technological advancements. Since regulations differ between countries, it is crucial to consult the legal framework of the country where the experiments will take place. 
 </p>
@@ -316,7 +328,7 @@ The work conducted in the laboratory is regulated by the laws of each country, a
 To ensure proper biosafety in the laboratory, the iGEM UB 2025 team will follow the risk assessment and guidance outlined in <strong>Appendix 2 of the (Spanish) Royal Decree 664/1997 [1]</strong> concerning the protection of workers from risks associated with exposure to biological agents in the workplace, applicable to containment level 2.
 </p>
 
-<h2 id="step6" class="section-subtitle">Step 6: train the lab team for security and safety</h2>
+<h2 id="step6" class="section-title">Step 6: train the lab team for security and safety</h2>
 <p class="section-text">
 Members of Wet Lab must be familiar with the necessary safety and precautionary measures for conducting experiments and are required to follow them at all times. For this reason, prior training on laboratory safety and security is essential before beginning any lab work.
 </p>
@@ -341,7 +353,7 @@ The training covered the following key areas:
 <li>Chemical, fire, and electrical safety</li>
 </ul>
 
-<h2 id="step7" class="section-subtitle">Step 7: manage the risks</h2>
+<h2 id="step7" class="section-title">Step 7: manage the risks</h2>
 <p class="section-text">
 It is very important to be careful in the laboratory in order to keep risks to a minimum at all times. Additionally, having the support of relevant organizations is essential for risk management. Even with preventive measures in place, risks cannot be completely eliminated, and accidents may occur, making it important to know who must be notified. 
 </p>
