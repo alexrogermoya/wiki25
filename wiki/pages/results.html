@@ -369,12 +369,61 @@ Another pivotal step was needed, and we transitioned to <strong>cell-free system
 <p>
 With the help of our <strong>Software</strong> and <strong>Model</strong> tools, we designed the <strong>riboswitch constructs</strong> fusing these two elements. And our final step was testing them in the lab.
 </p>
+<div style="background-color: #ff918b; color: black; padding: 20px; border-radius: 8px; width: 100%; border: 2px solid red;">
+  <strong>RESULTS OVERVIEW:</strong>
+  <ul class="point-list">
+
+    <li>We achieved the first experimental validation of <strong>SCR-D</strong> in <strong>HEK293T cells</strong>, 
+      reaching up to <strong>9% readthrough</strong>. 
+      Its modular domains (PreDiapin, Diapin, Hypopin) can be tuned to achieve different expression levels,
+       making it a valuable tool for <strong>controlled dual-protein expression</strong>. However, as its activity mainly depends 
+       on a short sequence immediately after the stop codon, we determined it is <strong>not a suitable element for 
+       riboswitch applications</strong>, which rely on structural modulation.</li>
+
+      <li>In HEK293T cells, <strong>SECIS DIO2</strong> consistently achieved <strong>8–10% readthrough</strong>, an exceptionally high rate
+         for mammalian systems. These results validate it as a <strong>structurally driven and highly reliable 
+         element</strong> for riboswitch construction. In the cell-free system, SECIS maintained functionality, 
+         reaching up to <strong>14% readthrough</strong> when supplemented with 300 ng/μL SBP2, confirming its strong structural 
+         integrity across experimental contexts.
+</li>
+      <li>
+        The <strong>Theo-ON-5 aptamer</strong> is a promising and well-characterized sensing element in many systems, 
+        but it does not perform consistently in HEK293T cells. It does, however, exhibit <strong>strong and 
+        reproducible ligand responsiveness in the cell free system</strong>. This makes it a reliable sensing 
+        component for in vitro riboswitch development and characterization.
+
+      </li>
+
+      <li>
+        Binding <strong>SECIS DIO2</strong> with the <strong>Theo-ON-5 aptamer</strong> with computationally designed linkers using our own 
+        developed tools produced <strong>ligand-responsive riboswitches</strong>. Upon theophylline binding,
+         readthrough
+         decreased consistently across variants, demonstrating a <strong>reproducible OFF-switch behavior</strong>. Linker 
+         length modulated both baseline activity and switching amplitude, highlighting the role of RNA 
+         architecture in functional tuning.
+
+      </li>
+
+      <li>
+        Using <strong>TADPOLE</strong> and our <strong>energetic modeling pipeline</strong>, we successfully predicted a transition between 
+        two different energetic states responsive to the presence of theophylline, and designed linkers that 
+        enabled <strong>switching readthrough rates between structural conformations</strong>. Experimental results confirm the
+         utility of our tools for designing and parametrizing riboswitches, and provide valuable feedback to 
+         further refine linker optimization and RNA energetic modeling tools.
 
 
+      </li>
+  </ul>
+</div>
+
+<br><br>
 <p>
-Let’s take a look at what our results revealed! <span class="highlight-word">Click to the leaves to see each section</span>.
+Let’s take a look at what our results revealed!
 </p>
 
+
+
+<p><span class="highlight-word">Click to the leaves to see each section</span></p>
    <!-- Tree Visualization -->
     <div class="tree-container">
 
@@ -1508,6 +1557,61 @@ We also tried further controls with <strong> SBP2 concentrations up to 500 ng/uL
 
     </div>
 </div>
+
+<!-- REFERENCES -->
+<section class="references" id="references">
+  <h1 class="section-title">References</h1>
+  <ol>
+    <li>M. Mariotti, A. V. Lobanov, B. Manta, et al. (2016). Lokiarchaeota marks the transition between the archaeal and eukaryotic selenocysteine encoding systems. <em>Molecular Biology and Evolution, 33</em>(9), 2441–2453. <a class="link-text" href="https://doi.org/10.1093/molbev/msw122">https://doi.org/10.1093/molbev/msw122</a></li>
+
+    <li>H. R. B. Pelham. (1978). Leaky UAG termination codon in tobacco mosaic virus RNA. <em>Nature, 272</em>(5652), 469–471. <a class="link-text" href="https://doi.org/10.1038/272469a0">https://doi.org/10.1038/272469a0</a></li>
+
+    <li>S. Napthine, C. Yek, M. L. Powell, T. D. K. Brown, & I. Brierley. (2012). Characterization of the stop codon readthrough signal of Colorado tick fever virus segment 9 RNA. <em>RNA, 18</em>(2), 241–252. <a class="link-text" href="https://doi.org/10.1261/rna.030338.111">https://doi.org/10.1261/rna.030338.111</a></li>
+
+    <li>Z. Touat-Hamici, A.-L. Bulteau, J. Bianga, et al. (2018). Selenium-regulated hierarchy of human selenoproteome in cancerous and immortalized cell lines. <em>BBA - General Subjects, 1862</em>(11), 2493–2505. <a class="link-text" href="https://doi.org/10.1016/j.bbagen.2018.04.012">https://doi.org/10.1016/j.bbagen.2018.04.012</a></li>
+
+    <li>P. R. Copeland & D. M. Driscoll. (1999). Purification, redox sensitivity, and RNA binding properties of SECIS-binding protein 2. <em>Journal of Biological Chemistry, 274</em>(36), 25447–25454. <a class="link-text" href="https://doi.org/10.1074/jbc.274.36.25447">https://doi.org/10.1074/jbc.274.36.25447</a></li>
+
+    <li>J. Martitz, P. J. Hofmann, J. Johannes, J. Köhrle, L. Schomburg, & K. Renko. (2016). Factors impacting the aminoglycoside-induced UGA stop codon readthrough in selenoprotein translation. <em>Journal of Trace Elements in Medicine and Biology, 37</em>, 104–110. <a class="link-text" href="https://doi.org/10.1016/j.jtemb.2016.04.010">https://doi.org/10.1016/j.jtemb.2016.04.010</a></li>
+
+    <li>R. D. Jenison, S. C. Gill, A. Pardi, & B. Polisky. (1994). High-resolution molecular discrimination by RNA. <em>Science, 263</em>(5152), 1425–1429. <a class="link-text" href="https://doi.org/10.1126/science.7510417">https://doi.org/10.1126/science.7510417</a></li>
+
+    <li>Human Metabolome Database. (2025). HMDB0001889: Theophylline. <a class="link-text" href="https://www.hmdb.ca/metabolites/HMDB0001889">https://www.hmdb.ca/metabolites/HMDB0001889</a></li>
+
+    <li>W. Tang, J. H. Hu, & D. R. Liu. (2017). Aptazyme-embedded guide RNAs enable ligand-responsive genome editing and transcriptional activation. <em>Nature Communications, 8</em>(1), 15939. <a class="link-text" href="https://doi.org/10.1038/ncomms15939">https://doi.org/10.1038/ncomms15939</a></li>
+
+    <li>S. A. Lynch, S. K. Desai, H. K. Sajja, & J. P. Gallivan. (2007). A high-throughput screen for synthetic riboswitches reveals mechanistic insights into their function. <em>Chemistry & Biology, 14</em>(2), 173–184. <a class="link-text" href="https://doi.org/10.1016/j.chembiol.2006.12.008">https://doi.org/10.1016/j.chembiol.2006.12.008</a></li>
+
+    <li>A. V. Anzalone, A. J. Lin, S. Zairis, R. Rabadan, & V. W. Cornish. (2016). Reprogramming eukaryotic translation with ligand-responsive synthetic RNA switches. <em>Nature Methods, 13</em>(10), 989–995. <a class="link-text" href="https://doi.org/10.1038/nmeth.3807">https://doi.org/10.1038/nmeth.3807</a></li>
+
+    <li>A. V. Anzalone et al. (2006). Engineered RNA reporters for gene expression in living cells. <em>Chemistry & Biology, 13</em>(12), 1259–1267. <a class="link-text" href="https://doi.org/10.1016/j.chembiol.2006.12.008">https://doi.org/10.1016/j.chembiol.2006.12.008</a></li>
+
+    <li>A. Wrist, W. Sun, & R. M. Summers. (2020). The Theophylline Aptamer: 25 Years as an Important Tool in Cellular Engineering Research. <em>ACS Synthetic Biology, 9</em>(4), 682–697. <a class="link-text" href="https://doi.org/10.1021/acssynbio.9b00475">https://doi.org/10.1021/acssynbio.9b00475</a></li>
+
+    <li>A. V. Anzalone, M. Jimenez, & V. W. Cornish. (2021). FRAME-tags: genetically encoded fluorescent markers for multiplexed barcoding and time-resolved tracking of live cells. <em>bioRxiv</em>. <a class="link-text" href="https://doi.org/10.1101/2021.04.09.436507">https://doi.org/10.1101/2021.04.09.436507</a></li>
+
+    <li>H. R. Pelham & R. J. Jackson. (1976). An efficient mRNA-dependent translation system from reticulocyte lysates. <em>European Journal of Biochemistry, 67</em>, 247–256.</li>
+
+    <li>A. V. Anzalone, S. Zairis, A. J. Lin, R. Rabadan, & V. W. Cornish. (2019). Interrogation of eukaryotic stop codon readthrough signals by in vitro RNA selection. <em>Biochemistry, 58</em>(8), 1167–1178. <a class="link-text" href="https://doi.org/10.1021/acs.biochem.8b01280">https://doi.org/10.1021/acs.biochem.8b01280</a></li>
+
+    <li>M. Namba, K. Nishitani, & T. Kimoto. (1980). Effects of theophylline on the cell growth of normal and malignant human cells transformed in culture. <em>Gan, 71</em>(5), 621–627. PMID: 6262174.</li>
+
+    <li>M. Cordella et al. (2019). Theophylline induces differentiation and modulates cytoskeleton dynamics and cytokine secretion in human melanoma-initiating cells. <em>Life Sciences, 230</em>, 121–131. <a class="link-text" href="https://doi.org/10.1016/j.lfs.2019.05.050">https://doi.org/10.1016/j.lfs.2019.05.050</a></li>
+
+    <li>H. E. Haarberg. (2009). Theophylline IMAGEtags: the development and evaluation of an RNA reporter system based on theophylline aptamer. [Dissertation]. <a class="link-text" href="https://doi.org/10.31274/etd-180810-2600">https://doi.org/10.31274/etd-180810-2600</a></li>
+
+    <li>K. Caban & P. R. Copeland. (2005). Size matters: a view of selenocysteine incorporation from the ribosome. <em>Cellular and Molecular Life Sciences, 63</em>(1). <a class="link-text" href="https://doi.org/10.1007/s00018-005-5402-y">https://doi.org/10.1007/s00018-005-5402-y</a></li>
+    
+    <li>S. A. Lynch, S. K. Desai, H. K. Sajja, & J. P. Gallivan. (2007). A high-throughput screen for synthetic riboswitches reveals mechanistic insights into their function. <em>Chemistry &amp; Biology, 14</em>(2), 173–184. <a class="link-text" href="https://doi.org/10.1016/j.chembiol.2006.12.008">https://doi.org/10.1016/j.chembiol.2006.12.008</a></li>
+
+    <li>A. V. Anzalone, A. J. Lin, S. Zairis, R. Rabadan, & V. W. Cornish. (2016). Reprogramming eukaryotic translation with ligand-responsive synthetic RNA switches. <em>Nature Methods, 13</em>(10), 989–995. <a class="link-text" href="https://doi.org/10.1038/nmeth.3807">https://doi.org/10.1038/nmeth.3807</a></li>
+  
+  </ol>
+</section>
+
+
+
+
 </div>
 <script>
 function showContent(contentId) {
