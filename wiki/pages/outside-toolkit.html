@@ -5,35 +5,184 @@
 
 {% block page_content %}
 
-
+<link rel="stylesheet" href="{{ url_for('static', filename='timeline.css') }}">
+<!-- <script src="{{ url_for('static', filename='timeline.js') }}"></script> -->
 <div class = "page-container">
-  <aside class="sidebar">
-      <ul class="sidebar-nav">
-          <li><a href="#intro" class="active">First section</a></li>
-      </ul>
-  </aside>
-  
   <div class = "page-content">
     <div class = "header">
       <h1 class = "page-title">Outside the Toolkit</h1>
-      <p class = "page-desc">Page description</p>
+      <!-- <p class = "page-desc">Page description</p> -->
     </div>
     <div class = "content"> 
       <section id = "intro">
-        <h1 class ="section-title">First section</h1>
-        <p class="section-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et augue in sem semper accumsan. Sed risus dolor, malesuada convallis lorem id, dignissim pharetra tellus. Ut convallis enim a odio porta efficitur. Nam dapibus, nunc a consequat pulvinar, massa sapien tincidunt dolor, a malesuada turpis mauris placerat tellus. In non nisi erat. Proin ullamcorper sagittis ex, sed accumsan justo ullamcorper pulvinar. Aenean vulputate sapien velit, at ullamcorper metus imperdiet ut.
+        <p class="section-text">
+          In 2025, we took part in a wide range of activities: we presented our project at the <span class="bold-word">Catalunya Summit</span> for young innovators, ran a transcription and translation workshop at the <span class="bold-word">Festa de la Ciència</span>, and shared our work at <span class="bold-word">CosmoXarxa</span> in CosmoCaixa. We also launched a humorous <span class="bold-word">TikTok account</span> to help students prepare for the biology entrance exams using a “brainrot” style, introduced iGEM at the <span class="bold-word">BIYSC international youth program</span>, and participated in the <span class="bold-word">European Researcher’s Night.</span> Additionally, we collaborated internationally by translating the <span class="bold-word">Arizona State iGEM children’s book</span> into Catalan, and elaborated a <span class="bold-word">legend</span> analoguing our project to a famous Catalan tale, broadening access to science education. 
         <br><br>
-        Aliquam quis est et velit pretium facilisis ut quis ex. Donec venenatis neque ac odio semper, sit amet gravida orci consequat. Integer sollicitudin a ex ultricies finibus. Vivamus tempor dignissim sapien, in dictum nibh aliquet quis. Donec elementum luctus velit eu efficitur. Quisque mattis dolor rhoncus felis feugiat, id tristique felis varius. Aliquam justo ligula, sollicitudin non mauris ut, sollicitudin commodo tortor. Nulla id leo augue. Pellentesque libero arcu, aliquam consectetur lacus et, mattis condimentum lectus. Nulla turpis elit, posuere nec odio a, euismod mattis quam. Quisque nec quam ante. In ultricies nunc velit, nec tempus nisi varius eu. 
+        <span class="bold-word">These experiences allowed us to inspire others, share our passion for synthetic biology, and strengthen our role as young science communicators.</span>
         </p>
       </section>
-      <section class ="references">
+      <section class="timeline">
+        <div class="timeline-container">          
+          <div class="timeline">
+              <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-card">
+                      <div class="timeline-card-date">15 Enero 2024</div>
+                      <svg class="timeline-card-image" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+                          <defs>
+                              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                  <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+                                  <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+                              </linearGradient>
+                          </defs>
+                          <rect width="400" height="180" fill="url(#grad1)" rx="12"/>
+                          <circle cx="100" cy="60" r="25" fill="white" opacity="0.8"/>
+                          <rect x="150" y="40" width="200" height="8" fill="white" opacity="0.9" rx="4"/>
+                          <rect x="150" y="60" width="150" height="6" fill="white" opacity="0.7" rx="3"/>
+                          <rect x="50" y="120" width="300" height="40" fill="white" opacity="0.1" rx="8"/>
+                      </svg>
+                      <div class="timeline-card-title">Lanzamiento del Proyecto</div>
+                      <div class="timeline-card-description">Inicio oficial del proyecto con la presentación del equipo y los objetivos principales para el año.</div>
+                      <button class="btn btn-outline" onclick="toggleExpanded(this)">Botó Contorn</button>
+                      <div class="expanded-content">
+                          <div class="expanded-text">
+                              El evento de lanzamiento contó con la participación de más de 200 asistentes, incluyendo inversores, socios estratégicos y miembros del equipo. Se presentaron las metas ambiciosas para los próximos 12 meses.
+                          </div>
+                          <div class="expanded-details">
+                              <strong>Detalles adicionales:</strong><br>
+                              • Presupuesto inicial: €2.5M<br>
+                              • Equipo: 25 profesionales<br>
+                              • Duración estimada: 18 meses
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-card">
+                      <div class="timeline-card-date">28 Febrero 2024</div>
+                      <div class="timeline-card-title">Primera Milestone Completada</div>
+                      <div class="timeline-card-description">Alcanzamos el primer hito importante del proyecto con resultados que superaron las expectativas iniciales.</div>
+                      <button class="btn btn-outline" onclick="toggleExpanded(this)">Botó Contorn</button>
+                      <div class="expanded-content">
+                          <div class="expanded-text">
+                              La primera fase se completó 2 semanas antes de lo previsto, gracias al excelente trabajo en equipo y la implementación de metodologías ágiles. Los resultados mostraron un 15% de mejora sobre los objetivos iniciales.
+                          </div>
+                          <div class="expanded-details">
+                              <strong>Métricas alcanzadas:</strong><br>
+                              • Eficiencia: +15% sobre objetivo<br>
+                              • Tiempo: -2 semanas<br>
+                              • Satisfacción del cliente: 9.2/10
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-card">
+                      <div class="timeline-card-date">12 Abril 2024</div>
+                      <svg class="timeline-card-image" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+                          <defs>
+                              <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                  <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                  <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                              </linearGradient>
+                          </defs>
+                          <rect width="400" height="180" fill="url(#grad2)" rx="12"/>
+                          <polygon points="200,40 220,80 180,80" fill="white" opacity="0.9"/>
+                          <rect x="100" y="100" width="200" height="60" fill="white" opacity="0.2" rx="8"/>
+                          <circle cx="320" cy="50" r="15" fill="white" opacity="0.6"/>
+                          <circle cx="340" cy="70" r="10" fill="white" opacity="0.4"/>
+                      </svg>
+                      <div class="timeline-card-title">Expansión Internacional</div>
+                      <div class="timeline-card-description">Apertura de nuevas oficinas en tres países europeos, marcando el inicio de nuestra expansión global.</div>
+                      <button class="btn btn-outline" onclick="toggleExpanded(this)">Botó Contorn</button>
+                      <div class="expanded-content">
+                          <div class="expanded-text">
+                              La expansión internacional representa un paso crucial en nuestro crecimiento. Las nuevas oficinas en Madrid, París y Berlín nos permitirán atender mejor a nuestros clientes europeos y acceder a nuevos mercados.
+                          </div>
+                          <div class="expanded-details">
+                              <strong>Nuevas ubicaciones:</strong><br>
+                              • Madrid: 15 empleados<br>
+                              • París: 12 empleados<br>
+                              • Berlín: 18 empleados<br>
+                              • Inversión total: €1.8M
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-card">
+                      <div class="timeline-card-date">25 Junio 2024</div>
+                      <div class="timeline-card-title">Reconocimiento Industrial</div>
+                      <div class="timeline-card-description">Recibimos el premio "Innovación del Año" por nuestro enfoque revolucionario en el sector tecnológico.</div>
+                      <button class="btn btn-outline" onclick="toggleExpanded(this)">Botó Contorn</button>
+                      <div class="expanded-content">
+                          <div class="expanded-text">
+                              Este reconocimiento valida nuestro compromiso con la innovación y la excelencia. El premio fue otorgado por un panel de expertos de la industria y reconoce nuestro impacto en la transformación digital del sector.
+                          </div>
+                          <div class="expanded-details">
+                              <strong>Detalles del premio:</strong><br>
+                              • Categoría: Innovación Tecnológica<br>
+                              • Jurado: 15 expertos internacionales<br>
+                              • Competidores: 150+ empresas<br>
+                              • Ceremonia: Tech Summit 2024
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-card">
+                      <div class="timeline-card-date">8 Septiembre 2024</div>
+                      <svg class="timeline-card-image" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+                          <defs>
+                              <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                  <stop offset="0%" style="stop-color:#ffecd2;stop-opacity:1" />
+                                  <stop offset="100%" style="stop-color:#fcb69f;stop-opacity:1" />
+                              </linearGradient>
+                          </defs>
+                          <rect width="400" height="180" fill="url(#grad3)" rx="12"/>
+                          <rect x="50" y="50" width="300" height="80" fill="white" opacity="0.3" rx="12"/>
+                          <circle cx="120" cy="90" r="20" fill="#ff6b6b" opacity="0.8"/>
+                          <circle cx="200" cy="90" r="20" fill="#4ecdc4" opacity="0.8"/>
+                          <circle cx="280" cy="90" r="20" fill="#45b7d1" opacity="0.8"/>
+                      </svg>
+                      <div class="timeline-card-title">Nuevo Producto Lanzado</div>
+                      <div class="timeline-card-description">Presentación oficial de nuestra plataforma de próxima generación con características innovadoras.</div>
+                      <button class="btn btn-outline" onclick="toggleExpanded(this)">Botó Contorn</button>
+                      <div class="expanded-content">
+                          <div class="expanded-text">
+                              El lanzamiento del nuevo producto representa 18 meses de investigación y desarrollo. La plataforma incorpora inteligencia artificial avanzada y ofrece una experiencia de usuario completamente renovada.
+                          </div>
+                          <div class="expanded-details">
+                              <strong>Características principales:</strong><br>
+                              • IA integrada para automatización<br>
+                              • Interfaz rediseñada completamente<br>
+                              • 50% más rápido que la versión anterior<br>
+                              • Compatible con 15+ integraciones
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </section>
+      
+      </div> 
+      <!-- <section class ="references">
         <h1 class="section-title">References</h1>
         <ol>
           <li>WHO EMRO | Stroke, Cerebrovascular accident | Health topics.</li>
           <li>Feigin, V. L., Nguyen, G., Cercy, K., Johnson, C. O., Alam, T., Parmar, P. G., Abajobir, A. A., Abate, K. H., Abd-Allah, F., Abejie, A. N., Abyu, G. Y., Ademi, Z., Agarwal, G., Ahmed, M. B., Akinyemi, R. O., Al-Raddadi, R., Aminde, L. N., Amlie-Lefond, C., Ansari, H., … Roth, G. A. (2018). GLOBAL, REGIONAL, AND COUNTRY-SPECIFIC LIFETIME RISK OF STROKE, 1990–2016. The New England Journal of Medicine, 379(25), 2429–2437. <a class="link-text" src="https://doi.org/10.1056/NEJMoa1804492">Paper</a></li>
           <li>Ischaemic stroke | Stroke Association. <a class="link-text" src="https://www.stroke.org.uk/stroke/types/ischaemic">Website</a></li>
         </ol>
-      </section>
+      </section> -->
     </div>
   </div>
 </div>  
