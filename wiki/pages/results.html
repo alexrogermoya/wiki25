@@ -6,6 +6,12 @@
 {% block page_content %}
 
 <style>
+.cards-container-big {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+
 
 .photo-caption {
   text-align: center;
@@ -375,16 +381,16 @@ Let’s take a look at what our results revealed!
 
   <!-- Branch 2 Sub-leaves -->
  
-  <circle class="tree-leaf leaf-2a" cx="200" cy="250" r="25" fill="#CC0600" onclick="showContent('branch2-controls')" data-branch="2a"/>
-  <text class="leaf-text small" x="200" y="250" font-size="12" text-anchor="middle" dominant-baseline="middle">Controls</text>
+  <circle class="tree-leaf leaf-2a" cx="200" cy="250" r="30" fill="#CC0600" onclick="showContent('branch2-controls')" data-branch="2a"/>
+  <text class="leaf-text small" x="200" y="250" font-size="12" text-anchor="middle" dominant-baseline="middle">HEK Setup</text>
 
   <!-- Branch 3: Aptmaer -->
 <circle class="tree-leaf leaf-5" cx="280" cy="250" r="35" fill="#ff918b" onclick="showContent('branch3-main')" data-branch="3"/>
   <text class="leaf-text" x="280" y="250" font-size="12" text-anchor="middle" dominant-baseline="middle">3-Aptamer</text>
 <!-- Branch 3 Sub-leaves -->
  
-  <circle class="tree-leaf leaf-2a" cx="200" cy="150" r="25" fill="#CC0600" onclick="showContent('branch3-controls')" data-branch="3a"/>
-  <text class="leaf-text small" x="200" y="150" font-size="12" text-anchor="middle" dominant-baseline="middle">Controls</text>
+  <circle class="tree-leaf leaf-2a" cx="200" cy="150" r="30" fill="#CC0600" onclick="showContent('branch2-controls')" data-branch="3a"/>
+  <text class="leaf-text small" x="200" y="150" font-size="12" text-anchor="middle" dominant-baseline="middle">HEK Setup</text>
 
   
   <!-- Branch 4: S Cell-Free -->
@@ -513,9 +519,12 @@ Let’s take a look at what our results revealed!
 
   <p class="section-text">
     Normalization was performed using the following controls:<br>
-    <span class="bold-word">CGA (positive control):</span> stop codon removed for maximal dual expression.<br>
-    <span class="bold-word">TAAA (frameshift negative control):</span> no Firefly expected.<br>
-    <span class="bold-word">TGA postATG mutated:</span> control for reinitiation events.
+    <ul class="point-list">
+      <li><span class="bold-word">CGA (positive control):</span> stop codon removed for maximal dual expression.</li>
+      <li><span class="bold-word">TAAA (frameshift negative control):</span> no Firefly expected.</li>
+      <li><span class="bold-word">TGA postATG mutated:</span> control for reinitiation events.</li>
+    </ul>
+
   </p>
 
   <button class="btn btn-outline" onclick="window.location.href='/experiments'">
@@ -548,14 +557,19 @@ Let’s take a look at what our results revealed!
   <h2 class="section-subtitle">Discussion</h2>
   <p class="section-text">
     These results provide clear insights into the contributions of different SCR-D regions:<br><br>
-    <span class="bold-word">PreDiapin drives most of the readthrough activity.</span> 
-    Even in isolation, the short PreDiapin sequence stimulates ~6% readthrough, confirming its major role despite consisting of only a few nucleotides.<br><br>
-    <span class="bold-word">The Diapin and Hypopin appear to modulate this effect together rather than independently.</span> 
-    When the Diapin sequence is mutated but its structure is preserved, readthrough remains similar (~8%) to the natural sequence (~9%). 
-    Compared to No Hypopin (~5%) and Only PreDiapin (~6%), this suggests the Diapin alone does not substantially enhance readthrough. 
-    Instead, its function seems to depend on the presence of the Hypopin. 
-    The Hypopin, although weakly conserved, may help stabilize structural interactions with the Diapin that facilitate readthrough.
-  </p>
+     </p>
+     <ul class="point-list">
+  <li><span class="bold-word">PreDiapin drives most of the readthrough activity.</span> 
+      Even in isolation, the short PreDiapin sequence stimulates ~6% readthrough, confirming its major role despite consisting of only a few nucleotides.
+  </li>
+  <li><span class="bold-word">The Diapin and Hypopin appear to modulate this effect together rather than independently.</span> 
+      When the Diapin sequence is mutated but its structure is preserved, readthrough remains similar (~8%) to the natural sequence (~9%). 
+      Compared to No Hypopin (~5%) and Only PreDiapin (~6%), this suggests the Diapin alone does not substantially enhance readthrough. 
+      Instead, its function seems to depend on the presence of the Hypopin. 
+      The Hypopin, although weakly conserved, may help stabilize structural interactions with the Diapin that facilitate readthrough.
+  </li>
+</ul>
+
 
   <p class="section-text">
     Taken together, these results indicate that <span class="bold-word">SCR-D’s high readthrough is driven mainly by PreDiapin</span>, 
@@ -588,15 +602,17 @@ Let’s take a look at what our results revealed!
     <br><br>
     Before using SECIS in our riboswitch designs, we aimed to characterize its performance to:
     <br><br>
-    Identify the <span class="bold-word">optimal experimental conditions</span> for its use in HEK 293T cells.<br>
-    Confirm its suitability as a reliable riboswitch backbone.
+<ul class="point-list">
+  <li>Identify the <span class="bold-word">optimal experimental conditions</span> for its use in HEK 293T cells.</li>
+  <li>Confirm its suitability as a reliable riboswitch backbone.</li>
+</ul>
+
     <br><br>
     The constructs used contained the SECIS element placed after the <span class="bold-word">Renilla</span> and <span class="bold-word">Firefly luciferase</span> genes. 
     Readthrough efficiency was measured as the ratio of Firefly to Renilla luminescence, normalized to a 
     <span class="bold-word">CGA construct</span> as a positive control which represents 100% readthrough.
   </p>
-
-  <button class="btn btn-outline" onclick="window.location.href='{{ url_for('pages', page='experiments') }}'">
+<button class="btn btn-outline" onclick="window.location.href='/experiments'">
     View constructs
   </button>
 
@@ -659,23 +675,24 @@ Let’s take a look at what our results revealed!
     <p class="photo-caption">Fig. 5. Normalized Readthrough Rate of the SECIS element across the three rounds of experiments, in different theophylline and Selenium concentrations.</p>
   </div>
 
-  <h2 class="section-subtitle">Discussion and Implications</h2>
-  <ul class="point-list">
-    <li>
-      The <span class="bold-word">SECIS element is functional and reliable</span> in HEK 293T cells, consistently performing 
-      <span class="bold-word">8–10% readthrough</span> across different experimental conditions.
-    </li>
-    <li>
-      <span class="bold-word">Readthrough efficiency remained consistent</span> despite variations in cell number (30,000–100,000 cells/well) and timing (24–48 h incubation), 
-      which highlights the <span class="bold-word">reproducibility</span> of the system.
-    </li>
-    <li>
-      <span class="bold-word">Selenium supplementation improved performance slightly</span>, suggesting a role in optimizing the SECIS conformation, but it is not essential for activity.
-    </li>
-    <li>
-      The <span class="bold-word">working range of theophylline</span> was defined as <span class="bold-word">0–1 mM</span>, ensuring minimal cytotoxicity while maintaining SECIS functionality.
-    </li>
-  </ul>
+<h2 class="section-subtitle">Discussion and Implications</h2>
+<p>Together, these results confirm that:</p>
+<ul class="point-list">
+  <li>
+    The <span class="bold-word">SECIS element is functional and reliable</span> in HEK 293T cells, consistently performing 
+    <span class="bold-word">8–10% readthrough</span> across different experimental conditions. These values are high compared to other eukaryotic readthrough elements reported in literature, demonstrating the robustness of SECIS as a translational regulator.
+  </li>
+  <li>
+    <span class="bold-word">Readthrough efficiency remained consistent</span> despite variations in cell number (30,000–100,000 cells/well) and timing (24–48 h incubation), which highlights the <span class="bold-word">reproducibility</span> of the system.
+  </li>
+  <li>
+    <span class="bold-word">Selenium supplementation improved performance slightly</span>, suggesting a role in optimizing the SECIS conformation, but it is not essential for activity. In future experiments, we could try further optimization with higher selenium concentrations, alongside a selenium toxicity assay.
+  </li>
+  <li>
+    The <span class="bold-word">working range of theophylline</span> was defined as <span class="bold-word">0–1 mM</span>, ensuring minimal cytotoxicity while maintaining SECIS functionality.
+  </li>
+</ul>
+
 
         </div>
 
@@ -683,49 +700,297 @@ Let’s take a look at what our results revealed!
         
 
         <div class="content-section" id="branch2-controls">
-            <h1 class="content-title">🔬 Branch 2b: Experimental Controls</h1>
-            <h2 class="content-subtitle">Controls for Experimental Design in HEK</h2>
-            <p class="content-text">
-                Detailed analysis of our control experiments, validation studies, and experimental design considerations for HEK293T cell-based assays.
-            </p>
-            
-            <div class="placeholder-content">
-                <div class="placeholder-icon">🔬</div>
-                <h3 style="color: var(--main-color);">Control Results</h3>
-                <p style="color: var(--grey);">Add your control experiment data and analysis here.</p>
-            </div>
+           <!-- CONTROLS SUBBRANCH -->
+
+  <h1 class="section-title">Effect of Selenium and Theophylline on Controls</h1>
+
+  <div class="cards-container-big">
+
+    <!-- Selenium & Theophylline Effect -->
+    <div class="card">
+      <h3 class="card-title">A: Effect on Normalization Control</h3>
+      <h4>Background</h4>
+      <p>Both <span class="highlight-word">selenium</span> and <span class="highlight-word">theophylline</span>
+         were necessary reagents for our SECIS and aptamer experiments. Since these compounds can directly affect
+          cellular metabolism and translation efficiency, it was essential to evaluate how they influenced the 
+          <span class="highlight-word">normalization control construct</span> used across all samples.</p>
+
+      <p>To ensure accurate normalization, we included replicates of the control under every tested condition
+         (each theophylline and selenium concentration) in all experiments. In all results, each construct was
+          <span class="highlight-word">normalized only to a control exposed to the same experimental conditions</span>. 
+          This approach ensured that any observed differences in luciferase activity were attributable
+           to the experimental element (SECIS or aptamer) rather than to theophylline or selenium effects.</p>
+        <h4>Results</h4>
+      <p>As shown in <span class="highlight-word">Figure 11</span>, both theophylline and selenium influenced the CGA control construct, highlighting the need for condition-specific normalization.</p>
+
+      <p>
+      At <span class="highlight-word">0 nM selenium</span>
+       and <span class="highlight-word">0 mM theophylline</span>, 
+       the baseline Firefly/Renilla (FLuc/RLuc) ratio was around <span class="highlight-word">10–12%</span>,
+        consistent across replicates. As the theophylline concentration increased, this ratio gradually decreased,
+         reaching approximately <span class="highlight-word">8%</span> at 5 mM. This consistent trend confirms
+          that <span class="highlight-word">theophylline slightly inhibits luciferase expression</span>, 
+          likely due to general cytotoxic effects at higher concentrations.
+    </p>
+    
+    <p>
+      In contrast, <span class="highlight-word">selenium supplementation</span> affected the control 
+      construct to a greater extent. The FLuc/RLuc ratio increased from about 
+      <span class="highlight-word">10%</span> at 0 nM to up to <span class="highlight-word">18%</span> 
+      at 100 nM selenium, although this effect depended on theophylline concentration. Specifically, 
+      at 100 nM selenium, the ratio was around <span class="highlight-word">14%</span> with 0 mM 
+      theophylline, and rose to ~<span class="highlight-word">18%</span> with 1 mM theophylline. 
+      These fluctuations with selenium, also observed in the Sensing Element experiments, indicate 
+      that <span class="highlight-word">selenium challenges consistency</span> but can also modulate
+       translational efficiency in HEK cells, potentially through its known roles in protein synthesis 
+       and redox balance.
+    </p>
+    
+
+      <div class="image-container">
+        <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/14r-controls-hek.webp" alt="CGA control under different conditions">
+        <p class="photo-caption">Figure 11. Firefly/Renilla luciferase ratios for the CGA positive control across different theophylline and selenium concentrations. Used as reference for normalization in both SECIS and aptamer experiments.</p>
+      </div>
+        <h4>Discussion and Implications</h4>
+      <p>These results demonstrate that both theophylline and selenium alter the baseline 
+        luciferase activity of the normalization control, and emphasize the importance of normalizing 
+        every construct against a control treated with the same conditions. 
+        
+        <br>
+        This is why all results
+         presented in the SECIS and aptamer sections have been <span class="highlight-word">normalized 
+            against controls treated with identical reagent concentrations</span>, ensuring that the 
+            reported readthrough and frameshift rates reflect true biological effects rather than other 
+            influences from the compounds themselves. 
+        <br>
+            Moving forward, this reinforces the need to always
+             include <span class="highlight-word">internal controls under each tested condition</span> 
+             to maintain accuracy and reproducibility in luciferase-based assays.</p>
+    </div>
+
+    <!-- Theophylline Toxicity -->
+    <div class="card">
+      <h3 class="card-title">B: Theophylline Toxicity Assay in HEK293T Cells</h3>
+        <h4>Background</h4>
+      <p>Theophylline is known to have <span class="highlight-word">toxic effects at high concentrations</span> in mammalian cells, primarily through interference with phosphodiesterase activity and cellular metabolism. To ensure the viability of our experimental system and define safe treatment conditions, we performed a toxicity assay in HEK293T cells to establish the concentration range compatible with our constructs.</p>
+
+      <p>Cells were seeded at different densities (30,000 and 70,000 cells/well) and treated with increasing 
+        concentrations of theophylline, ranging from 0 to 40 mM. After 24 hours of treatment, cell morphology
+         and viability were assessed under the microscope. After 48 hours, cells were counted using 10 μL samples
+          in a Neubauer chamber after homogenization.</p>
+
+      <p>This assay allowed us to determine both the <span class="highlight-word">cytotoxic threshold</span>
+         of theophylline and the <span class="highlight-word">optimal seeding density</span> for subsequent 
+         experiments.</p>
+        <h4>Results</h4>
+        <p>As shown in Figure 12, cell counts showed some variability, likely due to incomplete homogenization during sampling, but the general trend is clear</p>
+      <ul class="point-list">
+        <li>Up to 1 mM theophylline, cell numbers and morphology seem mainly unaffected.</li>
+        <li>At 5 mM, a significant reduction in viable cells is observed, alongside visible changes in morphology.</li>
+        <li>Above 5 mM, cell viability drops abruptly, confirming cytotoxic effects.</li>
+      </ul>
+      <p>These findings are consistent with the luciferase assay results, 
+      in which constructs treated with <span class="highlight-word"> 5 mM theophylline consistently exhibited
+       reduced Firefly luciferase activity <span>, suggesting cellular stress or death rather
+        than a true biological response.</p>
+      <div class="image-container">
+        <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/15r-toxicity-hek.webp" alt="Quantification of viable cells">
+        <p class="photo-caption">Figure 12. Quantification of viable HEK293T cells after 48 hours of treatment with increasing theophylline concentrations (0–40 mM), for both 30K and 70K cells seeded.</p>
+      </div>
+      <p>
+          These results are clearly supported by microscopic observations at 24h (Figures 13 and 14).
+           At <span class="highlight-word">30,000 cells seeded</span>, cells appear healthy and confluent
+            at 0–1 mM theophylline, but show clear detachment and reduced density 
+            <span class="highlight-word">starting at 5 mM</span>. At <span class="highlight-word">70,000 
+                cells</span>, the same pattern is observed.
+        </p>
+
+        <p>
+          In cultures treated with <span class="highlight-word">≥5 mM theophylline</span>,
+           HEK293T cells show <span class="highlight-word">clear morphological signs of stress</span>, 
+           including the formation of clusters and detachment from the plate surface, as well as angular
+            or A-shaped appearance. This is consistent with the <span class="highlight-word">abruptly 
+                reduced viability</span> observed, and supports the cytotoxic effect observed at ≥5 
+                mM theophylline.
+        </p>
+
+      <div class="image-container">
+        <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/16r-toxicity-30k-hek.webp" alt="Microscope images 30k cells">
+        <p class="photo-caption">Figure 13A. Microscope images for 30K seeded cells, 0–40 mM theophylline.</p>
+      </div>
+
+      <div class="image-container">
+        <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/17r-toxicity-70k-hek.webp" alt="Microscope images 70k cells">
+        <p class="photo-caption">Figure 13B. Microscope images for 70K seeded cells, 0–40 mM theophylline.</p>
+      </div>
+        <h4>Discussion and Implications</h4>
+      <p>These results established a <span class="highlight-word">safe working concentration window</span>
+         for theophylline in HEK293T cells: </p>
+         <ul class="point-list">
+                <li>Concentrations below 1 mM are well tolerated.</li>
+                <li>5 mM and above induce clear cytotoxic effects.</li>
+
+         </ul>
+        <p>
+  The chosen concentrations of <span class="highlight-word">theophylline</span> used in our experiments were based on this toxicity assay, which is why we only performed experiments using <span class="highlight-word">theophylline concentrations between 0 and 5 mM</span>. This assay also confirmed that <span class="highlight-word">30,000 cells/well</span> provide sufficient density for reliable results.
+</p>
+
+    </div>
+
+  </div>
+
+
         </div>
 
         <!-- Branch 3 Content -->
         <div class="content-section" id="branch3-main">
-            <h1 class="content-title">📈 Branch 3: Sensing Element in HEK Cells</h1>
-            <h2 class="content-subtitle">Testing the Sensing Element</h2>
-            <p class="content-text">
-                Results from testing our theophylline sensing element functionality in HEK293T cells, including dose-response curves and specificity studies.
-            </p>
-            
-            <div class="placeholder-content">
-                <div class="placeholder-icon">📈</div>
-                <h3 style="color: var(--main-color);">Sensing Results</h3>
-                <p style="color: var(--grey);">Add your sensing element experimental data here.</p>
-            </div>
-        </div>
- <!-- Branch 3 Sub-content -->
-        
+  <h1 class="section-title">Branch 3: Validating the Sensing Element in HEK293T Cells</h1>
 
-        <div class="content-section" id="branch3-controls">
-            <h1 class="content-title">🔬 Branch 3a: Experimental Controls</h1>
-            <h2 class="content-subtitle">Controls for Experimental Design in HEK</h2>
-            <p class="content-text">
-                Detailed analysis of our control experiments, validation studies, and experimental design considerations for HEK293T cell-based assays.
-            </p>
-            
-            <div class="placeholder-content">
-                <div class="placeholder-icon">🔬</div>
-                <h3 style="color: var(--main-color);">Control Results</h3>
-                <p style="color: var(--grey);">Add your control experiment data and analysis here.</p>
-            </div>
+  <h2 class="section-subtitle">Background</h2>
+  <p class="section-text">
+    The <span class="bold-word">theophylline aptamer</span> was selected as our ligand-responsive element because of its exceptional 
+    <span class="bold-word">specificity</span> for theophylline [7eng], its absence in mammalian cells [8eng], and its proven biocompatibility in HEK cells [9eng]. 
+    Moreover, this aptamer has shown <span class="bold-word">cross-system functionality</span> [10,11eng] and possesses a 
+    <span class="bold-word">well-characterized secondary structure</span>, making it an excellent candidate for riboswitch engineering.
+    <br><br>
+    Among the various versions available, we chose the <span class="bold-word">Theo-ON-5 variant</span> [13eng], as it displayed the largest ON/OFF ratio in frameshift efficiency. 
+    Before incorporating it into our riboswitch, we aimed to:
+  </p>
+
+  <ul class="point-list">
+    <li><span class="bold-word">Validate its responsiveness to theophylline.</span></li>
+    <li>Identify the <span class="bold-word">optimal experimental conditions</span> for reliable use in HEK 293T cells.</li>
+  </ul>
+
+  <p class="section-text">
+    The aptamer construct used for this validation was adapted from Anzalone et al. (2016). 
+    This design places the theophylline aptamer with a <span class="bold-word">frameshift-inducing pseudoknot</span> 
+    between the Renilla and Firefly luciferase genes.
+    <br><br>
+    In this system, the aptamer’s folding state determines whether a ribosomal frameshift occurs:
+  </p>
+
+  <ul class="point-list">
+    <li>Without theophylline, the pseudoknot structure does not fold correctly, preventing frameshifting and blocking Firefly luciferase expression.</li>
+    <li>With theophylline, the aptamer binds the ligand and releases the pseudoknot, allowing ribosomal frameshifting and placing the Firefly luciferase gene in-frame, enabling its expression.</li>
+  </ul>
+
+  <p class="section-text">
+    This setup allows a direct measure of aptamer responsiveness by quantifying 
+    <span class="bold-word">Firefly/Renilla luminescence</span>, normalized to the 
+    <span class="bold-word">CGA control</span> (representing 100% translation readthrough).
+  </p>
+
+  <button class="btn btn-outline" onclick="window.location.href='/experiments'">
+    View constructs
+  </button>
+
+  <p class="section-text">
+    Because <span class="bold-word">theophylline</span> was required for this assay, and <span class="bold-word">selenium</span> had been tested in parallel for SECIS constructs, 
+    we evaluated both factors together to ensure compatibility.
+    <br><br>
+    Four experimental rounds were carried out in HEK 293T cells, progressively refining cell density, treatment timing, and ligand concentrations, 
+    following the same approach used for SECIS characterization with a further refining week, as detailed in Table 2.
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/7r-conditions.webp" alt="Experimental parameters for Frameshift and Aptamer Construct">
+    <p class="photo-caption">Table 2. Experimental parameters used in each round of experiments for the Frameshift and Aptamer Construct.</p>
+  </div>
+
+  <h2 class="section-subtitle">Results</h2>
+  <p class="section-text">
+    This first round shows promising and consistent results. 
+    The aptamer seems to respond to theophylline, with frameshift rates increasing from 
+    <span class="bold-word">3–4%</span> at <span class="bold-word">0 mM</span> to 
+    <span class="bold-word">6–8%</span> at <span class="bold-word">0.5–1 mM</span> theophylline. 
+    At <span class="bold-word">5 mM</span>, readthrough drops below <span class="bold-word">5%</span>, likely due to 
+    <span class="bold-word">cytotoxicity</span> (see toxicity assay in <span class="highlight-word" ><a onclick="showContent('branch2-controls')" style="text-decoration: none;">Controls</a></span> ).
+    These results suggest that the aptamer is being responsive to theophylline, even though the ratio is not increasing very much.
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/8r-fsapt-hek1.webp" alt="Frameshift Aptamer HEK 1 results">
+    <p class="photo-caption">Fig. 6. Raw Renilla (before frameshift pseudoknot) and Firefly (after frameshift pseudoknot) Luciferase Values and Normalized FLuc/RLuc rate in different theophylline concentrations.</p>
+  </div>
+
+  <p class="section-text">
+    The second round introduces <span class="bold-word">selenium</span> to test its potential interference, and keeps evaluating responsiveness to 
+    <span class="bold-word">theophylline</span>. In this case, the results were already expected as less reliable, and we can see they are less reproducible.
+    <br><br>
+    <span class="bold-word">Frameshift rates</span> appear to be between <span class="bold-word">2–4%</span>, with some outlier values (~7%) only in the presence of selenium. 
+    This low replicability prevented clear conclusions, and the <span class="bold-word">addition of selenium seemed to reduce experimental consistency</span>, 
+    possibly by destabilizing the construct or interacting with the translation machinery. 
+    Consequently, further refinement of the experimental conditions was required, and we considered stopping the use of selenium, 
+    since it was not essential for SECIS function and seemed to hinder reproducibility.
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/9r-fsapt-hek2.webp" alt="Frameshift Aptamer HEK 2 results">
+    <p class="photo-caption">Fig. 7. Raw Renilla (before frameshift pseudoknot) and Firefly (after frameshift pseudoknot) Luciferase Values and Normalized FLuc/RLuc rate in different theophylline and selenium concentrations. Second round of experiments.</p>
+  </div>
+
+  <p class="section-text">
+    In the third round, despite improved replicability, we observed <span class="bold-word">no clear responsiveness</span> to theophylline. 
+    Frameshift rates remained stable around <span class="bold-word">3–4%</span>, regardless of ligand concentration. 
+    This suggested that, under the tested conditions, the aptamer was <span class="bold-word">not reliably functional</span> in HEK cells.
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/10r-fsapt-hek3.webp" alt="Frameshift Aptamer HEK 3 results a">
+    <p class="photo-caption">Fig. 8a. Raw Renilla and Firefly Luciferase Values and Normalized FLuc/RLuc rate in different theophylline concentrations.</p>
+  </div>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/11r-fsapt-hek3.webp" alt="Frameshift Aptamer HEK 3 results b">
+    <p class="photo-caption">Fig. 8b. Normalized rate for better visualization.</p>
+  </div>
+
+  <p class="section-text">
+    To test whether the promising results from the first round could be reproduced, we did a final round replicating the first round’s conditions (30,000 cells/well, 48 h incubation), as detailed in Table 2. 
+    The results show a similar trend: <span class="bold-word">frameshift ratios slightly increase in response to theophylline again (from ~4% to ~6%), but not with sufficient difference to confirm consistent responsiveness.</span> 
+    At 5 mM, the ratio decreases below 4% again due to toxicity, as we can see in Figure 9.
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/12r-fsapt-hek4.webp" alt="Frameshift Aptamer HEK 4 results">
+    <p class="photo-caption">Fig. 9. Raw Renilla and Firefly Luciferase Values and Normalized FLuc/RLuc rate in different theophylline concentrations. Fourth round of experiments.</p>
+  </div>
+
+  <p class="section-text">
+    We also confirmed that the issue lies in the sensing element rather than in theophylline itself. 
+    This conclusion comes from analyzing the CGA positive control in each experimental round, which behaved consistently and as expected: higher theophylline concentrations led to a gradual decrease in overall luminescence due to cytotoxicity (see the Positive Control in Figure 10). 
+    This demonstrates that <span class="bold-word">the ligand is active and functional, but that the aptamer construct does not respond as intended.</span>
+  </p>
+
+  <div class="image-container">
+    <img src="https://static.igem.wiki/teams/5622/images/wetlab/results/13r-fsapt-hek4.webp" alt="Frameshift Aptamer Positive Control">
+    <p class="photo-caption">Fig. 10. Renilla and Firefly Luciferase Values and Normalized FLuc/RLuc rate in different theophylline concentrations, for both the positive control (CGA construct) and the Frameshift Element + Aptamer Construct.</p>
+  </div>
+
+  <h2 class="section-subtitle">Discussion and Implications</h2>
+  <p class="section-text">
+    Across all experimental rounds, the theophylline aptamer construct <span class="bold-word">failed to show consistent or reproducible responsiveness</span> in HEK 293T cells. 
+    Although some data hints at the expected trend, the differences are minor and not as large as those reported in literature.
+    <br><br>
+    Our team hypothesized that this could be due to temperature-related instability, as the aptamer was originally characterized at 30 °C. 
+    Using it under HEK293T culture conditions (37 °C) might cause partial denaturation of its structure, impairing proper folding and ligand binding.
+    <br><br>
+    To further investigate this, we contacted Dr. Anzalone, who developed and characterized the <span class="bold-word">Theo-ON-5 aptamer</span> used in our study. 
+    He confirmed that his team had observed similar inconsistencies when testing their frameshifting riboswitches in HEK293T cells. 
+    He also noted that both the <span class="bold-word">temperature difference</span> and the 
+    <span class="bold-word">intrinsic inefficiency of ribosomal frameshifting</span> in HEK cells likely contributed to these results.
+    <br><br>
+    Based on his advice, and with additional input from <span class="bold-word">Dr. Paul Copeland</span> and our team discussions, 
+    we decided to test the construct in a <span class="bold-word">cell-free system (rabbit reticulocyte lysate)</span>, which operates at 30 °C: 
+    a more suitable temperature for this aptamer. This platform provides tighter control of experimental conditions and has already been shown by Anzalone’s group to improve reproducibility.
+    <br><br>
+    In conclusion, while the <span class="bold-word">theophylline aptamer</span> remains a promising and well-characterized sensing element in other systems, our results indicate that it 
+    <span class="bold-word">performs inconsistently in HEK293T cells.</span> Future experiments in <span class="bold-word">cell-free systems</span> will allow us to evaluate its switching behavior more accurately and validate its use in combination with the SECIS element for riboswitch building.
+  </p>
+
         </div>
+ 
 
         <!-- Branch 4 Main Content -->
         <div class="content-section" id="branch4-main">
@@ -807,28 +1072,16 @@ function showContent(contentId) {
     });
     
     // Show selected content
-    document.getElementById(contentId).classList.add('active');
+    const content = document.getElementById(contentId);
+    content.classList.add('active');
+    
+    // Scroll smoothly to the displayed section
+    content.scrollIntoView({ behavior: 'smooth', block: 'start' });
     
     // Add active state to clicked leaf
     event.target.classList.add('active');
 }
 
-// Add some interactive effects
-document.addEventListener('DOMContentLoaded', function() {
-    const leaves = document.querySelectorAll('.tree-leaf');
-    
-    leaves.forEach(leaf => {
-        leaf.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.15)';
-        });
-        
-        leaf.addEventListener('mouseleave', function() {
-            if (!this.classList.contains('active')) {
-                this.style.transform = 'scale(1)';
-            }
-        });
-    });
-});
 </script>
 
 {% endblock %}
