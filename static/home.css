@@ -3,7 +3,8 @@
 }
 
 .hero{
-    background-image: url(https://static.igem.wiki/teams/5622/images/home/homepage-switches-background.webp);
+    background-image: url(https://static.igem.wiki/teams/5622/images/home/faded-homepage-switches.webp);
+    background-position: bottom;
     justify-content: center;
     align-items: center;
 }
@@ -177,10 +178,10 @@
 } 
 
 .ribosome img{
-    width:100%;
+    width:90%;
 }
 .ribosome-text{
-    padding:4em 10em 0em 10em;
+    padding:8em 10em 0em 10em;
 }
 
 .home-table{
