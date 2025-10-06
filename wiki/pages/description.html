@@ -40,12 +40,51 @@
     </ul>
 
     <div class ="info-card hp-card" id="hp-card1">
-        <div class="card">
-          <h3 class="card-title">HP Card</h3>
-          <p>Look out for these light bulbs throughout our wiki! They contain information boxes to help you understand how Skippit answers synbio challenges through the expertise of world-class researchers and stakeholders.</p>
-          <button class="btn btn-outline" onclick = "window.location.href='human-practices'">Learn More</button>
-        </div>
+      <div class="card">
+        <h3 class="card-title">HP Card</h3>
+        <p>Look out for these light bulbs throughout our wiki! They contain information boxes to help you understand how Skippit answers synbio challenges through the expertise of world-class researchers and stakeholders.</p>
+        <button class="btn btn-outline" onclick = "window.location.href='human-practices'">Learn More</button>
       </div>
+    </div>
+    <div class ="info-card hp-card" id="hp-card2">
+      <div class="card">
+        <h3 class="card-title">HP Card</h3>
+        <p>We talked to Andrew Anzalone, a leading figure in modern genome editing with prior experience in working with theophyline riboswitches. He could help us with experimental details and was crucial for our wet lab and engineering work</p>
+        <button class="btn btn-outline" onclick = "window.location.href='human-practices'">Learn More</button>
+      </div>
+    </div>
+    <div class ="info-card hp-card" id="hp-card3">
+      <div class="card">
+        <h3 class="card-title">HP Card</h3>
+        <p>When asked about his experience using our software, Jacob González emphasized the importance of making the software user-friendly, so we decided to update our figures and created a guided tutorial on how to use our software.</p>
+        <button class="btn btn-outline" onclick = "window.location.href='human-practices'">Learn More</button>
+      </div>
+    </div>
+
+    <div class ="info-card hp-card" id="parts-card1">
+      <div class="card">
+        <h3 class="card-title">Parts Card</h3>
+        <p>Selenocysteine Insertion Sequence (SECIS) DIO2: <a class="link-text" href="https://registry.igem.org/parts/bba-25ermnvd">BBa_25ERMNVD</a></p>
+      </div>
+    </div>
+    <div class ="info-card hp-card" id="parts-card2">
+      <div class="card">
+        <h3 class="card-title">Parts Card</h3>
+        <p>Theophylline Aptamer Theo-ON-5: <a class="link-text" href="https://registry.igem.org/parts/bba-25m42989">BBa_25M42989</a></p>
+      </div>
+    </div>
+    <div class ="info-card hp-card" id="parts-card3">
+      <div class="card">
+        <h3 class="card-title">Parts Card</h3>
+        <p>We generated a set of 4 linkers to design our SCR riboswitches, named after their bp length:</p>
+        <ul class="point-list">
+          <li>Linker 5: <a class="link-text" href="https://registry.igem.org/parts/bba-254kt5er">BBa_254KT5ER</a></li>
+          <li>Linker 7: <a class="link-text" href="https://registry.igem.org/parts/bba-25snfrfi">BBa_25SNFRFI</a></li>
+          <li>Linker 8: <a class="link-text" href="https://registry.igem.org/parts/bba-25ppffx9">BBa_25PPFFX9</a></li>
+          <li>Linker 9: <a class="link-text" href="https://registry.igem.org/parts/bba-25n3k8w1">BBa_25N3K8W1</a></li>
+        </ul>
+      </div>
+    </div>
   </aside>
   
   <div class = "page-content">
@@ -84,7 +123,7 @@
       <section id = "after">
         <h1 class ="section-title">After Skippit: Beyond the Limits of DNA</h1>
         <p class="section-text">
-          An alternative method to control protein expression is found in translation-level control, which provides rapid responses and direct protein regulation without altering transcription [10]. RNA switches—RNA sequences that often control gene expression by interacting with a specific stimuli, that stimuli often being a ligand molecule—are especially attractive in this context: they are compact, programmable, and highly specific. The theophylline-binding aptamer <span class = "info-word hp-icon" data-target= "hp-card1">&#128161;</span> [11], for example, has been extensively used to regulate downstream elements when linked to open reading frames [12, 13].
+          An alternative method to control protein expression is found in translation-level control, which provides rapid responses and direct protein regulation without altering transcription [10]. RNA switches—RNA sequences that often control gene expression by interacting with a specific stimuli, that stimuli often being a ligand molecule—are especially attractive in this context: they are compact, programmable, and highly specific. The theophylline-binding aptamer <span class = "info-word hp-icon" data-target= "hp-card2">&#128161;</span> [11], for example, has been extensively used to regulate downstream elements when linked to open reading frames [12, 13].
         </p>
         <h2 id ="new" class = "section-subtitle">A new design space: Functional RNA Elements (FREs)</h2>
         <p class="section-text">With SKIPPIT, we are taking a leap forward in the world of translation-level control, by coupling <span class = "bold-word">Conformational RNA Elements</span> (CREs) to what we define as <span class = "bold-word">Functional RNA Elements</span> (FREs). These FREs are RNA sequences able to carry out their function purely through their own structure. FREs are capable of folding into shapes that control ribosome behaviour [14], alter reading frames [15], or enable stop codon readthrough [16], amongst other functions.</p>
@@ -197,7 +236,7 @@
         <p class="section-text">
           TADPOLE automates these steps: it enumerates linkers, runs folding predictions, applies constraints, computes metrics, organises candidates, and produces visualisations (structure plots, pairing maps) and a shortlist ready for synthesis.
           <br><br>
-          Our TADPOLE website has been designed to be accessible for anyone: It has a visual interface, users don’t need to know any coding, and the python packages of the software have been published to facilitate the programming of new projects from our code.<span class = "info-word hp-icon" data-target= "hp-card">&#128161;</span>
+          Our TADPOLE website has been designed to be accessible for anyone: It has a visual interface, users don’t need to know any coding, and the python packages of the software have been published to facilitate the programming of new projects from our code.<span class = "info-word hp-icon" data-target= "hp-card3">&#128161;</span>
           <br><br>
           We are opening RNA switch design to any research team, regardless of their expertise.
         </p>
