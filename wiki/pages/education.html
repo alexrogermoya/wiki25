@@ -9,14 +9,15 @@
   <aside class="sidebar">
       <ul class="sidebar-nav">
           <li><a href="#toolkit" class="active">Tookit</a></li>
-          <li><a href="#outside the toolkit">Outside the toolkit</a>
-          <li><a href="#educational network">Educational network</a>
+          <li><a href="#outside-the-toolkit">Outside the toolkit</a>
+          <li><a href="#educational-network">Educational network</a>
+          <li><a href="#references">Referebces</a>
       </ul>
     <div class ="info-card hp-card" id="hp-card1">
         <div class="card">
           <h3 class="card-title">HP Card</h3>
           <p>For our idea of the 360º scientist we were inspired by a local youth association called La Llar de la Recerca, dedicated to mentoring young people in their scientific or technological projects.</p>
-          <button class="btn btn-outline" onclick = "window.location.href='{{ url_for('pages', page='integratedhp') }}#subtitle6'">Go to HP</button>
+          <a href="https://2025.igem.wiki/barcelona-ub/integratedhp#subtitle6" class="link-text" style="width:fit-content;">See HP</a> 
         </div>
       </div>
   </aside>
@@ -88,7 +89,7 @@
         </div>
       </section>
 
-      <section id = "outside the toolkit">
+      <section id = "outside-the-toolkit">
         <h1 class="section-title">Outside the toolkit</h1>
         <p class="section-text">Outside of the toolkit, we carried out additional initiatives such as activities for children, scientific outreach talks, and collaborations with other iGEM teams. These actions allowed us to reach different audiences, explore new perspectives, and give a deeper or alternative focus to topics, expanding the overall impact of our project.
             <br><br>
@@ -99,22 +100,22 @@
         </div>
       </section>
 
-      <section id="educational network">
+      <section id="educational-network">
         <h1 class="section-title">Creating an educational network across Catalonia</h1>
         <div class="text-img">
-                    <div class="edu-grid">
-          <div class="edu-text">
-            <p>
-              While working on our project we realised that 
-              <span class="bold-word">we are not alone in our mission</span>, which is why we wanted to collaborate with other entities and associations dedicated to sharing science and knowledge by incorporating links to their activities in our toolkit, creating this educational network for teachers or the open public.
-            </p>
-          </div>
+          <div class="edu-grid">
+            <div class="edu-text">
+              <p>
+                While working on our project we realised that 
+                <span class="bold-word">we are not alone in our mission</span>, which is why we wanted to collaborate with other entities and associations dedicated to sharing science and knowledge by incorporating links to their activities in our toolkit, creating this educational network for teachers or the open public.
+              </p>
+            </div>
         
-          <div class="edu-image">
-            <img src="https://static.igem.wiki/teams/5622/images/education/educationalnetworkpgprincipal.webp" alt="Educational network graphic">
+            <div class="edu-image">
+              <img src="https://static.igem.wiki/teams/5622/images/education/educationalnetworkpgprincipal.webp" alt="Educational network graphic">
+            </div>
           </div>
         </div>
-            </div>
         
         <div class="cards-container">
           <div class="card">
@@ -236,7 +237,7 @@
 
         .control-btn {
             background: #FFDCDA;
-            border: 2px solid #FF918B;
+            border: transparent;
             color: #560400;
             padding: 12px 20px;
             border-radius: 25px;
@@ -257,7 +258,7 @@
         .control-btn.active {
             background: #FF1D11;
             color: #FFFFEE;
-            border-color: #9D0800;
+            border-color: transparent;
         }
 
         /* Specific faces */
@@ -381,14 +382,13 @@
                 font-size: 1.6rem;
             }
         }
-        .edu-grid {
+  .edu-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   align-items: center;
   gap: 2rem;
   background: white;
   border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
   padding: 2rem 3rem;
   margin: 2rem 0;
   animation: fadeInUp 0.8s ease forwards;
@@ -409,7 +409,6 @@
   width: 100%;
   height: auto;
   border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 

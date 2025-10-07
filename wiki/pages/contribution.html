@@ -8,8 +8,36 @@
 <div class="page-container">
   <aside class="sidebar">
     <ul class="sidebar-nav">
-      <li><a href="#basic" class="active">Contribution</a></li>
+      <li><a href="#basic" class="active">A promise to iGEM</a></li>
+      <li><a href="#handbooks">Discover our handbooks</a></li>
     </ul>
+
+    <div class ="info-card hp-card" id="parts-card1">
+      <div class="card">
+        <h3 class="card-title">Parts Card</h3>
+        <p>Selenocysteine Insertion Sequence (SECIS) DIO2: <a class="link-text" href="https://registry.igem.org/parts/bba-25ermnvd">BBa_25ERMNVD</a>
+        <br><br>
+        This part is a well-characterised STOP codon readthrough element identified in human cells that induces very high readthrough rates.
+        </p>
+      </div>
+    </div>
+    <div class ="info-card hp-card" id="parts-card2">
+      <div class="card">
+        <h3 class="card-title">Parts Card</h3>
+        <p>
+          STOP Codon Readthrough rate Dual-Luciferase measurement device: <a class="link-text" href="https://registry.igem.org/parts/bba-25mg0qvo">BBa_25MG0QVO</a>
+          <br><br>
+          This part allows the user to quantify the percentage of readthrough induced by a STOP codon readthrough element by comparing the expression of two luciferase proteins.
+        </p>
+      </div>
+    </div>
+    <div class ="info-card hp-card" id="parts-card3">
+      <div class="card">
+        <h3 class="card-title">Parts Card</h3>
+        <p>Our STOP Codon Readthrough theophylline riboswitches are first-in-class parts that allow modulation of the readthrough rate by disrupting the structure of a SCR element.</p>
+        <button class="btn btn-outline" onclick = "window.location.href='parts'">Learn More</button>
+      </div>
+    </div>
   </aside>
   
   <div class="page-content">
@@ -19,8 +47,33 @@
     </div>
 
     <div class="content"> 
-      <section>
-
+      <section id="basic">
+        <h1 class ="section-title">A promise to iGEM</h1>
+        <p class="section-text">
+          iGEM is, for many new aspiring scientists, a first direct contact with the biotechnological world. The iGEM community is very special to us, as the shared values amongst all the teams, the transmission of information and the excitement we all share as new scientists makes us a very tight-knit family. We are committed to sharing with future iGEMers, and the scientific community, tools that make the iGEM competition and future projects more manageable.
+          <br><br>
+          As such, we have been very transparent with our <a class="link-text" href="{{ url_for('pages', page='engineering') }}">design</a>, testing and experimental process, as well as with what we have learned on every step. 
+          <br><br>
+          We have thoroughly documented our experiments and how the project evolved in the <a class="link-text" href="{{ url_for('pages', page='pivotal-changes') }}">Wet Lab</a>. In an effort to share this documentation, we have published our <a class="link-text" href="{{ url_for('pages', page='notebook') }}">lab notebook and protocols</a>, making them accessible to a wider audience and anyone who wants to experiment with STOP codon readthrough elements.
+          <br><br>
+          We have also developed a <a class="link-text" href="{{ url_for('pages', page='model') }}">Model</a> to facilitate the design process for RNA switches, which we automated with our cutting-edge <a class="link-text" href="{{ url_for('pages', page='software') }}">Software</a>. This software and model have been made publicly available, along with an <a class="link-text" href="{{ url_for('pages', page='software-evolutionary') }}">MSA alignment tool</a> to facilitate coevolutionary studies. We have taken into account feedback from experts to make this software more accessible to anyone who desires to use it, and have gone out of our way to generate detailed tutorials on how to use it
+          <br><br>
+          SKIPPIT has focused on optimising STOP codon readthrough assays, characterising SCR elements and measuring their readthrough rates. We have published the first ever SCR part <span class = "info-word hp-icon" data-target= "parts-card1">&#129513;</span> in the iGEM registry, and have published the first ever readthrough rate measuring device <span class = "info-word hp-icon" data-target= "parts-card2">&#129513;</span> along with the individual parts that compose it. 
+          <br><br>
+          We are also the <span class="highlight-word">first project</span> ever to design a STOP codon readthrough inducible element, creating a set of 4 riboswitches <span class = "info-word hp-icon" data-target= "parts-card3">&#129513;</span> that are modulable with theophylline, with remarkable readthrough rates. Each of these riboswitches induces a different readthrough rate, meaning they can be used for fine regulation of protein expression.
+          <br><br>
+          With innovation come challenges, and <a class="link-text" href="{{ url_for('pages', page='dual-use') }}">biosecurity</a> is one of them, which is why we performed a thorough <a class="link-text" href="{{ url_for('pages', page='safety') }}">Safety</a> evaluation of our lab conditions, and detailed the measures we took to ensure safe lab practices, as well as design choices we took and future teams can make to improve their project’s safety standards.
+          <br><br>
+          We have also gone beyond the lab to integrate expert and professional <a class="link-text" href="{{ url_for('pages', page='human-practices') }}">feedback</a> into our project. These experts helped us better understand the applicability of our project, leading us to do a thorough assessment of its <a class="link-text" href="{{ url_for('pages', page='applications') }}">applications</a> in the future, which we hope inspires future teams to create new boundary-pushing tools. We have also considered how to bridge the gap into <a class="link-text" href="{{ url_for('pages', page='entrepeneurship') }}">commercial success</a>, creating a detailed market assessment. 
+          <br><br>
+          Finally, we have adventured into the public, generating detailed <a class="link-text" href="{{ url_for('pages', page='education') }}">educational plans</a> that target aspiring scientists and misinformed population to increase their understanding and trust in science. We have developed a public <a class="link-text" href="{{ url_for('pages', page='education-toolkit') }}">toolkit</a>, accessible to teachers, students and future iGEM teams with a wide set of activities to increase the public’s interest in science. 
+        </p>
+      </section>
+      <section id="handbooks">
+        <h1 class ="section-title">Discover our handbooks</h1>
+        <div class="overview-container">
+          <p class="section-text">Take a look at our handbooks, which detail how to use our educational toolkit, give you insight into how to design a business plan for a Software tool, and how to use our MSA alignment tool and its uses to generate RNA switches. </p>
+        </div>
         <!-- IMAGE GALLERY -->
         <div class="pdf-gallery">
 
@@ -120,6 +173,13 @@
 
 
 <style>
+.overview-container{
+  background-color: rgba(184, 0, 0, 0.08); 
+  margin:2.5em 0em;
+  padding: 1rem; 
+  border-radius: 8px; 
+  width: 100%;
+}
 .pdf-gallery {
   display: flex;
   flex-wrap: wrap;

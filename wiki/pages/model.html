@@ -18,22 +18,33 @@
           <li><a href="#before-skippit" class="active">Before Skippit</a></li>
           <li><a href="#after-skippit">After Skippit</a>
               <ul class="sidebar-subnav">
-                  <li><a href="#fres">Functional RNA Elements</a></li>
+                  <li><a href="#fres">Functional RNA Elements</a>
+                  </li>
                   <li><a href="#cres">Conformational RNA Elements</a></li>
                   
               </ul>
           </li>
-          <li><a href="#value">Value</a></li>
-            
-        <li><a href="#combining">Combining FREs and CREs</a>
-              <li><a href="#core-assumptions">Core Assumptions</a>
-              <ul class="sidebar-subnav">
-                  <li><a href="#structural-prediction">Structural Prediction</a></li>
-                  <li><a href="#energy-assumptions">Energy Assumptions</a></li>
-              </ul>
+          <li><a href="#value">Value</a>
+            <ul class="sidebar-subnav">
+              <li><a href="#framework">Design Framework</a></li>
+            </ul>
+          </li>
+          <li><a href="#summary">Summary</a></li>  
+          <li><a href="#combining">Combining FREs and CREs</a>
+            <ul class="sidebar-subnav">
+              <li><a href="#works">How It Works</a></li>
+              <li><a href="#on-on">ON-ON case</a></li>
+            </ul>
+          </li>
+          <li><a href="#core-assumptions">Core Assumptions</a>
+            <ul class="sidebar-subnav">
+                <li><a href="#structural-prediction">Structural Prediction</a></li>
+                <li><a href="#energy-assumptions">Energy Assumptions</a></li>
+            </ul>
           </li>
             
           <li><a href="#validation">Experimental Validation</a></li>
+          <li><a href="#References">References</a></li>
       </ul>
       
       <!--EXTRA INFO-->
@@ -359,12 +370,12 @@
           </div>
         </div>
       </section>
-      
-    <h2 id="combining" class="section-subtitle">Combining FREs and CREs: Creating an ON/OFF Switch</h2>
+<section id ="combining">     
+    <h1 class="section-title">Combining FREs and CREs: Creating an ON/OFF Switch</h1>
         
         <p class="section-text">Individually, FREs are functional elements that only work if they maintain a precise shape, while CREs are sensors that change shape in response to a signal but have no function by themselves. When we link a CRE to an FRE, we can create a <span class="highlight-word">programmable molecular switch</span> that controls the FRE's activity.</p>
 
-        <h3 class="section-subtitle2">How It Works</h3>
+        <h2 id="works" class="section-subtitle">How It Works</h2>
         Our model is based on the principle of structural change from stimuli:<br>
 <br><br>
         <b>Initial structure</b>
@@ -378,21 +389,20 @@
   <b>OFF (inactive)</b>.
   This <b>ON structure</b> is the <b>functional structure</b>, the structure that the <b>FRE</b> needs 
   to have to <b>perform its function</b>:
-<div style="text-align: center; margin: 20px 0;">
+<div class="image-container" style="text-align: center; margin: 20px 0;">
   <img 
     src="https://static.igem.wiki/teams/5622/images/model/fre-struct.webp" 
     alt="Tadpole steps" 
-    style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 80%; border-radius: 10px;"
   >
 </div>
-Se we could have <br>
+Se we could have
 <br><br>
   <b>FRE disrupted structure (OFF)</b>
   <span style="color:#007acc; font-weight:bold;">&nbsp;➜&nbsp;</span>
   <b>External signal</b>
   <span style="color:#007acc; font-weight:bold;">&nbsp;➜&nbsp;</span>
   <b>FRE functional structure (ON)</b>
-  <br>
   <br><br>
   We call this the ON-ON alternative, as FRE is active when the external signal is present.<br>
    
@@ -400,17 +410,16 @@ Se we could have <br>
   <img 
     src="https://static.igem.wiki/teams/5622/images/model/on-on.webp" 
     alt="Tadpole steps" 
-    style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 80%; border-radius: 10px;"
   >
 </div>
-Or, <br>
+Or,
 <br><br>
 <b>Structure disrupted (OFF) </b>
   <span style="color:#007acc; font-weight:bold;">&nbsp;➜&nbsp;</span>
   <b>External signal</b>
   <span style="color:#007acc; font-weight:bold;">&nbsp;➜&nbsp;</span>
   <b>Structure maintained (ON)</b>
-  <br>
   <br><br>
   We call this the OFF-ON alternative, as the FRE is inactive when the external signal is present.
 
@@ -418,7 +427,7 @@ Or, <br>
   <img 
     src="https://static.igem.wiki/teams/5622/images/model/on-on.webp" 
     alt="Tadpole steps" 
-    style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 80%; border-radius: 10px;"
   >
 </div>
 
@@ -426,7 +435,7 @@ Both models follow the same energetic, complementarity, etc. principles. To faci
 
 All following explanations can be applied to an ON-ON or an ON-OFF switch, the only difference being when the FRE is disrupted according to the external signal. 
 <br><br>
-<h3>Considering the ON-ON case</h3>
+<h2 id="on-on" class="section-subtitle">Considering the ON-ON case</h2>
         <div class="cards-container">
           <div class="card">
             <h3 class="card-title">OFF State (no signal)</h3>
@@ -468,12 +477,12 @@ All following explanations can be applied to an ON-ON or an ON-OFF switch, the o
                 allow="autoplay; fullscreen" 
                 sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-presentation"
                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-                       border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 0;"
+                       border-radius: 10px; border: 0;"
               ></iframe>
             </div>
 
           
- 
+</section>
             <!-- CORE ASSUMPTIONS SECTION -->
                 <section id="core-assumptions">
     <h1 class="section-title">Core Assumptions: Model Transparency</h1>
@@ -892,11 +901,13 @@ All following explanations can be applied to an ON-ON or an ON-OFF switch, the o
 
 /* Comparison table styling */
         .comparison-table {
-            background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+            background: linear-gradient(135deg, #fef2f2 0%, #f8dada 100%);
+            /* background:var(--bg-main); */
             border-radius: 12px;
             padding: 2rem;
             margin: 2rem 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+            box-shadow:none;
         }
 
         .comparison-header {
@@ -1115,21 +1126,32 @@ All following explanations can be applied to an ON-ON or an ON-OFF switch, the o
             margin: 1.5rem 0;
             border-left: 4px solid #16a34a;
         }
+        .example-box li::before{
+            position: relative;
+            margin-right: .5rem;
+            --tw-text-opacity: 1;
+            color: #166534;
+            opacity: var(--tw-text-opacity);
+            top: .1rem;
+            content: "•";
+            font-size: 1.5rem;
+            line-height: 0;
+        }
 
         .example-box h4 {
-            color: #15803d;
+            color: var(--text);
             margin-bottom: 1rem;
             font-size: 1.1rem;
         }
 
         .example-box p {
             margin-bottom: 0.75rem;
-            color: #166534;
+            color: var(--text);
             line-height: 1.5;
         }
 
         .example-box ul {
-            color: #166534;
+            color: var(--text);
         }
 
         /* Aptamer comparison table */

@@ -9,15 +9,21 @@
 <div class="page-container">
   <aside class="sidebar">
       <ul class="sidebar-nav">
-          <li><a href="#organisation" class="active">Organisastion</a></li>
-          <li><a href="#experim-w" class="active">Experimental workflow</a></li>
-          <li><a href="#constructs" class="active">Constructs used in the lab</a></li>
+          <li><a href="#organisation" class="active">Organization</a></li>
+          <li><a href="#experim-w">Experimental workflow</a>
           <ul class="sidebar-subnav">
-            <li><a href="#scr-d" class="active">SCR-D</a></li>
-            <li><a href="#switch" class="active">SECIS</a></li>
+            <li><a href="#common">Common part</a></li>
+            <li><a href="#cell">Cell-based assays</a></li>
+            <li><a href="#cell-free">Cell-free system assays</a></li>
+            <li><a href="#procedures">Other Procedures</a></li>
           </ul>
-            
-            
+          </li>
+          <li><a href="#constructs" >Constructs used in the lab</a>
+          <ul class="sidebar-subnav">
+            <li><a href="#scr-d" >SCR-D</a></li>
+            <li><a href="#switch" >SECIS</a></li>
+          </ul>
+          </li>
       </ul>
   
     <!--EXTRA INFO-->
@@ -85,22 +91,23 @@
       At the <strong>Discover-Glo conference</strong> by <strong>Promega</strong>, we had the chance to talk to 
       <strong>Irena Montiel</strong> and <strong>Eric Rovira</strong>, who suggested using the 
       <strong>dual-luciferase assay</strong> to test our construct.
-      See <a href="https://2025.igem.wiki/barcelona-ub/human-practices" class="highlight-word info-word" style="text-decoration: none;">HP</a>
-      and <a href="https://2025.igem.wiki/barcelona-ub/engineering" class="highlight-word info-word" style="text-decoration: none;">Engineering</a>
+      See <a href="{{ url_for('pages', page='human-practices') }}" class="highlight-word info-word" style="text-decoration: none;">HP</a>
+      and <a href="{{ url_for('pages', page='engineering') }}" class="highlight-word info-word" style="text-decoration: none;">Engineering</a>
     
     </p>
   </div>
 </div>
 
         
-    </aside>
-   <div class="page-content">
+  </aside>
+<div class="page-content">
     <div class="header">
       <h1 class="page-title">Experimental Overview</h1>
       <p class="page-desc"></p>
     </div>
-     <div class="content">
-    <h1 id="organisation" class="section-title">Organization</h1>
+  <div class="content">
+    <section id="organisation">
+    <h1  class="section-title">Organization</h1>
     <p>
         The experimental work of our project aims to complete the various cycles described in the Engineering section. In the table below, each wet lab branch is associated with the engineering cycle it seeks to complete and provide experimental validation for.
  </p>
@@ -162,9 +169,10 @@
     </td>
   </tr>
 </table>
-<p>A detailed explanation of the workflow Engineering → Wet Lab can be found in the <a class="link-text" href="https://2025.igem.wiki/barcelona-ub/model">Model Page</a>.</p>
-<br><br>
-<h1 id="experim-w">Experimental workflow</h1>
+<p class="section-text">A detailed explanation of the workflow Engineering → Wet Lab can be found in the <a class="link-text" href="https://2025.igem.wiki/barcelona-ub/model">Model Page</a>.</p>
+</section>
+<section id="experim-w">
+<h1 class="section-title">Experimental workflow</h1>
 
 <div style="text-align: center; margin: 20px 0;">
   <img 
@@ -177,7 +185,7 @@
 
 <p>In the laboratory, we mainly carried out two types of assays: <strong>cell-based assays</strong> and <strong>cell-free system assays</strong>. Both assays share a <strong>common preliminary part</strong>.</p>
 <br><br>
-<h2>Common part</h2>
+<h2 class="section-subtitle" id="common">Common part</h2>
 <p>The constructs arrived from the supplier in plasmid form. In order to amplify the plasmids, we performed a standard amplification procedure using <strong>E. coli DH5α</strong>:</p>
 
 <ol>
@@ -189,7 +197,7 @@
 
 <p>All plasmids underwent this process before being used in the assays.</p>
 <br><br>
-<h2>Cell-based assays in HEK293T</h2>
+<h2 class="section-subtitle" id="cell">Cell-based assays in HEK293T</h2>
 <p>Starting from the purified plasmids, we performed the assays in HEK293T cells, with plasmids of SCR-D and SECIS. A complete assay takes one week, so we always began on Monday and finished over the weekend. The process is as follows:
 </p>
         
@@ -266,7 +274,7 @@
                 <div class="day-content">
                     <div class="activity-title">Luciferase Assay</div>
                     <div class="activity-description">
-                        We performed   <span class="highlight-word">cell lysis and dual-luciferase assay</span> <span class = "highlight-word info-word" data-target="hp-card1">&#128161</span>(Dual-Luciferase® Reporter Assay System from Promega®, catalog #E1910), obtaining raw data on gene expression.
+                        We performed   <span class="highlight-word">cell lysis and dual-luciferase assay</span> <span class = "hp-icon info-word" data-target="hp-card1">&#128161;</span>(Dual-Luciferase® Reporter Assay System from Promega®, catalog #E1910), obtaining raw data on gene expression.
                     </div>
                 </div>
             </div>
@@ -289,7 +297,7 @@
    <p>This procedure shows variations across the different rounds carried out, since we have conducted an optimization process of the various variables and time points that influence the experiment. For more details about this process, please refer to the <a class="link-text" href="https://2025.igem.wiki/barcelona-ub/pivotal-changes">Pivotal changes and milestones Page</a>.</p>
   </div>
 <br><br>
-  <h2>Cell-free system assays</h2>
+  <h2 class="section-subtitle" id="cell-free">Cell-free system assays</h2>
 
 <p>Starting from the purified plasmids, we performed the <strong>cell-free system assays</strong> (<em>TnT® Coupled Reticulocyte Lysate Systems</em> from Promega®, catalog #L1170), but in this case only <strong>SECIS plasmids</strong> and <strong>SECIS-related plasmids</strong> were tested. A complete assay takes one or two days. The process is as follows:</p>
 
@@ -301,9 +309,9 @@
   <li><strong>Measurement:</strong> Gene expression was measured through a <strong>dual-luciferase assay</strong>. Finally, we plotted and analyzed the results in <strong>RStudio</strong> and prepared a presentation to share with our PI and instructors.</li>
 </ol>
 <br><br>
-<h3>Other Procedures</h3>
+<h2 class="section-subtitle" id="proedures">Other Procedures</h2>
 
-<ul>
+<ul class="point-list">
   <li><strong>Split:</strong> This routine procedure in the team is used to replace the medium of <strong>HEK293T cells</strong> with trypsin, thereby ensuring their survival over time.</li>
   
   <li><strong>Toxicity assay:</strong> This procedure involves seeding cells at different densities and treating them with increasing concentrations of <strong>theophylline</strong>, in order to establish toxicity thresholds.</li>
@@ -315,11 +323,8 @@
 <br><br>
 
 
-
-
-
-
-<h1 id="constructs"><a class="link-text" href="https://2025.igem.wiki/barcelona-ub/parts">Constructs </a> used in the lab</h1>
+<section >
+<h1 class="section-title"id="constructs"><a class="link-text" href="https://2025.igem.wiki/barcelona-ub/parts">Constructs</a> used in the lab</h1>
 <br>
 The constructs used in our laboratory are divided into two main branches, according to the SCR with which they are associated. Thus, we have constructs that were used for the SCR-D experiments and constructs that were used for the SECIS experiments.
 
@@ -327,16 +332,15 @@ The constructs used in our laboratory are divided into two main branches, accord
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/constructs.webp" 
     alt="General Constructs" 
-    style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
-  >
+    style="width: 80%; border-radius: 10px;">
   <p>Classification of the constructs that we used in the lab </p>
 </div>
 <br>
 <br>
 <br>
 
-<h2 id="scr-d">SCR-D</h2>
-<h4>A: Normal SCR-D (TGA):</h4>
+<h2 class="section-subtitle "id="scr-d">SCR-D</h2>
+<h4 class="section-subtitle3">A: Normal SCR-D (TGA)</h4>
 This construct is the complete SCR-D along with the STOP 
 codon on which it must act to produce readthrough, allowing the 
 ribosome to bypass it. This way, Firefly luciferase will be expressed.</p>
@@ -344,13 +348,13 @@ ribosome to bypass it. This way, Firefly luciferase will be expressed.</p>
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/tganormal.webp" 
     alt="Normal SCR-D (TGA)" 
-    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 70%; border-radius: 10px; margin: 2rem;"
   >
   <p>Normal SCR-D (TGA) construct and predicted structure </p>
 </div>
 <br>
 <br>
-<h4>B: SCR-D controls</h4>
+<h4 class="section-subtitle3">B: SCR-D controls</h4>
 <p><strong>1- CGA:</strong> This construct has the first nucleotide of the STOP codon mutated 
   from T to C, so the codon is no longer a STOP codon but instead encodes an arginine. 
   In other words, each reading of the construct’s mRNA gives rise to both luciferase proteins,
@@ -360,7 +364,7 @@ ribosome to bypass it. This way, Firefly luciferase will be expressed.</p>
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/cga.webp" 
     alt="CGA construct" 
-    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 70%; border-radius: 10px; margin: 2rem;"
   >
   <p>CGA construct, a control for normalizing the activity of both luciferases </p>
 </div>
@@ -379,7 +383,7 @@ ribosome to bypass it. This way, Firefly luciferase will be expressed.</p>
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/taaa.webp" 
     alt="TAAA construct" 
-    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 70%; border-radius: 10px; margin: 2rem;"
   >
   <p>TAAA construct, useful for ruling out reinitiation and other modes of Firefly 
     luciferase expression that are independent of SECIS-mediated readthrough.  </p>
@@ -399,14 +403,14 @@ ribosome to bypass it. This way, Firefly luciferase will be expressed.</p>
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/atgmutated.webp" 
     alt="TGA postATG mutated construct" 
-    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 70%; border-radius: 10px; margin: 2rem;"
   >
   <p>TGA postATG mutated construct, useful for ruling out reinitiation, 
     a mode of Firefly luciferase expression that is independent of SECIS-mediated readthrough. </p>
 </div>
 <br>
 <br>
-<h4>C: SCR-D parts</h4>
+<h4 class="section-subtitle3">C: SCR-D parts</h4>
 <p><strong>1- Only pre-diapin:</strong> This construct contains only the
    Pre-diapin region of SCR-D, and it is used to test whether this isolated 
    part is capable of producing readthrough on its own. It allows us to quantify 
@@ -415,7 +419,7 @@ ribosome to bypass it. This way, Firefly luciferase will be expressed.</p>
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/onlyprediapin.webp" 
     alt="SCR-D pre-diapin construct" 
-    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 70%; border-radius: 10px; margin: 2rem;"
   >
   <p>SCR-D construct containing only the pre-diapin element </p>
 </div>
@@ -429,7 +433,7 @@ ribosome to bypass it. This way, Firefly luciferase will be expressed.</p>
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/nohypopin.webp" 
     alt="SCR-D no hypopin construct" 
-    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 70%; border-radius: 10px; margin: 2rem;"
   >
   <p>SCR-D construct not containing hypopin element </p>
 </div>
@@ -446,15 +450,15 @@ ribosome to bypass it. This way, Firefly luciferase will be expressed.</p>
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/mutateddiapin.webp" 
     alt="SCR-D mutated diapin construct" 
-    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 70%; border-radius: 10px; margin: 2rem;"
   >
   <p>SCR-D construct containing a mutated diapin element  </p>
 </div>
 <br>
 <br><br>
-<h2 id="switch">SECIS</h2>
+<h2 class="section-subtitle" id="switch">SECIS</h2>
 <br>
-<h3>A: Controls</h3>
+<h4 class="section-subtitle3">A: Controls</h4>
 <p><strong>1- Activity normalization:</strong> The construct used to normalize luciferase 
   activity in the SECIS experiments was the same as the one used in SCR-D. Since both SCR-D 
   and SECIS employ the same luciferases to measure gene expression, we were able to use the 
@@ -480,7 +484,7 @@ ribosome to bypass it. This way, Firefly luciferase will be expressed.</p>
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/negative.webp" 
     alt="Bad SECIS construct" 
-    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 70%; border-radius: 10px; margin: 2rem;"
   ><p>Bad SECIS allows us to rule out Firefly luciferase expression that is independent of SECIS-mediated readthrough. </p>
 
 </div>
@@ -493,7 +497,7 @@ ribosome to bypass it. This way, Firefly luciferase will be expressed.</p>
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/seciscontrol.webp" 
     alt="SECIS control" 
-    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 70%; border-radius: 10px; margin: 2rem;"
   ><p>SECIS control confirmed that SECIS system works in the experimental conditions we are exposing it to</p>
 
   </div>
@@ -513,12 +517,12 @@ to the ligand under our experimental conditions before testing it within the rib
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/fsapt.webp" 
     alt="Aptamer control" 
-    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 70%; border-radius: 10px; margin: 2rem;"
   ><p>Dr Anzalone’s construct is crucial to make sure the aptamer is working in the experimental
      conditions we are exposing it to. </p>
   </div>
 <br>
-<h3>B: Switches</h3>
+<h4 class="section-subtitle3">B: Switches</h4>
 The following constructs represent different designs of the SECIS-based riboswitch, 
 coupled with the theophylline aptamer. In their names, the letter L stands for “Linker,” 
 and the accompanying number indicates the number of nucleotides inserted between the SECIS
@@ -535,7 +539,7 @@ The aptamer also base-pairs with the linker when there is no theophylline. When 
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/l5.webp" 
     alt="Linker 5 construct" 
-    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 70%; border-radius: 10px; margin: 2rem;"
   ><p> Structure of Linker 5 construct </p>
 </div>
 
@@ -544,7 +548,7 @@ The aptamer also base-pairs with the linker when there is no theophylline. When 
   <img 
     src="https://static.igem.wiki/teams/5622/images/wetlab/l7.webp" 
     alt="Linker 7 construct" 
-    style="width: 70%; border-radius: 10px; margin: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    style="width: 70%; border-radius: 10px; margin: 2rem;"
   ><p>Structure of Linker 7 construct </p>
 </div>
 
@@ -571,7 +575,7 @@ However, RNAfold has known limitations that prevent its structural predictions f
 <br>
 <br>
 <br>
-<h3>C: Dr. Copeland’s plasmid</h3>
+<h4 class="section-subtitle3">C: Dr. Copeland’s plasmid</h4>
 <p>This plasmid was used in the cell-free assays as a supplement for SECIS. The SBP2 protein is essential for SECIS to induce readthrough, so its presence is required to achieve higher readthrough efficiency.</p>
 <div style="text-align: center; margin: 20px 0;">
   <img 
@@ -581,7 +585,7 @@ However, RNAfold has known limitations that prevent its structural predictions f
   ><p>Simplified version of Dr. Paul Copeland’s SBP2 gene context.</p>
 </div>
 
-
+</section>
 </div>
 </div>
 <div class="back-to-top" id="back-to-top">
@@ -632,11 +636,11 @@ However, RNAfold has known limitations that prevent its structural predictions f
     transition: all 0.3s ease;
 }
 
-.day-card:hover {
+/* .day-card:hover {
     background: var(--bg-main);
     transform: translateY(-2px);
     box-shadow: var(--shadow);
-}
+} */
 
 .day-card:last-child {
     border-right: none;

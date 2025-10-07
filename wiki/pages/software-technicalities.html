@@ -10,6 +10,7 @@
       <ul class="sidebar-nav">
           <li><a href="#search" class="active">Search</a>
             <ul class="sidebar-subnav">
+              <li><a href="#transparency">Transparency Note</a></li>
               <li><a href="#brute-force">Brute Force (BF)</a></li>
               <li><a href="#genetic-algorithm">Genetic Algorithm (GA)</a></li>
               <li><a href="#comparison">Comparison</a></li>
@@ -19,6 +20,7 @@
            <li><a href="#principles" class="active">Design Principles</a></li>
         <li><a href="#essential-inputs">Essential Inputs</a></li>
         <li><a href="#advanced-parameters">Advanced Parameters</a></li>
+        <li><a href="#references">References</a></li>
       </ul>
       
       <!--EXTRA INFO-->
@@ -106,11 +108,10 @@
       <section id="search">
         <h1 class="section-title">Search</h1>
         <p class="section-text">The search step determines how <span class="highlight-word">TADPOLE</span> explores the RNA sequence space to find sequences that satisfy the desired folding and switching criteria. There are two main strategies: <span class="bold-word">Brute Force (BF)</span> and <span class="bold-word">Genetic Algorithm (GA)</span>.</p>
-      </section>
+
 
       <!-- TRANSPARENCY NOTE -->
-      <section id="transparency">
-        <h1 class="section-title">Transparency Note</h1>
+        <h2 id="transparency" class="section-subtitle">Transparency Note</h2>
         <div class="card">
           <h3 class="card-title">Current Implementation</h3>
           <p>As currently implemented, the search is not executed in parallel, but both search strategies could in principle run concurrently. In all cases, the individual evaluations are independent of each other, which means the brute force approach could be parallelized except for the final step of selecting the best candidate.</p>
@@ -119,14 +120,12 @@
           <br>
           <p><span class="bold-word">Therefore, while the process may appear slow, in theory we could achieve roughly a 5× speedup without re-implementing it in another language, assuming ~8 threads on modern CPUs.</span> For the genetic algorithm, we could also scale the population size by this factor and expect better results in the same runtime.</p>
         </div>
-      </section>
 
       <!-- BRUTE FORCE -->
-      <section id="brute-force">
-        <h1 class="section-title">Brute Force (BF)</h1>
+        <h2 id="brute-force"class="section-subtitle">Brute Force (BF)</h2>
         <p class="section-text">The brute force method guarantees that all possible solutions are explored, but it has important limitations regarding time and scalability.</p>
 
-        <h3 id="bf-workflow" class="section-subtitle">Workflow of Brute Force</h2>
+        <h3 id="bf-workflow" class="section-subtitle2">Workflow of Brute Force</h3>
         
         <div class="accordion">
           <div class="accordion-header">
@@ -146,9 +145,9 @@
               <img 
                 src="https://static.igem.wiki/teams/5622/images/software/bf-workflow.webp" 
                 alt="BF workflow" 
-                style="width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+                style="width: 100%; border-radius: 10px;"
               >
-              <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Workflow of the Brute Force algorithm. <span class = "highlight-word info-word" data-target="hp-card1">&#128161</span></p>
+              <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Workflow of the Brute Force algorithm. <span class = "hp-icon info-word" data-target="hp-card1">&#128161;</span></p>
         
             </div> 
         
@@ -187,7 +186,7 @@
         <p class="section-text">If <span class="italic-word">"allow mutations in FRE"</span> is checked, mutations in FRE are tried for linkers that fail the delta MFE, and the criteria are re-evaluated.</p>
 
         
-        <h2 id="bf-limitations" class="section-subtitle">Limitations and When to Use BF</h2>
+        <h3 id="bf-limitations" class="section-subtitle2">Limitations and When to Use BF</h3>
         <div class="card">
           <h3 class="card-title">Usage Recommendations</h3>
           <p><span class="bold-word">Recommended for short linkers</span> (up to 6–7 nucleotides), where the search space is manageable.</p>
@@ -199,14 +198,13 @@
           </ul>
           <p>For longer linkers or systems requiring mutations, BF becomes computationally infeasible.</p>
         </div>
-      </section>
+
 
       <!-- GENETIC ALGORITHM -->
-      <section id="genetic-algorithm">
-        <h1 class="section-title">Genetic Algorithm (GA)</h1>
+        <h2 id="genetic-algorithm" class="section-subtitle">Genetic Algorithm (GA)</h2>
         <p class="section-text">The GA is a more efficient method for exploring large, complex search spaces without evaluating every possible combination. It is inspired by biological evolution<sup>[7]</sup> and optimizes solutions over multiple generations.</p>
 
-        <h2 id="ga-concepts" class="section-subtitle">Key Concepts</h2>
+        <h3 id="ga-concepts" class="section-subtitle2">Key Concepts</h3>
         <div class="cards-container">
           <div class="card">
             <h3 class="card-title">Population</h3>
@@ -234,9 +232,9 @@
               <img 
                 src="https://static.igem.wiki/teams/5622/images/software/ga-workflow.webp" 
                 alt="GA workflow" 
-                style="width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+                style="width: 100%; border-radius: 10px;"
               >
-              <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Workflow of the Genetic Algorithm.<span class = "highlight-word info-word" data-target="hp-card1">&#128161</span> </p>
+              <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Workflow of the Genetic Algorithm.<span class = "hp-icon info-word" data-target="hp-card1">&#128161;</span> </p>
         
             </div> 
         
@@ -325,7 +323,7 @@
           </div>
         </div>
 
-        <h2 id="ga-when-use" class="section-subtitle">When to Use GA</h2>
+        <h3 id="ga-when-use" class="section-subtitle2">When to Use GA</h3>
         <div class="card">
           <h3 class="card-title">Recommended Usage</h3>
           <p><span class="bold-word">Recommended for long linkers (>7 nucleotides)</span> or when FRE mutations are needed.</p>
@@ -340,8 +338,7 @@
         
 
       <!-- COMPARISON -->
-      <section id="comparison">
-        <h1 class="section-title">Comparison BF vs GA</h1>
+        <h1 id="comparison"class="section-subtitle">Comparison BF vs GA</h1>
         
         <div style="overflow-x: auto; margin: 20px 0;">
           <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
@@ -387,15 +384,15 @@
           </table>
         </div>
 
-        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; margin: 30px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+        <div style=" padding: 30px; border-radius: 15px; margin: 30px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
           <div style="background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; text-align: center;">
             <h2 style="color: #2c3e50; font-size: 28px; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;"> CONCLUSION</h2>
             <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
-              <div style="background: #e8f5e8; padding: 20px; border-radius: 10px; border-left: 5px solid #27ae60; flex: 1; min-width: 250px;">
+              <div style="background: #e8f5e8; padding: 20px; border-radius: 10px; flex: 1; min-width: 250px;">
                 <h3 style="color: #27ae60; font-weight: bold; margin-bottom: 10px; font-size: 20px;"> BRUTE FORCE (BF)</h3>
                 <p style="color: #2c3e50; font-size: 16px; font-weight: 500;">Use for <strong>exhaustive searches in small spaces</strong></p>
               </div>
-              <div style="background: #e8f4fd; padding: 20px; border-radius: 10px; border-left: 5px solid #3498db; flex: 1; min-width: 250px;">
+              <div style="background: #e8f4fd; padding: 20px; border-radius: 10px; flex: 1; min-width: 250px;">
                 <h3 style="color: #3498db; font-weight: bold; margin-bottom: 10px; font-size: 20px;"> GENETIC ALGORITHM (GA)</h3>
                 <p style="color: #2c3e50; font-size: 16px; font-weight: 500;">Use for <strong>large problems, long linkers, and/or with mutations</strong>, efficiently exploring diverse solutions</p>
               </div>
@@ -409,7 +406,7 @@
         <h1 class="section-title">Visualization and Download of Results</h1>
         <p class="section-text">Once the software has completed the search and clustering of designs, the results are presented clearly and interactively through the Streamlit interface. In addition to visualization on the platform, TADPOLE provides several options for downloading and exporting data, ensuring reproducibility and compatibility with other tools.</p>
 
-        <h2 class="section-subtitle" style="color: #9D0800;">Compressed File (.zip)</h2>
+        <h2 class="section-subtitle">Compressed File (.zip)</h2>
         <p class="section-text">For quick and complete access to all search data, TADPOLE generates a compressed file (.zip) that meticulously organizes all relevant files. This download package is essential for archiving your work results or sharing them with other researchers. The contents of the .zip file include:</p>
 
         <div class="accordion">
@@ -441,12 +438,12 @@
           </div>
         </div>
 
-        <h2 class="section-subtitle" style="color: #9D0800;">Detailed HTML Report <span class = "highlight-word info-word" data-target="hp-card3">&#128161</span></h2>
+        <h2 class="section-subtitle">Detailed HTML Report <span class = "hp-icon info-word" data-target="hp-card3">&#128161;</span></h2>
         <p class="section-text">The HTML report can be viewed immediately or downloaded as an independent file, allowing users to quickly access a summary of the results. This document provides a comprehensive analysis of the search, designed to help you make an informed decision about which designs to take to the laboratory.</p>
 
         
 
-        <h5 class="section-subtitle2">Metrics Analysis and Design Ranking</h3>
+        <h3 class="section-subtitle2">Metrics Analysis and Design Ranking</h3>
         <p class="section-text">Rather than including graphs, the report presents the most promising designs in two ordered lists. This allows users who don't want to perform exhaustive analysis to quickly identify the best options. Designs are ordered as follows:</p>
 
         <div class="cards-container">
@@ -466,9 +463,9 @@
           <p>These two criteria are crucial for determining the success of an RNA switch. <span class="highlight-word">The best design will be one that combines adequate folding energy with the correct number of pairings.</span></p>
         </div>
 
-        <h5 class="section-subtitle2">Cluster Analysis</h5>
+        <h3 class="section-subtitle2">Cluster Analysis</h3>
         <p class="section-text">For each cluster of designs, the report shows only the representative. This representative is the design that has the minimum free energy (MFE) closest to the MFE of the structure you provided as input. This helps you understand the common structural solutions found and identify the most robust design families, choosing the best from each group.</p>
-        <h5 class="section-subtitle2">Example Report</h5>
+        <h3 class="section-subtitle2">Example Report</h3>
         <div style="border: 2px dashed #999; border-radius: 8px; padding: 10px; margin: 20px 0;">
             <object 
               data="{{ url_for('static', filename='images/report.html') }}" 
@@ -478,7 +475,7 @@
               Your browser does not support embedding HTML.
             </object>
           </div>
-        <h2 class="section-subtitle" style="color: #9D0800;">SBOL3 Format Export</h2>
+        <h2 class="section-subtitle">SBOL3 Format Export</h2>
         <p class="section-text">TADPOLE offers the option to export designs in SBOL3 (Synthetic Biology Open Language), a crucial standard for interoperability in synthetic biology. This format allows standardized representation of designs, ensuring they can be shared and used in other tools.</p>
 
         <div class="cards-container">
@@ -1296,7 +1293,7 @@
         <li>Holland, J. H. (1992). <i>Adaptation in Natural and Artificial Systems</i>. MIT Press.</li>
     </ol>
 </section>
->
+
 
     </div>
   </div>

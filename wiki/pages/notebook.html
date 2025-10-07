@@ -15,9 +15,10 @@
   <div class = "page-content">
     <div class = "header">
       <h1 class = "page-title">Notebook & Lab Protocols</h1>
-      <p class = "page-desc">Documents to help with reproductability</p>
+      <p class = "page-desc">Documents to facilitate reproducibility</p>
     </div>
     <div class = "content"> 
+      <p class="section-text">These documents contain the various protocols we have followed to develop our project as well as day-to-day descriptions of the experiments followed in the wet lab. They are detailed records of our activity that will help you master readthrough elements.</p>
       <section>
         <!-- PDF-->
       <div class="pdf-gallery">
@@ -44,8 +45,8 @@
               title="Barcelona-UB: lab protocols (2025) [English]" 
               allow="autoplay; fullscreen" 
               sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-presentation"
-              class="pdf-video-preview"
-            ></iframe>
+              class="pdf-video-preview">
+            </iframe>
           </div>
           <div class="pdf-info">
             <h3>LAB PROTOCOLS</h3>
@@ -88,49 +89,49 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 3rem; /* more spacing between cards */
   margin-top: 2rem;
 }
 
-
 .pdf-card {
   background: #fff;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 1.2rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
   overflow: hidden;
-  width: 300px;
+  width: 420px; /* increased from 300px */
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .pdf-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
 }
 
 .pdf-video-preview {
   width: 100%;
-  height: 200px;
+  height: 280px; /* increased from 200px */
   object-fit: cover;
   border-bottom: 2px solid #eee;
   display: block;
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 1.2rem 1.2rem 0 0;
 }
 
 .pdf-info {
-  padding: 1rem;
+  padding: 1.5rem;
   text-align: center;
 }
 
 .pdf-info h3 {
   color: #9D0800;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   font-weight: 600;
+  font-size: 1.4rem; /* slightly larger title */
 }
 
 .pdf-info p {
   color: #555;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 

@@ -14,13 +14,44 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='model.css') }}">
 <div class="page-container">
   <aside class="sidebar">
-      <ul class="sidebar-nav">
-          
-          <li><a href="#model-guidance">Introduction</a></li>
-          <li><a href="#secis-section">SECIS Element</a></li>
-        <li><a href="#theophylline-aptamer">Theophylline Aptmaer</a></li>
-        <li><a href="#linker">The Linker</a></li>
-          <li><a href="#key-aspects">Key Aspects to Consider</a></li>
+        <ul class="sidebar-nav">
+            <li><a href="#model-guidance">Introduction</a>
+                <ul class="sidebar-subnav">
+                    <li><a href="#software-development">Software Development</a></li>
+                    <li><a href="#wet-lab-guidance">Guidance</a></li>
+                </ul>
+            </li>
+            <li><a href="#secis-system">SECIS System</a>
+                <ul class="sidebar-subnav">
+                    <li><a href="#secis-selection">SECIS Selection</a></li>
+                </ul>
+            </li>
+            <li><a href="#riboswitches-section">Riboswitches</a>
+                <ul class="sidebar-subnav">
+                    <li><a href="#key-factors">Key Factors</a></li>
+                </ul>
+            </li>
+            <li><a href="#theophylline-aptamer">Theophylline Aptmer</a>
+                <ul class="sidebar-subnav">
+                    <li><a href="#aptamer-selection">Aptamer Selection</a></li>
+                    <li><a href="#experimental-design">Experimental Design</a></li>   
+                </ul>
+            </li>
+            <li><a href="#linker-analysis">Linker Analysis</a>
+                <ul class="sidebar-subnav">
+                    <li><a href="#linker">The Linker</a></li>
+                </ul>
+            </li>
+            <li><a href="#key-aspects">Key Aspects to Consider</a>
+                <ul class="sidebar-subnav">
+                    <!-- <li><a href="#off-disruption">OFF Disruption</a></li>
+                    <li><a href="#on-recovery">ON Recovery</a></li>
+                    <li><a href="#cre-conformation">CRE Conformation</a></li>
+                    <li><a href="#pairing-balance">Pairing Balance</a></li>
+                    <li><a href="#energy-balance">Energy Balance</a></li> -->
+                </ul>
+            </li>
+            <li><a href="#references">References</a></li>
       </ul>
       
       <!--EXTRA INFO-->
@@ -172,12 +203,13 @@
                             <p><span class="bold-word">Timeline:</span> Accelerated validation</p>
                         </div>
                     </div>
+                </section>
+<section id="secis-system">
+                    <h1  class="section-title">Construct to Test in the Lab: SECIS + Theophylline System</h1>
 
-                    <h2 id="secis-system" class="section-subtitle">Construct to Test in the Lab: SECIS + Theophylline System</h2>
-
-                    <h2 id="secis-section" class="section-subtitle">SECIS Element Overview</h3>
+                    <h2 id="secis-section" class="section-subtitle">SECIS Element Overview</h2>
                     
-                    <p class="section-text"><span class="bold-word">SECIS (Selenocysteine Insertion Sequence)</span> is a short RNA element found in the 3' untranslated region (3' UTR) of eukaryotic mRNAs that enables the incorporation of the amino acid selenocysteine at UGA codons, which usually indicate a stop.</p>
+                        <p class="section-text">During translation, the ribosome decodes an mRNA transcript, using tRNAs to add an aminoacid for each corresponding codon.</p>
                         <div style="text-align: center; margin: 0 auto 40px auto; max-width: 800px;">
                             <div style="position: relative; width: 100%; aspect-ratio: 16/9;">
                                 <iframe 
@@ -185,10 +217,11 @@
                                     title="Barcelona-UB: translation (2025) [English]" 
                                     allow="autoplay; fullscreen" 
                                     sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-presentation"
-                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 0;"
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px; border: 0;"
                                 ></iframe>
                             </div>
                         </div>
+                        <p class="section-text"><span class="bold-word">SECIS (Selenocysteine Insertion Sequence)</span> is a short RNA element found in the 3' untranslated region (3' UTR) of eukaryotic mRNAs that enables the incorporation of the amino acid selenocysteine at UGA codons, which usually indicate a stop.</p>
 
                     <p class="section-text">Functionally, SECIS performs a task comparable to canonical SCR elements: <span class="highlight-word">allowing translation to continue beyond a stop codon</span>. However, unlike SCR elements, which are generally located immediately downstream of the stop codon, SECIS elements are positioned distally, often hundreds of nucleotides away.</p>
                             <div style="text-align: center; margin: 0 auto 40px auto; max-width: 800px;">
@@ -198,7 +231,7 @@
                                         title="Barcelona-UB: translation scr (2025) [English]" 
                                         allow="autoplay; fullscreen" 
                                         sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-presentation"
-                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 0;"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px; border: 0;"
                                     ></iframe>
                                 </div>
                             </div>
@@ -280,9 +313,9 @@
         </div>
     </div>
 </div>
-
-
-                    <h2 id="riboswitches-background" class="section-subtitle">Riboswitches: Natural RNA Switches</h2>
+</section>
+<section id="riboswitches-section">                
+                    <h1  class="section-title">Riboswitches: Natural RNA Switches</h1>
                     
                     <p class="section-text">Riboswitches are systems in which a structured RNA sequence, called an aptamer, changes conformation when it binds to specific small molecules. This change in conformation can shift how a gene is expressed by affecting transcription, translation initiation, or RNA stability.</p>
 
@@ -295,7 +328,7 @@
                         <p><span class="bold-word">Functional outcome:</span> Conformational change affects gene expression through various mechanisms</p>
                     </div>
 
-                    <h3 class="section-subtitle2">Key Factors for Successful Riboswitch Design</h3>
+                    <h2 id ="key-factors" class="section-subtitle">Key Factors for Successful Riboswitch Design</h2>
                     
                     <p class="section-text">After reviewing extensive literature on aptamers, we found some key factors that can improve the likelihood of ligand binding to the aptamer:</p>
 
@@ -312,16 +345,17 @@
                     </div>
 
                     <p class="section-text">These factors were explored further for the development of our system and directly informed our model's energy balance requirements.</p>
-
-                    <h2 id="theophylline-aptamer" class="section-subtitle">The Theophylline Aptamer: An Ideal <span class = "highlight-word info-word" data-target="cre-info">CRE</span></h2>
-                    <div style="text-align: center; margin: 0 auto 40px auto; max-width: 800px;">
+</section>
+<section id="theophylline-aptamer">
+                    <h1 class="section-title">The Theophylline Aptamer: An Ideal <span class = "highlight-word info-word" data-target="cre-info">CRE</span></h1>
+                    <div class ="video" style="text-align: center; margin: 0 auto 40px auto; max-width: 800px;">
                         <div style="position: relative; width: 100%; aspect-ratio: 16/9;">
                             <iframe 
                                 src="https://video.igem.org/videos/embed/rDM2PWQi8YpJzDoyS3GaMT?autoplay=1&loop=1&muted=1" 
                                 title="Barcelona-UB: switch scr (2025) [English]" 
                                 allow="autoplay; fullscreen" 
                                 sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-presentation"
-                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 0;"
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px; border: 0;"
                             ></iframe>
                         </div>
                     </div>
@@ -586,8 +620,9 @@
                         <p><span class="bold-word">Ribosome Protection:</span> The ribosome covers about 30 nucleotides, even if it reads only three. Since the second protein and the SECIS element are consecutive, the SECIS element could influence the ribosome during the translation of the second protein.</p>
                         <p><span class="bold-word">Safety Distance:</span> To ensure a safety distance between the end of the second protein and the SECIS element, 30 nucleotides of context were included. These correspond to the 30 nucleotides present in the SECIS DIO2 context in the human genome.</p>
                     </div>
-
-                    <h2 id="linker-analysis" class="section-subtitle">Model-Guided Linker Analysis</h2>
+</section>
+<section id="linker-analysis">
+                    <h1 class="section-title">Model-Guided Linker Analysis</h1>
                     
                     <p class="section-text">Typical linker length ranges from 4 to about 10 nucleotides. For this study, linkers of length 5, 7, 8 and 9 were chosen for laboratory testing. Linker 5 presented some complexities and will be discussed after the others for clarity.</p>
 
@@ -738,27 +773,28 @@
                         <h4>From Theory to Practice: Model-Driven Experimental Design</h4>
                         <p>Our model didn't just provide theoretical insights—it became the practical foundation for experimental design. By pre-validating designs computationally, we transformed wet lab work from exploratory to confirmatory, dramatically improving efficiency and success rates. The systematic linker analysis demonstrates how computational predictions can guide targeted experimental validation.</p>
                     </div>
-                </section>
+
         <!-- LINKER SECTION -->
-        <h3 id="linker" class="section-subtitle2">The Linker: The Dynamic Hinge of the RNA Switch</h3>
+        <h2 id="linker" class="section-subtitle">The Linker: The Dynamic Hinge of the RNA Switch</h2>
         
         <p class="section-text">Simply placing a Conformational RNA Element (<span class = "highlight-word info-word" data-target="cre-info">CRE</span>) next to a <span class = "highlight-word info-word" data-target="fre-info">Functional RNA Element (FRE)</span> is not enough to create a reliable ON/OFF switch. The key component that orchestrates their interaction is the <span class="bold-word">linker</span>, a short RNA segment, typically 6–10 nucleotides long, that acts as a mechanical hinge connecting the sensor (CRE) to the effector (FRE).</p>
 
-        <h4 class="section-subtitle3">Function of the Linker</h4>
+        <h3 id="linker-function" class="section-subtitle2">Function of the Linker</h3>
         <p class="section-text">The linker is not a passive connector. Its sequence and length determine how the <span class = "highlight-word info-word" data-target="cre-info">CRE</span> and <span class = "highlight-word info-word" data-target="fre-info">FRE</span> fold and interact. A properly designed linker ensures that the system can reliably toggle between OFF and ON states.</p>
                 <div style="text-align: center; margin: 20px 0;">
               <img 
                 src="https://static.igem.wiki/teams/5622/images/software/tadpole-steps.webp" 
                 alt="Tadpole steps" 
-                style="width: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+                style="width: 80%; border-radius: 10px;"
               >
             </div>
-        <h4 class="section-subtitle3">Design Principles</h4>
+        <h3 id="design-principles" class="section-subtitle2">Design Principles</h3>
         <ul class="point-list">
             <li><span class="bold-word">Avoid excessive binding:</span> The linker should allow enough pairing to maintain the OFF state, but not so much that the switch gets "stuck" and cannot activate when the signal arrives</li>
             <li><span class="bold-word">Optimal length:</span> Too short a linker may prevent the necessary OFF-state interaction; too long can introduce unwanted folding or too much flexibility, reducing switch precision. Typically, <span class="highlight-word">6–10 nucleotides</span> work well</li>
             <li><span class="bold-word">Enable conformational change:</span> The linker must be designed so that when the <span class = "highlight-word info-word" data-target="cre-info">CRE</span> changes shape, the energy released is sufficient to break the OFF-state pairings, allowing the <span class = "highlight-word info-word" data-target="fre-info">FRE</span> to fold into its functional ON-state</li>
         </ul>
+</section>
         <!-- KEY ASPECTS TO CONSIDER SECTION -->
                <section id="key-aspects">
     <h1 class="section-title">Key Aspects to Consider: Validation Criteria</h1>
@@ -1314,7 +1350,7 @@
         }
 
         .recommendation-box {
-            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            background: linear-gradient(135deg, #f8e4e4, #fdd5d5);
             border-radius: 8px;
             padding: 1.5rem;
             margin: 1.5rem 0;
@@ -1322,14 +1358,14 @@
         }
 
         .recommendation-box h4 {
-            color: #991b1b;
+            color: var(--text);
             margin-bottom: 1rem;
             font-size: 1.1rem;
         }
 
         .recommendation-box p {
             margin-bottom: 0.75rem;
-            color: #7f1d1d;
+            color: var(--text);
             line-height: 1.5;
         }
 
@@ -1352,7 +1388,17 @@
             color: #166534;
             line-height: 1.5;
         }
-
+        .example-box li::before{
+            position: relative;
+            margin-right: .5rem;
+            --tw-text-opacity: 1;
+            color: #166534;
+            opacity: var(--tw-text-opacity);
+            top: .1rem;
+            content: "•";
+            font-size: 1.5rem;
+            line-height: 0;
+        }
         .example-box ul {
             color: #166534;
         }

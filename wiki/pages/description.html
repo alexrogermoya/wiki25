@@ -12,11 +12,11 @@
       <li><a href="#before">Before Skippit: The world of transcription regulation</a></li>
       <li><a href="#after">After Skippit: Beyond the Limits of DNA</a>
         <ul class = "sidebar-subnav">
-          <li><a href="#new">A new design space: Functional RNA Elements (FREs)</a>
-          <li><a href="#model">TADPOLE: engineering ligand-responsive FRE switches</a>
+          <li><a href="#new">A new design space</a>
+          <li><a href="#model">TADPOLE</a>
             <ul class = "subnav">
               <li><a href="#conceptual">Conceptual overview</a></li>
-              <li><a href="#architecture">Molecular architecture and rationale</a></li>
+              <li><a href="#architecture">Molecular architecture</a></li>
               <li><a href="#on-off">ON and OFF</a></li>
             </ul>
           </li>
@@ -33,7 +33,7 @@
       <li><a href="#science">Ressonating science</a>
       <li><a href="#potential">The endless potential of RNA</a>
         <ul class = "sidebar-subnav">
-          <li><a href="#offer">Join us, beyond the finish line, and discover all that SKIPPIT has to offer</a></li>
+          <li><a href="#offer">Join us</a></li>
         </ul>
       </li>
       <li><a href="#references">References</a></li>
@@ -123,7 +123,7 @@
       <section id = "after">
         <h1 class ="section-title">After Skippit: Beyond the Limits of DNA</h1>
         <p class="section-text">
-          An alternative method to control protein expression is found in translation-level control, which provides rapid responses and direct protein regulation without altering transcription [10]. RNA switches—RNA sequences that often control gene expression by interacting with a specific stimuli, that stimuli often being a ligand molecule—are especially attractive in this context: they are compact, programmable, and highly specific. The theophylline-binding aptamer <span class = "info-word hp-icon" data-target= "hp-card2">&#128161;</span> [11], for example, has been extensively used to regulate downstream elements when linked to open reading frames [12, 13].
+          An alternative method to control protein expression is found in translation-level control, which provides rapid responses and direct protein regulation without altering transcription [10]. RNA switches—RNA sequences that often control gene expression by interacting with a specific stimuli, that stimuli often being a ligand molecule—are especially attractive in this context: they are compact, programmable, and highly specific. The theophylline-binding aptamer <span class = "info-word hp-icon" data-target= "hp-card2">&#128161;</span><span class="italic-word">(←click here)</span> [11], for example, has been extensively used to regulate downstream elements when linked to open reading frames [12, 13].
         </p>
         <h2 id ="new" class = "section-subtitle">A new design space: Functional RNA Elements (FREs)</h2>
         <p class="section-text">With SKIPPIT, we are taking a leap forward in the world of translation-level control, by coupling <span class = "bold-word">Conformational RNA Elements</span> (CREs) to what we define as <span class = "bold-word">Functional RNA Elements</span> (FREs). These FREs are RNA sequences able to carry out their function purely through their own structure. FREs are capable of folding into shapes that control ribosome behaviour [14], alter reading frames [15], or enable stop codon readthrough [16], amongst other functions.</p>
@@ -140,15 +140,15 @@
         <p class="section-text">
           The SKIPPIT principle on RNA switch design is to convert a static Functional RNA Element (FRE) into a stimuli-responsive device by physically coupling it to a Conformational RNA Element (CRE), connecting them via a short linker.
         </p>
-        <div class = "video" style="position: relative; padding-top: 55.83%;">
-          <iframe title="Barcelona-UB: Loop OFF-ON to ON-OFF switch (2025) [English]" width="80%" height="80%"  src="https://video.igem.org/videos/embed/4idARFGe6uvL7xvsxvQnsX?loop=1&amp;autoplay=1" style="border: 0px; position: absolute; inset: 0px;" allow="fullscreen" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+        <div class="video" style="position: relative; padding-top: 55.83%;">
+          <iframe title="Barcelona-UB: Creation of Riboswitches (2025)" width="80%" height="80%" src="https://video.igem.org/videos/embed/wnAAjLnQPJYmF384yfE5J7?loop=1&amp;autoplay=1" style="border: 0px; position: absolute; inset: 0px;" allow="fullscreen" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         </div>
         <h3 id ="architecture" class = "section-subtitle2">Molecular architecture and rationale</h3>
         <p class="section-text">Each construct is organised as three modular elements:</p>
         <ol>
-          <li><span class="highlight-word">CRE — the ligand sensor.</span> Key requirements: known bound conformation, well-characterised binding pocket, and compact structure. In our proof of concept riboswitch, we have used the <span class="italic-word">theophylline aptamer.</span></li>
-          <li><span class="highlight-word">Linker — a short oligomer</span> (we use 6–10 nt as our primary search window) that mediates possible base-pairing between CRE and FRE; acts as the mechanical hinge controlling coupling vs. decoupling. In our proof of concept riboswitch, we have used a linker generated by our software,  <span class="italic-word">Tadpole.</span></li>
-          <li><span class="highlight-word">FRE — the functional RNA</span> motif whose activity depends on adopting a specific secondary structure. In our proof of concept riboswitch, we have used a <span class="italic-word">STOP codon Readthrough (SCR)</span> known as SECIS.</li>
+          <li><span class="highlight-word">CRE — the ligand sensor.</span> Key requirements: known bound conformation, well-characterised binding pocket, and compact structure. In our SCR riboswitches, we have used the <span class="italic-word">theophylline aptamer.</span></li>
+          <li><span class="highlight-word">Linker — a short oligomer</span> (we use 6–10 nt as our primary search window) that mediates possible base-pairing between CRE and FRE; acts as the mechanical hinge controlling coupling vs. decoupling. In our SCR riboswitches, we have used a linker generated by our software,  <span class="italic-word">TADPOLE.</span></li>
+          <li><span class="highlight-word">FRE — the functional RNA</span> motif whose activity depends on adopting a specific secondary structure. In our SCR riboswitches, we have used a <span class="italic-word">STOP codon Readthrough (SCR)</span> element known as SECIS.</li>
         </ol>
         <div class="accordion">
           <div class="accordion-header">
@@ -240,15 +240,6 @@
           <br><br>
           We are opening RNA switch design to any research team, regardless of their expertise.
         </p>
-        <div class="desc-imgs">
-          <div class="image-container desc-image">
-            <img src = "https://static.igem.wiki/teams/5622/images/description/updated/scr-riboswitch-off-on.webp" alt = "Team photo">
-          </div>
-          <div class="image-container desc-image">
-            <img src = "https://static.igem.wiki/teams/5622/images/description/updated/scr-riboswitch-on-off.webp" alt = "Team photo">
-          </div>
-          <p class = "photo-caption">Images: Depiction of a dual-protein system regulated by our SCR riboswitch. The aptamer is in dark red, whilst the SCR element is in pink</p>
-        </div>
         <p class="section-text">It is a specially interesting feature, especially in the world of dual-protein control, as in one single transcript our SKIPPIT SCR switch can simultaneously regulate the translation of two proteins.</p>
       </section>
       <section id="riboswitch">
@@ -293,9 +284,19 @@
           <li>ON-OFF state: When the aptamer is bound to its ligand, the intentional base-pairing interactions between the aptamer and SECIS are established, leading to the disruption of SECIS’ functional fold and its inactive conformation.</li>
         </ul>
         <p class="section-text">Therefore our SKIPPIT riboswitch enables the ribosome to skip the STOP codon in absence of the ligand, allowing translation to continue beyond the STOP. When adding the ligand this dynamic is inverted, and translation ends at the STOP codon.</p>
+        <div class="desc-imgs">
+          <div class="image-container desc-image">
+            <img src = "https://static.igem.wiki/teams/5622/images/description/updated/scr-riboswitch-off-on.webp" alt = "Team photo">
+          </div>
+          <div class="image-container desc-image">
+            <img src = "https://static.igem.wiki/teams/5622/images/description/updated/scr-riboswitch-on-off.webp" alt = "Team photo">
+          </div>
+          <p class = "photo-caption">Images: Depiction of a dual-protein system regulated by our SCR riboswitch. The aptamer is in dark red, whilst the SCR element is in pink</p>
+        </div>
+        <p class="section-text">It is a specially interesting feature, especially in the world of dual-protein control, as in one single transcript our SKIPPIT SCR switch can simultaneously regulate the translation of two proteins.</p>
       </section>
       <section id="science">
-        <h1 class="section-title">Ressonating science</h1>
+        <h1 class="section-title">Resonating science</h1>
         <p class="section-text">
           Alongside our technical innovation, we have a deep-rooted duty to transmit the inner workings of science to the population in order to truly advance the field and further scientific progress. Without the proper scientific context, unchecked claims by non-experts can come across as truth to the general population, whilst expert fact-based statements can be <span class="italic-word">perceived</span> as deceitful. The inversion between what is true and what is perceived as true can have severe consequences on society. In a world  where AI-fabricated “facts” are on the rise, we have focused on developing an educational toolkit designed to demystify the scientific process and the people behind it, fostering critical thinking and trust in science.
           <br><br>
@@ -344,14 +345,14 @@
         </p>
         <h2 id ="offer" class = "section-subtitle">Join us, beyond the finish line, and discover all that SKIPPIT has to offer</h2>
         <ul class="point-list">
-          <li><a class="link-text" href="{{ url_for('pages', page='description') }}">Dry Lab</a>: Development of our Model and Tadpole</li>
-          <li><a class="link-text" href="{{ url_for('pages', page='description') }}">Parts</a>: Engineered innovation</li>
-          <li><a class="link-text" href="{{ url_for('pages', page='description') }}">Wet Lab</a>: Testing the SKIPPIT riboswitch & characterisation of a new SCR component</li>
+          <li><a class="link-text" href="{{ url_for('pages', page='software') }}">Software</a>: Meet TADPOLE</li>
+          <li><a class="link-text" href="{{ url_for('pages', page='model') }}">Model</a>: Calculating switches</li>
+          <li><a class="link-text" href="{{ url_for('pages', page='parts') }}">Parts</a>: Engineered innovation</li>
+          <li><a class="link-text" href="{{ url_for('pages', page='experiments') }}">Wet Lab</a>: Testing the SKIPPIT riboswitch & characterisation of a new SCR component</li>
           <li><a class="link-text" href="{{ url_for('pages', page='education') }}">Education</a>: The many sides of science.</li>
           <li><a class="link-text" href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>: Understanding the need for RNA switches.</li>
           <li><a class="link-text" href="{{ url_for('pages', page='entrepreneurship') }}">Entrepreneurship</a>: The impact of the RNA world.</li>
-          <li><a class="link-text" href="{{ url_for('pages', page='education') }}">Education</a>: The many faces of science.</li>
-          <li><a class="link-text" href="{{ url_for('pages', page='team') }}">Team</a>: Meet the people who are pushing the boundaries of RNA.</li>
+          <li><a class="link-text" href="{{ url_for('pages', page='members') }}">Team</a>: Meet the people who are pushing the boundaries of RNA.</li>
         </ul>
       </section>
       <section class ="references" id="references">
