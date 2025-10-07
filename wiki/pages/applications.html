@@ -114,9 +114,9 @@ Therefore, for one singular transcript, we have two different protein expression
           <p>Why use a SCR system, with translation-level control, instead of current genetic tools?
           As full professor and cellular biologist Manuel Reina pointed out, when we want to characterise the function of a protein, we usually knock it out. However, if we make a knock-out (KO) or a knock-down (KD) of the gene, we are also messing with the DNA to RNA pathway, and we cannot say with certainty that the effect we are seeing is because the protein is affected, or the RNA is affected (as we have seen throughout this project, RNA is way more than just a mere messenger –it can sometimes have a functionality of its own). Therefore, transcription-level control ensures that RNA remains undisturbed, and any effect we see is completely because of the absence of the protein.</p>
 
-          <p>It is also advantageous when we want the control of the protein synthesis to be applied after all the processing levels of mRNA, such as splicing, have finished. We ensure that the regulation is only applied on the final transcript and not on previous stages. Additionally, the small size of SCR elements (usually less than or about 100 bp) allows for minimal modification of genes to acquire this feature, it could be even engineered with PCR systems.</p>
+          <p>It is also advantageous when we want the control of the protein synthesis to be applied after all the processing levels of mRNA, such as splicing, have finished. We ensure that the regulation is only applied on the final transcript and not on previous stages. Additionally, the small size of SCR elements (usually less than or about 100 bp) allows for minimal modification of genes to acquire this feature, it could be even engineered with PCR systems.<sup>[2]</sup></p>
 
-          <p>This is specially favoured when compared to actual systems for protein expression that rely on trans regulation and the expression of an exogenous protein that, upon interaction with a drug, functions as a trans inducer or as a repressor of a promoter. However, exogenous proteins are antigenic and require the transfer of large expression cassettes.</p>
+          <p>This is specially favoured when compared to actual systems for protein expression that rely on trans regulation and the expression of an exogenous protein that, upon interaction with a drug, functions as a trans inducer or as a repressor of a promoter. However, exogenous proteins are antigenic and require the transfer of large expression cassettes.<sup>[3]</sup></p>
       </div>
   </div>
 </div>
@@ -124,19 +124,19 @@ Therefore, for one singular transcript, we have two different protein expression
 
 
 <h2 id="proposed-implementations" class="section-subtitle">Proposed implementations</h2>
-<p>SCR elements are especially interesting to study protein effect and to increase protein control when performing cellular biology experiments and when characterising new parts. There is a very wide range of possible applications, but we have focused on its potential use to treat diseases and develop new therapeutics.</p>
+<p>SCR elements are especially interesting to study protein effect and to increase protein control when performing cellular biology experiments and when characterising new parts. There is a very wide range of possible applications, but we have focused on its potential use to treat diseases and develop new therapeutics.<sup>[4]</sup></p>
 
 <h3>Diseases that stem from a premature STOP codon.</h3>
-<p>Many genetic disorders are the result of nonsense mutations that introduce premature STOP codons. Partial expression (e.g., 16-40% readthrough) could restore enough function to alleviate symptoms without toxicity risks.</p>
+<p>Many genetic disorders are the result of nonsense mutations that introduce premature STOP codons<sup>[5]</sup>. Partial expression (e.g., 16-40% readthrough) could restore enough function to alleviate symptoms without toxicity risks<sup>[6]</sup>.</p>
 
 <ul class="point-list">
-  <li><span class="bold-word">Duchenne Muscular Dystrophy:</span> It’s caused by premature stop codons mutations tat lead to a nonfunctional dystrophin protein. SCR could rescue protein function by enabling readthrough of the premature stop codon, restoring full-length dystrophin. 20-30% dystrophin levels can significantly improve muscle function without the risk of overexpression.</li>
+  <li><span class="bold-word">Duchenne Muscular Dystrophy:</span> It’s caused by premature stop codons mutations tat lead to a nonfunctional dystrophin protein. SCR could rescue protein function by enabling readthrough of the premature stop codon, restoring full-length dystrophin. 20-30% dystrophin levels can significantly improve muscle function without the risk of overexpression<sup>[7]</sup>.</li>
 
-  <li><span class="bold-word">Cystic Fibrosis:</span> Experimental trials show that low CFTR expression can partially restore ion channel function in cells.</li>
+  <li><span class="bold-word">Cystic Fibrosis:</span> Experimental trials show that low CFTR expression can partially restore ion channel function in cells.<sup>[8]</sup></li>
 
-  <li><span class="bold-word">Rett syndrome:</span> Partial expression of MECP2 protein can improve symptoms of patients, and use of SCR elements can prevent risk of overexpression.</li>
+  <li><span class="bold-word">Rett syndrome:</span> Partial expression of MECP2 protein can improve symptoms of patients, and use of SCR elements can prevent risk of overexpression<sup>[9]</sup>.</li>
 
-  <li><span class="bold-word">Renitis pigmentosa:</span> Premature STOP codon mutations to the rhodopsin gene lead to a truncated, non-functional protein. [2]</li>
+  <li><span class="bold-word">Renitis pigmentosa:</span> Premature STOP codon mutations to the rhodopsin gene lead to a truncated, non-functional protein. <sup>[10]</sup></li>
 </ul>
 </section>
 <section id="riboswitch">
@@ -157,35 +157,35 @@ This method is a precise, reversible and dynamic method to exercise control over
                                 </div>
 <br><br>
 <h2 id="benefit-of-using" class="section-subtitle">The benefit of using riboswitches</h2>
-<p>Riboswitches are slowly positioning themselves as the key tool to revolutionise synthetic biology. They are small components that can be reactive to many different types of external inputs, that allow fine-tuning of gene expression without trans acting factors. They offer a very reliable platform from a biosafety standard, especially when it comes to controlling toxicity. RNA switches with aptamers are of special interest due to their reduced size, which allows performing very small genetic modifications to the genes we want to control <span class = "highlight-word info-word" data-target="hp-card1">&#128161</span>.</p>
+<p>Riboswitches are slowly positioning themselves as the key tool to revolutionise synthetic biology. They are small components that can be reactive to many different types of external inputs, that allow fine-tuning of gene expression without trans acting factors<sup>[11]</sup>. They offer a very reliable platform from a biosafety standard, especially when it comes to controlling toxicity. RNA switches with aptamers are of special interest due to their reduced size, which allows performing very small genetic modifications to the genes we want to control <span class = "highlight-word info-word" data-target="hp-card1">&#128161</span>.<sup>[12]</sup></p>
 <h2 id="proposed"class="section-subtitle">Proposed implementations</h2>
 <p>Any disease, technique, and sensor that can be designed using a SCR element can be further improved by the additional layer of control added with a modulable SCR riboswitch. These riboswitches push the applications of SCR even further.
 Compared to promoter-based regulation, the SCR switch significantly reduces unintended basal expression of the downstream protein. Even when promoters are in an "off" state, transcription can still occur due to factors such as chromatin accessibility and incomplete repressor binding. In contrast, SCR inherently defaults to termination in the absence of a ligand, effectively blocking translation elongation and preventing unnecessary protein production.</p>
 
 <h3>Therapeutic Applications</h3>
 <p>Medicine is transforming, and so is the way we approach healthcare. The use of therapeutic proteins and drugs is on the rise, and regulating their quantity and delivery time is crucial. 
-Traditional approaches often lack the ability to fine-tune protein expression, leading to challenges like toxicity from overexpression or inconsistent therapeutic outcomes. Our SCR riboswitch addresses this by enabling ligand-inducible, tunable expression of two proteins from one transcript, offering precise and reversible control.
-This is particularly valuable in gene therapy, where constitutive transgene expression can cause issues: prolonged expression beyond therapeutic benefit risks toxicity, patient-specific therapeutic windows vary widely, and high expression levels may trigger side effects or gene silencing. Also, some diseases require transgene expression only until therapeutic benefit is achieved, and the transgene should be silenced thereafter, this is why ON-ON riboswitches would be of great interest. By allowing dynamic, drug-responsive regulation, we pave the way for safer, more effective gene therapies tailored to individual needs.</p>
+Traditional approaches often lack the ability to fine-tune protein expression, leading to challenges like toxicity from overexpression or inconsistent therapeutic outcomes. Our SCR riboswitch addresses this by enabling ligand-inducible, tunable expression of two proteins from one transcript, offering precise and reversible control.<sup>[11]</sup>
+This is particularly valuable in gene therapy, where constitutive transgene expression can cause issues: prolonged expression beyond therapeutic benefit risks toxicity, patient-specific therapeutic windows vary widely, and high expression levels may trigger side effects or gene silencing. Also, some diseases require transgene expression only until therapeutic benefit is achieved, and the transgene should be silenced thereafter, this is why ON-ON riboswitches would be of great interest. By allowing dynamic, drug-responsive regulation, we pave the way for safer, more effective gene therapies tailored to individual needs.<sup>[14]</sup></p>
 <ul class="point-list">
-  <li><span class="bold-word">Neurodegenerative diseases:</span> In neurodegenerative diseases, a dual-protein system could consist of a first protein to monitor cell health and a second protein, expressed due to readthrough levels, could deliver neuroprotection when needed by the patient. For example, to treat Parkinson’s disease by controlling GDNF expression, a neuroprotector. The inducible nature of the riboswitch would allow regulable GDNF levels, avoiding overstimulating the neurons.</li>
+  <li><span class="bold-word">Neurodegenerative diseases:</span> In neurodegenerative diseases, a dual-protein system could consist of a first protein to monitor cell health and a second protein, expressed due to readthrough levels, could deliver neuroprotection when needed by the patient. For example, to treat Parkinson’s disease by controlling GDNF expression, a neuroprotector. The inducible nature of the riboswitch would allow regulable GDNF levels, avoiding overstimulating the neurons.<sup>[15]</sup></li>
 
-  <li><span class="bold-word">Cancer:</span> There are many different approaches to treat cancer, but a possible method would be to generate a system with inducible pro-apoptotic factors to target cancer cells selectively, which is one of the current major challenges in oncology. The protein upstream of the STOP codon could constitutively mark cancer cells, whilst the protein downstream of the STOP codon could be an expression factor that triggers apoptosis like Bax. The second protein would solely be expressed when a tumor-specific synthetised ligand binds to the riboswitch, allowing targeted therapeutics.</li>
+  <li><span class="bold-word">Cancer:</span> There are many different approaches to treat cancer, but a possible method would be to generate a system with inducible pro-apoptotic factors to target cancer cells selectively, which is one of the current major challenges in oncology. The protein upstream of the STOP codon could constitutively mark cancer cells, whilst the protein downstream of the STOP codon could be an expression factor that triggers apoptosis like Bax. The second protein would solely be expressed when a tumor-specific synthetised ligand binds to the riboswitch, allowing targeted therapeutics.<sup>[16]</sup></li>
 
-  <li><span class="bold-word">Metabolic disorders:</span> Disorders such as diabetes or phenylketonuria require tight regulation of enzyme levels. In diseases where enzyme deficiencies are a problem, partial enzyme expression could restore metabolic balance without overcompensation. For example, inducible expression of PAH could restore phenylalanine metabolism.</li>
+  <li><span class="bold-word">Metabolic disorders:</span> Disorders such as diabetes or phenylketonuria require tight regulation of enzyme levels. In diseases where enzyme deficiencies are a problem, partial enzyme expression could restore metabolic balance without overcompensation. For example, inducible expression of PAH could restore phenylalanine metabolism.<sup>[17]</sup></li>
 </ul>
 
 <h3>Cellular Biology studies</h3>
-<p>Many studies of protein function rely on being able to detect the protein’s location. A system where the protein of interest is fused to a fluorescent protein is often used to achieve this. Using our inducible readthrough riboswitch, we could design a construct with the protein of interest 5’ to the STOP codon, and the fluorescent protein 3’ to the STOP codon. This would allow selective control for when the fluorescent protein is expressed, fused to the protein of interest, whilst also generating non-fused proteins that would maintain protein function unaffected by the fusion to the fluorescent reporter.</p>
+<p>Many studies of protein function rely on being able to detect the protein’s location<sup>[18]</sup>. A system where the protein of interest is fused to a fluorescent protein is often used to achieve this<sup>[19]</sup>. Using our inducible readthrough riboswitch, we could design a construct with the protein of interest 5’ to the STOP codon, and the fluorescent protein 3’ to the STOP codon. This would allow selective control for when the fluorescent protein is expressed, fused to the protein of interest, whilst also generating non-fused proteins that would maintain protein function unaffected by the fusion to the fluorescent reporter.</p>
 <div style="text-align: center; ">
     <img style="width: 50%;" src="https://static.igem.wiki/teams/5622/images/implementation/location-reporter.webp" alt="Location reporter diagram">
 </div> 
 
-<p>Directing proteins: Most proteins contain a “tag” peptide that directs their destination within the cell: the nucleus, the cytosol, the membrane, extracellular… To selectively study the function of a protein in different sub-cellular locations, a construct including our riboswitch could be designed to control a protein’s destination. The protein of interest would be expressed 5’ of the STOP codon, whilst the protein tag could be expressed 3’ of the STOP codon. This way a cellular line could be established where the user can control when proteins are directed to a certain location, and when they remain in their natural cellular compartment.</p>
+<p>Directing proteins: Most proteins contain a “tag” peptide that directs their destination within the cell: the nucleus, the cytosol, the membrane, extracellular… To selectively study the function of a protein in different sub-cellular locations, a construct including our riboswitch could be designed to control a protein’s destination<sup>[20]</sup>. The protein of interest would be expressed 5’ of the STOP codon, whilst the protein tag could be expressed 3’ of the STOP codon. This way a cellular line could be established where the user can control when proteins are directed to a certain location, and when they remain in their natural cellular compartment.</p>
 <div style="text-align: center;">
     <img style="width: 50%;" src="https://static.igem.wiki/teams/5622/images/implementation/compartment-direction.webp" alt="Compartment direction diagram">
 </div> 
 
-<p>Studying protein aggregation: In many circumstances, such as neurodegenerative diseases, the aggregation of proteins leads to the occurrence of prion-like diseases. A method to study these diseases could be to have our protein of interest 5’ of the STOP codon, and have a protein aggregation sequence 3’ of the STOP codon. This construct would allow us to study the behaviour of prion-like proteins and their effect on cells, increasing our understanding of these untreatable conditions. <span class = "highlight-word info-word" data-target="hp-card2">&#128161</span> </p>
+<p>Studying protein aggregation: In many circumstances, such as neurodegenerative diseases, the aggregation of proteins leads to the occurrence of prion-like diseases<sup>[21]</sup>. A method to study these diseases could be to have our protein of interest 5’ of the STOP codon, and have a protein aggregation sequence 3’ of the STOP codon. This construct would allow us to study the behaviour of prion-like proteins and their effect on cells, increasing our understanding of these untreatable conditions. <span class = "highlight-word info-word" data-target="hp-card2">&#128161</span> </p>
 <div style="text-align: center;">
    <img style="width: 50%;" src="https://static.igem.wiki/teams/5622/images/implementation/aggregating-proteins.webp" alt="Protein aggregation diagram">
 </div> 
@@ -194,33 +194,33 @@ This is particularly valuable in gene therapy, where constitutive transgene expr
 <p>Our riboswitch offers transformative potential for environmental sustainability by enabling precise, inducible protein expression in response to environmental cues.</p>
 
 <ul class="point-list">
-  <li><span class="bold-word">Agriculture:</span> Could be especially interesting to target the current problem of pesticide overuse, a major driver of environmental harm and pest resistance. By expressing defense proteins like Bt toxin only in the presence of pest-specific stimuli, such as insect pheromones, we could minimize the effect on non-target pests. This could be a great conservational tool, that minimises the amount of pesticide generated by the transgenic plant whilst reducing resistance development and the eradication of endangered species.</li>
+  <li><span class="bold-word">Agriculture:</span> Could be especially interesting to target the current problem of pesticide overuse, a major driver of environmental harm and pest resistance. By expressing defense proteins like Bt toxin only in the presence of pest-specific stimuli, such as insect pheromones, we could minimize the effect on non-target pests. This could be a great conservational tool, that minimises the amount of pesticide generated by the transgenic plant whilst reducing resistance development and the eradication of endangered species.<sup>[22]</sup></li>
 
-  <li><span class="bold-word">Bioremediation:</span> Our platform could be used to equip microbes to express pollutant-degrading enzymes, such as laccases for plastics, only in the presence of specific contaminants like benzene. Low basal expression maintains microbial viability, while inducible readthrough optimizes cleanup efficiency, offering a scalable solution for pollution challenges like oil spills or microplastics.</li>
+  <li><span class="bold-word">Bioremediation:</span> Our platform could be used to equip microbes to express pollutant-degrading enzymes, such as laccases for plastics, only in the presence of specific contaminants like benzene. Low basal expression maintains microbial viability, while inducible readthrough optimizes cleanup efficiency, offering a scalable solution for pollution challenges like oil spills or microplastics.<sup>[23]</sup></li>
 
-  <li><span class="bold-word">Climate resilience:</span> The system could regulate stress-response proteins in crops, such as DREB1A for drought tolerance, triggered by environmental signals like abscisic acid. This targeted expression enhances crop survival under extreme conditions without wasting resources, addressing food security amid the climate crisis.</li>
+  <li><span class="bold-word">Climate resilience:</span> The system could regulate stress-response proteins in crops, such as DREB1A for drought tolerance, triggered by environmental signals like abscisic acid. This targeted expression enhances crop survival under extreme conditions without wasting resources, addressing food security amid the climate crisis.<sup>[24]</sup></li>
 </ul>
 
 <h3>Industrial applications</h3>
 <p>Industrial biotechnology heavily relies on metabolic control of microorganisms as well as protein manufacturing. This is especially true for the food and pharmaceutical industries.</p>
 
 <ul class="point-list">
-  <li><span class="bold-word">Metabolic engineering:</span> Our inducible SCR could be used to fine-tune metabolic pathways by constitutively expressing an essential enzyme (5’ of the STOP) while inducibly expressing a rate-limiting enzyme (3’ of the STOP), such as pyruvate decarboxylase for ethanol production, triggered by a metabolite like glucose. The partial readthrough ensures optimal pathway flux without metabolic deviation, enhancing yields and sustainability in production.</li>
+  <li><span class="bold-word">Metabolic engineering:</span> Our inducible SCR could be used to fine-tune metabolic pathways by constitutively expressing an essential enzyme (5’ of the STOP) while inducibly expressing a rate-limiting enzyme (3’ of the STOP), such as pyruvate decarboxylase for ethanol production<sup>[25]</sup>, triggered by a metabolite like glucose. The partial readthrough ensures optimal pathway flux without metabolic deviation, enhancing yields and sustainability in production.</li>
 
-  <li><span class="bold-word">Cell factories:</span> To improve protein synthesis, a construct could be designed where 5’ of the STOP codon there is a primary product like insulin, while 3’ of the STOP codon we could find a chaperone like GroEL, inducibly expressed at low levels (16-40%) to enhance folding efficiency of the synthetised proteins.</li>
+  <li><span class="bold-word">Cell factories:</span> To improve protein synthesis, a construct could be designed where 5’ of the STOP codon there is a primary product like insulin, while 3’ of the STOP codon we could find a chaperone like GroEL<sup>[26]</sup>, inducibly expressed at low levels (16-40%) to enhance folding efficiency of the synthetised proteins.</li>
 
-  <li><span class="bold-word">Biosensors:</span> The system’s tunable response to ligands like pollutants enables sensitive detection in industrial settings, such as monitoring bioreactor conditions or industrial waste compounds. Its modularity and precision make it a versatile platform for next-generation biomanufacturing and diagnostics, driving efficiency and innovation in industrial biotechnology.</li>
+  <li><span class="bold-word">Biosensors:</span> The system’s tunable response to ligands like pollutants enables sensitive detection in industrial settings, such as monitoring bioreactor conditions or industrial waste compounds<sup>[27]</sup>. Its modularity and precision make it a versatile platform for next-generation biomanufacturing and diagnostics, driving efficiency and innovation in industrial biotechnology.<sup>[28]</sup></li>
 
-  <li><span class="bold-word">Bioreactor dynamics:</span> A great problem in bioreactors is cell suicide, as cells cannot tolerate the stressful conditions of large high-density bioreactors, impeding further upscaling in industrial settings. Our system could be helpful to block caspases in a specific moment of the process, favouring their survival in more stressful conditions. This system would also allow base-level expression of caspases, ensuring other key functions of these proteins are not fully disrupted <span class = "highlight-word info-word" data-target="hp-card2">&#128161</span>.</li>
+  <li><span class="bold-word">Bioreactor dynamics:</span> A great problem in bioreactors is cell suicide, as cells cannot tolerate the stressful conditions of large high-density bioreactors, impeding further upscaling in industrial settings<sup>[29]</sup>. Our system could be helpful to block caspases in a specific moment of the process, favouring their survival in more stressful conditions<sup>[30]</sup>. This system would also allow base-level expression of caspases, ensuring other key functions of these proteins are not fully disrupted <span class = "highlight-word info-word" data-target="hp-card2">&#128161</span>.</li>
 
-  <li><span class="bold-word">Protein purification:</span> Protein synthesis in industrial settings is often complex due to the need to purify these proteins, separating them from the cells that synthetised them and other proteins found in the media. Our system could be used to induce the precipitation of our target proteins when desired, obtaining batches of the product that could then be treated with proteases to remove the aggregating domain.</li>
+  <li><span class="bold-word">Protein purification:</span> Protein synthesis in industrial settings is often complex due to the need to purify these proteins, separating them from the cells that synthetised them and other proteins found in the media<sup>[31]</sup>. Our system could be used to induce the precipitation of our target proteins when desired, obtaining batches of the product that could then be treated with proteases to remove the aggregating domain.<sup>[32]</sup></li>
 </ul>
 </section>
 <section id="beyond-scr">
 <h1 class="section-title">Beyond SCR: TADPOLE</h1>
 <p>What if we were not limited to the use of a readthrough element, what if we could use any functional RNA? 
-With TADPOLE we can dare to create any riboswitch with any functional RNA with conserved structure. That means anything is possible. From controlling translational termination, to controlling ribosome adhesion, to controlling frameshifting and splicing and gene silencing.
-With new ribozymes being identified every year, the range that can be accomplished with TADPOLE and tailored RNA switches is infinite, the only limitation is that of knowledge and imagination.</p>
+With TADPOLE we can dare to create any riboswitch with any functional RNA with conserved structure. That means anything is possible. From controlling translational termination<sup>[33]</sup>, to controlling ribosome adhesion, to controlling frameshifting and splicing and gene silencing<sup>[34]</sup>.
+With new ribozymes being identified every year, the range that can be accomplished with TADPOLE and tailored RNA switches is infinite, the only limitation is that of knowledge and imagination.<sup>[28, 35]</sup></p>
 <div class="grid-container">
   <div class="grid-item text-item">
     <p>What if we were not limited to the use of a readthrough element, what if we could use any functional RNA? 
@@ -245,6 +245,47 @@ With new ribozymes being identified every year, the range that can be accomplish
 </ul>
 </section>
 </section>
+<!-- REFERENCES -->
+<section class="references" id="references">
+  <h1 class="section-title">References</h1>
+  <ol>
+    <li>Smoljanow, D., Lebeda, D., Hofhuis, J. & Thoms, S. Defining the high-translational readthrough stop codon context. PLoS Genet 21, e1011753 (2025).</li>
+    <li>Wang, R., Helbig, I., Edmondson, A. C., Lin, L. & Xing, Y. Splicing defects in rare diseases: transcriptomics and machine learning strategies towards genetic diagnosis. Brief Bioinform 24, bbad284 (2023).</li>
+    <li>Sherlock, M. E., Baquero Galvis, L., Vicens, Q., Kieft, J. S. & Jagannathan, S. Principles, mechanisms, and biological implications of translation termination–reinitiation. RNA 29, 865–884 (2023).</li>
+    <li>Zhang, Z., Khanal, N., Dykstra, A. B. & Daris, K. Stop-Codon Readthrough in Therapeutic Protein Candidates Expressed from Mammalian Cells. Journal of Pharmaceutical Sciences 113, 1498–1505 (2024).</li>
+    <li>Vitale, E. et al. Nonsense Mutations in Rare and Ultra-Rare Human Disorders: An Overview. IUBMB Life 77, e70031 (2025).</li>
+    <li>Davies, G., Alton, E. W. F. W. & Davies, J. C. 20 - Modern Molecular Therapies for Respiratory Disease. in Kendig & Chernick’s Disorders of the Respiratory Tract in Children (Eighth Edition) (eds. Wilmott, R. W. et al.) 309–316 (W.B. Saunders, Philadelphia, 2012). doi:10.1016/B978-1-4377-1984-0.00020-6.</li>
+    <li>Barthélémy, F. & Wein, N. Personalized gene and cell therapy for Duchenne Muscular Dystrophy. Neuromuscular Disorders 28, 803–824 (2018).</li>
+    <li>Wang, Y. et al. CFTR potentiators partially restore channel function to A561E-CFTR, a cystic fibrosis mutant with a similar mechanism of dysfunction as F508del-CFTR. Br J Pharmacol 171, 4490–4503 (2014).</li>
+    <li>Squillaro, T. et al. Reduced expression of MECP2 affects cell commitment and maintenance in neurons by triggering senescence: new perspective for Rett syndrome. Mol Biol Cell 23, 1435–1445 (2012).</li>
+    <li>Jacobson, S. G. et al. Phenotypes of stop codon and splice site rhodopsin mutations causing retinitis pigmentosa. Invest Ophthalmol Vis Sci 35, 2521–2534 (1994).</li>
+    <li>Rovira, E. et al. Engineering U1-Based Tetracycline-Inducible Riboswitches to Control Gene Expression in Mammals. ACS Nano 17, 23331–23346 (2023).</li>
+    <li>Progress in Aptamer Research and Future Applications - Liu - 2025 - ChemistryOpen - Wiley Online Library. <a class="link-text" href="https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/open.202400463?af=R">Website</a></li>
+    <li>Dabrowski, M., Bukowy-Bieryllo, Z. & Zietkiewicz, E. Translational readthrough potential of natural termination codons in eucaryotes – The impact of RNA sequence. RNA Biol 12, 950–958 (2015).</li>
+    <li>Lee, C. H., Han, S. R. & Lee, S.-W. Therapeutic Applications of Aptamer-Based Riboswitches. Nucleic Acid Therapeutics 26, 44–51 (2016).</li>
+    <li>Heiss, J. D. et al. Persistent GDNF Expression 45 Months after Putaminal Infusion of AAV2-GDNF in a Patient with Parkinson’s Disease. Mov Disord 39, 1412–1417 (2024).</li>
+    <li>Ramachandran, B., Rajkumar, T. & Gopisetty, G. Challenges in modeling EWS-FLI1-driven transgenic mouse model for Ewing sarcoma. Am J Transl Res 13, 12181–12194 (2021).</li>
+    <li>Yagi, H. et al. Complete restoration of phenylalanine oxidation in phenylketonuria mouse by a self-complementary adeno-associated virus vector. J Gene Med 13, 114–122 (2011).</li>
+    <li>Nakai, K. & Wei, L. Recent Advances in the Prediction of Subcellular Localization of Proteins and Related Topics. Front. Bioinform. 2, (2022).</li>
+    <li>Cui, Y., Gao, C., Zhao, Q. & Jiang, L. Using Fluorescent Protein Fusions to Study Protein Subcellular Localization and Dynamics in Plant Cells. Methods Mol Biol 1474, 113–123 (2016).</li>
+    <li>Davidi, D. et al. Assessment of GFP tag position on protein localization and growth fitness in yeast. J Mol Biol 431, 636–641 (2019).</li>
+    <li>Zampar, S., Di Gregorio, S. E., Grimmer, G., Watts, J. C. & Ingelsson, M. “Prion-like” seeding and propagation of oligomeric protein assemblies in neurodegenerative disorders. Front. Neurosci. 18, (2024).</li>
+    <li>Kota, M. et al. Overexpression of the Bacillus thuringiensis (Bt) Cry2Aa2 protein in chloroplasts confers resistance to plants against susceptible and Bt-resistant insects. Proc Natl Acad Sci U S A 96, 1840–1845 (1999).</li>
+    <li>Ramamurthy, K. et al. Exploring the potential of laccase from Grammothele sp. (pp464104.1) for polystyrene biodegradation: A promising approach for plastic waste management. Biocatalysis and Agricultural Biotechnology 68, 103714 (2025).</li>
+    <li>Kudo, M. et al. Double overexpression of DREB and PIF transcription factors improves drought stress tolerance and cell elongation in transgenic plants. Plant Biotechnol J 15, 458–471 (2016).</li>
+    <li>Yang, M. et al. Pyruvate decarboxylase and alcohol dehydrogenase overexpression in Escherichia coli resulted in high ethanol production and rewired metabolic enzyme networks. World J Microbiol Biotechnol 30, 2871–2883 (2014).</li>
+    <li>Liu, K., Li, J., Liu, M. & Hou, J. Molecular chaperone GroEL-GroES enhances the soluble expression of biologically active ovine growth hormone in the prokaryotic system. Protein Expression and Purification 195–196, 106097 (2022).</li>
+    <li>Chauhan, N., Sah, N., Saxena, K. & Jain, U. A review on biosensor approaches for the detection of hazardous elements in water. Talanta Open 12, 100536 (2025).</li>
+    <li>Topp, S. & Gallivan, J. P. Emerging Applications of Riboswitches in Chemical Biology. ACS Chem. Biol. 5, 139–148 (2010).</li>
+    <li>Mentlak, D. A. et al. Dissecting cell death pathways in fed-batch bioreactors. Biotechnology Journal 19, 2300257 (2024).</li>
+    <li>Mastrangelo, A. J. & Betenbaugh, M. J. Overcoming apoptosis: new methods for improving protein-expression systems. Trends in Biotechnology 16, 88–95 (1998).</li>
+    <li>Du, M. et al. Progress, applications, challenges and prospects of protein purification technology. Front Bioeng Biotechnol 10, 1028691 (2022).</li>
+    <li>Martinez, M., Spitali, M., Norrant, E. L. & Bracewell, D. G. Precipitation as an Enabling Technology for the Intensification of Biopharmaceutical Manufacture. Trends in Biotechnology 37, 237–241 (2019).</li>
+    <li>Breaker, R. R. Riboswitches and Translation Control. Cold Spring Harb Perspect Biol 10, a032797 (2018).</li>
+    <li>Novel ribozymes: discovery, catalytic mechanisms, and the quest to understand biological function | Nucleic Acids Research | Oxford Academic. <a class="link-text" href="https://academic.oup.com/nar/article/47/18/9480/5557732?login=false">Website</a></li>
+  </ol>
+</section>
+
 </div>
 </div>
 </div>
